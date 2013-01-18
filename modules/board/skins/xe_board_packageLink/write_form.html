@@ -1,0 +1,34 @@
+<!--#include("_header.html")-->
+    <h4  class="page_header"><!--@if(!$document_srl)-->Add a New<!--@else-->Update a<!--@end--> Link</h4>
+	<div class="tip_box">
+        <form class="new_tip_form" enctype="multipart/form-data" method="post" action="./" onsubmit="return procFilter(this, window.insert)" id="fo_write">
+            <input type="hidden" name="mid" value="{$mid}" />
+            <input type="hidden" name="document_srl" value="{$document_srl}" />
+            <input type="hidden" name="success_return_url" value="{getFullUrl('act','')}"/>
+            <dl>
+                <dt><label for="ipt_title">URL</label></dt>
+                    <dd><input type="text" placeholder="http://" class="ipt_title" name="title" value="{htmlspecialchars($oDocument->getTitleText())}" id="ipt_title"></dd>
+                <!--@if($module_info->use_category == 'Y')-->
+                <dt class="dt_inline dt_cg"><label for="sel_cg">URL Category</label></dt>
+                    <dd class="dd_inline">
+                        <select name="category_srl" class="sel_cg">
+                			<option value="">{$lang->category}</option>
+                			<!--@foreach($category_list as $val)-->
+                			<option <!--@if(!$val->grant)-->disabled="disabled"<!--@endif--> value="{$val->category_srl}" <!--@if($val->grant&&$val->selected||$val->category_srl==$oDocument->get('category_srl'))-->selected="selected"<!--@endif-->>
+                				{str_repeat("&nbsp;&nbsp;",$val->depth)} {$val->title} ({$val->document_count})
+                			</option>
+                			<!--@endforeach-->
+                		</select>
+                    </dd>
+                <!--@end-->
+                <dt><label for="description">{$lang->description}</label></dt>
+                    <dd class="dd_ta"><textarea id="description" name="content" rows="10" cols="30">{$oDocument->getContentText()}</textarea></dd>
+                <dt><label for="">Tags</label></dt>
+                    <dd><input type="text" class="ipt_tags" name="tags" value="{htmlspecialchars($oDocument->get('tags'))}"  placeholder="Input tags here" id="ipt_tags">
+                    </dd>
+                    <dd><p class="about_tag">{$lang->about_tag}</p></dd>
+            </dl>
+            <input type="submit" value="Save" class="sbmt">
+        </form><!-- //new_tip_form -->
+    </div>
+<!--#include("_footer.html")-->

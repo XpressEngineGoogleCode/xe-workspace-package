@@ -1,0 +1,49 @@
+
+        <!--@if(!$document_list && !$notice_list)-->
+        <table cellspacing="0" border="1" summary="List of Articles" class="boardList tip_list">
+        <tbody>
+            <tr>
+                <td colspan="<!--@if($grant->manager)-->{count($list_config)+1}<!--@else-->{count($list_config)}<!--@end-->">
+                    {$lang->no_documents}
+                </td>
+            </tr>
+            </tbody>
+        </table>
+        <!--@else-->
+			<div class="ct">
+				<div class="sec_lst_tip">
+					<div class="tips">
+					    {@ $i = 0;}
+						<!--@foreach($document_list as $no => $document)-->
+						    {@ $i++;}
+							<div class="tip <!--@if(count($document_list) == $i)-->last<!--@elseif($i == 1)-->first<!--@end-->">
+								<div class="right tip_content">
+									<div class="head">
+										<h4 class="tip_title"><a href="{getUrl('document_srl',$document->document_srl, 'listStyle', $listStyle, 'cpage','')}">{$document->getTitle($module_info->subject_cut_size)}</a></h4>
+										<span class="tip_date pull_right">{zdate($document->get('last_update'),'Y-m-d H:i', false)}</span>
+										<span class="tip_author pull_right">{$document->getNickName(60)}</span>
+										<!--@if($module_info->use_category == "Y" && $document->get('category_srl'))-->
+											<span class="tip_cg pull_right">{$category_list[$document->get('category_srl')]->title}</span>
+										<!--@end-->
+									</div><!-- //head -->
+									<p class="tip_txt">{$document->getContentText(300)}</p>
+									<div class="bottom">
+										<div class="pull_left">
+											<span class="left">tags:</span>
+											  <block loop="$document->get('tag_list') => $tag">
+													<a href="{getUrl('','mid',$mid,'search_target','tag','search_keyword',$tag)}">{$tag}</a>
+											</block>
+										</div>
+										<div class="pull_right">
+											<a href="{getUrl('act','dispBoardDelete','document_srl',$document->document_srl,'comment_srl','')}" class="del">Delete</a>
+											<a href="{getUrl('act','dispBoardWrite','document_srl',$document->document_srl,'comment_srl','')}" class="edit">Edit</a>
+										</div>
+									</div><!-- //bottom -->
+								</div><!-- //right -->
+							</div><!-- //tip -->
+						<!--@end-->
+					</div><!-- //tips -->
+				</div><!-- //sec_lst_tip -->
+			</div><!-- // ct -->
+        <!--@end-->
+

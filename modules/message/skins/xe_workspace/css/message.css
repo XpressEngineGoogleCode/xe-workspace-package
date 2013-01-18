@@ -1,0 +1,79 @@
+@charset "utf-8";
+/* NHN | dece24@nhncorp.com */
+#loginAccess{position:relative;width:384px;border:2px solid #757575;margin:30px auto;padding:20px 0 0 0;background:#fff;font-size:12px;font-family:Tahoma;line-height:normal;border-radius:5px;box-shadow:0 0 10px #ccc}
+#loginAccess form{margin:0;padding:0}
+#loginAccess fieldset{border:0;margin:0;padding:0}
+#loginAccess h1{margin:0 28px 20px 28px;font-size:12px;color:#e77161}
+#loginAccess ul{margin:0;padding:0;list-style:none}
+#loginAccess .idpw{margin:0 28px 20px 28px}
+#loginAccess .idpw li{margin:0 0 5px 0}
+#loginAccess .iText{font-size:12px;height:22px;color:#767676;font-weight:bold;border:1px solid #b7b7b7;border-right-color:#e1e1e1;border-bottom-color:#e1e1e1}
+#loginAccess .idpw .iText{width:316px;padding:8px 0 0 10px}
+#loginAccess .inputCheck{width:13px;height:13px;margin:0;padding:0;vertical-align:middle}
+#loginAccess label{vertical-align:middle}
+#loginAccess #warning{display:none;margin:0 0 20px 0}
+#loginAccess #warning.open{display:block}
+#loginAccess #warning p{margin:0}
+#loginAccess .buttonArea{position:relative;margin:0 28px;padding:0;color:#767676;*zoom:1}
+#loginAccess .buttonArea .keeping{position:relative;margin:0 0 20px 0;height:32px;line-height:32px}
+#loginAccess #gLogin .buttonArea .buttonAccount{position:absolute;top:0;right:0}
+#loginAccess .buttonAccount,
+#loginAccess .buttonAccount a,
+#loginAccess .buttonAccount input{position:relative;display:inline-block;margin:0;padding:0;overflow:visible;height:32px;line-height:32px;font-size:12px;font-weight:bold;color:#fff;vertical-align:middle;cursor:pointer;border:0;text-decoration:none !important;background:transparent url(./images/buttonAction.gif) no-repeat}
+#loginAccess .buttonAccount{margin:0 4px 0 0;background-position:left top}
+#loginAccess .buttonAccount a,
+#loginAccess .buttonAccount input{left:4px;background-position:right top;vertical-align:top;padding:0 24px 0 36px}
+#loginAccess .help{position:relative;padding:15px 0;background:#fafafa;border-top:1px solid #d9d9d9;text-align:center;border-radius:0 0 5px 5px}
+#loginAccess .help li{display:inline;border-left:1px solid #c3c3c3;padding:0 0 0 10px;margin:0 6px 0 0;line-height:1}
+#loginAccess .help li.first{border:0;padding:0}
+#loginAccess .help a{text-decoration:none;color:#333}
+#loginAccess .help a:hover,
+#loginAccess .help a:active,
+#loginAccess .help a:focus{text-decoration:underline}
+#loginAccess .logOut{text-align:left;margin:0 28px;padding:0 0 20px 0}
+
+form.sign_form{}
+form.sign_form h3{margin: 20px 0; text-align: center}
+.signPanel{margin:20px auto 0;width:318px;height:191px;overflow:hidden;background:url('../img/login_panel_bg.png') no-repeat 0 0;}
+.signPanel .left{width:190px;float: left;margin:22px 0 23px 23px;}
+.signPanel .right{float: right;margin:45px 27px 0 0;}
+.signPanel .right .sbmt{width:73px;height:63px;background: url('../img/btn_signin.gif') no-repeat 0 0;border: none;font-size:0;line-height: 0;text-indent: -999em;}
+.signPanel label.lb_ipt{display:block;margin:8px 0 5px 0;font-size: 12px;line-height:1;color:#414141;}
+.signPanel label.lb_chk{color: #848484;font-size:12px;line-height: 10px;}
+.signPanel .chk_box{margin:12px 0 0 0;line-height: 1;}
+.signPanel .ipt_txt{width:189px;height:18px;padding:0 4px 0 18px;border:0;line-height: 16px;}
+.signPanel .uid{background:url('../img/bg_sign_id.png') no-repeat 0 0;}
+.signPanel .upw{background:url('../img/bg_sign_pw.png') no-repeat 0 0;}
+.signPanel .ipt_txt input{width:165px;height:16px;font-size:12px;line-height: 12px;background: transparent;border:none;}
+.signPanel .sign_help{clear:both;margin:0;padding:0;height:12px;line-height:1;text-align: center;}
+.signPanel .sign_help a{padding:0 10px;font-size: 12px;line-height:1;color:#757575;background: url('../img/sign_help_vr.gif') no-repeat 100% 4px;text-decoration: none}
+.signPanel .sign_help a:last-child{background: none}
+.signPanel .btn_large{margin:30px auto 0;}
+.sign_help{display:block;text-align: center;clear:both;height: 30px;}
+.sign_help li{display: inline;font-size: 12px;line-height: 30px;}
+.sign_help a{}
+
+#container .mcm{margin: 30px 30px 30px 60px;width:670px;font-size:14px;line-height: 1.6;min-height: 500px;}
+.mcm .message{border:1px solid #ddd;}
+
+a.btn_gray,a.btn_white{display: inline-block;height:29px;line-height:28px}
+a.btn_gray span, a.btn_white span{display: inline-block;position: relative;right: -5px;height: 27px;padding:0 10px 2px 5px;font-weight: bold;font-size: 12px;line-height: 28px;}
+a.btn_gray{background:url('../img/btn_gray.png') no-repeat 0 0;}
+a.btn_white{background:url('../img/btn_grad_white.png') no-repeat 0 0;}
+a.btn_gray span{background:url('../img/btn_gray.png') no-repeat 100% 0;color:white;}
+a.btn_white span{background:url('../img/btn_grad_white.png') no-repeat 100% 0;color:#808080;}
+span.btn_gray,span.btn_white{display:inline-block;height:29px;line-height:26px;vertical-align: top;}
+span.btn_gray{background: url('../img/btn_gray.png') no-repeat 0 0;}
+span.btn_white{background:url('../img/btn_grad_white.png') no-repeat 0 0;}
+span.btn_gray input,span.btn_white input,
+span.btn_gray button,span.btn_white button{display: inline-block;position:relative;right:-5px;height: 29px;line-height:28px;padding:0 10px 0 5px;border: none;overflow: visible;font-weight: bold;}
+span.btn_gray input,span.btn_gray button{background:url('../img/btn_gray.png') no-repeat 100% 0;color:white;}
+span.btn_white input,span.btn_white button{background:url('../img/btn_grad_white.png') no-repeat 100% 0;color:#808080;}
+
+a.btn_large{display:inline-block;height:47px;background:url('../img/btn_large.png') no-repeat 0 0;line-height:1;}
+a.btn_large span{display:inline-block;position: relative;right: -5px;height: 30px;padding:15px 15px 2px 10px;font-weight: bold;;font-weight: bold;font-size: 18px;line-height:1;color:white;background:url('../img/btn_large.png') no-repeat 100% 0;}
+
+
+
+
+

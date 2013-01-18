@@ -1,0 +1,12 @@
+<query id="insertNewItem" action="insert">
+	<tables>
+		<table name="project_new_items" />
+	</tables>
+	<columns>
+		<column name="site_srl" var="site_srl" notnull="notnull" />
+		<column name="member_srl" var="member_srl" />
+		<column name="target_srl" var="target_srl" notnull="notnull" />
+		<column name="regdate" var="regdate" default="curdate()" />
+		<column name="type" var="type" notnull="notnull" />
+	</columns>
+</query>

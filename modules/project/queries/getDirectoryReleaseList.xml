@@ -1,0 +1,41 @@
+<query id="getDirectoryReleaseList" action="select">
+    <tables>
+        <table name="issue_releases" alias="issue_release"/>
+        <table name="issue_packages" alias="issue_packages"/>
+        <table name="modules" alias="modules"/>
+        <table name="projects" alias="projects"/>
+        <table name="sites" alias="sites"/>
+        <table name="project_dir_maps" />
+    </tables>
+    <columns>
+        <column name="issue_release.*" />
+        <column name="projects.site_srl" alias="site_srl" />
+        <column name="projects.title" alias="project_title" />
+        <column name="projects.description" alias="project_description" />
+        <column name="sites.domain" alias="domain" />
+        <column name="sites.regdate" alias="regdate" />
+        <column name="modules.mid" alias="mid" />
+        <column name="issue_packages.title" alias="package_title" />
+        <column name="issue_packages.description" alias="package_description" />
+    </columns>
+    <conditions>
+        <condition operation="equal" column="project_dir_maps.project_dir_srl" var="project_dir_srl" filter="number" notnull="notnull" />
+        <condition operation="equal" column="projects.site_srl" default="project_dir_maps.site_srl" filter="number" pipe="and" />
+        <condition operation="equal" column="sites.site_srl" default="projects.site_srl" filter="number" pipe="and" />
+        <condition operation="equal" column="modules.site_srl" default="sites.site_srl" filter="number" pipe="and" />
+        <condition operation="equal" column="modules.module" default="issuetracker" filter="number" pipe="and" />
+        <condition operation="equal" column="issue_release.module_srl" default="modules.module_srl" filter="number" pipe="and" />
+        <condition operation="equal" column="issue_packages.package_srl" default="issue_release.package_srl" filter="number" pipe="and" />
+        <group pipe="and">
+            <condition operation="like" column="issue_release.title" var="search_keyword" />
+            <condition operation="like" column="release.release_note" var="search_keyword" pipe="or"/>
+            <condition operation="like" column="release.release_changes" var="search_keyword" pipe="or"/>
+        </group>
+    </conditions>
+    <navigation>
+        <index var="sort_index" default="issue_release.regdate" order="desc" />
+        <list_count var="list_count" default="20" />
+        <page_count var="page_count" default="10" />
+        <page var="page" default="1" />
+    </navigation>
+</query>

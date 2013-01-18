@@ -1,0 +1,1269 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<lang>
+	<item name="project">
+		<value xml:lang="ko"><![CDATA[ProjectXE]]></value>
+		<value xml:lang="en"><![CDATA[ProjectXE]]></value>
+		<value xml:lang="zh-CN"><![CDATA[ProjectXE]]></value>
+	</item>
+	<item name="project_id">
+		<value xml:lang="ko"><![CDATA[프로젝트 접속 ID]]></value>
+		<value xml:lang="en"><![CDATA[Project ID]]></value>
+		<value xml:lang="zh-CN"><![CDATA[Project ID]]></value>
+	</item>
+	<item name="project_description">
+		<value xml:lang="ko"><![CDATA[프로젝트 설명]]></value>
+		<value xml:lang="en"><![CDATA[Description]]></value>
+		<value xml:lang="zh-CN"><![CDATA[简介]]></value>
+	</item>
+	<item name="project_logo">
+		<value xml:lang="ko"><![CDATA[프로젝트 로고 이미지]]></value>
+		<value xml:lang="en"><![CDATA[Logo]]></value>
+		<value xml:lang="zh-CN"><![CDATA[Logo 图片]]></value>
+	</item>
+	<item name="project_banner">
+		<value xml:lang="ko"><![CDATA[프로젝트 배너이미지]]></value>
+		<value xml:lang="en"><![CDATA[Advertisment]]></value>
+		<value xml:lang="zh-CN"><![CDATA[广告]]></value>
+	</item>
+	<item name="item_group_grant">
+		<value xml:lang="ko"><![CDATA[보여줄 그룹]]></value>
+		<value xml:lang="en"><![CDATA[Group grant]]></value>
+		<value xml:lang="zh-CN"><![CDATA[群組顯示]]></value>
+	</item>
+	<item name="project_info">
+		<value xml:lang="ko"><![CDATA[프로젝트 정보]]></value>
+		<value xml:lang="en"><![CDATA[Project infomation]]></value>
+		<value xml:lang="zh-CN"><![CDATA[资料]]></value>
+	</item>
+	<item name="project_admin">
+		<value xml:lang="ko"><![CDATA[관리자]]></value>
+		<value xml:lang="en"><![CDATA[administrator]]></value>
+		<value xml:lang="zh-CN"><![CDATA[管理员]]></value>
+	</item>
+	<item name="do_selected_member">
+		<value xml:lang="ko"><![CDATA[선택된 회원을]]></value>
+		<value xml:lang="en"><![CDATA[selected member]]></value>
+		<value xml:lang="zh-CN"><![CDATA[选择会员]]></value>
+	</item>
+	<item name="project_latest_documents">
+		<value xml:lang="ko"><![CDATA[프로젝트 최신 글]]></value>
+		<value xml:lang="en"><![CDATA[Latest documents]]></value>
+		<value xml:lang="zh-CN"><![CDATA[最近主题]]></value>
+	</item>
+	<item name="project_latest_comments">
+		<value xml:lang="ko"><![CDATA[프로젝트 최신 댓글]]></value>
+		<value xml:lang="en"><![CDATA[Latest Comments]]></value>
+		<value xml:lang="zh-CN"><![CDATA[最近回复]]></value>
+	</item>
+	<item name="myproject_list">
+		<value xml:lang="ko"><![CDATA[가입한 프로젝트]]></value>
+		<value xml:lang="en"><![CDATA[Project List]]></value>
+		<value xml:lang="zh-CN"><![CDATA[加入的项目]]></value>
+	</item>
+	<item name="project_creation_type">
+		<value xml:lang="ko"><![CDATA[프로젝트 접속 방법]]></value>
+		<value xml:lang="en"><![CDATA[Creation type]]></value>
+		<value xml:lang="zh-CN"><![CDATA[建立方式]]></value>
+	</item>
+	<item name="project_directory">
+		<value xml:lang="ko"><![CDATA[프로젝트 디렉토리]]></value>
+		<value xml:lang="en"><![CDATA[Project Directory]]></value>
+		<value xml:lang="zh-CN"><![CDATA[项目目录]]></value>
+	</item>
+	<item name="root_directory">
+		<value xml:lang="ko"><![CDATA[상위 디렉토리]]></value>
+		<value xml:lang="en"><![CDATA[Root Directory]]></value>
+		<value xml:lang="zh-CN"><![CDATA[根目录]]></value>
+	</item>
+	<item name="sub_directory">
+		<value xml:lang="ko"><![CDATA[하위 디렉토리]]></value>
+		<value xml:lang="en"><![CDATA[Sub Directory]]></value>
+		<value xml:lang="zh-CN"><![CDATA[子目录]]></value>
+	</item>
+	<item name="project_creation_privilege">
+		<value xml:lang="ko"><![CDATA[프로젝트 생성 권한]]></value>
+		<value xml:lang="en"><![CDATA[Creation privilege]]></value>
+		<value xml:lang="zh-CN"><![CDATA[权限设定]]></value>
+	</item>
+	<item name="project_main_mid">
+		<value xml:lang="ko"><![CDATA[프로젝트 메인 ID]]></value>
+		<value xml:lang="en"><![CDATA[Project main mid]]></value>
+		<value xml:lang="zh-CN"><![CDATA[项目 ID]]></value>
+	</item>
+	<item name="project_main_layout">
+		<value xml:lang="ko"><![CDATA[프로젝트 메인 layout]]></value>
+		<value xml:lang="en"><![CDATA[Project main layout]]></value>
+		<value xml:lang="zh-CN"><![CDATA[项目模版]]></value>
+	</item>
+	<item name="project_repos">
+		<value xml:lang="ko"><![CDATA[저장소 설정]]></value>
+		<value xml:lang="en"><![CDATA[Project repository]]></value>
+		<value xml:lang="zh-CN"><![CDATA[版本库设置]]></value>
+	</item>
+	<item name="disable_repos">
+		<value xml:lang="ko"><![CDATA[저장소 호스팅 지원이 되지 않습니다]]></value>
+		<value xml:lang="en"><![CDATA[disable repository]]></value>
+		<value xml:lang="zh-CN"><![CDATA[版本库主机不支持]]></value>
+	</item>
+	<item name="summary">
+		<value xml:lang="ko"><![CDATA[요약]]></value>
+		<value xml:lang="en"><![CDATA[Summary]]></value>
+		<value xml:lang="zh-CN"><![CDATA[概览]]></value>
+	</item>
+	<item name="repos_title">
+		<value xml:lang="ko"><![CDATA[저장소 이름]]></value>
+		<value xml:lang="en"><![CDATA[Repository title]]></value>
+		<value xml:lang="zh-CN"><![CDATA[版本库标题]]></value>
+	</item>
+	<item name="repos_id">
+		<value xml:lang="ko"><![CDATA[저장소 ID]]></value>
+		<value xml:lang="en"><![CDATA[Respository ID]]></value>
+		<value xml:lang="zh-CN"><![CDATA[版本库ID]]></value>
+	</item>
+	<item name="repos_url">
+		<value xml:lang="ko"><![CDATA[저장소 URL]]></value>
+		<value xml:lang="en"><![CDATA[Respository URL]]></value>
+		<value xml:lang="zh-CN"><![CDATA[版本库 URL]]></value>
+	</item>
+	<item name="project_allow_commit">
+		<value xml:lang="ko"><![CDATA[커밋 허용 그룹]]></value>
+		<value xml:lang="en"><![CDATA[Permission for the committing]]></value>
+		<value xml:lang="zh-CN"><![CDATA[提交权限]]></value>
+	</item>
+	<item name="repository">
+		<value xml:lang="ko"><![CDATA[저장소]]></value>
+		<value xml:lang="en"><![CDATA[Repository]]></value>
+		<value xml:lang="zh-CN"><![CDATA[版本库]]></value>
+	</item>
+	<item name="repository_url">
+		<value xml:lang="ko"><![CDATA[저장소 URL]]></value>
+		<value xml:lang="en"><![CDATA[Repository URL]]></value>
+		<value xml:lang="zh-CN"><![CDATA[版本库网址]]></value>
+	</item>
+	<item name="project_main_url">
+		<value xml:lang="ko"><![CDATA[프로젝트 메인]]></value>
+		<value xml:lang="en"><![CDATA[Project home page]]></value>
+		<value xml:lang="zh-CN"><![CDATA[项目首页]]></value>
+	</item>
+	<item name="my_projects">
+		<value xml:lang="ko"><![CDATA[참가 프로젝트]]></value>
+		<value xml:lang="en"><![CDATA[My Projects]]></value>
+		<value xml:lang="zh-CN"><![CDATA[我的项目]]></value>
+	</item>
+	<item name="release">
+		<value xml:lang="ko"><![CDATA[릴리즈]]></value>
+		<value xml:lang="en"><![CDATA[Release]]></value>
+		<value xml:lang="zh-CN"><![CDATA[发布]]></value>
+	</item>
+	<item name="packages">
+		<value xml:lang="ko"><![CDATA[패키지]]></value>
+		<value xml:lang="en"><![CDATA[Packages]]></value>
+		<value xml:lang="zh-CN"><![CDATA[软件包]]></value>
+	</item>
+	<item name="timeline">
+		<value xml:lang="ko"><![CDATA[타임라인]]></value>
+		<value xml:lang="en"><![CDATA[Time Line]]></value>
+		<value xml:lang="zh-CN"><![CDATA[时间轴]]></value>
+	</item>
+	<item name="download">
+		<value xml:lang="ko"><![CDATA[다운로드]]></value>
+		<value xml:lang="en"><![CDATA[Download]]></value>
+		<value xml:lang="zh-CN"><![CDATA[下载]]></value>
+	</item>
+	<item name="project_list">
+		<value xml:lang="ko"><![CDATA[프로젝트]]></value>
+		<value xml:lang="en"><![CDATA[Project List]]></value>
+		<value xml:lang="zh-CN"><![CDATA[项目列表]]></value>
+	</item>
+	<item name="project_member_count">
+		<value xml:lang="ko"><![CDATA[가입자 수]]></value>
+		<value xml:lang="en"><![CDATA[Member Count]]></value>
+		<value xml:lang="zh-CN"><![CDATA[会员数量]]></value>
+	</item>
+	<item name="developer_member_count">
+		<value xml:lang="ko"><![CDATA[개발자 수]]></value>
+		<value xml:lang="en"><![CDATA[Developer member count]]></value>
+		<value xml:lang="zh-CN"><![CDATA[开发者数量]]></value>
+	</item>
+	<item name="project_rank">
+		<value xml:lang="ko"><![CDATA[순위]]></value>
+		<value xml:lang="en"><![CDATA[Project Rank]]></value>
+		<value xml:lang="zh-CN"><![CDATA[排行]]></value>
+	</item>
+	<item name="my_project">
+		<value xml:lang="ko"><![CDATA[나의 프로젝트]]></value>
+		<value xml:lang="en"><![CDATA[My Project]]></value>
+		<value xml:lang="zh-CN"><![CDATA[我的项目]]></value>
+	</item>
+	<item name="project_home">
+		<value xml:lang="ko"><![CDATA[프로젝트 홈]]></value>
+		<value xml:lang="en"><![CDATA[Project Home]]></value>
+		<value xml:lang="zh-CN"><![CDATA[Project Home]]></value>
+	</item>
+	<item name="top_activation_project">
+		<value xml:lang="ko"><![CDATA[활성화된 프로젝트 (지난 1주일 기준)]]></value>
+		<value xml:lang="en"><![CDATA[Top activate projects]]></value>
+		<value xml:lang="zh-CN"><![CDATA[热门项目 (以一周为准)]]></value>
+	</item>
+	<item name="rank_activation">
+		<value xml:lang="ko"><![CDATA[활성화]]></value>
+		<value xml:lang="en"><![CDATA[Rank Activation]]></value>
+		<value xml:lang="zh-CN"><![CDATA[热门排行]]></value>
+	</item>
+	<item name="newest_project">
+		<value xml:lang="ko"><![CDATA[최신 프로젝트]]></value>
+		<value xml:lang="en"><![CDATA[Newest Projects]]></value>
+		<value xml:lang="zh-CN"><![CDATA[最新项目]]></value>
+	</item>
+	<item name="order_target">
+		<value xml:lang="ko"><![CDATA[정렬 순서]]></value>
+		<value xml:lang="en"><![CDATA[Target Order]]></value>
+		<value xml:lang="zh-CN"><![CDATA[排列顺序]]></value>
+	</item>
+	<item name="created_date">
+		<value xml:lang="ko"><![CDATA[생성일]]></value>
+		<value xml:lang="en"><![CDATA[Ctreated Date]]></value>
+		<value xml:lang="zh-CN"><![CDATA[建立日期]]></value>
+	</item>
+	<item name="creation_agreement">
+		<value xml:lang="ko"><![CDATA[생성 약관]]></value>
+		<value xml:lang="en"><![CDATA[Creation agreement]]></value>
+		<value xml:lang="zh-CN"><![CDATA[建立条件]]></value>
+	</item>
+	<item name="agree_agreement">
+		<value xml:lang="ko"><![CDATA[약관에 동의합니다]]></value>
+		<value xml:lang="en"><![CDATA[Agreenment]]></value>
+		<value xml:lang="zh-CN"><![CDATA[条款]]></value>
+	</item>
+	<item name="default_language">
+		<value xml:lang="ko"><![CDATA[기본 언어]]></value>
+		<value xml:lang="en"><![CDATA[Default Language]]></value>
+		<value xml:lang="zh-CN"><![CDATA[预定义语言]]></value>
+	</item>
+	<item name="notify_mail">
+		<value xml:lang="ko"><![CDATA[메일 통보]]></value>
+		<value xml:lang="en"><![CDATA[Nofication Mail]]></value>
+		<value xml:lang="zh-CN"><![CDATA[邮件通知]]></value>
+	</item>
+	<item name="about_notify_mail">
+		<value xml:lang="ko"><![CDATA[프로젝트의 등록 요청이 있을 때 메일을 발송받을 수 있는 이메일 주소를 입력해주세요.]]></value>
+		<value xml:lang="en"><![CDATA[The mail will be applied when the respository is registed ]]></value>
+		<value xml:lang="zh-CN"><![CDATA[请输入邮件位置，当有项目注册请求时会用邮件通知。]]></value>
+	</item>
+	<item name="cmd_make_project">
+		<value xml:lang="ko"><![CDATA[프로젝트 생성]]></value>
+		<value xml:lang="en"><![CDATA[Create Project]]></value>
+		<value xml:lang="zh-CN"><![CDATA[建立项目]]></value>
+	</item>
+	<item name="cmd_import">
+		<value xml:lang="ko"><![CDATA[가져오기]]></value>
+		<value xml:lang="en"><![CDATA[Import]]></value>
+		<value xml:lang="zh-CN"><![CDATA[匯入]]></value>
+	</item>
+	<item name="cmd_make_directory">
+		<value xml:lang="ko"><![CDATA[디렉토리 생성]]></value>
+		<value xml:lang="en"><![CDATA[Create Directory]]></value>
+		<value xml:lang="zh-CN"><![CDATA[建立目录]]></value>
+	</item>
+	<item name="cmd_make_sub_directory">
+		<value xml:lang="ko"><![CDATA[하위 디렉토리 생성]]></value>
+		<value xml:lang="en"><![CDATA[Create Sub Directory]]></value>
+		<value xml:lang="zh-CN"><![CDATA[建立子目录]]></value>
+	</item>
+	<item name="cmd_export">
+		<value xml:lang="ko"><![CDATA[내보내기]]></value>
+		<value xml:lang="en"><![CDATA[Export]]></value>
+		<value xml:lang="zh-CN"><![CDATA[匯出]]></value>
+	</item>
+	<item name="cmd_repos_repository">
+		<value xml:lang="ko"><![CDATA[저장소 저장소 생성]]></value>
+		<value xml:lang="en"><![CDATA[Create Respository]]></value>
+		<value xml:lang="zh-CN"><![CDATA[建立版本库]]></value>
+	</item>
+	<item name="cmd_manage_project_account">
+		<value xml:lang="ko"><![CDATA[저장소 계정 설정]]></value>
+		<value xml:lang="en"><![CDATA[Manage Project Account]]></value>
+		<value xml:lang="zh-CN"><![CDATA[版本库账户设置]]></value>
+	</item>
+	<item name="cmd_manage_member_group">
+		<value xml:lang="ko"><![CDATA[회원 그룹 관리]]></value>
+		<value xml:lang="en"><![CDATA[Manage Goup]]></value>
+		<value xml:lang="zh-CN"><![CDATA[组管理]]></value>
+	</item>
+	<item name="cmd_manage_member_list">
+		<value xml:lang="ko"><![CDATA[회원 목록 관리]]></value>
+		<value xml:lang="en"><![CDATA[Member List]]></value>
+		<value xml:lang="zh-CN"><![CDATA[会员列表]]></value>
+	</item>
+	<item name="cmd_manage_components">
+		<value xml:lang="ko"><![CDATA[기능 설정]]></value>
+		<value xml:lang="en"><![CDATA[Manage Components]]></value>
+		<value xml:lang="zh-CN"><![CDATA[功能设定]]></value>
+	</item>
+	<item name="cmd_project_registration">
+		<value xml:lang="ko"><![CDATA[Project 생성]]></value>
+		<value xml:lang="en"><![CDATA[Project Registration]]></value>
+		<value xml:lang="zh-CN"><![CDATA[项目建立]]></value>
+	</item>
+	<item name="cmd_directory_registration">
+		<value xml:lang="ko"><![CDATA[디렉토리 생성]]></value>
+		<value xml:lang="en"><![CDATA[Directory Registration]]></value>
+		<value xml:lang="zh-CN"><![CDATA[目录建立]]></value>
+	</item>
+	<item name="cmd_project_setup">
+		<value xml:lang="ko"><![CDATA[프로젝트 설정]]></value>
+		<value xml:lang="en"><![CDATA[Project Setup]]></value>
+		<value xml:lang="zh-CN"><![CDATA[项目设置]]></value>
+	</item>
+	<item name="cmd_project_delete">
+		<value xml:lang="ko"><![CDATA[프로젝트 삭제]]></value>
+		<value xml:lang="en"><![CDATA[Project Delete]]></value>
+		<value xml:lang="zh-CN"><![CDATA[删除项目]]></value>
+	</item>
+	<item name="cmd_go_home">
+		<value xml:lang="ko"><![CDATA[홈으로 이동]]></value>
+		<value xml:lang="en"><![CDATA[Return Home]]></value>
+		<value xml:lang="zh-CN"><![CDATA[返回首页]]></value>
+	</item>
+	<item name="cmd_go_project_admin">
+		<value xml:lang="ko"><![CDATA[Project 전체 관리]]></value>
+		<value xml:lang="en"><![CDATA[Mange Project]]></value>
+		<value xml:lang="zh-CN"><![CDATA[项目管理]]></value>
+	</item>
+	<item name="cmd_select_index">
+		<value xml:lang="ko"><![CDATA[초기화면 선택]]></value>
+		<value xml:lang="en"><![CDATA[Select Index]]></value>
+		<value xml:lang="zh-CN"><![CDATA[选择首页]]></value>
+	</item>
+	<item name="cmd_add_new_menu">
+		<value xml:lang="ko"><![CDATA[새로운 메뉴 추가]]></value>
+		<value xml:lang="en"><![CDATA[Add New Menu]]></value>
+		<value xml:lang="zh-CN"><![CDATA[新建菜单]]></value>
+	</item>
+	<item name="cmd_post_news">
+		<value xml:lang="ko"><![CDATA[새로운 뉴스 등록]]></value>
+		<value xml:lang="en"><![CDATA[Post News]]></value>
+		<value xml:lang="zh-CN"><![CDATA[发布消息]]></value>
+	</item>
+	<item name="cmd_post_offer">
+		<value xml:lang="ko"><![CDATA[새로운 구인게시물 등록]]></value>
+		<value xml:lang="en"><![CDATA[Post Offer]]></value>
+		<value xml:lang="zh-CN"><![CDATA[发布邀请]]></value>
+	</item>
+	<item name="cmd_make_my_project">
+		<value xml:lang="ko"><![CDATA[내 프로젝트 생성]]></value>
+		<value xml:lang="en"><![CDATA[Create My Project]]></value>
+		<value xml:lang="zh-CN"><![CDATA[建立自己的项目]]></value>
+	</item>
+	<item name="cmd_reject_project_creation">
+		<value xml:lang="ko"><![CDATA[거부]]></value>
+		<value xml:lang="en"><![CDATA[Forbidden]]></value>
+		<value xml:lang="zh-CN"><![CDATA[禁止]]></value>
+	</item>
+	<item name="cmd_accept_project_creation">
+		<value xml:lang="ko"><![CDATA[승인]]></value>
+		<value xml:lang="en"><![CDATA[Allow]]></value>
+		<value xml:lang="zh-CN"><![CDATA[允許]]></value>
+	</item>
+	<item name="about_project_main_mid">
+		<value xml:lang="ko"><![CDATA[프로젝트 메인 페이지를 http://주소/ID 값으로 접속하기 위한 ID값을 입력해주세요.]]></value>
+	<value xml:lang="en"><![CDATA[The project address is 'http://web address/ID', please input the ID]]></value>
+		<value xml:lang="zh-CN"><![CDATA[项目的网址为「http://网址/ID」，请输入想要的 ID 值。]]></value>
+	</item>
+	<item name="about_project_rss">
+		<value xml:lang="ko"><![CDATA[Project 메인페이지의 RSS 출력을 허용할 수 있습니다]]></value>
+		<value xml:lang="en"><![CDATA[Choose if the RSS content can be outputed.]]></value>
+		<value xml:lang="zh-CN"><![CDATA[可选择是否输出项目首页RSS内容。]]></value>
+	</item>
+	<item name="about_project_repos">
+		<value xml:lang="ko"><![CDATA[프로젝트 관리자들이 저장소을 생성할 수 있도록 할 수 있습니다]]></value>
+		<value xml:lang="en"><![CDATA[The administrator can create the respository for the project]]></value>
+		<value xml:lang="zh-CN"><![CDATA[项目管理员可以帮助建立版本库。]]></value>
+	</item>
+	<item name="about_project_repos_url">
+		<value xml:lang="ko"><![CDATA[개별 프로젝트에 제공할 저장소의 주소를 입력해주세요.<br/>저장소은 입력하신 주소의 서브도메인으로 정해집니다.<br/>repos.xpressengine.com 으로 입력하시면 저장소의 주소는 http://repos.xpressengine.com/저장소ID 으로 됩니다]]></value>
+		<value xml:lang="en"><![CDATA[The personal respository, please input the URL.<br/>The input URL must be sub domain.<br/>If input 'respos.xpressengine.com', the respository address is 'http://repos.xpressengine.com/RespositoryID']]></value>
+		<value xml:lang="zh-CN"><![CDATA[提供个人版本库，请输入网址。<br/>所输入的网址必须是子域名。<br/>输入 repos.xpressengine.com 的话，版本库网址就是 http://repos.xpressengine.com/版本库 ID 了。]]></value>
+	</item>
+	<item name="about_project_main_url">
+		<value xml:lang="ko"><![CDATA[개별 프로젝트에서 프로젝트 메인으로 돌아가기 위한 URL을 입력해주세요]]></value>
+		<value xml:lang="en"><![CDATA[Please input the respository address.]]></value>
+		<value xml:lang="zh-CN"><![CDATA[请输入项目首页网址。]]></value>
+	</item>
+	<item name="about_repos_title">
+		<value xml:lang="ko"><![CDATA[저장소 접속시 출력되는 저장소의 이름을 정해주세요<br/>(2~40자 사이)]]></value>
+		<value xml:lang="en"><![CDATA[Please input the name of Respository.<br/>(2-40 words)]]></value>
+		<value xml:lang="zh-CN"><![CDATA[请决定版本库名称。<br/>( 2 ~ 40個字之間 )]]></value>
+	</item>
+	<item name="about_repos_id">
+		<value xml:lang="ko"><![CDATA[저장소 ID는 서비스 제공자가 제공하는 저장소 주소의 구분을 위해서 필요합니다.<br/>한번 생성하면 변경할 수 없습니다<br/>(영문으로 시작하고 영문/숫자/_ 사용 가능, 2~20자 사이)]]></value>
+	        <value xml:lang="en"><![CDATA[The repository ID witch is used as ditinguishing the storage adress is provided by the sponsor.<br/>This item can't be modify.<br/>(Letters/Numbers/Underscores could be used, the beginning must be letter, the length is between 2-20 words.)]]></value>
+		<value xml:lang="zh-CN"><![CDATA[储存ID是由服务提供商提供，用来区分储存地址。<br/>一旦生成将无法更改。<br/>(用英文字母开头可使用英文/数字/_ ，2~20字之间。)]]></value>
+	</item>
+	<item name="about_project_allow_commit">
+		<value xml:lang="ko"><![CDATA[선택된 그룹의 회원들은 저장소에 커밋할 수 있습니다. 변경시 기존 권한이 있는 회원들의 권한이 박탈됩니다]]></value>
+		<value xml:lang="en"><![CDATA[The choosen member could be commit. If modify this item, the member's privileges will be deprived.]]></value>
+		<value xml:lang="zh-CN"><![CDATA[被选择级别的会员可提交到储存地址中， 如果更改则拥有之前权限的会员权限将被剥夺。]]></value>
+	</item>
+	<item name="about_manage_project_account">
+		<value xml:lang="ko"><![CDATA[프로젝트의 커밋권한이 있을 경우 저장소 계정 설정을 해주어야 실제 저장소에 접근할 수 있습니다.<br/>저장소의 계정 아이디는 지금 로그인하신 아이디와 동일하며 비밀번호는 다르게 설정할 수 있습니다.<br/>하나의 저장소 계정으로 이 사이트의 모든 프로젝트 저장소에 접근할 수 있습니다]]></value>
+            	<value xml:lang="en"><![CDATA[The account ID is used as visiting the Project address .<br/>The ID is the same as the login ID, and the password could be setting from here.<br/>The account can visit all management adress of the project.]]></value>
+            	<value xml:lang="zh-CN"><![CDATA[有project 提交权限时需要设置储存ID，才能访问实际储存地址。<br/>储存ID于当前登录的ID一致，密码可设置为其他。<br/>用一个储存ID可访问此网站的所有project储存地址。]]></value>
+	</item>
+	<item name="about_move_module">
+		<value xml:lang="ko"><![CDATA[가상사이트와 기본사이트간의 모듈을 옮길 수 있습니다.<br/>다만 가상사이트끼리 모듈을 이동하거나 같은 이름의 mid가 있을 경우 예기치 않은 오류가 생길 수 있으니 꼭 가상 사이트와 기본 사이트간의 다른 이름을 가지는 모듈만 이동하세요]]></value>
+                  <value xml:lang="en"><![CDATA[Move the modules between the virual web site.<br/>If the mid is the same when moving the module between two vitual website, an error could be occursed. So please use distinguish mid of the module.]]></value>
+        	         <value xml:lang="zh-CN"><![CDATA[可移动虚拟网站和主网站之间的模块。<br/>请注意在虚拟网站之间移动模块或者存在相同名称的mid时会发生意外错误，所以只移动虚拟网站和主网站之间的名称不同的模块。]]></value>
+	</item>
+	<item name="about_default_language">
+		<value xml:lang="ko"><![CDATA[처음 접속하는 사용자의 언어 설정을 지정할 수 있습니다.]]></value>
+		<value xml:lang="en"><![CDATA[Please select the default language.]]></value>
+		<value xml:lang="zh-CN"><![CDATA[请选择用户设置语言]]></value>
+	</item>
+	<item name="about_project">
+		<value xml:lang="ko"><![CDATA[Project 서비스 관리자는 다수의 Project를 만들 수 있고 또 각 Project를 편하게 설정할 수 있도록 합니다.]]></value>
+	         <value xml:lang="en"><![CDATA[Project administrator can create the project and setting every respository]]></value>
+		<value xml:lang="zh-CN"><![CDATA[Project 服务管理者可以建立项目同时也能够轻松对每一个项目进行设定。]]></value>
+	</item>
+	<item name="about_menu_names">
+	         <value xml:lang="ko"><![CDATA[Project에 나타날 메뉴 이름을 언어에 따라서 지정할 수 있습니다.<br/>하나만 입력하셔도 모두 같이 적용됩니다]]></value>
+	         <value xml:lang="en"><![CDATA[The menus' name which is shown in Project could be setting by different languages.<br/>Input one could be applied in all item.]]></value>
+	         <value xml:lang="zh-CN"><![CDATA[Project中显示的菜单名称可按语言来指定。<br/>输入一个就可以全部应用。]]></value>
+	</item>
+	<item name="about_menu_option">
+		<value xml:lang="ko"><![CDATA[메뉴를 선택시 새창으로 열지를 선택할 수 있습니다.<br />펼침 메뉴는 레이아웃에 따라 동작합니다]]></value>
+	         <value xml:lang="en"><![CDATA[If open page in a new window when select a menu.<br />The menu is choosen in layout setting]]></value>
+	         <value xml:lang="zh-CN"><![CDATA[可对在选择菜单时是否打开新窗口而进行选择。<br />开启菜单是按着layout来操作的。]]></value>
+	</item>
+	<item name="about_group_grant">
+		<value xml:lang="ko"><![CDATA[그룹을 선택하면 선택된 그룹만 메뉴가 보입니다.<br/>모두 해제하면 비회원도 볼 수 있습니다]]></value>
+            	<value xml:lang="en"><![CDATA[If select the group, then the group could only see the group level menu.<br/>If deselect the items, all the member could see the menu items.]]></value>
+            	<value xml:lang="zh-CN"><![CDATA[选择级别，则会只显示所选择的级别菜单。<br/>全部取消后非会员将也可以看到。]]></value>
+	</item>
+	<item name="about_module_type">
+	         <value xml:lang="ko"><![CDATA[게시판,페이지는 모듈을 생성하고 URL은 링크만 합니다.<br/>생성후 수정할 수 없습니다]]></value>
+	         <value xml:lang="en"><![CDATA[To generate Board, Page modules, URL is link.<br/>This item can't be modify]]></value>
+	         <value xml:lang="zh-CN"><![CDATA[公告板，页面要生成模块，URL只做link。<br/>一旦生成将无法修改。]]></value>
+	</item>
+	<item name="about_browser_title">
+		<value xml:lang="ko"><![CDATA[메뉴에 접속시 브라우저의 제목으로 나타날 내용입니다]]></value>
+	         <value xml:lang="en"><![CDATA[Setting browser title which is shown in the browser title.]]></value>
+	         <value xml:lang="zh-CN"><![CDATA[连接菜单时要显示在浏览器标题上的内容。]]></value>
+	</item>
+	<item name="about_module_id">
+	         <value xml:lang="ko"><![CDATA[게시판,페이지등 접속할때 사용될 주소입니다.<br/>예) http://도메인/[모듈ID], http://도메인/?mid=[모듈ID] ]]></value>
+	         <value xml:lang="en"><![CDATA[The ID is used in the address which is connecting Board, page etc. modules.<br/>example) http://domain/[ModuleID], http://domain/?mid=[ModuleID]]]></value>
+	         <value xml:lang="zh-CN"><![CDATA[连接公告板，页面等时所使用的地址。<br/>例) http://domain/[模块ID]，http://domain/?mid=[模块ID] ]]></value>
+	</item>
+	<item name="about_menu_item_url">
+	         <value xml:lang="ko"><![CDATA[대상을 URL로 할때 연결할 링크주소입니다.<br/>http://는 빼고 입력해주세요]]></value>
+                  <value xml:lang="en"><![CDATA[It's used the URL to present the link address.<br/>Please omiit the 「http://」 .]]></value>
+	         <value xml:lang="zh-CN"><![CDATA[将对象用URL表示时的link地址。<br/>输入时请去掉http://。]]></value>
+	</item>
+	<item name="about_menu_image_button">
+		<value xml:lang="ko"><![CDATA[메뉴명 대신 이미지로 메뉴를 사용할 수 있습니다.]]></value>
+		<value xml:lang="en"><![CDATA[The image could be applied]]></value>
+		<value xml:lang="zh-CN"><![CDATA[选单名称可以使用图片替换。]]></value>
+	</item>
+	<item name="about_project_delete">
+		<value xml:lang="ko"><![CDATA[Project를 삭제하게 되면 연결되어 있는 모든 모듈(게시판,페이지등)과 그에 따른 글들이 삭제됩니다.<br />주의가 필요합니다]]></value>
+	         <value xml:lang="en"><![CDATA[When delete the Project, then all the relative modules(board, page etc.) and documents/comments will be deleted.<br />Please notice it.]]></value>
+	         <value xml:lang="zh-CN"><![CDATA[删除Project时所连接的所有模块(公告板，页面等)和相关的帖子都将被删除。<br />需要注意。]]></value>
+	</item>
+	<item name="about_project_admin">
+		<value xml:lang="ko"><![CDATA[Project 관리자를 설정할 수 있습니다.<br/>Project 관리자는 http://주소/?act=dispProjectManage 로 관리자 페이지로 접속할 수 있으며 존재하지 않는 사용자는 관리자로 등록되지 않습니다]]></value>
+	<value xml:lang="en"><![CDATA[Setting the administrator.<br/>The management page url is http://address/?act=disProjectManage]]></value>
+		<value xml:lang="zh-CN"><![CDATA[设定管理员。<br/>管理员页面为 http://网址/?act=dispProjectManage]]></value>
+	</item>
+	<item name="about_project_creation_type">
+		<value xml:lang="ko"><![CDATA[사용자들이 프로젝트를 생성할때 프로젝트 접속 방법을 정해야 합니다. Site ID는 http://기본주소/ID 로 접속 가능하고 Domain 접속은 입력하신 도메인의 2차 도메인(http://domain.mydomain.net) 으로 프로젝트가 생성됩니다]]></value>
+		<value xml:lang="en"><![CDATA[Please select the enter type when create the project. use the ID to enter, then the URL will be http://address/ID; Using Domain type is by domain name (http://domain.mydomain.net) .]]></value>
+		<value xml:lang="zh-CN"><![CDATA[请选择用户建立项目时的访问方式。网站 ID 可透过 http://网址/ID 访问； 可输入子域名 (http://domain.mydomain.net) 的方式访问。]]></value>
+	</item>
+	<item name="about_forum_description">
+		<value xml:lang="ko"><![CDATA[프로젝트에 대한 다양한 이야기를 나누는 포럼입니다.<br/>프로젝트는 좋은 의견과 참여로 발전할 수 있습니다]]></value>
+		<value xml:lang="en"><![CDATA[Project Forum, please write the documents and replies.<br/>You can involved in the activities of this forum]]></value>
+		<value xml:lang="zh-CN"><![CDATA[项目论坛，留下您的的帖子与回复。<br/>您可以在此论坛参与此项目相关的任何讨论。]]></value>
+	</item>
+	<item name="about_project_id">
+	        <value xml:lang="ko"><![CDATA[project连接ID用于所生成project的地址。<br/>(3~20字之间，第一个字要用英文字母, 第二个字开始只可用英文字母和数字。)]]></value>
+	        <value xml:lang="en"><![CDATA[프로젝트 접속 아이디는 생성된 프로젝트의 주소로 사용됩니다.<br/>(3~20자 사이이며 첫글자는 영문으로, 두번 글자부터는 영문과 숫자만 쓸 수 있습니다)]]></value>
+	        <value xml:lang="zh-CN"><![CDATA[프로젝트 접속 아이디는 생성된 프로젝트의 주소로 사용됩니다.<br/>(3~20자 사이이며 첫글자는 영문으로, 두번 글자부터는 영문과 숫자만 쓸 수 있습니다)]]></value>
+
+		<value xml:lang="ko"><![CDATA[프로젝트 접속 아이디는 생성된 프로젝트의 주소로 사용됩니다.<br/>(3~20자 사이이며 첫글자는 영문으로, 두번 글자부터는 영문과 숫자만 쓸 수 있습니다)]]></value>
+		<value xml:lang="en"><![CDATA[Project ID is used as compositing the project visiting URL.<br/>(3~20 words , beginning with letter, and only letter/number could be Inputed)]]></value>
+		<value xml:lang="zh-CN"><![CDATA[project连接ID用于所生成project的地址。<br/>(3~20字之间，第一个字要用英文字母, 第二个字开始只可用英文字母和数字。)]]></value>
+	</item>
+	<item name="about_project_title">
+		<value xml:lang="ko"><![CDATA[프로젝트의 제목을 입력해주세요. (3~20자 사이)]]></value>
+		<value xml:lang="en"><![CDATA[Please input the project title.(3-20 words)]]></value>
+		<value xml:lang="zh-CN"><![CDATA[请输入项目标题。(3~20 之间)]]></value>
+	</item>
+	<item name="about_project_description">
+		<value xml:lang="ko"><![CDATA[프로젝트를 소개할 수 있는 간단한 내용을 입력해주세요.<br/>가능하면 프로젝트의 특징과 정보를 알 수 있도록 해주시면 좋습니다. (10~200자 사이)]]></value>
+		<value xml:lang="en"><![CDATA[Please input the introduction of project.<br/>Best expressing by the charactor/infomation of the project.(10~200 words)]]></value>
+		<value xml:lang="zh-CN"><![CDATA[请输入介绍project的简单内容。<br/>最好表示出project的特点和信息。(10~200字之间)]]></value>
+	</item>
+	<item name="about_project_directory">
+		<value xml:lang="ko"><![CDATA[프로젝트를 손쉽게 찾아 갈 수 있도록 생성하시려는 프로젝트의 디렉토리를 설정해주세요.<br />프로젝트가 쉽게 찾아지고 활용될 수 있는데 매우 중요한 정보입니다]]></value>
+		<value xml:lang="en"><![CDATA[Please setting the directory which could be classified the projects.<br />That could be used as quick positioning the project.]]></value>
+		<value xml:lang="zh-CN"><![CDATA[请设置可轻松找到project的所要生成的project 目录。<br />对于轻而易举的找到并应用project来说非常重要的信息。]]></value>
+	</item>
+	<item name="about_project_logo">
+		<value xml:lang="ko"><![CDATA[프로젝트 상단 또는 프로젝트 전체 목록에서 나타나는 로고 이미지를 입력해주세요.]]></value>
+		<value xml:lang="en"><![CDATA[Please input the logo image which is shown below the project or the project directory.]]></value>
+		<value xml:lang="zh-CN"><![CDATA[请输入显示在project上方或者project整体目录上的logo image。]]></value>
+	</item>
+	<item name="about_project_banner">
+		<value xml:lang="ko"><![CDATA[프로젝트 초기화면에 나타나는 배너 이미지를 입력해주세요. (가로- 200px)]]></value>
+		<value xml:lang="en"><![CDATA[Please upload the project initial page banner.(width:180px)]]></value>
+		<value xml:lang="zh-CN"><![CDATA[请上传项目初始画面所显示的广告图片。(宽度 180px)]]></value>
+	</item>
+	<item name="msg_wait_repos_create">
+		<value xml:lang="ko"><![CDATA[저장소 저장소는 즉시 생성되지 않습니다.\n\n문의 사항이 있으시면 사이트 운영자에게 문의 바랍니다]]></value>
+		<value xml:lang="en"><![CDATA[The repository isn't effected now .\n\nPlease contact the administrator of the website.]]></value>
+		<value xml:lang="zh-CN"><![CDATA[储存地址不会立即生成。\n\n如有疑问事项请联系网站管理人员。]]></value>
+	</item>
+	<item name="msg_need_one_group">
+		<value xml:lang="ko"><![CDATA[커밋 허용 그룹은 1개 이상 지정되어 있어야 합니다]]></value>
+		<value xml:lang="en"><![CDATA[Please setting a group at lease.]]></value>
+		<value xml:lang="zh-CN"><![CDATA[提交许可级别要指定1个以上。]]></value>
+	</item>
+	<item name="msg_module_count_exceed">
+		<value xml:lang="ko"><![CDATA[허용된 모듈의 개수를 초과하였기에 생성할 수 없습니다]]></value>
+		<value xml:lang="en"><![CDATA[The number of the permmited modules is exceed!]]></value>
+		<value xml:lang="zh-CN"><![CDATA[由于超过允许使用的模块个数，所以无法生成。]]></value>
+	</item>
+	<item name="msg_not_enabled_id">
+		<value xml:lang="ko"><![CDATA[사용할 수 없는 아이디입니다]]></value>
+		<value xml:lang="en"><![CDATA[ID can't be used]]></value>
+		<value xml:lang="zh-CN"><![CDATA[ID 无法使用]]></value>
+	</item>
+	<item name="msg_wrong_project_id">
+		<value xml:lang="ko"><![CDATA[프로젝트 접속 아이디는 3~20자 사이이며 첫글자는 영문으로, 두번 글자부터는 영문과 숫자만 쓸 수 있습니다]]></value>
+		<value xml:lang="en"><![CDATA[Project ID is 3~20 words, beginning with letter, and only letters and numbers could be used.]]></value>
+		<value xml:lang="zh-CN"><![CDATA[Project 连接ID为3~20字之间，第一个字要用英文字母，第二个字开始只可使用英文字母和数字。]]></value>
+	</item>
+	<item name="msg_same_site">
+		<value xml:lang="ko"><![CDATA[동일한 가상 사이트의 모듈은 이동할 수가 없습니다]]></value>
+		<value xml:lang="en"><![CDATA[Could not move the module between the same vitual site.]]></value>
+		<value xml:lang="zh-CN"><![CDATA[无法移动同样的虚拟网站之间的模块。]]></value>
+	</item>
+	<item name="msg_no_data">
+		<value xml:lang="ko"><![CDATA[등록된 내용이 없습니다]]></value>
+		<value xml:lang="en"><![CDATA[no registed data]]></value>
+		<value xml:lang="zh-CN"><![CDATA[无注册内容]]></value>
+	</item>
+	<item name="msg_project_reserved">
+		<value xml:lang="ko"><![CDATA[프로젝트 생성 요청이 접수되었습니다.\n접수된 내용을 바탕으로 프로젝트 관리자가 심사 후 승인 여부를 결정하게 됩니다.\n감사합니다]]></value>
+		<value xml:lang="en"><![CDATA[Project creation offer is reserived.\nThe project will be permmited after checking the project content.\nThanks]]></value>
+		<value xml:lang="ko"><![CDATA[Project生成请求已被接受.\n接收的内容需由project 管理人员进行审查后才能决定是否批准。\n谢谢。]]></value>
+	</item>
+	<item name="confirm_delete_menu_item">
+		<value xml:lang="ko"><![CDATA[메뉴 항목 삭제시 연결되어 있는 게시판이나 페이지 모듈도 같이 삭제가 됩니다. 그래도 삭제하시겠습니까?]]></value>
+		<value xml:lang="en"><![CDATA[Delete the menu item , then the relative module(page/board) will be delete. Do you want delete the item still?]]></value>
+		<value xml:lang="zh-CN"><![CDATA[删除菜单项时所连接的告示板或页面模块将一并被删除。是否继续删除?]]></value>
+	</item>
+	<item name="alert_permission_denied_to_create">
+		<value xml:lang="ko"><![CDATA[프로젝트를 생성할 수 있는 권한이 없습니다]]></value>
+		<value xml:lang="en"><![CDATA[No permission]]></value>
+		<value xml:lang="zh-CN"><![CDATA[没有建立项目]]></value>
+	</item>
+	<item name="alert_project_id_size_is_wrong">
+		<value xml:lang="ko"><![CDATA[프로젝트 ID의 글자 길이는 3자 이상 20자 이하여야 합니다]]></value>
+		<value xml:lang="en"><![CDATA[ProjectID length must be 3-20 words.]]></value>
+		<value xml:lang="zh-CN"><![CDATA[项目 ID 长度必须在 3-20 个字之间。]]></value>
+	</item>
+	<item name="alert_project_title_size_is_wrong">
+		<value xml:lang="ko"><![CDATA[디프로젝트 제목의 글자 길이는 3자 이상 20자 이하여야 합니다]]></value>
+		<value xml:lang="en"><![CDATA[Project title must be 3-20 words.]]></value>
+		<value xml:lang="zh-CN"><![CDATA[标题长度必须在 3-20 个字之间。]]></value>
+	</item>
+	<item name="alert_project_description_size_is_wrong">
+		<value xml:lang="ko"><![CDATA[프로젝트 설명의 글자 길이는 10자 이상 200자 이하여야 합니다]]></value>
+		<value xml:lang="en"><![CDATA[Description must be in 10-200 words.]]></value>
+		<value xml:lang="zh-CN"><![CDATA[简介内容最少输入 10 个字，最多 200 个字。]]></value>
+	</item>
+	<item name="msg_notify_reserved_title">
+		<value xml:lang="ko"><![CDATA[프로젝트 등록 요청]]></value>
+		<value xml:lang="en"><![CDATA[Project registray require]]></value>
+		<value xml:lang="zh-CN"><![CDATA[项目注册请求]]></value>
+	</item>
+	<item name="msg_notify_reserved_content">
+		<value xml:lang="ko"><![CDATA[프로젝트 등록 요청이 있습니다.<br/>바로 가기 : <a href="%s">%s</a><br/>]]></value>
+		<value xml:lang="en"><![CDATA[regist project require.<br/>short link:<a href="%s">%s</a><br/>]]></value>
+		<value xml:lang="zh-CN"><![CDATA[项目注册请求。<br/>捷徑 : <a href="%s">%s</a><br/>]]></value>
+	</item>
+	<item name="date_opened">
+		<value xml:lang="ko"><![CDATA[개설일]]></value>
+		<value xml:lang="en"><![CDATA[Open Date]]></value>
+		<value xml:lang="zh-CN"><![CDATA[建立日期]]></value>
+	</item>
+	<item name="write_to_forum">
+		<value xml:lang="ko"><![CDATA[포럼쓰기]]></value>
+		<value xml:lang="en"><![CDATA[New document]]></value>
+		<value xml:lang="zh-CN"><![CDATA[新主題]]></value>
+	</item>
+	<item name="write_new_issue">
+		<value xml:lang="ko"><![CDATA[이슈등록]]></value>
+		<value xml:lang="en"><![CDATA[New issue]]></value>
+		<value xml:lang="zh-CN"><![CDATA[新问题]]></value>
+	</item>
+	<item name="member_unit">
+		<value xml:lang="ko"><![CDATA[명]]></value>
+		<value xml:lang="en"><![CDATA[man]]></value>
+		<value xml:lang="zh-CN"><![CDATA[位]]></value>
+	</item>
+	<item name="profile">
+		<value xml:lang="ko"><![CDATA[프로필]]></value>
+		<value xml:lang="en"><![CDATA[Profile]]></value>
+		<value xml:lang="zh-CN"><![CDATA[个人资料]]></value>
+	</item>
+	<item name="projectmilestone">
+		<value xml:lang="ko"><![CDATA[개발현황]]></value>
+		<value xml:lang="en"><![CDATA[Milestone]]></value>
+		<value xml:lang="zh-CN"><![CDATA[版本]]></value>
+	</item>
+	<item name="project_title">
+		<value xml:lang="ko"><![CDATA[프로젝트 이름]]></value>
+		<value xml:lang="en"><![CDATA[title]]></value>
+		<value xml:lang="zh-CN"><![CDATA[项目标题]]></value>
+	</item>
+	<item name="my_activities">
+		<value xml:lang="ko"><![CDATA[내 활동기록]]></value>
+		<value xml:lang="en"><![CDATA[My Activities]]></value>
+		<value xml:lang="zh-CN"><![CDATA[My Activities]]></value>
+	</item>
+	<item name="project_setting">
+		<value xml:lang="ko"><![CDATA[프로젝트 설정]]></value>
+		<value xml:lang="en"><![CDATA[Project setting]]></value>
+		<value xml:lang="zh-CN"><![CDATA[项目设置]]></value>
+	</item>
+	<item name="download_program">
+		<value xml:lang="ko"><![CDATA[프로그램 다운로드]]></value>
+		<value xml:lang="en"><![CDATA[Download program]]></value>
+		<value xml:lang="zh-CN"><![CDATA[程序下载]]></value>
+	</item>
+	<item name="news">
+		<value xml:lang="ko"><![CDATA[뉴스]]></value>
+		<value xml:lang="en"><![CDATA[News]]></value>
+		<value xml:lang="zh-CN"><![CDATA[新闻]]></value>
+	</item>
+	<item name="project_admin_menus" type="array">
+		<item name="dispProjectAdminContent">
+			<value xml:lang="ko"><![CDATA[프로젝트 목록]]></value>
+			<value xml:lang="en"><![CDATA[List]]></value>
+			<value xml:lang="zh-CN"><![CDATA[列表]]></value>
+		</item>
+		<item name="dispProjectAdminReserved">
+			<value xml:lang="ko"><![CDATA[대기 목록]]></value>
+			<value xml:lang="en"><![CDATA[Reserve]]></value>
+			<value xml:lang="zh-CN"><![CDATA[等候]]></value>
+		</item>
+		<item name="dispProjectAdminCreate">
+			<value xml:lang="ko"><![CDATA[생성]]></value>
+			<value xml:lang="en"><![CDATA[Creation]]></value>
+			<value xml:lang="zh-CN"><![CDATA[建立]]></value>
+		</item>
+		<item name="dispProjectAdminConfig">
+			<value xml:lang="ko"><![CDATA[기능 설정]]></value>
+			<value xml:lang="en"><![CDATA[Setting]]></value>
+			<value xml:lang="zh-CN"><![CDATA[功能設定]]></value>
+		</item>
+		<item name="dispProjectAdminSkinSetup">
+			<value xml:lang="ko"><![CDATA[메인 스킨 설정]]></value>
+			<value xml:lang="en"><![CDATA[Skin Setting]]></value>
+			<value xml:lang="zh-CN"><![CDATA[界面管理]]></value>
+		</item>
+		<item name="dispProjectAdminGrantInfo">
+			<value xml:lang="ko"><![CDATA[권한 설정]]></value>
+			<value xml:lang="en"><![CDATA[Grant manage]]></value>
+			<value xml:lang="zh-CN"><![CDATA[访问设置]]></value>
+		</item>
+		<item name="dispProjectAdminDirectorySetup">
+			<value xml:lang="ko"><![CDATA[디렉토리 설정]]></value>
+			<value xml:lang="en"><![CDATA[Manage Directory]]></value>
+			<value xml:lang="zh-CN"><![CDATA[目录设置]]></value>
+		</item>
+	</item>
+	<item name="project_member_group" type="array">
+		<item name="observer">
+			<value xml:lang="ko"><![CDATA[대기회원]]></value>
+			<value xml:lang="en"><![CDATA[Member]]></value>
+			<value xml:lang="zh-CN"><![CDATA[备用成员]]></value>>
+		</item>
+		<item name="regular">
+			<value xml:lang="ko"><![CDATA[정회원]]></value>
+			<value xml:lang="en"><![CDATA[Members]]></value>
+			<value xml:lang="zh-CN"><![CDATA[正式会员]]></value>
+		</item>
+		<item name="commiter">
+			<value xml:lang="ko"><![CDATA[개발자]]></value>
+			<value xml:lang="en"><![CDATA[Commiter]]></value>
+			<value xml:lang="zh-CN"><![CDATA[提交者]]></value>
+		</item>
+	</item>
+	<item name="project_home_title" type="array">
+		<item name="news">
+			<value xml:lang="ko"><![CDATA[알립니다]]></value>
+			<value xml:lang="en"><![CDATA[News]]></value>
+			<value xml:lang="zh-CN"><![CDATA[公告事項]]></value>
+		</item>
+		<item name="offer">
+			<value xml:lang="ko"><![CDATA[프로젝트 멤버 모집]]></value>
+			<value xml:lang="en"><![CDATA[Members]]></value>
+			<value xml:lang="zh-CN"><![CDATA[会员]]></value>
+		</item>
+		<item name="release">
+			<value xml:lang="ko"><![CDATA[다운로드]]></value>
+			<value xml:lang="en"><![CDATA[Release]]></value>
+			<value xml:lang="zh-CN"><![CDATA[资料下载]]></value>
+		</item>
+		<item name="milestone">
+			<value xml:lang="ko"><![CDATA['개발계획]]></value>
+			<value xml:lang="en"><![CDATA[Milestone]]></value>
+			<value xml:lang="zh-CN"><![CDATA[开发计划]]></value>
+		</item>
+		<item name="issues">
+			<value xml:lang="ko"><![CDATA[최근 이슈]]></value>
+			<value xml:lang="en"><![CDATA[Issues]]></value>
+			<value xml:lang="zh-CN"><![CDATA[最近问题]]></value>
+		</item>
+		<item name="changeset">
+			<value xml:lang="ko"><![CDATA[변경기록]]></value>
+			<value xml:lang="en"><![CDATA[Utilities]]></value>
+			<value xml:lang="zh-CN"><![CDATA[变更记录]]></value>
+		</item>
+		<item name="newestDocument">
+			<value xml:lang="ko"><![CDATA[최근 글]]></value>
+			<value xml:lang="en"><![CDATA[New Document]]></value>
+			<value xml:lang="zh-CN"><![CDATA[最新主題]]></value>
+		</item>
+		<item name="newestComment">
+			<value xml:lang="ko"><![CDATA[최근 댓글]]></value>
+			<value xml:lang="en"><![CDATA[New comment]]></value>
+			<value xml:lang="zh-CN"><![CDATA[最新回覆]]></value>
+		</item>
+	</item>
+	<item name="about_project_act" type="array">
+		<item name="dispProjectManage">
+			<value xml:lang="ko"><![CDATA[프로젝트의 소개 및 디렉토리등을 설정할 수 있습니다]]></value>
+			<value xml:lang="en"><![CDATA[The project instroduction and directory could be setting.]]></value>
+			<value xml:lang="zh-CN"><![CDATA[可设置project的介绍及目录等。]]></value>
+		</item>
+		<item name="dispProjectMemberGroupManage">
+			<value xml:lang="ko"><![CDATA[Project 내에서 사용되는 그룹 관리를 할 수 있습니다]]></value>
+			<value xml:lang="en"><![CDATA[Manage the privilege levels in the project.]]></value>
+			<value xml:lang="zh-CN"><![CDATA[可管理在Project内使用的级别。]]></value>
+		</item>
+		<item name="dispProjectMemberManage">
+			<value xml:lang="ko"><![CDATA[Project에 등록된 회원들을 보거나 관리할 수 있습니다]]></value>
+			<value xml:lang="en"><![CDATA[Manage the member in the project.]]></value>
+			<value xml:lang="zh-CN"><![CDATA[可查看登录到Project的会员或进行管理。]]></value>
+		</item>
+		<item name="dispProjectComponent">
+			<value xml:lang="ko"><![CDATA[에디터 컴포넌트/ 애드온을 활성화 하거나 설정을 변경할 수 있습니다]]></value>
+			<value xml:lang="en"><![CDATA[Active/Disactive Component/ add-on setting.]]></value>
+			<value xml:lang="zh-CN"><![CDATA[可激活editor component/ add-on或更改设置。]]></value>
+		</item>
+		<item name="dispProjectCounter">
+			<value xml:lang="ko"><![CDATA[Project의 접속 현황을 볼 수 있습니다]]></value>
+			<value xml:lang="en"><![CDATA[View the project counter.]]></value>
+			<value xml:lang="zh-CN"><![CDATA[可查看Project的连接现状。]]></value>
+		</item>
+		<item name="dispProjectRepos">
+			<value xml:lang="ko"><![CDATA[Project에서 사용할 저장소 호스팅을 이용할 수 있습니다]]></value>
+			<value xml:lang="en"><![CDATA[Manage the project's repository.]]></value>
+			<value xml:lang="zh-CN"><![CDATA[可利用要在Project使用的储存hosting。]]></value>
+		</item>
+	</item>
+	<item name="contributor_sort_order" type="array">
+		<item name="points">
+			<value xml:lang="ko"><![CDATA["공헌지수 순]]></value>
+			<value xml:lang="en"><![CDATA[Contributor Sort Order]]></value>
+			<value xml:lang="zh-CN"><![CDATA[贡献点数]]></value>
+		</item>
+		<item name="articles">
+			<value xml:lang="ko"><![CDATA[글 순]]></value>
+			<value xml:lang="en"><![CDATA[Articles]]></value>
+			<value xml:lang="zh-CN"><![CDATA[主題數]]></value>
+		</item>
+		<item name="comments">
+			<value xml:lang="ko"><![CDATA[댓글 순]]></value>
+			<value xml:lang="en"><![CDATA[comments count]]></value>
+			<value xml:lang="zh-CN"><![CDATA[回覆數]]></value>
+		</item>
+		<item name="commits">
+			<value xml:lang="ko"><![CDATA[커밋 순]]></value>
+			<value xml:lang="en"><![CDATA[Commits count]]></value>
+			<value xml:lang="zh-CN"><![CDATA[提交數]]></value>
+		</item>
+	</item>
+	<item name="mysummary_sort_order" type="array">
+		<item name="project_title">
+			<value xml:lang="ko"><![CDATA[프로젝트 이름]]></value>
+			<value xml:lang="en"><![CDATA[Project Name]]></value>
+			<value xml:lang="zh-CN"><![CDATA[项目名称]]></value>
+		</item>
+		<item name="point">
+			<value xml:lang="ko"><![CDATA[공헌지수 순]]></value>
+			<value xml:lang="en"><![CDATA[Point]]></value>
+			<value xml:lang="zh-CN"><![CDATA[贡献分数]]></value>
+		</item>
+		<item name="member_count">
+			<value xml:lang="ko"><![CDATA[멤버수 순]]></value>
+			<value xml:lang="en"><![CDATA[Members count]]></value>
+			<value xml:lang="zh-CN"><![CDATA[会员数]]></value>
+		</item>
+		<item name="regdate">
+			<value xml:lang="ko"><![CDATA[개설일 최신 순]]></value>
+			<value xml:lang="en"><![CDATA[Regdate]]></value>
+			<value xml:lang="zh-CN"><![CDATA[注册日期]]></value>
+		</item>
+		<item name="joindate">
+			<value xml:lang="ko"><![CDATA[가입일 최신 순]]></value>
+			<value xml:lang="en"><![CDATA[Join date]]></value>
+			<value xml:lang="zh-CN"><![CDATA[加入日期]]></value>
+		</item>
+	</item>
+	<item name="summary_sort_order" type="array">
+		<item name="point">
+			<value xml:lang="ko"><![CDATA[활성화지수 순]]></value>
+			<value xml:lang="en"><![CDATA[Activity Point]]></value>
+			<value xml:lang="zh-CN"><![CDATA[活动指数]]></value>
+		</item>
+		<item name="member_count">
+			<value xml:lang="ko"><![CDATA[멤버수 순]]></value>
+			<value xml:lang="en"><![CDATA[Members count]]></value>
+			<value xml:lang="zh-CN"><![CDATA[会员数]]></value>
+		</item>
+		<item name="regdate">
+			<value xml:lang="ko"><![CDATA[개설일 최신 순]]></value>
+			<value xml:lang="en"><![CDATA[Regdate]]></value>
+			<value xml:lang="zh-CN"><![CDATA[注册日期]]></value>
+		</item>
+	</item>
+	<item name="download_sort_order" type="array">
+		<item name="download_count">
+			<value xml:lang="ko"><![CDATA[다운로드 순]]></value>
+			<value xml:lang="en"><![CDATA[Download count]]></value>
+			<value xml:lang="zh-CN"><![CDATA[下载数]]></value>
+		</item>
+		<item name="regdate">
+			<value xml:lang="ko"><![CDATA[등록일 최신 순]]></value>
+			<value xml:lang="en"><![CDATA[Regdate]]></value>
+			<value xml:lang="zh-CN"><![CDATA[注册日期]]></value>
+		</item>
+		<item name="oldregdate">
+			<value xml:lang="ko"><![CDATA[등록일 오랜 순]]></value>
+			<value xml:lang="en"><![CDATA[Release Date]]></value>
+			<value xml:lang="zh-CN"><![CDATA[发布日期]]></value>
+		</item>
+	</item>
+	<item name="activity_types" type="array">
+		<item name="d">
+			<value xml:lang="ko"><![CDATA[글]]></value>
+			<value xml:lang="en"><![CDATA[Issue]]></value>
+			<value xml:lang="zh-CN"><![CDATA[主題]]></value>
+		</item>
+		<item name="c">
+			<value xml:lang="ko"><![CDATA[댓글]]></value>
+			<value xml:lang="en"><![CDATA[Reply]]></value>
+			<value xml:lang="zh-CN"><![CDATA[回覆]]></value>
+		</item>
+		<item name="s">
+			<value xml:lang="ko"><![CDATA[커밋]]></value>
+			<value xml:lang="en"><![CDATA[Commit]]></value>
+			<value xml:lang="zh-CN"><![CDATA[提交]]></value>
+		</item>
+		<item name="a">
+			<value xml:lang="ko"><![CDATA[할당된 이슈]]></value>
+			<value xml:lang="en"><![CDATA[Assigne Issues]]></value>
+			<value xml:lang="zh-CN"><![CDATA[分配问题]]></value>
+		</item>
+	</item>
+	<item name="mobile_menu" type="array">
+		<item name="dispProjectMySummary">
+			<value xml:lang="ko"><![CDATA[내 프로젝트 소식]]></value>
+			<value xml:lang="en"><![CDATA[My project]]></value>
+			<value xml:lang="zh-CN"><![CDATA[我的project]]></value>
+		</item>
+		<item name="dispProjectMyProjectList">
+			<value xml:lang="ko"><![CDATA[내 프로젝트 목록]]></value>
+			<value xml:lang="en"><![CDATA[My Project List]]></value>
+			<value xml:lang="zh-CN"><![CDATA[我的项目列表]]></value>
+		</item>
+		<item name="dispProjectSummary">
+			<value xml:lang="ko"><![CDATA[전체 프로젝트 소식]]></value>
+			<value xml:lang="en"><![CDATA[Project Summary]]></value>
+			<value xml:lang="zh-CN"><![CDATA[Project 概要]]></value>
+		</item>
+		<item name="dispProjectList">
+			<value xml:lang="ko"><![CDATA[전체 프로젝트 목록]]></value>
+			<value xml:lang="en"><![CDATA[Project List]]></value>
+			<value xml:lang="zh-CN"><![CDATA[Project 列表]]></value>
+		</item>
+	</item>
+	<item name="project_setting_menu" type="array">
+		<item name="project___dispProjectManage">
+			<value xml:lang="ko"><![CDATA[프로젝트 설정]]></value>
+			<value xml:lang="en"><![CDATA[Project]]></value>
+			<value xml:lang="zh-CN"><![CDATA[管理]]></value>
+		</item>
+		<item name="project___dispProjectMemberGroupManage">
+			<value xml:lang="ko"><![CDATA[그룹 설정]]></value>
+			<value xml:lang="en"><![CDATA[Groups]]></value>
+			<value xml:lang="zh-CN"><![CDATA[组设定]]></value>
+		</item>
+		<item name="project___dispProjectMemberManage">
+			<value xml:lang="ko"><![CDATA[회원 관리]]></value>
+			<value xml:lang="en"><![CDATA[Members]]></value>
+			<value xml:lang="zh-CN"><![CDATA[会员管理]]></value>
+		</item>
+		<item name="forum___dispBoardAdminInsertBoard">
+			<value xml:lang="ko"><![CDATA[포럼]]></value>
+			<value xml:lang="en"><![CDATA[Forum]]></value>
+			<value xml:lang="zh-CN"><![CDATA[论坛]]></value>
+		</item>
+		<item name="issuetracker___dispIssuetrackerAdminProjectInfo">
+			<value xml:lang="ko"><![CDATA[이슈트래커]]></value>
+			<value xml:lang="en"><![CDATA[Issues]]></value>
+			<value xml:lang="zh-CN"><![CDATA[问题追踪]]></value>
+		</item>
+		<item name="wiki___dispWikiAdminInsertWiki">
+			<value xml:lang="ko"><![CDATA[위키]]></value>
+			<value xml:lang="en"><![CDATA[Wiki]]></value>
+			<value xml:lang="zh-CN"><![CDATA[维基百科]]></value>
+		</item>
+		<item name="project___dispProjectCounter">
+			<value xml:lang="ko"><![CDATA[접속 통계]]></value>
+			<value xml:lang="en"><![CDATA[Statistics]]></value>
+			<value xml:lang="zh-CN"><![CDATA[访问统计]]></value>
+		</item>
+		<item name="project___dispProjectComponent">
+			<value xml:lang="ko"><![CDATA[기능 설정]]></value>
+			<value xml:lang="en"><![CDATA[Editor/Addon]]></value>
+			<value xml:lang="zh-CN"><![CDATA[功能設定]]></value>
+		</item>
+		<item name="project___dispProjectRepos">
+			<value xml:lang="ko"><![CDATA[저장소 설정]]></value>
+			<value xml:lang="en"><![CDATA[Repository]]></value>
+			<value xml:lang="zh-CN"><![CDATA[版本库设置]]></value>
+		</item>
+	</item>
+	<item name="mobile_pj_menu" type="array">
+		<item name="project___dispProjectIndex">
+			<value xml:lang="ko"><![CDATA[최근 글]]></value>
+			<value xml:lang="en"><![CDATA[New Document]]></value>
+			<value xml:lang="zh-CN"><![CDATA[最新主題]]></value>
+		</item>
+		<item name="project___dispProjectInfo">
+			<value xml:lang="ko"><![CDATA[프로젝트 정보]]></value>
+			<value xml:lang="en"><![CDATA[Project Info]]></value>
+			<value xml:lang="zh-CN"><![CDATA[项目信息]]></value>
+		</item>
+		<item name="issuetracker___dispIssuetrackerViewMilestone">
+			<value xml:lang="ko"><![CDATA[개발현황]]></value>
+			<value xml:lang="en"><![CDATA[Milestone]]></value>
+			<value xml:lang="zh-CN"><![CDATA[版本]]></value>
+		</item>
+		<item name="wiki___dispWikiContent">
+			<value xml:lang="ko"><![CDATA[위키]]></value>
+			<value xml:lang="en"><![CDATA[Wiki]]></value>
+			<value xml:lang="zh-CN"><![CDATA[维基]]></value>
+		</item>
+		<item name="forum___dispBoardContent">
+			<value xml:lang="ko"><![CDATA[포럼]]></value>
+			<value xml:lang="en"><![CDATA[Forum]]></value>
+			<value xml:lang="zh-CN"><![CDATA[论坛]]></value>
+		</item>
+		<item name="issuetracker___dispIssuetrackerViewIssue">
+			<value xml:lang="ko"><![CDATA[이슈 열람]]></value>
+			<value xml:lang="en"><![CDATA[View Issue]]></value>
+			<value xml:lang="zh-CN"><![CDATA[查看问题]]></value>
+		</item>
+		<item name="issuetracker___dispIssuetrackerNewIssue">
+			<value xml:lang="ko"><![CDATA[이슈 등록]]></value>
+			<value xml:lang="en"><![CDATA[New Issue]]></value>
+			<value xml:lang="zh-CN"><![CDATA[提交问题]]></value>
+		</item>
+		<item name="issuetracker___dispIssuetrackerTimeline">
+			<value xml:lang="ko"><![CDATA[타임라인]]></value>
+			<value xml:lang="en"><![CDATA[Timeline]]></value>
+			<value xml:lang="zh-CN"><![CDATA[时间轴]]></value>
+		</item>
+	</item>
+	<item name="project_default_menus" type="array">
+		<item name="issuetracker___dispIssuetrackerViewMilestone">
+			<value xml:lang="ko"><![CDATA[개발현황]]></value>
+			<value xml:lang="en"><![CDATA[Milestone]]></value>
+			<value xml:lang="zh-CN"><![CDATA[版本]]></value>
+		</item>
+		<item name="wiki___dispWikiContent">
+			<value xml:lang="ko"><![CDATA[위키]]></value>
+			<value xml:lang="en"><![CDATA[Wiki]]></value>
+			<value xml:lang="zh-CN"><![CDATA[维基]]></value>
+		</item>
+		<item name="forum___dispBoardContent">
+			<value xml:lang="ko"><![CDATA[포럼]]></value>
+			<value xml:lang="en"><![CDATA[Forum]]></value>
+			<value xml:lang="zh-CN"><![CDATA[论坛]]></value>
+		</item>
+		<item name="issuetracker___dispIssuetrackerViewIssue">
+			<value xml:lang="ko"><![CDATA[이슈]]></value>
+			<value xml:lang="en"><![CDATA[Issue]]></value>
+			<value xml:lang="zh-CN"><![CDATA[查看问题]]></value>
+		</item>
+		<item name="issuetracker___dispIssuetrackerViewSource">
+			<value xml:lang="ko"><![CDATA[코드]]></value>
+			<value xml:lang="en"><![CDATA[Source]]></value>
+			<value xml:lang="zh-CN"><![CDATA[原始码]]></value>
+		</item>
+		<item name="issuetracker___dispIssuetrackerTimeline">
+			<value xml:lang="ko"><![CDATA[타임라인]]></value>
+			<value xml:lang="en"><![CDATA[Timeline]]></value>
+			<value xml:lang="zh-CN"><![CDATA[时间轴]]></value>
+		</item>
+		<item name="issuetracker___dispIssuetrackerDownload">
+			<value xml:lang="ko"><![CDATA[다운로드]]></value>
+			<value xml:lang="en"><![CDATA[Download]]></value>
+			<value xml:lang="zh-CN"><![CDATA[资料下载]]></value>
+		</item>
+	</item>
+        <!--sub menu-->
+        <item name="issuetracker___dispIssuetrackerViewIssue" type="array">
+		<item name="issuetracker___dispIssuetrackerViewIssue">
+			<value xml:lang="ko"><![CDATA[이슈 열람]]></value>
+			<value xml:lang="en"><![CDATA[View Issues]]></value>
+			<value xml:lang="zh-CN"><![CDATA[浏览问题]]></value>
+		</item>
+		<item name="issuetracker___dispIssuetrackerNewIssue">
+			<value xml:lang="ko"><![CDATA[이슈 등록]]></value>
+			<value xml:lang="en"><![CDATA[New Issue]]></value>
+			<value xml:lang="zh-CN"><![CDATA[登记问题]]></value>
+		</item>
+	</item>
+         <!--sub menu-->
+	<item name="issuetracker___dispIssuetrackerViewSource" type="array">
+		<item name="issuetracker___dispIssuetrackerViewSource">
+			<value xml:lang="ko"><![CDATA[코드 열람]]></value>
+			<value xml:lang="en"><![CDATA[View Source]]></value>
+			<value xml:lang="zh-CN"><![CDATA[查看源码]]></value>
+		</item>
+	</item>
+        <item name="all_project_list">
+		<value xml:lang="ko"><![CDATA[전체 프로젝트 목록]]></value>
+		<value xml:lang="en"><![CDATA[All Projects List]]></value>
+		<value xml:lang="zh-CN"><![CDATA[全部项目列表]]></value>
+	</item>
+	<item name="project_schedule">
+		<value xml:lang="ko"><![CDATA[내 프로젝트 일정]]></value>
+		<value xml:lang="en"><![CDATA[Project Schedule]]></value>
+		<value xml:lang="zh-CN"><![CDATA[项目时间表]]></value>
+	</item>
+	<item name="project_activity">
+		<value xml:lang="ko"><![CDATA[내 활동 기록]]></value>
+		<value xml:lang="en"><![CDATA[Activity Records]]></value>
+		<value xml:lang="zh-CN"><![CDATA[项目活动记录]]></value>
+	</item>
+	<item name="all_projects">
+		<value xml:lang="ko"><![CDATA[모든 프로젝트]]></value>
+		<value xml:lang="en"><![CDATA[All Projects]]></value>
+		<value xml:lang="zh-CN"><![CDATA[所有项目]]></value>
+	</item>
+	<item name="contributor">
+		<value xml:lang="ko"><![CDATA[공헌자]]></value>
+		<value xml:lang="en"><![CDATA[Contributors]]></value>
+		<value xml:lang="zh-CN"><![CDATA[贡献者]]></value>
+	</item>
+	<item name="my_project_list">
+		<value xml:lang="ko"><![CDATA[프로젝트 목록]]></value>
+		<value xml:lang="en"><![CDATA[My Project List]]></value>
+		<value xml:lang="zh-CN"><![CDATA[我的项目列表]]></value>
+	</item>
+	<item name="my_contri_point">
+		<value xml:lang="ko"><![CDATA[나의 공헌 지수]]></value>
+		<value xml:lang="en"><![CDATA[My Contribution]]></value>
+		<value xml:lang="zh-CN"><![CDATA[我的贡献分数]]></value>
+	</item>
+	<item name="group">
+		<value xml:lang="ko"><![CDATA[Group]]></value>
+		<value xml:lang="en"><![CDATA[Group]]></value>
+		<value xml:lang="zh-CN"><![CDATA[分组]]></value>
+	</item>
+	<item name="project_search">
+		<value xml:lang="ko"><![CDATA[Project Search]]></value>
+		<value xml:lang="en"><![CDATA[Project Search]]></value>
+		<value xml:lang="zh-CN"><![CDATA[项目搜索]]></value>
+	</item>
+	<item name="search">
+		<value xml:lang="ko"><![CDATA[검색]]></value>
+		<value xml:lang="en"><![CDATA[Search]]></value>
+		<value xml:lang="zh-CN"><![CDATA[搜索]]></value>
+	</item>
+	<item name="project_download">
+		<value xml:lang="ko"><![CDATA[프로젝트를 다운로드]]></value>
+		<value xml:lang="en"><![CDATA[Project Download]]></value>
+		<value xml:lang="zh-CN"><![CDATA[项目下载]]></value>
+	</item>
+	<item name="project_name">
+		<value xml:lang="ko"><![CDATA[프로젝트]]></value>
+		<value xml:lang="en"><![CDATA[Project Name]]></value>
+		<value xml:lang="zh-CN"><![CDATA[项目名称]]></value>
+	</item>
+	<item name="package_name">
+		<value xml:lang="ko"><![CDATA[배포 이름]]></value>
+		<value xml:lang="en"><![CDATA[Package Name]]></value>
+		<value xml:lang="zh-CN"><![CDATA[程序包名称]]></value>
+	</item>
+	<item name="download_count">
+		<value xml:lang="ko"><![CDATA[다운로드 순]]></value>
+		<value xml:lang="en"><![CDATA[Download count]]></value>
+		<value xml:lang="zh-CN"><![CDATA[下载数]]></value>
+	</item>
+	<item name="uploaded_date">
+		<value xml:lang="ko"><![CDATA[등록일]]></value>
+		<value xml:lang="en"><![CDATA[Uploaded Date]]></value>
+		<value xml:lang="zh-CN"><![CDATA[上传日期]]></value>
+	</item>
+	<item name="All">
+		<value xml:lang="ko"><![CDATA[All]]></value>
+		<value xml:lang="en"><![CDATA[All]]></value>
+		<value xml:lang="zh-CN"><![CDATA[全部]]></value>
+	</item>
+	<item name="new_project">
+		<value xml:lang="ko"><![CDATA[새 프로젝트]]></value>
+		<value xml:lang="en"><![CDATA[New Project]]></value>
+		<value xml:lang="zh-CN"><![CDATA[新项目]]></value>
+	</item>
+	<item name="weekly_download">
+		<value xml:lang="ko"><![CDATA[주간 다운로드 순위]]></value>
+		<value xml:lang="en"><![CDATA[Weekly download]]></value>
+		<value xml:lang="zh-CN"><![CDATA[周下载排行]]></value>
+	</item>
+	<item name="no_relative_info">
+		<value xml:lang="ko"><![CDATA[No relative information.]]></value>
+		<value xml:lang="en"><![CDATA[No relative information.]]></value>
+		<value xml:lang="zh-CN"><![CDATA[没有相关信息]]></value>
+	</item>
+	<item name="search_keyword">
+		<value xml:lang="ko"><![CDATA[프로젝트검색]]></value>
+		<value xml:lang="en"><![CDATA[Project Search]]></value>
+		<value xml:lang="zh-CN"><![CDATA[项目搜索]]></value>
+	</item>
+	<item name="joindate">
+		<value xml:lang="ko"><![CDATA[가입일 최신 순]]></value>
+		<value xml:lang="en"><![CDATA[Join date]]></value>
+		<value xml:lang="zh-CN"><![CDATA[加入日期]]></value>
+	</item>
+	<item name="sum_activities">
+		<value xml:lang="ko"><![CDATA[공헌 분야]]></value>
+		<value xml:lang="en"><![CDATA[All Activities]]></value>
+		<value xml:lang="zh-CN"><![CDATA[所有活动]]></value>
+	</item>
+	<item name="my_activity">
+		<value xml:lang="ko"><![CDATA[내 활동기록]]></value>
+		<value xml:lang="en"><![CDATA[My Actvity Records]]></value>
+		<value xml:lang="zh-CN"><![CDATA[我的活动记录]]></value>
+	</item>
+	<item name="activity_point">
+		<value xml:lang="ko"><![CDATA[활성화지수]]></value>
+		<value xml:lang="en"><![CDATA[Activity Point]]></value>
+		<value xml:lang="zh-CN"><![CDATA[活动指数]]></value>
+	</item>
+	<item name="blank">
+		<value xml:lang="ko"><![CDATA[Module]]></value>
+		<value xml:lang="en"><![CDATA[Module]]></value>
+		<value xml:lang="zh-CN"><![CDATA[版块]]></value>
+	</item>
+	<item name="noMilestone">
+		<value xml:lang="ko"><![CDATA[아직 프로젝트 일정이 없습니다.]]></value>
+		<value xml:lang="en"><![CDATA[No project's milestone.]]></value>
+		<value xml:lang="zh-CN"><![CDATA[没有项目进度。]]></value>
+	</item>
+	<item name="today">
+		<value xml:lang="ko"><![CDATA[오늘]]></value>
+		<value xml:lang="en"><![CDATA[Today]]></value>
+		<value xml:lang="zh-CN"><![CDATA[今天]]></value>
+	</item>
+	<item name="before">
+		<value xml:lang="ko"><![CDATA[이전]]></value>
+		<value xml:lang="en"><![CDATA[Before]]></value>
+		<value xml:lang="zh-CN"><![CDATA[之前]]></value>
+	</item>
+	<item name="after">
+		<value xml:lang="ko"><![CDATA[다음]]></value>
+		<value xml:lang="en"><![CDATA[After]]></value>
+		<value xml:lang="zh-CN"><![CDATA[之后]]></value>
+	</item>
+	<item name="no_milestone">
+		<value xml:lang="ko"><![CDATA[진행중인 개발계획이 없습니다.]]></value>
+		<value xml:lang="en"><![CDATA[No milestone.]]></value>
+		<value xml:lang="zh-CN"><![CDATA[没有开发计划]]></value>
+	</item>
+	<item name="eval_complete">
+		<value xml:lang="ko"><![CDATA[완료예정]]></value>
+		<value xml:lang="en"><![CDATA[complete]]></value>
+		<value xml:lang="zh-CN"><![CDATA[预计完成]]></value>
+	</item>
+	<item name="no_all_project">
+		<value xml:lang="ko"><![CDATA[아직 프로젝트가 없습니다.]]></value>
+		<value xml:lang="en"><![CDATA[No Projects]]></value>
+		<value xml:lang="zh-CN"><![CDATA[没有项目。]]></value>
+	</item>
+	<item name="no_my_project">
+		<value xml:lang="ko"><![CDATA[아직 가입한 프로젝트가 없습니다.]]></value>
+		<value xml:lang="en"><![CDATA[No joined projects.]]></value>
+		<value xml:lang="zh-CN"><![CDATA[没有加入的项目。]]></value>
+	</item>
+	<item name="no_project_news">
+		<value xml:lang="ko"><![CDATA[아직 프로젝트 소식이 없습니다.]]></value>
+		<value xml:lang="en"><![CDATA[No project news.]]></value>
+		<value xml:lang="zh-CN"><![CDATA[没有相关项目的新闻。]]></value>
+	</item>
+	<item name="no_project_activities">
+		<value xml:lang="ko"><![CDATA[아직 내 활동기록이 없습니다.]]></value>
+		<value xml:lang="en"><![CDATA[No project activities.]]></value>
+		<value xml:lang="zh-CN"><![CDATA[没有项目活动。]]></value>
+	</item>
+	<item name="view_all">
+		<value xml:lang="ko"><![CDATA[모두보기]]></value>
+		<value xml:lang="en"><![CDATA[View All]]></value>
+		<value xml:lang="zh-CN"><![CDATA[查看全部]]></value>
+	</item>
+	<item name="activity_item">
+		<value xml:lang="ko"><![CDATA[건]]></value>
+		<value xml:lang="en"><![CDATA[items]]></value>
+		<value xml:lang="zh-CN"><![CDATA[个]]></value>
+	</item>
+	<item name="activity_date">
+		<value xml:lang="ko"><![CDATA[날짜]]></value>
+		<value xml:lang="en"><![CDATA[Date]]></value>
+		<value xml:lang="zh-CN"><![CDATA[时间]]></value>
+	</item>
+	<item name="activity_Title">
+		<value xml:lang="ko"><![CDATA[제목]]></value>
+		<value xml:lang="en"><![CDATA[Title]]></value>
+		<value xml:lang="zh-CN"><![CDATA[主题]]></value>
+	</item>
+	<item name="view_all_projects">
+		<value xml:lang="ko"><![CDATA[View All Projects]]></value>
+		<value xml:lang="en"><![CDATA[View All Projects]]></value>
+		<value xml:lang="zh-CN"><![CDATA[查看所有项目]]></value>
+	</item>
+	<item name="view_my_projects">
+		<value xml:lang="ko"><![CDATA[View My Projects]]></value>
+		<value xml:lang="en"><![CDATA[View My Projects]]></value>
+		<value xml:lang="zh-CN"><![CDATA[查看我的项目]]></value>
+	</item>
+	<item name="no_project_desc">
+		<value xml:lang="ko"><![CDATA[No project definition]]></value>
+		<value xml:lang="en"><![CDATA[No project definition]]></value>
+		<value xml:lang="zh-CN"><![CDATA[暂时没有项目定义]]></value>
+	</item>
+	<item name="no_project_admin">
+		<value xml:lang="ko"><![CDATA[No project administrator]]></value>
+		<value xml:lang="en"><![CDATA[No project administrator]]></value>
+		<value xml:lang="zh-CN"><![CDATA[暂时没有项目管理者]]></value>
+	</item>
+</lang>

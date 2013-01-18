@@ -1,0 +1,1203 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<lang>
+	<item name="issuetracker">
+		<value xml:lang="ko"><![CDATA[이슈트래커]]></value>
+		<value xml:lang="en"><![CDATA[Issue Tracker]]></value>
+		<value xml:lang="jp"><![CDATA[イシュートラッカー]]></value>
+		<value xml:lang="zh-CN"><![CDATA[问题跟踪]]></value>
+		<value xml:lang="zh-TW"><![CDATA[問題追蹤]]></value>
+		<value xml:lang="es"><![CDATA[Duco cuestiones actualización]]></value>
+		<value xml:lang="vi"><![CDATA[Issue Tracker]]></value>
+	</item>
+	<item name="about_issuetracker">
+		<value xml:lang="ko"><![CDATA[프로젝트 관리를 위한 계획표, 코드열람, 문제관리와 배포판을 관리할 수 있는 모듈입니다]]></value>
+		<value xml:lang="en"><![CDATA[Issue Tracker manages milestones, codes, issues and releases.]]></value>
+		<value xml:lang="jp"><![CDATA[プロジェクト管理のための計画、ソースコードの閲覧、イシュー管理、リリース管理が出来るモジュールです。]]></value>
+		<value xml:lang="zh-CN"><![CDATA[可进行项目计划，查看代码，问题管理及发布项目等操作的问题跟踪模块。]]></value>
+		<value xml:lang="zh-TW"><![CDATA[版本管理，原始碼，問題與發佈等問題追蹤。]]></value>
+		<value xml:lang="es"><![CDATA[Calendario para la gestión de proyectos, el código de acceso, gestión y distribución, para gestionar el problema, el módulo es]]></value>
+		<value xml:lang="vi"><![CDATA[Issue Tracker quản lý những mốc, mã, Release và Issue.]]></value>
+	</item>
+	<item name="cmd_project_list">
+		<value xml:lang="ko"><![CDATA[프로젝트 목록]]></value>
+		<value xml:lang="en"><![CDATA[Project List]]></value>
+		<value xml:lang="jp"><![CDATA[プロジェクトリスト]]></value>
+		<value xml:lang="zh-CN"><![CDATA[项目目录]]></value>
+		<value xml:lang="zh-TW"><![CDATA[專案清單]]></value>
+		<value xml:lang="es"><![CDATA[Lista de proyectos]]></value>
+		<value xml:lang="vi"><![CDATA[Danh sách Project]]></value>
+	</item>
+	<item name="cmd_view_info">
+		<value xml:lang="ko"><![CDATA[프로젝트 정보]]></value>
+		<value xml:lang="en"><![CDATA[Project Info]]></value>
+		<value xml:lang="jp"><![CDATA[プロジェクト情報]]></value>
+		<value xml:lang="zh-CN"><![CDATA[项目信息]]></value>
+		<value xml:lang="zh-TW"><![CDATA[專案資訊]]></value>
+		<value xml:lang="es"><![CDATA[Información del Proyecto]]></value>
+		<value xml:lang="vi"><![CDATA[Thông tin Project]]></value>
+	</item>
+	<item name="cmd_project_setting">
+		<value xml:lang="ko"><![CDATA[프로젝트 설정]]></value>
+		<value xml:lang="en"><![CDATA[Project Setting]]></value>
+		<value xml:lang="jp"><![CDATA[プロジェクト設定]]></value>
+		<value xml:lang="zh-CN"><![CDATA[项目设置]]></value>
+		<value xml:lang="zh-TW"><![CDATA[專案設置]]></value>
+		<value xml:lang="es"><![CDATA[Configuración del proyecto]]></value>
+		<value xml:lang="vi"><![CDATA[Thiết lập Project]]></value>
+	</item>
+	<item name="cmd_release_setting">
+		<value xml:lang="ko"><![CDATA[배포 설정]]></value>
+		<value xml:lang="en"><![CDATA[Release Setting]]></value>
+		<value xml:lang="jp"><![CDATA[リリース設定]]></value>
+		<value xml:lang="zh-CN"><![CDATA[发布设置]]></value>
+		<value xml:lang="zh-TW"><![CDATA[發佈設置]]></value>
+		<value xml:lang="es"><![CDATA[Configuración de despliegue]]></value>
+		<value xml:lang="vi"><![CDATA[Thiết lập Issue]]></value>
+	</item>
+	<item name="cmd_insert_package">
+		<value xml:lang="ko"><![CDATA[패키지 추가]]></value>
+		<value xml:lang="en"><![CDATA[Add Package]]></value>
+		<value xml:lang="jp"><![CDATA[パッケージ追加]]></value>
+		<value xml:lang="zh-CN"><![CDATA[添加程序包]]></value>
+		<value xml:lang="zh-TW"><![CDATA[新增套裝軟體]]></value>
+		<value xml:lang="es"><![CDATA[Añadir paquete]]></value>
+		<value xml:lang="vi"><![CDATA[Thêm gói mới]]></value>
+	</item>
+	<item name="cmd_insert_release">
+		<value xml:lang="ko"><![CDATA[배포 추가]]></value>
+		<value xml:lang="en"><![CDATA[Add Release]]></value>
+		<value xml:lang="jp"><![CDATA[リリース追加]]></value>
+		<value xml:lang="zh-CN"><![CDATA[添加发布]]></value>
+		<value xml:lang="zh-TW"><![CDATA[新增發佈版]]></value>
+		<value xml:lang="es"><![CDATA[Añadir distribución]]></value>
+		<value xml:lang="vi"><![CDATA[Thêm Release]]></value>
+	</item>
+	<item name="cmd_attach_file">
+		<value xml:lang="ko"><![CDATA[파일 첨부]]></value>
+		<value xml:lang="en"><![CDATA[Attach File]]></value>
+		<value xml:lang="jp"><![CDATA[ファイル添付]]></value>
+		<value xml:lang="zh-CN"><![CDATA[添加附件]]></value>
+		<value xml:lang="zh-TW"><![CDATA[新增附加檔案]]></value>
+		<value xml:lang="es"><![CDATA[Archivo Adjuntos]]></value>
+		<value xml:lang="vi"><![CDATA[File đính kèm]]></value>
+	</item>
+	<item name="cmd_display_item">
+		<value xml:lang="ko"><![CDATA[대상 표시]]></value>
+		<value xml:lang="en"><![CDATA[Display Item]]></value>
+		<value xml:lang="jp"><![CDATA[コンポーネントアイテム表示]]></value>
+		<value xml:lang="zh-CN"><![CDATA[显示对象]]></value>
+		<value xml:lang="zh-TW"><![CDATA[顯示專案]]></value>
+		<value xml:lang="es"><![CDATA[Meta pantalla]]></value>
+		<value xml:lang="vi"><![CDATA[Hiển thị danh mục]]></value>
+	</item>
+	<item name="cmd_resolve_as">
+		<value xml:lang="ko"><![CDATA[상태 변경]]></value>
+		<value xml:lang="en"><![CDATA[Modify Status]]></value>
+		<value xml:lang="jp"><![CDATA[ステータス変更]]></value>
+		<value xml:lang="zh-CN"><![CDATA[修改状态]]></value>
+		<value xml:lang="zh-TW"><![CDATA[修改狀態]]></value>
+		<value xml:lang="es"><![CDATA[Cambio de estado]]></value>
+		<value xml:lang="vi"><![CDATA[Sửa đổi trạng thái]]></value>
+	</item>
+	<item name="cmd_reassign">
+		<value xml:lang="ko"><![CDATA[소유자 변경]]></value>
+		<value xml:lang="en"><![CDATA[Modify Assignee]]></value>
+		<value xml:lang="jp"><![CDATA[アサイン変更]]></value>
+		<value xml:lang="zh-CN"><![CDATA[修改所有者]]></value>
+		<value xml:lang="zh-TW"><![CDATA[修改所有者]]></value>
+		<value xml:lang="es"><![CDATA[Cambiar Propietario]]></value>
+		<value xml:lang="vi"><![CDATA[Sửa đổi quyền]]></value>
+	</item>
+	<item name="cmd_accept">
+		<value xml:lang="ko"><![CDATA[수락하기]]></value>
+		<value xml:lang="en"><![CDATA[Accept]]></value>
+		<value xml:lang="jp"><![CDATA[承諾する]]></value>
+		<value xml:lang="zh-CN"><![CDATA[接受]]></value>
+		<value xml:lang="zh-TW"><![CDATA[接受]]></value>
+		<value xml:lang="es"><![CDATA[Aceptar]]></value>
+		<value xml:lang="vi"><![CDATA[ng ý]]></value>
+	</item>
+	<item name="svn_url">
+		<value xml:lang="ko"><![CDATA[SVN 주소]]></value>
+		<value xml:lang="en"><![CDATA[SVN URL]]></value>
+		<value xml:lang="jp"><![CDATA[SVNリポジトリーのURL]]></value>
+		<value xml:lang="zh-CN"><![CDATA[SVN地址]]></value>
+		<value xml:lang="zh-TW"><![CDATA[SVN 位址]]></value>
+		<value xml:lang="es"><![CDATA[SVN dirección]]></value>
+		<value xml:lang="vi"><![CDATA[SVN URL]]></value>
+	</item>
+	<item name="about_svn_url">
+		<value xml:lang="ko"><![CDATA[프로젝트의 버전관리가 이루어지는 SVN 주소를 입력해주세요]]></value>
+		<value xml:lang="en"><![CDATA[Please input SVN URL where project's version is managed]]></value>
+		<value xml:lang="jp"><![CDATA[プロジェクトのバージョン管理されるSVNリポジトリーのURLお入力して下さい。]]></value>
+		<value xml:lang="zh-CN"><![CDATA[请输入项目的SVN地址。]]></value>
+		<value xml:lang="zh-TW"><![CDATA[請輸入專案的 SVN 位址。]]></value>
+		<value xml:lang="es"><![CDATA[Versión SVN de la gestión del proyecto de obras, por favor, la dirección]]></value>
+		<value xml:lang="vi"><![CDATA[Xin hãy nhập SVN URL nơi phiên bản của những Project được quản lý.]]></value>
+	</item>
+	<item name="svn_cmd">
+		<value xml:lang="ko"><![CDATA[SVN 실행파일 위치]]></value>
+		<value xml:lang="en"><![CDATA[SVN Command Location]]></value>
+		<value xml:lang="jp"><![CDATA[SVNファイルの場所]]></value>
+		<value xml:lang="zh-CN"><![CDATA[SVN应用程序位置]]></value>
+		<value xml:lang="zh-TW"><![CDATA[SVN 應用程式位置]]></value>
+		<value xml:lang="es"><![CDATA[SVN ubicación del archivo ejecutable]]></value>
+		<value xml:lang="vi"><![CDATA[Thư mục định vị SVN]]></value>
+	</item>
+	<item name="about_svn_cmd">
+		<value xml:lang="ko"><![CDATA[SVN 연동을 위해 svn client 실행파일의 위치를 입력해주세요. (ex: /usr/bin/svn)]]></value>
+		<value xml:lang="en"><![CDATA[Please input the location of svn client to link with SVN. (ex: /usr/bin/svn)]]></value>
+		<value xml:lang="jp"><![CDATA[SVN連動のためのsvn clientファイルがある場所（絶対経路）を入力して下さい。 (ex: /usr/bin/svn)]]></value>
+		<value xml:lang="zh-CN"><![CDATA[请输入svn clien应用程序位置。(ex: /usr/bin/svn)]]></value>
+		<value xml:lang="zh-TW"><![CDATA[請輸入 SVN Client 應用程式位置。(例: /usr/bin/svn)]]></value>
+		<value xml:lang="es"><![CDATA[SVN svn para trabajar con el cliente, por favor, introduzca la ubicación del archivo ejecutable. (ej: / usr / bin / svn)]]></value>
+		<value xml:lang="vi"><![CDATA[Xin hãy nhập thư mục định vị đã liên kết với SVN. (Ví dụ: /usr/bin/svn)]]></value>
+	</item>
+	<item name="diff_cmd">
+		<value xml:lang="ko"><![CDATA[DIFF 실행파일 위치]]></value>
+		<value xml:lang="en"><![CDATA[DIFF Command Location]]></value>
+		<value xml:lang="jp"><![CDATA[DIFFファイルの場所]]></value>
+		<value xml:lang="zh-CN"><![CDATA[DIF应用程序位置]]></value>
+		<value xml:lang="zh-TW"><![CDATA[DIFF 應用程式位置]]></value>
+		<value xml:lang="es"><![CDATA[Ejecute el archivo de ubicación DIFF]]></value>
+		<value xml:lang="vi"><![CDATA[Thư mục định vị DIFF]]></value>
+	</item>
+	<item name="about_diff_cmd">
+		<value xml:lang="ko"><![CDATA[SVN revision들의 비교를 위한 diff 실행파일의 위치를 입력해주세요. (ex: /usr/bin/diff)]]></value>
+		<value xml:lang="en"><![CDATA[Please input the location of diff to compare SVN revisions. (ex: /usr/bin/diff)]]></value>
+		<value xml:lang="jp"><![CDATA[SVNリビジョン（revision）間の比較のためのdiffファイルがある場所（絶対経路）を入力して下さい。(ex: /usr/bin/diff)]]></value>
+		<value xml:lang="zh-CN"><![CDATA[为比较SVN revision，请输入diff应用程序位置。 (ex: /usr/bin/diff)]]></value>
+		<value xml:lang="zh-TW"><![CDATA[為了比較 SVN 版本，請輸入 diff 應用程式位置。(例: /usr/bin/diff)]]></value>
+		<value xml:lang="es"><![CDATA[SVN revisión de la comparación, por favor, introduzca la ubicación del archivo ejecutable de la diferencia. (ej: / usr / bin / diff)]]></value>
+		<value xml:lang="vi"><![CDATA[Xin hãy nhập thư mục định vị của DIFF để trả lời cho SVN. (Ví dụ: /usr/bin/diff)]]></value>
+	</item>
+	<item name="svn_userid">
+		<value xml:lang="ko"><![CDATA[SVN 인증 아이디]]></value>
+		<value xml:lang="en"><![CDATA[SVN ID]]></value>
+		<value xml:lang="jp"><![CDATA[SVNアクセス用ID]]></value>
+		<value xml:lang="zh-CN"><![CDATA[SVN ID]]></value>
+		<value xml:lang="zh-TW"><![CDATA[SVN 帳號]]></value>
+		<value xml:lang="es"><![CDATA[SVN autenticación ID]]></value>
+		<value xml:lang="vi"><![CDATA[SVN ID]]></value>
+	</item>
+	<item name="about_svn_userid">
+		<value xml:lang="ko"><![CDATA[인증이 필요한 경우 아이디를 입력해주세요]]></value>
+		<value xml:lang="en"><![CDATA[If authentication is necessary, input userid for accessing the SVN repository]]></value>
+		<value xml:lang="jp"><![CDATA[SVNリポジトリへのアクセス認証が必要な場合、IDを入力して下さい。]]></value>
+		<value xml:lang="zh-CN"><![CDATA[请输入SVN ID。]]></value>
+		<value xml:lang="zh-TW"><![CDATA[必須要驗證時，請輸入帳號來登入 SVN 檔案庫]]></value>
+		<value xml:lang="es"><![CDATA[Introduce el número de autenticación, en caso necesario]]></value>
+		<value xml:lang="vi"><![CDATA[Nếu cần thiết xác nhận, hãy nhập ID đăng nhập để truy cập SVN.]]></value>
+	</item>
+	<item name="svn_passwd">
+		<value xml:lang="ko"><![CDATA[SVN 인증 패스워드]]></value>
+		<value xml:lang="en"><![CDATA[SVN password]]></value>
+		<value xml:lang="jp"><![CDATA[SVNアクセス用パスワード]]></value>
+		<value xml:lang="zh-CN"><![CDATA[SVN密码]]></value>
+		<value xml:lang="zh-TW"><![CDATA[SVN 密碼]]></value>
+		<value xml:lang="es"><![CDATA[SVN contraseña de autenticación]]></value>
+		<value xml:lang="vi"><![CDATA[Mật khẩu SVN]]></value>
+	</item>
+	<item name="about_svn_passwd">
+		<value xml:lang="ko"><![CDATA[인증이 필요한 경우 패스워드를 입력해주세요]]></value>
+		<value xml:lang="en"><![CDATA[If authentication is necessary, input password for accessing the SVN repository]]></value>
+		<value xml:lang="jp"><![CDATA[SVNリポジトリへのアクセス認証が必要な場合、パスワードを入力して下さい。]]></value>
+		<value xml:lang="zh-CN"><![CDATA[请输入SVN密码。]]></value>
+		<value xml:lang="zh-TW"><![CDATA[必須要驗證時，請輸入密碼來登入 SVN 檔案庫]]></value>
+		<value xml:lang="es"><![CDATA[Introduzca la contraseña para la autenticación, en caso necesario]]></value>
+		<value xml:lang="vi"><![CDATA[Nếu cần thiết xác nhận, hãy nhập mật khẩu đăng nhập để truy cập SVN.]]></value>
+	</item>
+	<item name="issue">
+		<value xml:lang="ko"><![CDATA[문제]]></value>
+		<value xml:lang="en"><![CDATA[Issue]]></value>
+		<value xml:lang="jp"><![CDATA[イシュー]]></value>
+		<value xml:lang="zh-CN"><![CDATA[问题]]></value>
+		<value xml:lang="zh-TW"><![CDATA[問題]]></value>
+		<value xml:lang="es"><![CDATA[Tema]]></value>
+		<value xml:lang="vi"><![CDATA[Issue]]></value>
+	</item>
+	<item name="total_issue">
+		<value xml:lang="ko"><![CDATA[전체 문제]]></value>
+		<value xml:lang="en"><![CDATA[All Issues]]></value>
+		<value xml:lang="jp"><![CDATA[イシュー全体]]></value>
+		<value xml:lang="zh-CN"><![CDATA[全部问题]]></value>
+		<value xml:lang="zh-TW"><![CDATA[所有問題]]></value>
+		<value xml:lang="es"><![CDATA[Todos los números]]></value>
+		<value xml:lang="vi"><![CDATA[Tất cả Issue]]></value>
+	</item>
+	<item name="milestone">
+		<value xml:lang="ko"><![CDATA[계획]]></value>
+		<value xml:lang="en"><![CDATA[Milestone]]></value>
+		<value xml:lang="jp"><![CDATA[マイルストーン]]></value>
+		<value xml:lang="zh-CN"><![CDATA[计划]]></value>
+		<value xml:lang="zh-TW"><![CDATA[版本]]></value>
+		<value xml:lang="es"><![CDATA[Plan de]]></value>
+		<value xml:lang="vi"><![CDATA[Mốc]]></value>
+	</item>
+	<item name="milestone_srl">
+		<value xml:lang="ko"><![CDATA[계획]]></value>
+		<value xml:lang="en"><![CDATA[Milestone]]></value>
+		<value xml:lang="jp"><![CDATA[マイルストーン]]></value>
+		<value xml:lang="zh-CN"><![CDATA[计划]]></value>
+		<value xml:lang="zh-TW"><![CDATA[版本]]></value>
+		<value xml:lang="es"><![CDATA[Plan de]]></value>
+		<value xml:lang="vi"><![CDATA[Mốc]]></value>
+	</item>
+	<item name="priority">
+		<value xml:lang="ko"><![CDATA[우선순위]]></value>
+		<value xml:lang="en"><![CDATA[Priority]]></value>
+		<value xml:lang="jp"><![CDATA[優先度]]></value>
+		<value xml:lang="zh-CN"><![CDATA[优先顺序]]></value>
+		<value xml:lang="zh-TW"><![CDATA[優先順序]]></value>
+		<value xml:lang="es"><![CDATA[Prioridad]]></value>
+		<value xml:lang="vi"><![CDATA[Quyền ưu tiên]]></value>
+	</item>
+	<item name="priority_srl">
+		<value xml:lang="ko"><![CDATA[우선순위]]></value>
+		<value xml:lang="en"><![CDATA[Priority]]></value>
+		<value xml:lang="jp"><![CDATA[優先度]]></value>
+		<value xml:lang="zh-CN"><![CDATA[优先顺序]]></value>
+		<value xml:lang="zh-TW"><![CDATA[優先順序]]></value>
+		<value xml:lang="es"><![CDATA[Prioridad]]></value>
+		<value xml:lang="vi"><![CDATA[Quyền ưu tiên]]></value>
+	</item>
+	<item name="type">
+		<value xml:lang="ko"><![CDATA[타입]]></value>
+		<value xml:lang="en"><![CDATA[Type]]></value>
+		<value xml:lang="jp"><![CDATA[タイプ （種類）]]></value>
+		<value xml:lang="zh-CN"><![CDATA[种类]]></value>
+		<value xml:lang="zh-TW"><![CDATA[種類]]></value>
+		<value xml:lang="es"><![CDATA[Tipo]]></value>
+		<value xml:lang="vi"><![CDATA[nh dạng]]></value>
+	</item>
+	<item name="type_srl">
+		<value xml:lang="ko"><![CDATA[타입]]></value>
+		<value xml:lang="en"><![CDATA[Type]]></value>
+		<value xml:lang="jp"><![CDATA[タイプ （種類）]]></value>
+		<value xml:lang="zh-CN"><![CDATA[种类]]></value>
+		<value xml:lang="zh-TW"><![CDATA[種類]]></value>
+		<value xml:lang="es"><![CDATA[Tipo]]></value>
+		<value xml:lang="vi"><![CDATA[nh dạng]]></value>
+	</item>
+	<item name="component">
+		<value xml:lang="ko"><![CDATA[구성요소]]></value>
+		<value xml:lang="en"><![CDATA[Components]]></value>
+		<value xml:lang="jp"><![CDATA[コンポーネント]]></value>
+		<value xml:lang="zh-CN"><![CDATA[构件]]></value>
+		<value xml:lang="zh-TW"><![CDATA[組件]]></value>
+		<value xml:lang="es"><![CDATA[Componentes]]></value>
+		<value xml:lang="vi"><![CDATA[Issue Tracker]]></value>
+	</item>
+	<item name="component_srl">
+		<value xml:lang="ko"><![CDATA[구성요소]]></value>
+		<value xml:lang="en"><![CDATA[Components]]></value>
+		<value xml:lang="jp"><![CDATA[コンポーネント]]></value>
+		<value xml:lang="zh-CN"><![CDATA[构件]]></value>
+		<value xml:lang="zh-TW"><![CDATA[組件]]></value>
+		<value xml:lang="es"><![CDATA[Componentes]]></value>
+		<value xml:lang="vi"><![CDATA[Issue Tracker]]></value>
+	</item>
+	<item name="assignee">
+		<value xml:lang="ko"><![CDATA[소유자]]></value>
+		<value xml:lang="en"><![CDATA[Assignee]]></value>
+		<value xml:lang="jp"><![CDATA[担当者]]></value>
+		<value xml:lang="zh-CN"><![CDATA[所有者]]></value>
+		<value xml:lang="zh-TW"><![CDATA[所有者]]></value>
+		<value xml:lang="es"><![CDATA[Propietario]]></value>
+		<value xml:lang="vi"><![CDATA[Người được quyền]]></value>
+	</item>
+	<item name="status">
+		<value xml:lang="ko"><![CDATA[상태]]></value>
+		<value xml:lang="en"><![CDATA[Status]]></value>
+		<value xml:lang="jp"><![CDATA[ステータス]]></value>
+		<value xml:lang="zh-CN"><![CDATA[状态]]></value>
+		<value xml:lang="zh-TW"><![CDATA[狀態]]></value>
+		<value xml:lang="es"><![CDATA[Estado]]></value>
+		<value xml:lang="vi"><![CDATA[Trạng thái]]></value>
+	</item>
+	<item name="action">
+		<value xml:lang="ko"><![CDATA[동작]]></value>
+		<value xml:lang="en"><![CDATA[Action]]></value>
+		<value xml:lang="jp"><![CDATA[動作]]></value>
+		<value xml:lang="zh-CN"><![CDATA[动作]]></value>
+		<value xml:lang="zh-TW"><![CDATA[動作]]></value>
+		<value xml:lang="es"><![CDATA[Comportamiento]]></value>
+		<value xml:lang="vi"><![CDATA[Hoạt động]]></value>
+	</item>
+	<item name="display_option">
+		<value xml:lang="ko"><![CDATA[표시 옵션]]></value>
+		<value xml:lang="en"><![CDATA[Display Option]]></value>
+		<value xml:lang="jp"><![CDATA[表示オプション]]></value>
+		<value xml:lang="zh-CN"><![CDATA[显示选项]]></value>
+		<value xml:lang="zh-TW"><![CDATA[顯示選項]]></value>
+		<value xml:lang="es"><![CDATA[Display Option]]></value>
+		<value xml:lang="vi"><![CDATA[Hiển thị tùy chọn]]></value>
+	</item>
+	<item name="history_format_not_source">
+		<value xml:lang="ko"><![CDATA[<span class="target">[target]</span> 으로 <span class="key">[key]</span> 변경]]></value>
+		<value xml:lang="en"><![CDATA[<span class="key">[key]</span> is changed to <span class="target">[target]</span>]]></value>
+		<value xml:lang="jp"><![CDATA[<span class="target">[target]</span> へ <span class="key">[key]</span> 変更]]></value>
+		<value xml:lang="zh-CN"><![CDATA[<span class="key">[key]</span>修改为<span class="target">[target]</span>]]></value>
+		<value xml:lang="zh-TW"><![CDATA[<span class="key">[key]</span>修改為<span class="target">[target]</span>]]></value>
+		<value xml:lang="es"><![CDATA[<span class="target"> [objetivo] </ span> <span a class="key"> [clave] </ span> Cambiar]]></value>
+		<value xml:lang="vi"><![CDATA[<span class="key">[key]</span> Điều chỉnh tới <span class="target">[target]</span>]]></value>
+	</item>
+	<item name="history_format">
+		<value xml:lang="ko"><![CDATA[<span class="source">[source]</span> 에서 <span class="target">[target]</span> 으로 <span class="key">[key]</span> 변경]]></value>
+		<value xml:lang="en"><![CDATA[<span class="key">[key]</span> is changed from <span class="source">[source]</span> to <span class="target">[target]</span>]]></value>
+		<value xml:lang="jp"><![CDATA[<span class="source">[source]</span> から <span class="target">[target]</span> へ <span class="key">[key]</span> 変更]]></value>
+		<value xml:lang="zh-CN"><![CDATA[<span class="key">[key]</span>，从<span class="source">[source]</span>修改为<span class="target">[target]</span>]]></value>
+		<value xml:lang="zh-TW"><![CDATA[<span class="key">[key]</span>，從<span class="source">[source]</span>修改為<span class="target">[target]</span>]]></value>
+		<value xml:lang="es"><![CDATA[<span class="source"> [fuente] </ span> <span class="target"> en el [objetivo] </ span> <span a class="key"> [clave] </ span> Cambiar]]></value>
+		<value xml:lang="vi"><![CDATA[<span class="key">[key]</span> Điều chỉnh từ <span class="source">[source]</span> to <span class="target">[target]</span>]]></value>
+	</item>
+        <item name="project">
+		<value xml:lang="ko"><![CDATA[프로젝트]]></value>
+		<value xml:lang="en"><![CDATA[Project]]></value>
+		<value xml:lang="jp"><![CDATA[プロジェクト]]></value>
+		<value xml:lang="zh-CN"><![CDATA[项目]]></value>
+		<value xml:lang="zh-TW"><![CDATA[專案]]></value>
+		<value xml:lang="es"><![CDATA[Proyecto]]></value>
+		<value xml:lang="vi"><![CDATA[Project]]></value>
+	</item>
+	<item name="deadline">
+		<value xml:lang="ko"><![CDATA[완료기한]]></value>
+		<value xml:lang="en"><![CDATA[Deadline]]></value>
+		<value xml:lang="jp"><![CDATA[完了期限]]></value>
+		<value xml:lang="zh-CN"><![CDATA[完成期限]]></value>
+		<value xml:lang="zh-TW"><![CDATA[完成期限]]></value>
+		<value xml:lang="es"><![CDATA[Completa hasta]]></value>
+		<value xml:lang="vi"><![CDATA[Hạn cuối]]></value>
+	</item>
+	<item name="name">
+		<value xml:lang="ko"><![CDATA[이름]]></value>
+		<value xml:lang="en"><![CDATA[Name]]></value>
+		<value xml:lang="jp"><![CDATA[名前]]></value>
+		<value xml:lang="zh-CN"><![CDATA[名称]]></value>
+		<value xml:lang="zh-TW"><![CDATA[名稱]]></value>
+		<value xml:lang="es"><![CDATA[Nombre]]></value>
+		<value xml:lang="vi"><![CDATA[Tên]]></value>
+	</item>
+	<item name="complete">
+		<value xml:lang="ko"><![CDATA[완료]]></value>
+		<value xml:lang="en"><![CDATA[Complete]]></value>
+		<value xml:lang="jp"><![CDATA[完了]]></value>
+		<value xml:lang="zh-CN"><![CDATA[完成]]></value>
+		<value xml:lang="zh-TW"><![CDATA[完成]]></value>
+		<value xml:lang="es"><![CDATA[Completa]]></value>
+		<value xml:lang="vi"><![CDATA[Hoàn thành]]></value>
+	</item>
+	<item name="completed_date">
+		<value xml:lang="ko"><![CDATA[완료일]]></value>
+		<value xml:lang="en"><![CDATA[Completed]]></value>
+		<value xml:lang="jp"><![CDATA[完了日]]></value>
+		<value xml:lang="zh-CN"><![CDATA[结束日]]></value>
+		<value xml:lang="zh-TW"><![CDATA[結束日期]]></value>
+		<value xml:lang="es"><![CDATA[Completado]]></value>
+		<value xml:lang="vi"><![CDATA[Ngày hoàn thành]]></value>
+	</item>
+	<item name="order">
+		<value xml:lang="ko"><![CDATA[순서]]></value>
+		<value xml:lang="en"><![CDATA[Order]]></value>
+		<value xml:lang="jp"><![CDATA[順番]]></value>
+		<value xml:lang="zh-CN"><![CDATA[顺序]]></value>
+		<value xml:lang="zh-TW"><![CDATA[順序]]></value>
+		<value xml:lang="es"><![CDATA[Orden]]></value>
+		<value xml:lang="vi"><![CDATA[Xếp loại]]></value>
+	</item>
+	<item name="package">
+		<value xml:lang="ko"><![CDATA[패키지]]></value>
+		<value xml:lang="en"><![CDATA[Package]]></value>
+		<value xml:lang="jp"><![CDATA[パッケージ]]></value>
+		<value xml:lang="zh-CN"><![CDATA[程序包]]></value>
+		<value xml:lang="zh-TW"><![CDATA[套裝軟體]]></value>
+		<value xml:lang="es"><![CDATA[Paquete]]></value>
+		<value xml:lang="vi"><![CDATA[Gói]]></value>
+	</item>
+	<item name="package_srl">
+		<value xml:lang="ko"><![CDATA[패키지]]></value>
+		<value xml:lang="en"><![CDATA[Package]]></value>
+		<value xml:lang="jp"><![CDATA[パッケージ]]></value>
+		<value xml:lang="zh-CN"><![CDATA[程序包]]></value>
+		<value xml:lang="zh-TW"><![CDATA[套裝軟體]]></value>
+		<value xml:lang="es"><![CDATA[Paquete]]></value>
+		<value xml:lang="vi"><![CDATA[Gói]]></value>
+	</item>
+	<item name="release">
+		<value xml:lang="ko"><![CDATA[배포판]]></value>
+		<value xml:lang="en"><![CDATA[Release]]></value>
+		<value xml:lang="jp"><![CDATA[リリース]]></value>
+		<value xml:lang="zh-CN"><![CDATA[发布版]]></value>
+		<value xml:lang="zh-TW"><![CDATA[發佈版]]></value>
+		<value xml:lang="es"><![CDATA[Distribución]]></value>
+		<value xml:lang="vi"><![CDATA[Release]]></value>
+	</item>
+	<item name="release_srl">
+		<value xml:lang="ko"><![CDATA[배포판]]></value>
+		<value xml:lang="en"><![CDATA[Release]]></value>
+		<value xml:lang="jp"><![CDATA[リリース]]></value>
+		<value xml:lang="zh-CN"><![CDATA[发布版]]></value>
+		<value xml:lang="zh-TW"><![CDATA[發佈版]]></value>
+		<value xml:lang="es"><![CDATA[Distribución]]></value>
+		<value xml:lang="vi"><![CDATA[Release]]></value>
+	</item>
+	<item name="release_note">
+		<value xml:lang="ko"><![CDATA[배포 기록]]></value>
+		<value xml:lang="en"><![CDATA[Release Note]]></value>
+		<value xml:lang="jp"><![CDATA[リリース記録]]></value>
+		<value xml:lang="zh-CN"><![CDATA[发布记录]]></value>
+		<value xml:lang="zh-TW"><![CDATA[發佈記錄]]></value>
+		<value xml:lang="es"><![CDATA[Registro de la distribución]]></value>
+		<value xml:lang="vi"><![CDATA[Release ghi chú]]></value>
+	</item>
+	<item name="release_changes">
+		<value xml:lang="ko"><![CDATA[변경 사항]]></value>
+		<value xml:lang="en"><![CDATA[Release Changes]]></value>
+		<value xml:lang="jp"><![CDATA[変更内容]]></value>
+		<value xml:lang="zh-CN"><![CDATA[更新日志]]></value>
+		<value xml:lang="zh-TW"><![CDATA[更新日誌]]></value>
+		<value xml:lang="es"><![CDATA[Cambios]]></value>
+		<value xml:lang="vi"><![CDATA[Release thay đổi]]></value>
+	</item>
+	<item name="occured_version">
+		<value xml:lang="ko"><![CDATA[발생버전]]></value>
+		<value xml:lang="en"><![CDATA[Occured Version]]></value>
+		<value xml:lang="jp"><![CDATA[発生リリース]]></value>
+		<value xml:lang="zh-CN"><![CDATA[当前版本]]></value>
+		<value xml:lang="zh-TW"><![CDATA[目前版本]]></value>
+		<value xml:lang="es"><![CDATA[Planteadas versión]]></value>
+		<value xml:lang="vi"><![CDATA[ã có phiên bản mới]]></value>
+	</item>
+	<item name="occured_version_srl">
+		<value xml:lang="ko"><![CDATA[발생버전]]></value>
+		<value xml:lang="en"><![CDATA[Occured Version]]></value>
+		<value xml:lang="jp"><![CDATA[発生リリース]]></value>
+		<value xml:lang="zh-CN"><![CDATA[当前版本]]></value>
+		<value xml:lang="zh-TW"><![CDATA[目前版本]]></value>
+		<value xml:lang="es"><![CDATA[Planteadas versión]]></value>
+		<value xml:lang="vi"><![CDATA[ã có phiên bản mới]]></value>
+	</item>
+	<item name="attached_file">
+		<value xml:lang="ko"><![CDATA[첨부 파일]]></value>
+		<value xml:lang="en"><![CDATA[Attached File]]></value>
+		<value xml:lang="jp"><![CDATA[添付ファイル]]></value>
+		<value xml:lang="zh-CN"><![CDATA[附件]]></value>
+		<value xml:lang="zh-TW"><![CDATA[附加檔案]]></value>
+		<value xml:lang="es"><![CDATA[Adjuntos]]></value>
+		<value xml:lang="vi"><![CDATA[File đính kèm]]></value>
+	</item>
+	<item name="filename">
+		<value xml:lang="ko"><![CDATA[파일이름]]></value>
+		<value xml:lang="en"><![CDATA[File Name]]></value>
+		<value xml:lang="jp"><![CDATA[ファイル名]]></value>
+		<value xml:lang="zh-CN"><![CDATA[文件名]]></value>
+		<value xml:lang="zh-TW"><![CDATA[檔案名稱]]></value>
+		<value xml:lang="es"><![CDATA[Nombre del archivo]]></value>
+		<value xml:lang="vi"><![CDATA[Tên File]]></value>
+	</item>
+	<item name="filesize">
+		<value xml:lang="ko"><![CDATA[파일크기]]></value>
+		<value xml:lang="en"><![CDATA[File Size]]></value>
+		<value xml:lang="jp"><![CDATA[ファイル容量]]></value>
+		<value xml:lang="zh-CN"><![CDATA[文件大小]]></value>
+		<value xml:lang="zh-TW"><![CDATA[檔案大小]]></value>
+		<value xml:lang="es"><![CDATA[Tamaño de archivo]]></value>
+		<value xml:lang="vi"><![CDATA[Dung lượng]]></value>
+	</item>
+	<item name="status_list" type="array">
+		<item name="new">
+			<value xml:lang="ko"><![CDATA[신규]]></value>
+			<value xml:lang="en"><![CDATA[New]]></value>
+			<value xml:lang="jp"><![CDATA[新規]]></value>
+			<value xml:lang="zh-CN"><![CDATA[新建]]></value>
+			<value xml:lang="zh-TW"><![CDATA[新建]]></value>
+                		<value xml:lang="es"><![CDATA[Nuevo]]></value>
+                		<value xml:lang="vi"><![CDATA[Mới]]></value>
+		</item>
+		<item name="reviewing">
+			<value xml:lang="ko"><![CDATA[검토중]]></value>
+			<value xml:lang="en"><![CDATA[Reviewing]]></value>
+			<value xml:lang="jp"><![CDATA[検討中]]></value>
+			<value xml:lang="zh-CN"><![CDATA[审查中]]></value>
+			<value xml:lang="zh-TW"><![CDATA[審查]]></value>
+                		<value xml:lang="es"><![CDATA[Geomtojung]]></value>
+                		<value xml:lang="vi"><![CDATA[Tổng quan]]></value>
+		</item>
+		<item name="assign">
+			<value xml:lang="ko"><![CDATA[할당]]></value>
+			<value xml:lang="en"><![CDATA[Assigned]]></value>
+			<value xml:lang="jp"><![CDATA[アサイン]]></value>
+			<value xml:lang="zh-CN"><![CDATA[分配]]></value>
+			<value xml:lang="zh-TW"><![CDATA[分配]]></value>
+                		<value xml:lang="es"><![CDATA[Asignación]]></value>
+                		<value xml:lang="vi"><![CDATA[n định]]></value>
+		</item>
+		<item name="resolve">
+			<value xml:lang="ko"><![CDATA[해결]]></value>
+			<value xml:lang="en"><![CDATA[Resolved]]></value>
+			<value xml:lang="jp"><![CDATA[解決]]></value>
+			<value xml:lang="zh-CN"><![CDATA[解决]]></value>
+			<value xml:lang="zh-TW"><![CDATA[解決]]></value>
+                		<value xml:lang="es"><![CDATA[Resolver]]></value>
+                		<value xml:lang="vi"><![CDATA[Quyết định]]></value>
+		</item>
+		<item name="reopen">
+			<value xml:lang="ko"><![CDATA[재발]]></value>
+			<value xml:lang="en"><![CDATA[Reopened]]></value>
+			<value xml:lang="jp"><![CDATA[再発]]></value>
+			<value xml:lang="zh-CN"><![CDATA[再发]]></value>
+			<value xml:lang="zh-TW"><![CDATA[重新開始]]></value>
+                		<value xml:lang="es"><![CDATA[Recurrencia]]></value>
+                		<value xml:lang="vi"><![CDATA[Mở lại]]></value>
+		</item>
+		<item name="postponed">
+			<value xml:lang="ko"><![CDATA[보류]]></value>
+			<value xml:lang="en"><![CDATA[Postponed]]></value>
+			<value xml:lang="jp"><![CDATA[保留]]></value>
+			<value xml:lang="zh-CN"><![CDATA[保留]]></value>
+			<value xml:lang="zh-TW"><![CDATA[保留]]></value>
+                		<value xml:lang="es"><![CDATA[Pendiente]]></value>
+                		<value xml:lang="vi"><![CDATA[Hoãn]]></value>
+		</item>
+		<item name="duplicated">
+			<value xml:lang="ko"><![CDATA[중복]]></value>
+			<value xml:lang="en"><![CDATA[Duplicated]]></value>
+			<value xml:lang="jp"><![CDATA[重複]]></value>
+			<value xml:lang="zh-CN"><![CDATA[重复]]></value>
+			<value xml:lang="zh-TW"><![CDATA[重複]]></value>
+                		<value xml:lang="es"><![CDATA[Duplicar]]></value>
+                		<value xml:lang="vi"><![CDATA[Nhân đôi]]></value>
+		</item>
+		<item name="invalid">
+			<value xml:lang="ko"><![CDATA[문제아님]]></value>
+			<value xml:lang="en"><![CDATA[Invalid]]></value>
+			<value xml:lang="jp"><![CDATA[イシューではない]]></value>
+			<value xml:lang="zh-CN"><![CDATA[不是问题]]></value>
+			<value xml:lang="zh-TW"><![CDATA[無效]]></value>
+                		<value xml:lang="es"><![CDATA[Problemas o]]></value>
+                		<value xml:lang="vi"><![CDATA[Thất bại]]></value>
+		</item>
+	</item>
+	<item name="about_milestone">
+		<value xml:lang="ko"><![CDATA[개발계획을 설정합니다]]></value>
+		<value xml:lang="en"><![CDATA[This sets milestones.]]></value>
+		<value xml:lang="jp"><![CDATA[マイルストーンを設定します。]]></value>
+		<value xml:lang="zh-CN"><![CDATA[设置开发计划。]]></value>
+		<value xml:lang="zh-TW"><![CDATA[設置開發計劃。]]></value>
+		<value xml:lang="es"><![CDATA[Establecer el plan de desarrollo]]></value>
+		<value xml:lang="vi"><![CDATA[Thiết lập mốc.]></value>
+	</item>
+	<item name="about_priority">
+		<value xml:lang="ko"><![CDATA[우선순위를 설정합니다.]]></value>
+		<value xml:lang="en"><![CDATA[This sets priority.]]></value>
+		<value xml:lang="jp"><![CDATA[優先度を設定します。]]></value>
+		<value xml:lang="zh-CN"><![CDATA[设置优先顺序。]]></value>
+		<value xml:lang="zh-TW"><![CDATA[設置優先順序。]]></value>
+		<value xml:lang="es"><![CDATA[Para establecer las prioridades.]]></value>
+		<value xml:lang="vi"><![CDATA[Thiết lập quyền ưu tiên.]></value>
+	</item>
+	<item name="about_type">
+		<value xml:lang="ko"><![CDATA[문제의 타입를 설정합니다 (ex. 문제, 개선사항)]]></value>
+		<value xml:lang="en"><![CDATA[This selects type of issues (ex. issue, development)]]></value>
+		<value xml:lang="jp"><![CDATA[イシューのタイプを設定します。 (ex. バッグ, 改善)]]></value>
+		<value xml:lang="zh-CN"><![CDATA[设置问题种类。 (ex. 问题, 改善项目)]]></value>
+		<value xml:lang="zh-TW"><![CDATA[設置問題種類。 (例如：問題，改善項目)]]></value>
+		<value xml:lang="es"><![CDATA[Establece el tipo de problema (por ejemplo, los problemas, las mejoras)]]></value>
+		<value xml:lang="vi"><![CDATA[Chọn định dạng của Issue (Ví dụ: issue, development)]]></value>
+	</item>
+	<item name="about_component">
+		<value xml:lang="ko"><![CDATA[문제의 대상 구성요소를 설정합니다]]></value>
+		<value xml:lang="en"><![CDATA[This sets components of issues]]></value>
+		<value xml:lang="jp"><![CDATA[イシューのコンポーネントを設定します。]]></value>
+		<value xml:lang="zh-CN"><![CDATA[设置问题构件。]]></value>
+		<value xml:lang="zh-TW"><![CDATA[設置問題組件。]]></value>
+		<value xml:lang="es"><![CDATA[Establece el objetivo de componentes del problema]]></value>
+		<value xml:lang="vi"><![CDATA[Thiết lập Components của Issue]]></value>
+	</item>
+	<item name="project_menus" type="array">
+		<item name="dispIssuetrackerViewIssue">
+			<value xml:lang="ko"><![CDATA[이슈 열람]]></value>
+			<value xml:lang="en"><![CDATA[View Issue]]></value>
+			<value xml:lang="jp"><![CDATA[イシュー閲覧]]></value>
+			<value xml:lang="zh-CN"><![CDATA[查看问题]]></value>
+			<value xml:lang="zh-TW"><![CDATA[問題清單]]></value>
+                		<value xml:lang="es"><![CDATA[Plan de desarrollo]]></value>
+                		<value xml:lang="vi"><![CDATA[Xem Issue]]></value>
+		</item>
+		<item name="dispIssuetrackerNewIssue">
+			<value xml:lang="ko"><![CDATA[이슈 등록]]></value>
+			<value xml:lang="en"><![CDATA[New Issue]]></value>
+			<value xml:lang="jp"><![CDATA[イシュー登録]]></value>
+			<value xml:lang="zh-CN"><![CDATA[提交问题]]></value>
+			<value xml:lang="zh-TW"><![CDATA[發表問題]]></value>
+                		<value xml:lang="es"><![CDATA[Problemas de lectura]]></value>
+                		<value xml:lang="vi"><![CDATA[Thêm Issue]]></value>
+		</item>
+		<item name="dispIssuetrackerViewMilestone">
+			<value xml:lang="ko"><![CDATA[개발계획]]></value>
+			<value xml:lang="en"><![CDATA[Milestone]]></value>
+			<value xml:lang="jp"><![CDATA[マイルストーン]]></value>
+			<value xml:lang="zh-CN"><![CDATA[开发计划]]></value>
+			<value xml:lang="zh-TW"><![CDATA[版本開發]]></value>
+                		<value xml:lang="es"><![CDATA[Crear problemas]]></value>
+                		<value xml:lang="vi"><![CDATA[Mốc]]></value>
+		</item>
+		<item name="dispIssuetrackerTimeline">
+			<value xml:lang="ko"><![CDATA[타임 라인]]></value>
+			<value xml:lang="en"><![CDATA[Timeline]]></value>
+			<value xml:lang="jp"><![CDATA[マイルストーン]]></value>
+			<value xml:lang="zh-CN"><![CDATA[时间轴]]></value>
+			<value xml:lang="zh-TW"><![CDATA[時間軸]]></value>
+                		<value xml:lang="es"><![CDATA[Cronología]]></value>
+                		<value xml:lang="vi"><![CDATA[Timeline]]></value>
+		</item>
+		<item name="dispIssuetrackerViewSource">
+			<value xml:lang="ko"><![CDATA[코드 열람]]></value>
+			<value xml:lang="en"><![CDATA[View Source]]></value>
+			<value xml:lang="jp"><![CDATA[ソースコード閲覧]]></value>
+			<value xml:lang="zh-CN"><![CDATA[查看代码]]></value>
+			<value xml:lang="zh-TW"><![CDATA[檢視原始碼]]></value>
+                		<value xml:lang="es"><![CDATA[Código de Lectura]]></value>
+                		<value xml:lang="vi"><![CDATA[Xem nguồn]]></value>
+		</item>
+		<item name="dispIssuetrackerDownload">
+			<value xml:lang="ko"><![CDATA[다운로드]]></value>
+			<value xml:lang="en"><![CDATA[Download]]></value>
+			<value xml:lang="jp"><![CDATA[ダウンロード]]></value>
+			<value xml:lang="zh-CN"><![CDATA[下载]]></value>
+			<value xml:lang="zh-TW"><![CDATA[下載]]></value>
+                		<value xml:lang="es"><![CDATA[Descargar]]></value>
+                		<value xml:lang="vi"><![CDATA[Download]]></value>
+		</item>
+		<item name="dispIssuetrackerAdminProjectSetting">
+			<value xml:lang="ko"><![CDATA[설정]]></value>
+			<value xml:lang="en"><![CDATA[Settings]]></value>
+			<value xml:lang="jp"><![CDATA[設定]]></value>
+			<value xml:lang="zh-CN"><![CDATA[设置]]></value>
+			<value xml:lang="zh-TW"><![CDATA[設置]]></value>
+                		<value xml:lang="es"><![CDATA[Escenario]]></value>
+                		<value xml:lang="vi"><![CDATA[Thiết lập]]></value>
+		</item>
+	</item>
+	<item name="new_project_menus" type="array">
+		<item name="dispIssuetrackerViewMilestone">
+			<value xml:lang="ko"><![CDATA[개발계획]]></value>
+			<value xml:lang="en"><![CDATA[Milestone]]></value>
+			<value xml:lang="jp"><![CDATA[マイルストーン]]></value>
+			<value xml:lang="zh-CN"><![CDATA[开发计划]]></value>
+			<value xml:lang="zh-TW"><![CDATA[開發計畫]]></value>
+                		<value xml:lang="es"><![CDATA[Milestone]]></value>
+                		<value xml:lang="vi"><![CDATA[Kế hoạch phát triển]]></value>
+		</item>
+		<item name="dispIssuetrackerViewIssue">
+			<value xml:lang="ko"><![CDATA[이슈]]></value>
+			<value xml:lang="en"><![CDATA[Issues]]></value>
+			<value xml:lang="jp"><![CDATA[イシュー閲覧]]></value>
+			<value xml:lang="zh-CN"><![CDATA[问题追踪]]></value>
+			<value xml:lang="zh-TW"><![CDATA[問題]]></value>
+                		<value xml:lang="es"><![CDATA[Issues]]></value>
+                		<value xml:lang="vi"><![CDATA[Issues]]></value>
+		</item>
+		<item name="dispIssuetrackerViewSource">
+			<value xml:lang="ko"><![CDATA[코드]]></value>
+			<value xml:lang="en"><![CDATA[Source]]></value>
+			<value xml:lang="jp"><![CDATA[ソースコード閲覧]]></value>
+			<value xml:lang="zh-CN"><![CDATA[源码]]></value>
+			<value xml:lang="zh-TW"><![CDATA[原始碼]]></value>
+                		<value xml:lang="es"><![CDATA[Source]]></value>
+                		<value xml:lang="vi"><![CDATA[Tài nguyên]]></value>
+		</item>
+		<item name="dispIssuetrackerTimeline">
+			<value xml:lang="ko"><![CDATA[타임라인]]></value>
+			<value xml:lang="en"><![CDATA[Timeline]]></value>
+			<value xml:lang="jp"><![CDATA[マイルストーン]]></value>
+			<value xml:lang="zh-CN"><![CDATA[时间轴]]></value>
+			<value xml:lang="zh-TW"><![CDATA[時間軸]]></value>
+                		<value xml:lang="es"><![CDATA[Timeline]]></value>
+                		<value xml:lang="vi"><![CDATA[Thời gian biểu]]></value>
+		</item>
+		<item name="dispIssuetrackerDownload">
+			<value xml:lang="ko"><![CDATA[다운로드]]></value>
+			<value xml:lang="en"><![CDATA[Download]]></value>
+			<value xml:lang="jp"><![CDATA[Download]]></value>
+			<value xml:lang="zh-CN"><![CDATA[资料下载]]></value>
+			<value xml:lang="zh-TW"><![CDATA[下載]]></value>
+                		<value xml:lang="es"><![CDATA[Download]]></value>
+                		<value xml:lang="vi"><![CDATA[Tải v]]></value>
+		</item>
+	</item>
+	<item name="dispIssuetrackerViewIssue" type="array">
+		<item name="dispIssuetrackerViewIssue">
+			<value xml:lang="ko"><![CDATA[이슈 열람]]></value>
+			<value xml:lang="en"><![CDATA[Issue List]]></value>
+			<value xml:lang="jp"><![CDATA[Issue List]]></value>
+			<value xml:lang="zh-CN"><![CDATA[查看问题]]></value>
+			<value xml:lang="zh-TW"><![CDATA[問題清單]]></value>
+                		<value xml:lang="es"><![CDATA[Issue List]]></value>
+                		<value xml:lang="vi"><![CDATA[Danh sách Issue]]></value>
+		</item>
+		<item name="dispIssuetrackerNewIssue">
+			<value xml:lang="ko"><![CDATA[이슈 등록]]></value>
+			<value xml:lang="en"><![CDATA[New Issue]]></value>
+			<value xml:lang="jp"><![CDATA[New Issue]]></value>
+			<value xml:lang="zh-CN"><![CDATA[登记问题]]></value>
+			<value xml:lang="zh-TW"><![CDATA[發表問題]]></value>
+                		<value xml:lang="es"><![CDATA[New Issue]]></value>
+                		<value xml:lang="vi"><![CDATA[Issue mới]]></value>
+		</item>
+	</item>
+	<item name="dispIssuetrackerViewSource" type="array">
+		<item name="dispIssuetrackerViewSource">
+			<value xml:lang="ko"><![CDATA[코드 열람]]></value>
+			<value xml:lang="en"><![CDATA[View Source]]></value>
+			<value xml:lang="jp"><![CDATA[View Source]]></value>
+			<value xml:lang="zh-CN"><![CDATA[查看源码]]></value>
+			<value xml:lang="zh-TW"><![CDATA[檢視]]></value>
+                		<value xml:lang="es"><![CDATA[View Source]]></value>
+                		<value xml:lang="vi"><![CDATA[Xem tài nguyên]]></value>
+		</item>
+	</item>
+	<item name="mobile_it_menu" type="array">
+		<item name="dispIssuetrackerViewMilestone">
+			<value xml:lang="ko"><![CDATA[개발계획]]></value>
+			<value xml:lang="en"><![CDATA[Milestone]]></value>
+			<value xml:lang="jp"><![CDATA[マイルストーン]]></value>
+			<value xml:lang="zh-CN"><![CDATA[Milestone]]></value>
+			<value xml:lang="zh-TW"><![CDATA[開發計畫]]></value>
+                		<value xml:lang="es"><![CDATA[Milestone]]></value>
+                		<value xml:lang="vi"><![CDATA[Kế hoạch phát triển]]></value>
+		</item>
+		<item name="dispIssuetrackerViewIssue">
+			<value xml:lang="ko"><![CDATA[이슈 열람]]></value>
+			<value xml:lang="en"><![CDATA[Issue List]]></value>
+			<value xml:lang="jp"><![CDATA[Issue List]]></value>
+			<value xml:lang="zh-CN"><![CDATA[问题清单]]></value>
+			<value xml:lang="zh-TW"><![CDATA[問題清單]]></value>
+                		<value xml:lang="es"><![CDATA[Issue List]]></value>
+                		<value xml:lang="vi"><![CDATA[Danh sách Issue]]></value>
+		</item>
+		<item name="dispIssuetrackerNewIssue">
+			<value xml:lang="ko"><![CDATA[이슈 등록]]></value>
+			<value xml:lang="en"><![CDATA[New Issue]]></value>
+			<value xml:lang="jp"><![CDATA[New Issue]]></value>
+			<value xml:lang="zh-CN"><![CDATA[发表问题]]></value>
+			<value xml:lang="zh-TW"><![CDATA[發表問題]]></value>
+                		<value xml:lang="es"><![CDATA[New Issue]]></value>
+                		<value xml:lang="vi"><![CDATA[Issue mới]]></value>
+		</item>
+		<item name="dispIssuetrackerTimeline">
+			<value xml:lang="ko"><![CDATA[타임라인]]></value>
+			<value xml:lang="en"><![CDATA[Timeline]]></value>
+			<value xml:lang="jp"><![CDATA[マイルストーン]]></value>
+			<value xml:lang="zh-CN"><![CDATA[时间轴]]></value>
+			<value xml:lang="zh-TW"><![CDATA[時間軸]]></value>
+                		<value xml:lang="es"><![CDATA[Timeline]]></value>
+                		<value xml:lang="vi"><![CDATA[Thời gian biểu]]></value>
+		</item>
+	</item>
+	<item name="msg_not_attched">
+		<value xml:lang="ko"><![CDATA[파일을 첨부해주세요]]></value>
+		<value xml:lang="en"><![CDATA[No file is attached]]></value>
+		<value xml:lang="jp"><![CDATA[添付ファイルを登録して下さい。]]></value>
+		<value xml:lang="zh-CN"><![CDATA[请添加附件。]]></value>
+		<value xml:lang="zh-TW"><![CDATA[請新增附檔]]></value>
+		<value xml:lang="es"><![CDATA[Por favor, adjunte el archivo]]></value>
+		<value xml:lang="vi"><![CDATA[Không có File đính kèm nào]]></value>
+	</item>
+	<item name="msg_no_product">
+		<value xml:lang="ko"><![CDATA[There is no such a product available.]]></value>
+		<value xml:lang="en"><![CDATA[There is no such a product available.]]></value>
+		<value xml:lang="jp"><![CDATA[There is no such a product available.]]></value>
+		<value xml:lang="zh-CN"><![CDATA[There is no such a product available.]]></value>
+		<value xml:lang="zh-TW"><![CDATA[There is no such a product available.]]></value>
+		<value xml:lang="es"><![CDATA[There is no such a product available.]]></value>
+		<value xml:lang="vi"><![CDATA[There is no such a product available.]]></value>
+	</item>
+	<item name="msg_attached">
+		<value xml:lang="ko"><![CDATA[파일이 등록되었습니다]]></value>
+		<value xml:lang="en"><![CDATA[File has been attached]]></value>
+		<value xml:lang="jp"><![CDATA[添付ファイルが登録されました。]]></value>
+		<value xml:lang="zh-CN"><![CDATA[文件已添加。]]></value>
+		<value xml:lang="zh-TW"><![CDATA[檔案已新增。]]></value>
+		<value xml:lang="es"><![CDATA[El archivo se ha registrado]]></value>
+		<value xml:lang="vi"><![CDATA[File đã được đính kèm]]></value>
+	</item>
+	<item name="msg_no_releases">
+		<value xml:lang="ko"><![CDATA[등록된 배포판이 없습니다]]></value>
+		<value xml:lang="en"><![CDATA[No release is registered]]></value>
+		<value xml:lang="jp"><![CDATA[登録されたリリースがありません。]]></value>
+		<value xml:lang="zh-CN"><![CDATA[没有被添加的发布版。]]></value>
+		<value xml:lang="zh-TW"><![CDATA[尚未新增的發佈版本。]]></value>
+		<value xml:lang="es"><![CDATA[Distribuciones no son registrados]]></value>
+		<value xml:lang="vi"><![CDATA[Không có Release nào được đăng kí]]></value>
+	</item>
+	<item name="cmd_document_do">
+		<value xml:lang="ko"><![CDATA[이 문제를.. ]]></value>
+		<value xml:lang="en"><![CDATA[You would...]]></value>
+		<value xml:lang="jp"><![CDATA[このイシューを・・・ ]]></value>
+		<value xml:lang="zh-CN"><![CDATA[将把此问题.. ]]></value>
+		<value xml:lang="zh-TW"><![CDATA[將此問題...]]></value>
+		<value xml:lang="es"><![CDATA[Este problema ..]]></value>
+		<value xml:lang="vi"><![CDATA[Bình chọn / Phê bình]]></value>
+	</item>
+	<item name="not_assigned">
+		<value xml:lang="ko"><![CDATA[할당 안됨]]></value>
+		<value xml:lang="en"><![CDATA[Unassigned]]></value>
+		<value xml:lang="jp"><![CDATA[アサイン無し]]></value>
+		<value xml:lang="zh-CN"><![CDATA[没有分配]]></value>
+		<value xml:lang="zh-TW"><![CDATA[尚未分配]]></value>
+		<value xml:lang="es"><![CDATA[No asignado]]></value>
+		<value xml:lang="vi"><![CDATA[Không ấn định]]></value>
+	</item>
+	<item name="not_assigned_description">
+		<value xml:lang="ko"><![CDATA[할당 안된 문제들의 목록입니다.]]></value>
+		<value xml:lang="en"><![CDATA[List of unassigned issues.]]></value>
+		<value xml:lang="jp"><![CDATA[アサインされてないイシューのリストです。]]></value>
+		<value xml:lang="zh-CN"><![CDATA[没被分配的问题目录]]></value>
+		<value xml:lang="zh-TW"><![CDATA[尚未分配的問題]]></value>
+		<value xml:lang="es"><![CDATA[No es asignado una lista de cuestiones.]]></value>
+		<value xml:lang="vi"><![CDATA[Danh sách Issue không ấn định.]]></value>
+	</item>
+	<item name="timeline_msg" type="array">
+		<item name="changed">
+			<value xml:lang="ko"><![CDATA[이슈변경]]></value>
+			<value xml:lang="en"><![CDATA[changed]]></value>
+			<value xml:lang="jp"><![CDATA[変更]]></value>
+			<value xml:lang="zh-CN"><![CDATA[修改]]></value>
+			<value xml:lang="zh-TW"><![CDATA[變更]]></value>
+                		<value xml:lang="es"><![CDATA[Cambiar]]></value>
+                		<value xml:lang="vi"><![CDATA[ã thay đổi]]></value>
+		</item>
+		<item name="created">
+			<value xml:lang="ko"><![CDATA[이슈생성]]></value>
+			<value xml:lang="en"><![CDATA[created]]></value>
+			<value xml:lang="jp"><![CDATA[作成]]></value>
+			<value xml:lang="zh-CN"><![CDATA[生成]]></value>
+			<value xml:lang="zh-TW"><![CDATA[建立]]></value>
+                		<value xml:lang="es"><![CDATA[Creación]]></value>
+                		<value xml:lang="vi"><![CDATA[ã tạo]]></value>
+		</item>
+	</item>
+	<item name="cmd_manage_issue">
+		<value xml:lang="ko"><![CDATA[이슈 관리]]></value>
+		<value xml:lang="en"><![CDATA[Manage issues]]></value>
+		<value xml:lang="jp"><![CDATA[イシューの管理]]></value>
+		<value xml:lang="zh-CN"><![CDATA[问题管理]]></value>
+		<value xml:lang="zh-TW"><![CDATA[問題管理]]></value>
+		<value xml:lang="es"><![CDATA[Cuestiones de gestión]]></value>
+		<value xml:lang="vi"><![CDATA[Quản lý Issue]]></value>
+	</item>
+	<item name="msg_changes_from">
+		<value xml:lang="ko"><![CDATA[시작 날짜]]></value>
+		<value xml:lang="en"><![CDATA[View changes from]]></value>
+		<value xml:lang="jp"><![CDATA[開始日付]]></value>
+		<value xml:lang="zh-CN"><![CDATA[开始日期]]></value>
+		<value xml:lang="zh-TW"><![CDATA[開始日期]]></value>
+		<value xml:lang="es"><![CDATA[View changes from]]></value>
+		<value xml:lang="vi"><![CDATA[Xem những thay đổi]]></value>
+	</item>
+	<item name="duration">
+		<value xml:lang="ko"><![CDATA[기간]]></value>
+		<value xml:lang="en"><![CDATA[Duration]]></value>
+		<value xml:lang="jp"><![CDATA[期間]]></value>
+		<value xml:lang="zh-CN"><![CDATA[期间]]></value>
+		<value xml:lang="zh-TW"><![CDATA[期間]]></value>
+		<value xml:lang="es"><![CDATA[Duration]]></value>
+		<value xml:lang="vi"><![CDATA[Khoảng thời gian]]></value>
+	</item>
+        <item name="target_list" type="array">
+		<item name="issue_created">
+			<value xml:lang="ko"><![CDATA[생성된 이슈]]></value>
+			<value xml:lang="en"><![CDATA[Created]]></value>
+			<value xml:lang="jp"><![CDATA[生成されたイシュー]]></value>
+			<value xml:lang="zh-CN"><![CDATA[生成的问题]]></value>
+			<value xml:lang="zh-TW"><![CDATA[建立問題]]></value>
+                		<value xml:lang="es"><![CDATA[Created issues]]></value>
+                		<value xml:lang="vi"><![CDATA[Issue đã tạo]]></value>
+		</item>
+		<item name="issue_changed">
+			<value xml:lang="ko"><![CDATA[변경된 이슈]]></value>
+			<value xml:lang="en"><![CDATA[Changed]]></value>
+			<value xml:lang="jp"><![CDATA[変更されたイシュー]]></value>
+			<value xml:lang="zh-CN"><![CDATA[修改过的问题]]></value>
+			<value xml:lang="zh-TW"><![CDATA[變更問題]]></value>
+                		<value xml:lang="es"><![CDATA[Changed issues]]></value>
+                		<value xml:lang="vi"><![CDATA[Issue đã thay đổi]]></value>
+		</item>
+		<item name="commit">
+			<value xml:lang="ko"><![CDATA[소스변경]]></value>
+			<value xml:lang="en"><![CDATA[Commit]]></value>
+			<value xml:lang="jp"><![CDATA[リポジトリのソース変更(checkin)]]></value>
+			<value xml:lang="zh-CN"><![CDATA[代码更新]]></value>
+			<value xml:lang="zh-TW"><![CDATA[檔案更新]]></value>
+                		<value xml:lang="es"><![CDATA[Repository checkins]]></value>
+                		<value xml:lang="vi"><![CDATA[Kiểm tra kho chứa]]></value>
+		</item>
+	</item>
+	<item name="not_using_repository">
+		<value xml:lang="ko"><![CDATA[저장소를 사용하지 않고 있습니다]]></value>
+		<value xml:lang="en"><![CDATA[This project is not using repository.]]></value>
+		<value xml:lang="jp"><![CDATA[This project is not using repository.]]></value>
+		<value xml:lang="zh-CN"><![CDATA[此项目未使用档案库。]]></value>
+		<value xml:lang="zh-TW"><![CDATA[此專案未使用檔案庫。]]></value>
+		<value xml:lang="es"><![CDATA[This project is not using repository.]]></value>
+		<value xml:lang="vi"><![CDATA[Dự án này không sử dụng kho chứa.]]></value>
+	</item>
+	<item name="revision">
+		<value xml:lang="ko"><![CDATA[리비전]]></value>
+		<value xml:lang="en"><![CDATA[Revision]]></value>
+		<value xml:lang="jp"><![CDATA[Revision]]></value>
+		<value xml:lang="zh-CN"><![CDATA[Revision]]></value>
+		<value xml:lang="zh-TW"><![CDATA[版本]]></value>
+		<value xml:lang="es"><![CDATA[Revision]]></value>
+		<value xml:lang="vi"><![CDATA[Xem lại]]></value>
+	</item>
+	<item name="repos_path">
+		<value xml:lang="ko"><![CDATA[저장소 경로]]></value>
+		<value xml:lang="en"><![CDATA[Repository path]]></value>
+		<value xml:lang="jp"><![CDATA[Repository path]]></value>
+		<value xml:lang="zh-CN"><![CDATA[Repository path]]></value>
+		<value xml:lang="zh-TW"><![CDATA[檔案庫路徑]]></value>
+		<value xml:lang="es"><![CDATA[Repository path]]></value>
+		<value xml:lang="vi"><![CDATA[ng dẫn lưu tr]]></value>
+	</item>
+	<item name="view_log">
+		<value xml:lang="ko"><![CDATA[로그 보기]]></value>
+		<value xml:lang="en"><![CDATA[View logs]]></value>
+		<value xml:lang="jp"><![CDATA[View logs]]></value>
+		<value xml:lang="zh-CN"><![CDATA[查看日志]]></value>
+		<value xml:lang="zh-TW"><![CDATA[檢視日誌]]></value>
+		<value xml:lang="es"><![CDATA[View logs]]></value>
+		<value xml:lang="vi"><![CDATA[Xem bản ghi]]></value>
+	</item>
+	<item name="compare_with_previous">
+		<value xml:lang="ko"><![CDATA[이전 버전과 비교]]></value>
+		<value xml:lang="en"><![CDATA[Compare with prev. version]]></value>
+		<value xml:lang="jp"><![CDATA[Compare with prev. version]]></value>
+		<value xml:lang="zh-CN"><![CDATA[版本比较]]></value>
+		<value xml:lang="zh-TW"><![CDATA[與舊版本比較]]></value>
+		<value xml:lang="es"><![CDATA[Compare with prev. version]]></value>
+		<value xml:lang="vi"><![CDATA[So sánh với phiên bản trước]]></value>
+	</item>
+	<item name="issue_id">
+		<value xml:lang="ko"><![CDATA[ID]]></value>
+		<value xml:lang="en"><![CDATA[ID]]></value>
+		<value xml:lang="jp"><![CDATA[ID]]></value>
+		<value xml:lang="zh-CN"><![CDATA[ID]]></value>
+		<value xml:lang="zh-TW"><![CDATA[ID]]></value>
+		<value xml:lang="es"><![CDATA[ID]]></value>
+		<value xml:lang="vi"><![CDATA[ID]]></value>
+	</item>
+	<item name="cmd_detailed_search">
+		<value xml:lang="ko"><![CDATA[상세검색]]></value>
+		<value xml:lang="en"><![CDATA[Advanced Search]]></value>
+		<value xml:lang="jp"><![CDATA[Advanced Search]]></value>
+		<value xml:lang="zh-CN"><![CDATA[高级搜索]]></value>
+		<value xml:lang="zh-TW"><![CDATA[進階搜尋]]></value>
+		<value xml:lang="es"><![CDATA[Advanced Search]]></value>
+		<value xml:lang="vi"><![CDATA[Tìm kiếm nâng cao]]></value>
+	</item>
+	<item name="about_total_count">
+		<value xml:lang="ko"><![CDATA[<em>%s</em> 개의 이슈가 있습니다.]]></value>
+		<value xml:lang="en"><![CDATA[There exist <em>%s</em> issues.]]></value>
+		<value xml:lang="jp"><![CDATA[There exist <em>%s</em> issues.]]></value>
+		<value xml:lang="zh-CN"><![CDATA[There exist <em>%s</em> issues.]]></value>
+		<value xml:lang="zh-TW"><![CDATA[總共有 <em>%s</em> 個問題]]></value>
+		<value xml:lang="es"><![CDATA[There exist <em>%s</em> issues.]]></value>
+		<value xml:lang="vi"><![CDATA[<em>%s</em> Issues đã có sẵn.]]></value>
+	</item>
+	<item name="startdate">
+		<value xml:lang="ko"><![CDATA[시작일]]></value>
+		<value xml:lang="en"><![CDATA[Start Date]]></value>
+		<value xml:lang="jp"><![CDATA[Start Date]]></value>
+		<value xml:lang="zh-CN"><![CDATA[Start Date]]></value>
+		<value xml:lang="zh-TW"><![CDATA[建立日期]]></value>
+		<value xml:lang="es"><![CDATA[Start Date]]></value>
+		<value xml:lang="vi"><![CDATA[Ngày bắt đầu]]></value>
+	</item>
+	<item name="contributor">
+		<value xml:lang="ko"><![CDATA[공헌자]]></value>
+		<value xml:lang="en"><![CDATA[Contributor]]></value>
+		<value xml:lang="jp"><![CDATA[Contributor]]></value>
+		<value xml:lang="zh-CN"><![CDATA[Contributor]]></value>
+		<value xml:lang="zh-TW"><![CDATA[貢獻者]]></value>
+		<value xml:lang="es"><![CDATA[Contributor]]></value>
+		<value xml:lang="vi"><![CDATA[Người đóng góp]]></value>
+	</item>
+	<item name="time">
+		<value xml:lang="ko"><![CDATA[시간]]></value>
+		<value xml:lang="en"><![CDATA[Time]]></value>
+		<value xml:lang="jp"><![CDATA[Time]]></value>
+		<value xml:lang="zh-CN"><![CDATA[时间]]></value>
+		<value xml:lang="zh-TW"><![CDATA[時間]]></value>
+		<value xml:lang="es"><![CDATA[Time]]></value>
+		<value xml:lang="vi"><![CDATA[Thời gian]]></value>
+	</item>
+	<item name="condition">
+		<value xml:lang="ko"><![CDATA[조건]]></value>
+		<value xml:lang="en"><![CDATA[Condition]]></value>
+		<value xml:lang="jp"><![CDATA[Condition]]></value>
+		<value xml:lang="zh-CN"><![CDATA[条件]]></value>
+		<value xml:lang="zh-TW"><![CDATA[條件]]></value>
+		<value xml:lang="es"><![CDATA[Condition]]></value>
+		<value xml:lang="vi"><![CDATA[iều kiện]]></value>
+	</item>
+	<item name="parent_directory">
+		<value xml:lang="ko"><![CDATA[상위 디렉토리]]></value>
+		<value xml:lang="en"><![CDATA[Parent Directory]]></value>
+		<value xml:lang="jp"><![CDATA[Parent Directory]]></value>
+		<value xml:lang="zh-CN"><![CDATA[根目录]]></value>
+		<value xml:lang="zh-TW"><![CDATA[根目錄]]></value>
+		<value xml:lang="es"><![CDATA[Parent Directory]]></value>
+		<value xml:lang="vi"><![CDATA[Thư mục chính]]></value>
+	</item>
+	<item name="cmd_compare">
+		<value xml:lang="ko"><![CDATA[비교]]></value>
+		<value xml:lang="en"><![CDATA[Compare]]></value>
+		<value xml:lang="jp"><![CDATA[Compare]]></value>
+		<value xml:lang="zh-CN"><![CDATA[比较]]></value>
+		<value xml:lang="zh-TW"><![CDATA[比較]]></value>
+		<value xml:lang="es"><![CDATA[Compare]]></value>
+		<value xml:lang="vi"><![CDATA[So sánh]]></value>
+	</item>
+	<item name="progress">
+		<value xml:lang="ko"><![CDATA[진행률]]></value>
+		<value xml:lang="en"><![CDATA[Progress]]></value>
+		<value xml:lang="jp"><![CDATA[Progress]]></value>
+		<value xml:lang="zh-CN"><![CDATA[Progress]]></value>
+		<value xml:lang="zh-TW"><![CDATA[進展]]></value>
+		<value xml:lang="es"><![CDATA[Progress]]></value>
+		<value xml:lang="vi"><![CDATA[Tiến độ]]></value>
+	</item>
+	<item name="noissue">
+		<value xml:lang="ko"><![CDATA[등록된 이슈가 없습니다.]]></value>
+		<value xml:lang="en"><![CDATA[There is no issue.]]></value>
+		<value xml:lang="jp"><![CDATA[There is no issue.]]></value>
+		<value xml:lang="zh-CN"><![CDATA[无问题]]></value>
+		<value xml:lang="zh-TW"><![CDATA[無任何問題]]></value>
+		<value xml:lang="es"><![CDATA[There is no issue.]]></value>
+		<value xml:lang="vi"><![CDATA[Không có Issue nào tồn tại.]]></value>
+	</item>
+	<item name="cmd_new_issue">
+		<value xml:lang="ko"><![CDATA[이슈 등록]]></value>
+		<value xml:lang="en"><![CDATA[New Issue]]></value>
+		<value xml:lang="jp"><![CDATA[New Issue]]></value>
+		<value xml:lang="zh-CN"><![CDATA[新建问题]]></value>
+		<value xml:lang="zh-TW"><![CDATA[發表問題]]></value>
+		<value xml:lang="es"><![CDATA[New Issue]]></value>
+		<value xml:lang="vi"><![CDATA[Issue mới]]></value>
+	</item>
+	<item name="more">
+		<value xml:lang="ko"><![CDATA[더보기]]></value>
+		<value xml:lang="en"><![CDATA[More]]></value>
+		<value xml:lang="jp"><![CDATA[More]]></value>
+		<value xml:lang="zh-CN"><![CDATA[More]]></value>
+		<value xml:lang="zh-TW"><![CDATA[More]]></value>
+		<value xml:lang="es"><![CDATA[More]]></value>
+		<value xml:lang="vi"><![CDATA[Xem thêm]]></value>
+	</item>
+	<item name="cmd_openclose">
+		<value xml:lang="ko"><![CDATA[열기/닫기]]></value>
+		<value xml:lang="en"><![CDATA[open / close]]></value>
+		<value xml:lang="jp"><![CDATA[open / close]]></value>
+		<value xml:lang="zh-CN"><![CDATA[open / close]]></value>
+		<value xml:lang="zh-TW"><![CDATA[open / close]]></value>
+		<value xml:lang="es"><![CDATA[open / close]]></value>
+		<value xml:lang="vi"><![CDATA[open / close]]></value>
+	</item>
+	<item name="released_date">
+		<value xml:lang="ko"><![CDATA[배포 날짜]]></value>
+		<value xml:lang="en"><![CDATA[released date]]></value>
+		<value xml:lang="jp"><![CDATA[released date]]></value>
+		<value xml:lang="zh-CN"><![CDATA[released date]]></value>
+		<value xml:lang="zh-TW"><![CDATA[released date]]></value>
+		<value xml:lang="es"><![CDATA[released date]]></value>
+		<value xml:lang="vi"><![CDATA[released date]]></value>
+	</item>
+	<item name="cmd_show_all_version">
+		<value xml:lang="ko"><![CDATA[지난 버전 모두 보기]]></value>
+		<value xml:lang="en"><![CDATA[show all versions]]></value>
+		<value xml:lang="jp"><![CDATA[show all versions]]></value>
+		<value xml:lang="zh-CN"><![CDATA[show all versions]]></value>
+		<value xml:lang="zh-TW"><![CDATA[show all versions]]></value>
+		<value xml:lang="es"><![CDATA[show all versions]]></value>
+		<value xml:lang="vi"><![CDATA[show all versions]]></value>
+	</item>
+	<item name="cmd_hide_all_version">
+		<value xml:lang="ko"><![CDATA[지난 버전 숨기기]]></value>
+		<value xml:lang="en"><![CDATA[hide all versions]]></value>
+		<value xml:lang="jp"><![CDATA[hide all versions]]></value>
+		<value xml:lang="zh-CN"><![CDATA[hide all versions]]></value>
+		<value xml:lang="zh-TW"><![CDATA[hide all versions]]></value>
+		<value xml:lang="es"><![CDATA[hide all versions]]></value>
+		<value xml:lang="vi"><![CDATA[hide all versions]]></value>
+	</item>
+	<item name="issue_admin_mail">
+		<value xml:lang="ko"><![CDATA[관리자 메일]]></value>
+		<value xml:lang="en"><![CDATA[Administrator mail]]></value>
+		<value xml:lang="jp"><![CDATA[Administrator mail]]></value>
+		<value xml:lang="zh-CN"><![CDATA[管理员邮件]]></value>
+		<value xml:lang="zh-TW"><![CDATA[Administrator mail]]></value>
+		<value xml:lang="es"><![CDATA[Administrator mail]]></value>
+		<value xml:lang="vi"><![CDATA[Administrator mail]]></value>
+	</item>
+	<item name="about_issue_admin_mail">
+		<value xml:lang="ko"><![CDATA[이슈 등록이나 상태등 이 변결될때 등록된 메일주소로 메일이 발송됩니다<br /> ,(콤마)로 연결시 다수의 메일주소로 발송할 수 있습니다.]]></value>
+		<value xml:lang="en"><![CDATA[A email will be sent to the address below when a new issue is reported or a issue is updated.<br /> Fill more than one address could use comma to seperate them.]]></value>
+		<value xml:lang="jp"><![CDATA[A email will be sent to the address below when a new issue is reported or a issue is updated.<br /> Fill more than one address could use comma to seperate them.]]></value>
+		<value xml:lang="zh-CN"><![CDATA[有新的 Issue 或状态更新时，使用该邮件地址发送电子邮件。<br /> 可使用 , (逗号) 来填入多个邮件地址。]]></value>
+		<value xml:lang="zh-TW"><![CDATA[A email will be sent to the address below when a new issue is reported or a issue is updated.<br /> Fill more than one address could use comma to seperate them.]]></value>
+		<value xml:lang="es"><![CDATA[A email will be sent to the address below when a new issue is reported or a issue is updated.<br /> Fill more than one address could use comma to seperate them.]]></value>
+		<value xml:lang="vi"><![CDATA[A email will be sent to the address below when a new issue is reported or a issue is updated.<br /> Fill more than one address could use comma to seperate them.]]></value>
+	</item>
+	<item name="view_issue">
+		<value xml:lang="ko"><![CDATA[이슈보기]]></value>
+		<value xml:lang="en"><![CDATA[View Issues]]></value>
+		<value xml:lang="jp"><![CDATA[View Issues]]></value>
+		<value xml:lang="zh-CN"><![CDATA[查看问题]]></value>
+		<value xml:lang="zh-TW"><![CDATA[View Issues]]></value>
+		<value xml:lang="es"><![CDATA[View Issues]]></value>
+		<value xml:lang="vi"><![CDATA[View Issues]]></value>
+	</item>
+	<item name="download_counter">
+		<value xml:lang="ko"><![CDATA[다운로드 카운터]]></value>
+		<value xml:lang="en"><![CDATA[Download Counter]]></value>
+		<value xml:lang="jp"><![CDATA[Download Counter]]></value>
+		<value xml:lang="zh-CN"><![CDATA[下载计数器]]></value>
+		<value xml:lang="zh-TW"><![CDATA[Download Counter]]></value>
+		<value xml:lang="es"><![CDATA[Download Counter]]></value>
+		<value xml:lang="vi"><![CDATA[Download Counter]]></value>
+	</item>
+	<item name="about_download_counter">
+		<value xml:lang="ko"><![CDATA[이슈트래커 릴리즈 다운로드 정보를 기록합니다.]]></value>
+		<value xml:lang="en"><![CDATA[Record the download count of the Issue Tracker release.]]></value>
+		<value xml:lang="jp"><![CDATA[Record the download count of the Issue Tracker release.]]></value>
+		<value xml:lang="zh-CN"><![CDATA[记录 Issue Tracker Release 的下载信息。]]></value>
+		<value xml:lang="zh-TW"><![CDATA[Record the download count of the Issue Tracker release.]]></value>
+		<value xml:lang="es"><![CDATA[Record the download count of the Issue Tracker release.]]></value>
+		<value xml:lang="vi"><![CDATA[Record the download count of the Issue Tracker release.]]></value>
+	</item>
+	<item name="governance">
+		<value xml:lang="ko"><![CDATA[거버넌스결과]]></value>
+		<value xml:lang="en"><![CDATA[Governance results]]></value>
+		<value xml:lang="jp"><![CDATA[Governance results]]></value>
+		<value xml:lang="zh-CN"><![CDATA[治理结果]]></value>
+		<value xml:lang="zh-TW"><![CDATA[Governance results]]></value>
+		<value xml:lang="es"><![CDATA[Governance results]]></value>
+		<value xml:lang="vi"><![CDATA[Governance results]]></value>
+	</item>
+	<item name="release_note2">
+		<value xml:lang="ko"><![CDATA[릴리즈노트]]></value>
+		<value xml:lang="en"><![CDATA[Release Notes]]></value>
+		<value xml:lang="jp"><![CDATA[Release Notes]]></value>
+		<value xml:lang="zh-CN"><![CDATA[发行说明]]></value>
+		<value xml:lang="zh-TW"><![CDATA[Release Notes]]></value>
+		<value xml:lang="es"><![CDATA[Release Notes]]></value>
+		<value xml:lang="vi"><![CDATA[Release Notes]]></value>
+	</item>
+	<item name="default_description">
+		<value xml:lang="ko"><![CDATA[You can check this option, if this goal is default selected in issue added page.]]></value>
+		<value xml:lang="en"><![CDATA[You can check this option, if this goal is default selected in issue added page.]]></value>
+		<value xml:lang="zh-CN"><![CDATA[You can check this option, if this goal is default selected in issue added page.]]></value>
+	</item>
+</lang>

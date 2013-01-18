@@ -1,0 +1,174 @@
+<!--%import("css/pxeBranch.css")-->
+<!--%import("js/pxeBranch.js")-->
+<!--%import("js/mwLogin.js")-->
+<!--@if(!$project_site_config->colorset)-->
+{@ $project_site_config->colorset = "cPurple"; }
+<!--@end-->
+<!--@if($act == "dispProject")-->
+<div id="pxeBranch" class="pxeCa {$project_site_config->colorset}">
+<!--@else-->
+<div id="pxeBranch" class="{$project_site_config->colorset}">
+<!--@end-->
+<!-- class="cPurple | cViolet | cOrange | cGreen | cGray"-->
+
+	<!-- #pxeHeader -->
+	<div id="pxeHeader">
+		<!-- .gnb -->
+		<div class="gnb">
+			<!--@if($menu_list)-->
+			<ul class="fLeft">
+				<!--@foreach($menu_list as $val)-->
+				<li class="{$_colorset_list[$_idx]} <!--@if($val['selected'])-->selected<!--@end-->"><a href="{$val['href']}"<!--@if($val['open_window']=='Y')--> onclick="window.open(this.href);return false;"<!--@end-->><!--@if($val['text']==$val['link'])--><span>{$val['text']}</span><!--@else-->{$val['link']}<!--@end--></a></li>
+				<!--@end-->
+			</ul>
+			<!--@end-->
+
+			<ul class="fRight">
+				<!--@if($is_logged)-->
+				<li><a href="{getUrl('act','dispMemberLogout')}"><span>{$lang->cmd_logout}</span></a></li>
+				<li class="my myProfile"><a href="#" onclick="return false"><span>{$lang->profile}</span></a>
+					<ul>
+						<!--@foreach($logged_info->menu_list as $key => $val)-->
+						<li><a href="{getUrl('act',$key,'member_srl','')}">{Context::getLang($val)}</a></li>
+						<!--@endif-->
+					</ul>
+				</li>
+				<!--@if($my_projects && count($my_projects))-->
+				<li class="my myProject"><a href="#" onclick="return false"><span>{$lang->my_projects}</span></a>
+					<ul>
+						<!--@foreach($my_projects as $key => $val)-->
+						<li><a href="{getSiteUrl($val->domain)}">{cut_str($val->project_title,20)}</a></li>
+						<!--@endforeach-->
+					</ul>
+				</li>
+				<!--@endif-->
+				<!--@else-->
+				<li><a href="#login" id="loginAnchor" class="loginTrigger" accesskey="L" title="Accesskey(L)"><span>{$lang->cmd_login}</span></a></li>
+				<!--@end-->
+				<li class="my myLanguage"><a href="#" onclick="return false" title="Select Language"><span>{$lang_supported[$lang_type]}</span></a>
+					<ul>
+						<!--@foreach($lang_supported as $key => $val)-->
+						<!--@if($key== $lang_type)-->
+						<li class="selected"><a href="#">{$lang_supported[$lang_type]}</a></li>
+						<!--@else-->
+						<li><a href="#" onclick="doChangeLangType('{$key}'); return false;">{$lang_supported[$key]}</a></li>
+						<!--@end-->
+						<!--@end-->
+					</ul>
+				</li>
+			</ul>
+		</div>
+		<!-- /.gnb -->
+		<a class="project_logo" href="{getSiteUrl($project_info->domain,'')}"><img src="{$project_info->project_logo}" alt="{getSiteUrl($project_info->domain,'')}" width="50" height="50"/></a>
+		<h1 class="project_title"><a href="{getSiteUrl($project_info->domain,'')}">{$project_info->title}</a></h1>
+		<!-- .menu -->
+		<div class="menu">
+			<div class="inset">
+				<div class="major">
+				<!-- class="major + (m1~m12)"-->
+					<ul>
+					{@ $count = 0; }
+					<!--@foreach($lang->project_default_menus as $key => $val)-->
+						{@ $count += 1; }{@$menu = explode('___',$key)}
+						<li class="m{$count}"><a href="{getSiteUrl($project_info->domain, '','mid',$menu[0],'act',$menu[1])}"><span>{$val}</span></a>
+							<!--@foreach($lang as $key2 => $val2)-->
+							<!--@if($key == $key2)-->
+								<div class="sub">
+									<ul>
+										<!--@foreach($val2 as $subKey => $subVal)-->
+										{@$sub = explode('___',$subKey)}
+										<li><a href="{getSiteUrl($project_info->domain, '','mid',$sub[0],'act',$sub[1])}"><span>{$subVal}</span></a></li>
+										<!--@end-->
+									</ul>
+								</div>
+							<!--@end-->
+							<!--@end-->
+						</li>
+					<!--@end-->
+					</ul>
+				</div>
+				<!--@if($is_logged)-->
+            			<div class="aside">
+					<ul>
+						<li class="m1"><a href="{getSiteUrl($project_info->domain,'','act','dispProjectMyProjectActivity')}"><span>{$lang->my_activities}</span></a></li>
+						<!--@if($logged_info->is_site_admin)-->
+						<li class="m2"><a href="{getSiteUrl($project_info->domain,'','act','dispProjectManage')}"><span>{$lang->project_setting}</span></a>
+							<div class="sub">
+								<ul>
+								<!--@foreach($lang->project_setting_menu as $key => $val)-->
+								        {@$menu = explode('___',$key)}
+									<li><a href="{getSiteUrl($project_info->domain, '','mid',$menu[0],'act',$menu[1])}"><span>{$val}</span></a></li>
+								<!--@end-->
+								</ul>
+							</div>
+						</li>
+						<!--@end-->
+					</ul>
+				</div>
+				<!--@end-->
+				<span class="gradient"></span>
+			</div>
+			<span class="shadow"></span>
+		</div>
+		<!-- /.menu -->
+	</div>
+	<!-- /#pxeHeader -->
+	<!-- #pxeBody -->
+	<div id="pxeBody">
+	{$content}
+	</div>
+	<!-- /#pxeBody -->
+	<!-- #pxeFooter -->
+	<div id="pxeFooter">
+		<p>Powered by <strong>XE</strong></p>
+	</div>
+	<!-- /#pxeFooter -->
+
+</div>
+<!--@if(!$is_logged)-->
+<div class="mwLogin">
+    {@ $member_config = MemberModel::getMemberConfig(); }
+    <!--%import("./filter/login.xml")-->
+    <!--@if($member_config->enable_openid=='Y')--><!--%import("./filter/openid_login.xml")--><!--@end-->
+	<div class="bg"></div>
+	<div id="login" class="gLogin">
+		<a href="#loginAnchor" class="close" title="Close Login Layer">X</a>
+		<form action="{getUrl('','act','procMemberLogin')}" method="post" class="gLogin">
+		<input type="hidden" name="act" value="procMemberLogin" />
+			<fieldset>
+				<legend>Login</legend>
+				<div class="iClear">
+					<label for="uid" class="iLabel">ID</label><input name="user_id" type="text" value="" id="uid" class="iText uid" />
+				</div>
+				<div class="iClear">
+					<label for="upw" class="iLabel">PASSWORD</label><input name="password" type="password" value="" id="upw" class="iText upw" />
+				</div>
+				<p class="keeping"><input name="" type="checkbox" value="" class="iCheck" id="keepid" /><label for="keepid">{$lang->keep_signed}</label></p>
+				<p class="warning">{$lang->about_keep_signed}</p>
+				<span class="btnLogin"><input name="" type="submit" value="{$lang->cmd_login}" /></span>
+				<ul class="help">
+					<li class="first"><a href="{getUrl('act','dispMemberFindAccount')}">{$lang->cmd_find_member_account}</a></li>
+					<li><a href="{getUrl('act','dispMemberSignUpForm')}">{$lang->cmd_signup}</a></li>
+					<!--@if($member_config->enable_openid=='Y')-->
+					<li><a href="#" class="oAnchor">Open ID</a></li>
+					<!--@endif-->
+				</ul>
+			</fieldset>
+		</form>
+		<!--@if($member_config->enable_openid=='Y')-->
+        <!--%import("./filter/openid_login.xml")-->
+		<form action="./" class="oLogin" method="post" onsubmit="return procFilter(this, openid_login)">
+			<fieldset>
+				<legend>Open ID Login</legend>
+				<div class="iClear">
+					<label for="oid" class="iLabel">Open ID</label><input name="openid" type="text" value="" id="oid" class="iText oid" />
+				</div>
+				<span class="btnLogin"><input name="" type="submit" value="{$lang->cmd_login}" /></span>
+				<p class="help"><a href="#" class="gAnchor">XE ID</a></p>
+			</fieldset>
+		</form>
+		<!--@endif-->
+		<a href="#loginAnchor" class="close" title="Close Login Layer">X</a>
+	</div>
+</div>
+<!--@end-->

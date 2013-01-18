@@ -1,0 +1,6 @@
+<table name="project_contribute">
+	<column name="member_srl" type="number" size="11" notnull="notnull" unique="idx_member" />
+	<column name="site_srl" type="number" size="11" notnull="notnull" unique="idx_member" />
+	<column name="type" type="char" size="1" notnull="notnull" unique="idx_member" />
+	<column name="cnt" type="number" size="11" default="0" />
+</table>

@@ -1,0 +1,8 @@
+<filter name="insert_offer" module="project" act="procProjectInsertOffer" confirm_msg_code="confirm_submit">
+    <form>
+        <node target="title" required="true" maxlength="40"/>
+        <node target="content" required="true" />
+    </form>
+    <parameter />
+    <response />
+</filter>

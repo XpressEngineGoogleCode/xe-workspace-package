@@ -1,0 +1,40 @@
+<!--#include("header.html")-->
+<!--%import("css/issuetracker.css")-->
+<!--%import("filter/insert_package.xml")-->
+
+<!--@if($module_info->skin == 'xe_package')-->
+<form action="./" method="post" ruleset="insert_package" enctype="multipart/form-data">
+<!--@else-->
+<form action="{Context::getRequestUri()}" method="post" onsubmit="return procFilter(this, insert_package)">
+<!--@endif;-->
+<input type="hidden" name="module_srl" value="{$module_srl}" />
+<input type="hidden" name="package_srl" value="{$package->package_srl}" />
+<input type="hidden" name="act" value="procIssuetrackerAdminInsertPackage" />
+
+<table cellspacing="0" class="rowTable">
+<thead>
+<tr>
+    <th><div>{$lang->package}&nbsp;{$lang->name}</div></th>
+    <td class="wide"><input name="title" type="text" value="{htmlspecialchars($package->title)}" class="inputTypeText fullWidth" /></td>
+</tr>
+<!--@if($module_info->skin == 'xe_package')-->
+<tr>
+    <th><div>{$lang->package}&nbsp;Logo</div></th>
+    <td>
+        <image src="{$package->logoImage}" /><br/>
+        <input type="file" name="package_logo" value="" />
+    </td>
+</tr>
+<!--@endif;-->
+<tr>
+    <th><div>{$lang->description}</div></th>
+    <td><textarea name="description" class="inputTypeTextArea fullWidth" />{htmlspecialchars($package->description)}</textarea></td>
+</tr>
+<tr>
+    <th colspan="2" class="button">
+        <span class="btn"><input type="submit" value="{$lang->cmd_registration}" accesskey="s" /></span>
+    </th>
+</tr>
+</table>
+
+</form>

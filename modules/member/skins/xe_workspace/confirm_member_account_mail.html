@@ -1,0 +1,15 @@
+<!-- Content Area -->
+
+    <h2 class="content_title" cond="$site_module_info->skin != 'xe_pacakgePro' && !$site_module_info->site_srl">
+        {$lang->msg_confirm_account_info}
+    </h2>
+    <hr class="info">
+    <p class="p_info">Site : <a href="{getUrl()}" target="_blank">{getUrl()}</a></p>
+    <p loop="$memberInfo=>$name,$value" class="p_info">{$name} : {$value}</p>
+    <hr class="info">
+    <p class="p_gray">{$lang->msg_confirm_account_comment}</p>
+    <p class="p_info"><a href="{$auth_url}">{$auth_url}</a></p>
+    <hr class="info">
+
+
+<!-- //Content Area -->

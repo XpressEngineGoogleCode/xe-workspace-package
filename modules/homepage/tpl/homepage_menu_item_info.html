@@ -1,0 +1,128 @@
+<input type="hidden" name="mode" value="{$mode}" />
+<input type="hidden" name="mtype" value="{$item_info->module_type}" />
+<input type="hidden" name="module_id" value="{$item_info->module_id}" />
+<input type="hidden" name="menu_item_srl" value="{$item_info->menu_item_srl}" />
+<input type="hidden" name="parent_srl" value="{$item_info->parent_srl}" />
+<input type="hidden" name="normal_btn" value="{$item_info->normal_btn}" />
+<input type="hidden" name="hover_btn" value="{$item_info->hover_btn}" />
+<input type="hidden" name="active_btn" value="{$item_info->active_btn}" />
+
+<div class="layer" style="display:block;">
+
+    <h4 class="xeAdmin">{$lang->menu}</h4>
+
+    <div class="layerBody">
+
+        <table cellspacing="0" class="rowTable">
+        <col width="100" />
+        <col width="" />
+        <tr>
+            <th scope="row"><div>{$lang->module_type}</div></th>
+            <td colspan="2">
+{@$module_type_disabled = ($mode == 'update')?'disabled="disabled"':''}
+                <select name="module_type" onchange="changeMenuType(this)" {$module_type_disabled}>
+                    <option value=""></option>
+                    <!--@foreach($homepage_config->allow_service as $k => $v)-->
+                    <!--option value="{$k}" <!--@if($v<1)-->disabled="disabled"<!--@end-->>{$k}</option-->
+                    <option value="{$k}" <!--@if($k == $item_info->module_type)-->selected="selected"<!--@end-->>{$k}</option>
+                    <!--@end-->
+                    <option value="url" <!--@if($item_info->module_type == 'url')-->selected="selected"<!--@end-->>{$lang->url}</option>
+                </select>
+            </td>
+        </tr>
+{@$url_form_hide = (!$item_info->module_type || $item_info->module_type != 'url')?'style="display:none"':''}
+        <tr id="urlForm" {$url_form_hide}>
+            <th scope="row"><div>{$lang->url}</div></th>
+            <td colspan="2">
+                http://<input type="text" name="url" value="{$item_info->url}" class="inputTypeText fullWidth" />
+                <p>{$lang->about_menu_item_url}</p>
+            </td>
+        </tr>
+        <tr>
+            <th scope="row"><div>{$lang->menu_name}</div></th>
+            <td colspan="2">
+                <input type="text" name="menu_name" id="menu_name" value="{$item_info->name}" class="inputTypeText"/>
+                <a href="{getUrl('','module','module','act','dispModuleAdminLangcode','target','menu_name')}" onclick="popopen(this.href);return false;" class="buttonSet buttonSetting"><span>{$lang->cmd_find_langcode}</span></a>
+                <p>{$lang->about_langcode}</p>
+            </td>
+        </tr>
+        <tr>
+            <th scope="row"><div>{$lang->cmd_option}</div></th>
+            <td colspan="2">
+                <input type="checkbox" id="menu_open_window" name="menu_open_window" value="Y" <!--@if($item_info->open_window == 'Y')-->checked="checked"<!--@end--> />
+                <label for="menu_open_window">{$lang->menu_open_window}</label>
+                <input type="checkbox" id="menu_expand" name="menu_expand" value="Y" <!--@if($item_info->expend == 'Y')-->checked="checked"<!--@end--> />
+                <label for="menu_expand">{$lang->menu_expand}</label>
+                <p>{$lang->about_menu_option}</p>
+            </td>
+        </tr>
+        <tr>
+            <th scope="row"><div>{$lang->item_group_grant}</div></th>
+            <td colspan="2">
+                <!--@foreach($group_list as $key=>$val)-->
+                <input type="checkbox" name="group_srls" value="{$key}" id="group_{$key}" <!--@if(is_array($item_info->group_srls)&&in_array($key, $item_info->group_srls))-->checked="checked"<!--@end-->/>
+                <label for="group_{$key}">{$val->title}</label>
+                <!--@end-->
+                <p>{$lang->about_group_grant}</p>
+            </td>
+        </tr>
+        <tr>
+            <th scope="row" rowspan="4"><div>{$lang->menu_img_btn}</div></th>
+            <th scope="row"><div>{$lang->menu_normal_btn}</div></th>
+            <td>
+                <div id="menu_normal_btn_zone" <!--@if(!$item_info->normal_btn)-->style="display:none;"<!--@end-->>
+                    <img src="" alt="" id="menu_normal_btn_img" /><br />
+                    <a href="#" onclick="doDeleteButton('menu_normal_btn');return false;" class="button"><span>{$lang->cmd_delete}</span></a>
+                </div>
+                <input type="file" name="menu_normal_btn" value="" class="inputTypeText" onchange="doHomepageMenuUploadButton(this); return false;"/>
+            </td>
+        </tr>
+        <tr>
+            <th scope="row"><div>{$lang->menu_hover_btn}</div></th>
+            <td>
+                <div id="menu_hover_btn_zone") <!--@if(!$item_info->hover_btn)-->style="display:none;"<!--@end-->>
+                    <img src="" alt="" id="menu_hover_btn_img" /><br />
+                    <a href="#" onclick="doDeleteButton('menu_hover_btn');return false;" class="button"><span>{$lang->cmd_delete}</span></a>
+                </div>
+                <input type="file" name="menu_hover_btn" value="" class="inputTypeText" onchange="doHomepageMenuUploadButton(this); return false;"/>
+            </td>
+        </tr>
+        <tr>
+            <th scope="row"><div>{$lang->menu_active_btn}</div></th>
+            <td>
+                <div id="menu_active_btn_zone" <!--@if(!$item_info->active_btn)-->style="display:none;"<!--@end-->>
+                    <img src="" alt="" id="menu_active_btn_img" /><br />
+                    <a href="#" onclick="doDeleteButton('menu_active_btn');return false;" class="button"><span>{$lang->cmd_delete}</span></a>
+                </div>
+                <input type="file" name="menu_active_btn" value="" class="inputTypeText" onchange="doHomepageMenuUploadButton(this); return false;"/>
+            </td>
+        </tr>
+        <tr>
+            <td colspan="2">{$lang->about_menu_image_button}</td>
+        </tr>
+        </table>
+			<div class="btnArea">
+				<span class="btn">
+                <input type="submit" value="{$lang->cmd_save}" />
+    			<button class="xButton" type="button" onclick="closeTreeMenuInfo();return false" >{$lang->cmd_close}</button>
+				</span>
+			</div>				
+
+        <script type="text/javascript">
+
+        (function($){
+        $("[name^=menu_name_]").bind("blur",function(e){
+            if($("[name=ck_"+$(this).attr("name")+"]:checked").size()>0){
+                $("[name^=ck_menu_name_]:checked").each(function(i){
+                    $("[name="+$(this).attr("name").substring(3)+"]").val(e.target.value);
+                });
+            }
+        });
+
+        $('input#menu_name').focus();
+        
+        })(jQuery);
+        </script>
+
+    </div>
+</div>

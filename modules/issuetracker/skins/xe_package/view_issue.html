@@ -1,0 +1,211 @@
+<!--#include("header.html")-->
+<!--%import("js/toggle.js")-->
+<!--%import("filter/delete_issue.xml")-->
+	<!-- #issueBody -->
+	<div class="sec_issue_view">
+        <header class="head_issue_view clearfix">
+            <h4><span>{$oIssue->document_srl}</span> {$oIssue->getTitle()}</h4>
+            <div class="meta pull_right">
+                <span class="author">{$oIssue->getNickName()}</span>
+                <span class="date">{$oIssue->getRegdate('y.m.d H:i')}</span>
+            </div>
+            <div class="box_goal clearfix">
+                <span class="dt dt_goal">{$lang->milestone}</span>
+                <span class="dd dd_goal">{$oIssue->getMilestoneTitle() ? $oIssue->getMilestoneTitle():'-'}</span>
+                <div class="pull_right">
+                    <span class="dt dt_priority">{$lang->priority}</span>
+                    <span class="dd dd_priority">{$oIssue->getPriorityTitle() ? $oIssue->getPriorityTitle():'-'}</span>
+                    <span class="dt dt_status">{$lang->status}</span>
+                    <span class="dd dd_status">{$lang->status_list[$oIssue->get('status')]}</span>
+                </div>
+            </div>
+        </header>
+        <div class="issue_ct_txt">
+            <!--@if(!$oIssue->isSecret() || $oIssue->isGranted())-->
+            {$oIssue->getContent(false,true)}
+            <!--@end-->
+            {@ $tag_list = $oIssue->get('tag_list') }
+			<!--@if(count($tag_list))-->
+			<dl class="pxeTagList">
+				<dt>Tag:</dt>
+				<dd>
+				<!--@for($i=0;$i<count($tag_list);$i++)-->
+				{@ $tag = $tag_list[$i]; }
+				<a href="{getUrl('search_target','tag','search_keyword',$tag,'document_srl','')}" rel="tag">{htmlspecialchars($tag)}</a>
+				<!--@end-->
+				</dd>
+			</dl>
+			<!--@endif-->
+
+			<!--@if($oIssue->hasUploadedFiles() && !$oIssue->isSecret() && $oIssue->isAccessible())-->
+			<dl class="pxeFileList">
+				<dt>File:</dt>
+				<dd>
+                    {@ $uploaded_list = $oIssue->getUploadedFiles() }
+                    <!--@foreach($uploaded_list as $key => $file)-->
+                    <a href="{getUrl('')}{$file->download_url}"><span class="fName">{$file->source_filename}</span> <span class="bubble">[File Size:{FileHandler::filesize($file->file_size)}/Download:{number_format($file->download_count)}]</span></a>
+                    <!--@end-->
+				</dd>
+			</dl>
+			<!--@end-->
+        </div><!-- //issue_ct_txt -->
+        <div class="btns_issue_view">
+            <a class="btn_modify" href="{getUrl('act','dispIssuetrackerNewIssue')}">Modify</a>
+            <a class="btn_delete" href="#" onclick="jQuery('#delWindow').show();jQuery('#delWindow form').show();return false;">Delete</a>
+            <a class="btn_goback" href="{getUrl('document_srl','')}">Return</a>
+        </div><!-- //btns_issue_view -->
+
+        <div id="delWindow" class="loginWindow" style="display: none;">
+            <span class="modalWindow"></span>
+            <div id="loginLayer" class="loginLayer loginTypeA">
+                <button type="button" class="close" onclick="document.getElementById('delWindow').style.display='none'" accesskey="X"><span>Close</span></button>
+                <h3 style="text-align:center">{$lang->confirm_delete}</h3>
+                <form action="./" method="get" onsubmit="return procFilter(this, delete_issue)">
+                    <input type="hidden" name="mid" value="{$mid}" />
+                    <input type="hidden" name="page" value="{$page}" />
+                    <input type="hidden" name="document_srl" value="{$document_srl}" />
+                	<div style="text-align:center;margin-top:10px" class="inputPassword">
+                		<span class="btn"><input type="submit" accesskey="s" value="Delete"></span>
+                		<a class="btn" onclick="document.getElementById('delWindow').style.display='none';return false;" href="#"><span>Cancel</span></a>
+                	</div>
+                </form>
+            </div>
+        </div>
+
+        <!--@if($oIssue->allowComment())-->
+			<a name="comment"></a>
+			<!--#include("./comment.html")-->
+		<!--@end-->
+
+        <div class="post_cm">
+            <form action="./" method="post" onsubmit="return procFilter(this, insert_history)" class="pxeWrite pxeReplyForm" >
+                <p class="desc_postcm" style="margin-left:15px">
+                    Add a comment and make changes.
+                </p>
+                <!--@if($grant->ticket_write || $grant->commiter)-->
+
+<input type="hidden" name="mid" value="{$mid}" />
+<input type="hidden" name="target_srl" value="{$oIssue->get('target_srl')}" />
+<input type="hidden" name="history_srl" value="" />
+<input type="hidden" name="content" value="" />
+
+    <div class="editor">
+		<div class="xpress-editor">
+
+        <!--@if($grant->commiter)-->
+        <table border="1" cellspacing="0" summary="Extra Form" class="pxeT5">
+        <tr>
+            <th><label for="inputMilestone">{$lang->milestone}</label></th>
+            <td>
+                <select name="milestone_srl" id="inputMilestone">
+                    <option value="0">{$lang->milestone}</option>
+                <!--@foreach($project->milestones as $val)-->
+                <!--@if($val->is_completed != 'Y')-->
+                    <option value="{$val->milestone_srl}" <!--@if($oIssue->get('milestone_srl')==$val->milestone_srl)-->selected="selected"<!--@end-->>{$val->title}</option>
+                <!--@endif-->
+                <!--@end-->
+                </select>
+            </td>
+        </tr>
+        <tr>
+            <th><label for="inputPriority">{$lang->priority}</label></th>
+            <td>
+                <select name="priority_srl" id="inputPriority">
+                    <option value="">{$lang->priority}</option>
+                    <!--@foreach($project->priorities as $key => $val)-->
+                    <option value="{$val->priority_srl}" <!--@if($val->priority_srl==$oIssue->get('priority_srl'))-->selected="selected"<!--@end-->>{$val->title}</option>
+                    <!--@end-->
+                </select>
+            </td>
+        </tr>
+        <tr>
+            <th><label for="inputType">{$lang->type}</label></th>
+            <td>
+                <select name="type_srl" id="inputType">
+                    <option value="">{$lang->type}</option>
+                    <!--@foreach($project->types as $key => $val)-->
+                    <option value="{$val->type_srl}" <!--@if($val->type_srl==$oIssue->get('type_srl'))-->selected="selected"<!--@end-->>{$val->title}</option>
+                    <!--@end-->
+                </select>
+            </td>
+        </tr>
+        <tr>
+            <th><label for="inputComponent">{$lang->component}</label></th>
+            <td>
+                <select name="component_srl" id="inputComponent">
+                    <option value="">{$lang->component}</option>
+                    <!--@foreach($project->components as $key => $val)-->
+                    <option value="{$val->component_srl}" <!--@if($val->component_srl==$oIssue->get('component_srl'))-->selected="selected"<!--@end-->>{$val->title}</option>
+                    <!--@end-->
+                </select>
+            </td>
+        </tr>
+        <!--@if(count($project->packages))-->
+        <tr>
+            <th><label for="inputPackage">{$lang->occured_version}</label></th>
+            <td>
+                <select name="package_srl" id="inputPackage" onchange="showRelease(this,this.form);">
+                    <option value="">{$lang->package}</option>
+                    <!--@foreach($project->packages as $key => $val)-->
+                    <option value="{$val->package_srl}" <!--@if($val->package_srl==$oIssue->get('package_srl'))-->selected="selected" {@ $curPackage_srl = $val->package_srl} <!--@end-->>{$val->title}</option>
+                    <!--@end-->
+                </select>
+                <select name="release_srl">
+                    <option value="">{$lang->release}</option>
+                    <!--@foreach($project->releases as $k => $v)-->
+                    <!--@if($v->package_srl == $curPackage_srl)-->
+                    <option value="{$v->release_srl}" <!--@if($v->release_srl==$oIssue->get('occured_version_srl'))-->selected="selected"<!--@end-->>{$v->title}</option>
+                    <!--@end-->
+                    <!--@end-->
+                </select>
+            </td>
+        </tr>
+        <!--@end-->
+        <tr>
+            <th><label>{$lang->action}</label></th>
+            <td>
+                <ul class="issue_action">
+                    <li>
+                        <input type="radio" name="action" value="resolve" id="actResolve" /><label for="actResolve">{$lang->cmd_resolve_as}</label>
+                        <select name="status" onchange="xGetElementById('actResolve').checked='checked'">
+                            <!--@foreach($lang->status_list as $key => $val)-->
+                            <option value="{$key}" <!--@if($oIssue->get('status')==$key)-->selected="selected"<!--@end-->>{$val}</option>
+                            <!--@end-->
+                        </select>
+                    </li>
+                    <li>
+                        <input type="radio" name="action" value="reassign" id="actReassign" /><label for="actReassign">{$lang->cmd_reassign}</label>
+                        <select name="assignee_srl" onchange="xGetElementById('actReassign').checked='checked'">
+                            <!--@foreach($commiters as $key => $val)-->
+                            <option value="{$val->member_srl}" <!--@if($oIssue->get('assignee_srl')==$val->member_srl)-->selected="selected"<!--@end-->>{$val->nick_name} ({$val->user_id})</option>
+                            <!--@end-->
+                        </select>
+                    </li>
+                    <li><input type="radio" name="action" value="accept" id="actAccept" /><label for="actAccept">{$lang->cmd_accept}</label></li>
+                </ul>
+            </td>
+        </tr>
+        </table>
+        <!--@end-->
+        {$oIssue->getCommentEditor()}
+    	</div>
+	</div>
+
+        <!--@if(!$is_logged)-->
+        <div class="guest">
+			<span class="item"><label for="author" class="iLabel">{$lang->writer}</label><input name="nick_name" type="text" id="author" class="iText" title="{$lang->writer}" /></span>
+			<span class="item"><label for="password" class="iLabel">{$lang->password}</label><input name="password" type="password" id="password" class="iText" title="{$lang->password}" /></span>
+			<span class="item"><label for="email" class="iLabel">{$lang->email_address}</label><input name="email_address" type="text" id="email" class="iText" title="{$lang->email_address}" /></span>
+			<span class="item"><label for="site" class="iLabel">{$lang->homepage}</label><input name="homepage" type="text" id="site" class="iText" title="{$lang->homepage}" /></span>
+        </div>
+        <!--@end-->
+		<div class="buttonArea">
+			<span class="sec_issue_submit_span"><input class="sec_issue_submit" type="submit" value="{$lang->cmd_registration}" accesskey="s" /></span>
+		</div>
+<!--@end-->
+            </form>
+        </div><!-- //post_cm -->
+    </div>
+
+
+<!--#include("footer.html")-->

@@ -1,0 +1,12 @@
+<query id="updateDirectory" action="update">
+    <tables>
+        <table name="project_directories" />
+    </tables>
+    <columns>
+        <column name="title" var="title" notnull="notnull" />
+        <column name="description" var="description" />
+    </columns>
+    <conditions>
+        <condition operation="equal" column="project_dir_srl" var="project_dir_srl" filter="number" notnull="notnull" />
+    </conditions>
+</query>

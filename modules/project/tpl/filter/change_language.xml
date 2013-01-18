@@ -1,0 +1,7 @@
+<filter name="change_language" module="project" act="procProjectChangeLanguage">
+    <form />
+    <response>
+        <tag name="error" />
+        <tag name="message" />
+    </response>
+</filter>

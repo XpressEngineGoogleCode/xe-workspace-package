@@ -1,0 +1,52 @@
+<!-- Member mod skin -->
+<load target="css/member.css" />
+<!-- Member mod skin -->
+<load target="filter/find_member_account.xml" />
+<!-- Content Area -->
+
+    <h2 class="content_title" cond="$site_module_info->skin != 'xe_pacakgePro' && !$site_module_info->site_srl">
+        Find Account Info
+    </h2>
+    <div class="mcm" <!--@if(($site_module_info->skin == 'xe_pacakgePro') && $site_module_info->site_srl)-->style="margin: 0px 0px 0px 0px;"<!--@end-->>
+    <include target="./common_header.html" />
+        <h3 class="hd_b">{$lang->cmd_find_member_account_with_email}</h3>
+        <p class="p_gray">{$lang->about_find_member_account}</p>
+        <form action="./" method="get" onsubmit="return procFilter(this, find_member_account)" class="find_form">
+            <input type="hidden" name="mid" value="{$mid}" />
+            <input type="hidden" name="document_srl" value="{$document_srl}" />
+            <input type="hidden" name="page" value="{$page}" />
+            <label for="w_ipt_mail" class="v_label">{$lang->email_address}</label>
+            <input type="email" id="w_ipt_mail" name="email_address" class="ipt_txt">
+            <div class="btn_area">
+                <span class="btn_small"><input type="submit" value="{$lang->cmd_find_member_account}" /></span>
+            </div>
+        </form>
+        <!--@if(count($lang->find_account_question_items)>1)-->
+        <h3 class="hd_b second">{$lang->cmd_find_member_account_with_email_question}</h3>
+        <p class="p_gray">{$lang->about_find_account_question}</p>
+        <form action="./" method="get" ruleset="@find_member_account_by_question" class="find_form">
+            <input type="hidden" name="module" value="member" />
+            <input type="hidden" name="mid" value="{$mid}" />
+            <input type="hidden" name="document_srl" value="{$document_srl}" />
+            <input type="hidden" name="act" value="procMemberFindAccountByQuestion" />
+            <input type="hidden" name="success_return_url" value="{getUrl('', 'act', 'dispMemberGetTempPassword')}" />
+            <input type="hidden" name="page" value="{$page}" />
+
+            <label cond="$identifier == 'user_id'" for="user_id">{$lang->user_id}</label>
+            <input cond="$identifier == 'user_id'" type="text" name="user_id" class="ipt_txt" />
+            <label for="w_qna_email" class="v_label">{$lang->email_address}</label>
+            <input type="email" id="w_qna_email" class="ipt_txt">
+            <label for="" class="v_label">{$lang->find_account_question}</label>
+            <select name="find_account_question" class="ipt_slt">
+                <!--@for($i=1,$c=count($lang->find_account_question_items);$i<$c;$i++)-->
+                <option value="{$i}">{$lang->find_account_question_items[$i]}</option>
+                <!--@end-->
+            </select>
+            <input type="text" name="find_account_answer" value="" class="ipt_txt" />
+            <div class="btn_area">
+                <span class="btn_small"><input type="submit" value="{$lang->cmd_get_temp_password}"></span>
+            </div>
+        </form>
+        <!--@end-->
+    </div><!-- // mcm -->
+<!-- //Content Area -->

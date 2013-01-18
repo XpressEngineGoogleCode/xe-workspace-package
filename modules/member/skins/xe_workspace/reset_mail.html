@@ -1,0 +1,50 @@
+<!-- Member mod skin -->
+<load target="css/member.css" />
+<!-- Member mod skin -->
+
+<!-- Content Area -->
+
+    <h2 class="content_title">
+        {$lang->cmd_resend_auth_mail}
+    </h2>
+    <div class="mcm">
+        <div cond="$XE_VALIDATOR_MESSAGE" class="message {$XE_VALIDATOR_MESSAGE_TYPE}">
+            <p>{$XE_VALIDATOR_MESSAGE}</p>
+        </div>
+        <include target="./common_header.html" />
+        <p class="p_gray">{sprintf($lang->about_reset_auth_mail, $memberInfo->email_address)}</p>
+
+
+        <ul class="form_stack">
+            <li>
+                <form action="./" method="post">
+                <input type="hidden" name="module" value="member" />
+                <input type="hidden" name="act" value="procMemberResendAuthMail" />
+                <input type="hidden" name="email_address" value="{$memberInfo->email_address}" />
+                <div class="left"><div class="inner">
+                    <label for="resend_button">{$lang->cmd_resend_auth_mail}</label>
+                </div></div>
+                <div class="right"><div class="inner">
+                    <input type="email" readonly="readonly" disabled="disabled" value="{$memberInfo->email_address}" class="ipt_txt"/>
+                    <span class="btn_small_white"><input type="submit" id="resend_button" name="" value="{$lang->cmd_resend_auth_mail}" /></span>
+                </div></div>
+            </li>
+            <li>
+                <form ruleset="resetAuthMail" action="./" method="post">
+                <input type="hidden" name="module" value="member" />
+                <input type="hidden" name="act" value="procMemberResetAuthMail" />
+                <div class="left"><div class="inner">
+                    <label for="email_address">{$lang->cmd_modify_new_auth_email_address}</label>
+                </div></div>
+                <div class="right"><div class="inner">
+                    <input type="email" id="email_address" name="email_address" value="" class="ipt_txt" />
+                    <span class="btn_small_white"><input type="submit" value="{$lang->cmd_send_auth_new_emaill_address}" />
+                    <p class="desc">{1lang->about_reset_auth_mail_submit}</p>
+                </div></div>
+            </li>
+        </ul>
+
+    </div><!-- // mcm -->
+
+
+<!-- //Content Area -->

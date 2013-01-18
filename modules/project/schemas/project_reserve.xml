@@ -1,0 +1,8 @@
+<table name="project_reserve">
+    <column name="reserve_srl" type="number" size="11" notnull="notnull" primary_key="primary_key" />
+    <column name="member_srl" type="number" size="11" notnull="notnull" />
+    <column name="site_id" type="varchar" size="255" notnull="notnull" />
+    <column name="title" type="varchar" size="255" notnull="notnull" />
+    <column name="description" type="text"  />
+    <column name="regdate" type="date" />
+</table>

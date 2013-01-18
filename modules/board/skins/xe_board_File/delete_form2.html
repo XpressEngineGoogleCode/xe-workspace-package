@@ -1,0 +1,17 @@
+<style>
+
+</style>
+<form action="./" method="post" >
+    <div class="deleteForm">
+        <span class="modalWindow"></span>
+        <div class="proLayer">
+            <h3>{$lang->confirm_delete}</h3>
+        	<input type="hidden" name="mid" value="{$mid}" />
+        	<input type="hidden" name="file_srl" id="deleteFormSrl" value="" />
+        	<div class="btn_area">
+        		<span class="btn"><input type="button" value="{$lang->cmd_delete}" onclick="delFile()"/></span>
+        		<span class="btn"><button type="button" onclick="cancelDelete()">{$lang->cmd_cancel}</button></span>
+        	</div>
+        </div>
+    </div>
+</form>

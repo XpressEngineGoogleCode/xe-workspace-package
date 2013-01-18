@@ -1,0 +1,128 @@
+@charset "utf-8";
+/* NHN (developers@xpressengine.com) */
+/* Board Reset */
+.board{background:#f2f3f8;color:#333}
+.board .iText,
+.board textarea{border-color:#ccc}
+.board .iText,
+.board textarea,
+.board select{background:#fff;color:#333}
+.board a{color:#393f4b}
+/* Board Header */
+.boardHeader .boardTitle{border-color:#ddd;background-image:url(../images/common/iconBoardHeading.gif)}
+.boardHeader .boardTitleText{border-color:#666;background-image:url(../images/white/lineVr11.gif)}
+.boardHeader .boardTitleText a{color:#000}
+.boardHeader .boardTitleText em{color:#666}
+.boardHeader .boardDescription{background:#f8f8f8}
+/* Board Information */
+.boardInformation li{background-image:url(../images/white/lineVr11.gif)}
+.boardInformation em,
+.boardInformation strong{color:#ff6600}
+.boardInformation .infoLeft{background-image:url(../images/common/iconArticle.gif)}
+.boardInformation .infoRight li.icon{background:none}
+.boardInformation .infoRight li.icon a{background-image:url(../images/common/icons.gif)}
+/* Board List Form */
+.boardListForm em,
+.boardListForm strong{color:#ff6600}
+/* Board List */
+.boardList{border-color:#ddd}
+.boardList .jumpTo button{background-color:transparent;background-image:url(../images/common/buttonBg2byte.gif)}
+.boardList tr.notice{background:#f8f8f8}
+.boardList tr.bg1{background:#f2f3f8}
+.boardList tr.bg2{background:#fbfbfb}
+.boardList th{border-color:#f2f3f8;color:#fff;background-color:#f2f3f8;background-image:url(../images/white/bgThDefault.gif)}
+.boardList th a{color:#B9CAED}
+.boardList .lastTr td{border-color:#d9dce3}
+.boardList td{border-color:#eee;color:#666;background-color:#f2f3f8}
+.boardList td.author a{background-color: #F2F3F8;border-color: #EEEEEE;color: #666666;}
+.boardList td .category{color:#99999b;background-image:url(../images/white/lineVr11.gif)}
+.boardList td.title .replyNum{color:#ccc}
+.boardList td.title .replyNum sup{color:#999}
+.boardList td.title a strong{color:#3a404e;font-size:14px}
+.boardList td.tag{color:#989a99;text-align:left;}
+.boardList td.content{color:#393f4d;text-align:left;}
+.boardList td.tag a{color:#989a99;}
+.boardList td.title a.forum:link,
+.boardList td a.replyAnchor:link{color:#06C}
+.boardList td .by{color:#ccc}
+.boardList td.summary .thumb{border-color:#ddd;background:#f2f3f8}
+.thumbHeader{border-color:#ddd;color:#333;background-color:#fff;background-image:url(../images/white/bgThDefault.gif)}
+.thumbHeader a{color:#1978AD}
+.thumbHeader .jumpTo button{background-image:url(../images/common/buttonBg2byte.gif)}
+.thumbList{border-color:#ddd}
+.thumbList li .thumb{background:#fff;border-color:#ddd}
+.thumbList li .thumb a .text{color:#ccc}
+.thumbList li .thumb a .category{background:#000;opacity:.6;filter:alpha(opacity=60);color:#fff}
+/* Board Navigation */
+
+/* Search Form */
+
+/* Board Read */
+.boardReadHeader{border-color:#ddd}
+.boardReadBody{border-color:#ddd}
+.boardReadBody .memberSignature{border-color:#ddd}
+.boardReadFooter{color:#666}
+.boardReadFooter a{color:#666}
+.boardReadFooter dt{background:#f2f3f8}
+.boardRead .boardNavigation{border-color:#ddd}
+.feedbackList{color:#666}
+.feedbackList .feedbackHeader{color:#000}
+.feedbackList .feedbackHeader strong{color:#ff6600}
+.feedbackList .item{border-color:#ddd}
+.feedbackList .reply .indent{border-left-color:#eee}
+/* Time */
+.time *{color:#666}
+.time dt{background:#fff}
+/* Attached File */
+.attachedFile *{color:#666}
+.attachedFile dd a{color:#666}
+.attachedFile dd a .bubble{background:#f8f8f8;border-color:#ddd}
+.replyForm{color:#666;background:#f4f4f4}
+.replyForm .title{color:#000}
+/* Board Write */
+.boardWrite .boardNavigation,
+.boardEditor .boardNavigation{border-color:#ddd}
+/* UserName & Password */
+.board .userNameAndPw,
+.board .editOption{border-color:#ddd;background:#f4f4f4}
+/* Comment */
+.board .boardEditor{border-color:#ddd;background:#f8f8f8}
+.board .commentEditor .commentHeader{border-color:#ddd;color:#000}
+/* Extra Var Table */
+.extraVarsList{border-color:#ddd}
+.extraVarsList caption{color:#999}
+.extraVarsList em{color:#ff6600}
+.extraVarsList th,
+.extraVarsList td{border-color:#ddd}
+.extraVarsList th{background:#f4f4f4}
+.extraVarsList td{background:#fff}
+.extraVarsList td .inputNum{border-color:#ccc}
+/* Tag Cloud */
+.tagCloud{border-color:#ddd}
+.tagCloud .tagHeader{border-color:#ddd;color:#fff;background-color:#fff;background-image:url(../images/white/bgThDefault.gif)}
+.tagCloud .tagHeader strong{color:#fff}
+.tagCloud ul{background:#a3aabc;margin:0px;padding:5px}
+.tagCloud li.rank1 a{background:#a3aabc;color:#fff}
+.tagCloud li.rank2 a{color:#fff}
+.tagCloud li.rank3 a{color:#fff}
+.tagCloud li.rank4 a{color:#fff}
+.tagCloud li.rank5 a{color:#fff}
+/* Layer */
+#popup_menu_area{background:#fff;border-color:#eee}
+#popup_menu_area ul{border-color:#ddd}
+#popup_menu_area li a{color:#000}
+
+.pagination.a1 a, .pagination.a1 strong {background: none repeat scroll 0 0 #f2f3f8;}
+.span_title{font-size:15px;color:#777e90;font-weight:bold}
+
+.prodt_box{padding:27px 0 0 0;border-top:2px solid #ccd0d9;}
+.prodt_box h4{padding-bottom:12px;border-bottom:1px solid #d9dce3;}
+.new_prodt_form{padding:5px 0 0 0;}
+.prodt_box dl{margin-bottom:20px;padding-bottom:27px;border-bottom: 1px solid #b4b8c4;}
+.new_prodt_form dt{float:left;padding:15px 10px 0 0;width:72px;height:25px;}
+.new_prodt_form dd{margin:0 0 0 82px;padding:15px 0 0;}
+.new_prodt_form dt label {font-size:14px;color:#3c424f;}
+.new_prodt_form dd input{display: block;width:98%;height:25px;padding-left: 3px}
+.new_prodt_form dd .ipt_title{border:1px solid #c9cfdd;border-radius: 2px;}
+.new_prodt_form dd textarea{padding:3px;width:97%;border:1px solid #c9cfdd;border-radius: 2px;}
+.new_prodt_form .sbmt{float:right;padding:5px 19px;border:1px solid #c9cfdd;border-radius: 2px;font-weight: bold;color:#5b6277;background: #eaeaea}

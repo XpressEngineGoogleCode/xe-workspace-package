@@ -1,0 +1,43 @@
+<h4 class="members">{$lang->project_admin}</h4>
+<ul class="members">
+    <!--@foreach($site_admins as $key => $val)-->
+	<li>
+		<!--@if($val->profile_image)--><img src="{$val->profile_image->src}" class="thumbnail" align="left" width="70" height="70" alt="" /><!--@end-->
+		<a href="#" class="author member_{$val->member_srl}" onclick="return false;">{$val->nick_name}</a>
+		<!--@if($val->homepage)-->
+		<a href="{$val->homepage}">{cut_str($val->homepage,30)}</a>
+		<!--@end-->
+		<!--@if($val->blog)-->
+		<a href="{$val->blog}">{cut_str($val->blog,30)}</a>
+		<!--@end-->
+	</li>
+    <!--@end-->
+</ul>
+
+{@ $_title = null}
+<!--@foreach($members as $key => $val)-->
+
+		<!--@if(!$_title || $_title != $val->group_title)-->
+			<!--@if($_title)--></ul><!--@end-->
+			{@ $_title = $val->group_title}
+<h4 class="members">{$_title}</h4>
+<!--@if($group_list[$val->group_srl]->description)-->
+<p class="members summary">{nl2br(htmlspecialchars($group_list[$val->group_srl]->description))}</p>
+<!--@end-->
+<ul class="members">
+		<!--@end-->
+
+	<li>
+		<!--@if($val->profile_image)--><img src="{$val->profile_image->src}" class="thumbnail" align="left" width="70" height="70" alt="" /><!--@end-->
+		<a href="#" class="author member_{$val->member_srl}" onclick="return false;">{$val->nick_name}</a>
+		<!--@if($val->homepage)-->
+		<a href="{$val->homepage}">{cut_str($val->homepage,30)}</a>
+		<!--@end-->
+		<!--@if($val->blog)-->
+		<a href="{$val->blog}">{cut_str($val->blog,30)}</a>
+		<!--@end-->
+	</li>
+
+
+<!--@end-->
+</ul>

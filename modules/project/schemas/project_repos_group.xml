@@ -1,0 +1,5 @@
+<table name="project_repos_group">
+    <column name="site_srl" type="number" size="11" notnull="notnull" unique="project_commiter" />
+    <column name="group_srl" type="number" size="11" notnull="notnull" unique="project_commiter"/>
+    <column name="last_update" type="date" />
+</table>

@@ -1,0 +1,31 @@
+<!-- Member mod skin -->
+<load target="css/member.css" />
+<!-- Member mod skin -->
+
+<!-- Content Area -->
+
+    <h2 class="content_title">
+        {$lang->cmd_resend_auth_mail}
+    </h2>
+    <div class="mcm">
+        <div cond="$XE_VALIDATOR_MESSAGE" class="message {$XE_VALIDATOR_MESSAGE_TYPE}">
+            <p>{$XE_VALIDATOR_MESSAGE}</p>
+        </div>
+        <include target="./common_header.html" />
+        <p class="p_gray">{$lang->about_resend_auth_mail}</p>
+        <form action="" class="find_form">
+        <form ruleset="resendAuthMail" action="./" method="post" class="find_form" >
+            <input type="hidden" name="module" value="member" />
+            <input type="hidden" name="act" value="procMemberResendAuthMail" />
+            <input type="hidden" name="success_return_url" value="{getUrl(act, $act)}" />
+
+            <label for="w_ipt_mail" class="v_label">{$lang->email_address}</label>
+            <input type="email" id="w_ipt_mail" class="ipt_txt" value="">
+            <div class="btn_area">
+                <span class="btn_small"><input type="submit" value="{$lang->cmd_resend_auth_mail}"></span>
+            </div>
+        </form>
+    </div><!-- // mcm -->
+
+
+<!-- //Content Area -->

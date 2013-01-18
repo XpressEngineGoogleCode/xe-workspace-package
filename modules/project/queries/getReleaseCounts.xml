@@ -1,0 +1,19 @@
+<query id="getReleaseCounts" action="select">
+	<tables>
+		<table name="modules" />
+		<table name="sites" />
+		<table name="issue_releases" />
+	</tables>
+	<columns>
+		<column name="sites.site_srl" />
+		<column name="count(*)" alias="count" />
+	</columns>
+	<conditions>
+		<condition operation="equal" column="modules.site_srl" default="sites.site_srl" />
+		<condition operation="equal" column="modules.site_srl" var="site_srl" notnull="notnull" pipe="and" />
+		<condition operation="equal" column="modules.module_srl" default="issue_releases.module_srl" pipe="and" />
+	</conditions>
+	<groups>
+		<group column="sites.site_srl"/>
+	</groups>
+</query>

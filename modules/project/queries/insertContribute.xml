@@ -1,0 +1,11 @@
+<query id="insertContribute" action="insert">
+	<tables>
+		<table name="project_contribute" />
+	</tables>
+	<columns>
+		<column name="cnt" var="cnt" default="1" />
+		<column name="member_srl" var="member_srl" notnull="notull" />
+		<column name="site_srl" var="site_srl" notnull="notnull" />
+		<column name="type" var="type" notnull="notnull" />
+	</columns>
+</query>

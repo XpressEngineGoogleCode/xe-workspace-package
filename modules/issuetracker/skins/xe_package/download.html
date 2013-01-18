@@ -1,0 +1,190 @@
+<!--#include("header.html")-->
+<!--%import("../../tpl/filter/delete_release.xml")-->
+<!--%import("../../tpl/filter/delete_package.xml")-->
+<!--%import("js/issue_admin.js")-->
+<!--%import("js/toggle.js")-->
+
+<!--@if($isSiteAdmin)-->
+<div class="btnHeader" style="text-align:right;margin-bottom:5px"><a class="add_rlse" href="{getUrl('','module_srl',$module_srl,'mid',$mid,act,'dispIssuetrackerAdminModifyPackageFront','vid',$vid)}">Add {$lang->package}</a></div>
+<!--@endif-->
+
+<div class="dl_list clearfix">
+    <!--@if(count($package_list) == 0)-->
+    <div class="item lastItem">
+    {$lang->msg_no_product}
+    </div>
+    <!--@else-->
+    {@ $i = 0;}
+    <block loop="$package_list => $key , $val">
+        {@ $i ++;}
+    <div class="item <!--@if(count($package_list) == $i)-->lastItem<!--@end-->">
+        <div class="img_profile">
+            <img width="63" height="63" alt="Product Logo" src="{$val->packageImage}">
+        </div>
+        <div class="right">
+            <h5 class="product_title pull_left"><a href="#" onclick="return false;">{cut_str($val->title,40)}</a></h5>
+            <!--@if($isSiteAdmin)-->
+            <div class="product_ctrl pull_right">
+                <a class="ir edit" href="{getUrl('','module_srl',$module_srl,'mid',$mid,act,'dispIssuetrackerAdminModifyPackageFront','vid',$vid,'package_srl',$val->package_srl)}"><span class="visuallyhidden">Edit</span></a>
+                <a class="ir delete" href="#" onclick="deleteByFilter({$val->package_srl}, delete_package);return false;"><span class="visuallyhidden">Delete</span></a>
+            </div>
+            <!--@endif-->
+            <table class="lst_ver">
+                <caption class="blind"></caption>
+                <tbody>
+                    <!--@if(!count($val->releases))-->
+                    <tr>
+                        <td colspan="5">{$lang->msg_no_releases}</td>
+                    </tr>
+                    <!--@else-->
+                        {@ $countRelease = 0;}
+                        <!--@foreach($val->releases as $k => $v)-->
+                            {@ $countRelease++;}
+        	                <!--@if($v->files)-->
+        	                {@ $sumDownload = 0;}{@ $sumFileSize = 0;}
+                        	<!--@foreach($v->files as $file)-->
+                        		{@ $sumDownload += $file->download_count }
+                        		{@ $sumFileSize += $file->file_size}
+                        	<!--@endforeach-->
+                        	<!--@endif-->
+                        	<!--@if($countRelease > 1)-->
+                    <tr class="ver olderRelease_{$val->package_srl}" style="display:none">
+                            <!--@else-->
+                    <tr class="ver">
+                            <!--@endif-->
+                        <td class="name"><a href="#" onclick="return false;" data="{$v->release_srl}" class="releaseFiles">{$v->title}</a></td>
+                        <td class="size">Total Size ({count($v->files)} files)<em>{FileHandler::filesize($sumFileSize)}</em></td>
+                        <td class="count">DownLoads <em>{$sumDownload}</em></td>
+                        <td class="date"><em>{zdate($v->release_date, "Y-m-d")}</em></td>
+                        <td class="ctrl">
+                            <!--@if($isSiteAdmin)-->
+                            <a class="ir edit" href="{getUrl('','act','dispIssuetrackerAdminModifyReleaseFront','module_srl',$module_srl,'mid','issuetracker','vid','projectId','release_srl',$v->release_srl,'package_srl',$val->package_srl)}"><i class="ico_edit_ver"></i></a>
+                            <a class="ir delete" href="#" onclick="deleteByFilter({$v->release_srl}, delete_release);return false;"><i class="ico_delete_ver"></i></a>
+                            <a class="ir add" title="Attach a file"href="{getUrl('','act','dispIssuetrackerAdminAttachReleaseFront','module_srl',$module_srl,'mid',$mid,'vid',$vid,'release_srl',$v->release_srl,'package_srl',$val->package_srl)}"><i class="ico_add_ver"></i></a>
+                            <!--@endif;-->
+                        </td>
+                    </tr>
+                    <tr class="dl releaseDiv release_{$v->release_srl}" style="display:none">
+                        <td colspan="5">
+                            <div>
+                                <!--@if(!count($v->files))-->
+                                <span class="arrow"></span>
+                                {$lang->msg_not_attched}
+                                <!--@else-->
+                                <span class="arrow"></span>
+                                <ul>
+                                    <!--@foreach($v->files as $file)-->
+                                    <li>
+										<a href="{$file->download_url}">{$file->source_filename}</a>
+										<a class="delete_file" style="font-size:12px; margin-left:5px; color: red" href="#" data="{$file->file_srl}">x</a>
+									</li>
+                                    <!--@endforeach-->
+                                </ul>
+                                <!--@end-->
+                            </div>
+                        </td>
+                    </tr>
+                        <!--@end;-->
+                    <!--@end-->
+                </tbody>
+            </table>
+        </div><!-- //right -->
+        <div class="item_foot">
+            <a class="all_rlse show_all" data="{$val->package_srl}" href="#" onclick="return false;">{$lang->cmd_show_all_version}</a>
+            <a class="all_rlse hide_all" data="{$val->package_srl}" style="display:none" href="#" onclick="return false;">{$lang->cmd_hide_all_version}</a>
+            <!--@if($isSiteAdmin)-->
+            |<a class="add_rlse" href="{getUrl('','module_srl',$module_srl,'mid',$mid,act,'dispIssuetrackerAdminModifyReleaseFront','vid',$vid,'package_srl',$val->package_srl)}">Add release</a>
+            <!--@end-->
+        </div>
+    </div><!-- //item -->
+    </block>
+    <!--@end;-->
+</div><!-- //dl_list -->
+
+<div class="dl_list_pging">
+    <!--@if($page_navigation)-->
+    <div class="pagination">
+        <ul>
+            <li class="first">
+                <a href="{getUrl('page',1,'division',$division,'last_division',$last_division)}">First</a>
+            </li>
+            <li class="prev">
+                <!--@if($page>1)-->
+                <a href="{getUrl('page',$page-1,'division',$division,'last_division',$last_division)}">Prev</a>
+                <!--@else-->
+                <a href="{getUrl('page',1,'division',$division,'last_division',$last_division)}">Prev</a>
+                <!--@end-->
+            </li>
+            <!--@while($page_no = $page_navigation->getNextPage())-->
+                <!--@if($page == $page_no)-->
+                    <li><strong>{$page_no}</strong></li>
+                <!--@else-->
+                    <li><a href="{getUrl('page',$page_no,'division',$division,'last_division',$last_division)}">{$page_no}</a></li>
+                <!--@end-->
+            <!--@end-->
+            <li class="next">
+                <!--@if($page<$page_navigation->last_page)-->
+                <a href="{getUrl('page',$page+1,'division',$division,'last_division',$last_division)}">Next</a>
+                <!--@else-->
+                <a href="{getUrl('page',$page_navigation->last_page,'division',$division,'last_division',$last_division)}">Next</a>
+                <!--@end-->
+            </li>
+            <li class="end"><a href="{getUrl('page',$page_navigation->last_page,'division',$division,'last_division',$last_division)}">End</a></li>
+        </ul>
+    </div>
+    <!--@end-->
+</div>
+
+
+<form id="deleteForm" action="./" method="post">
+<input type="hidden" id="target_srl" name="target_srl" value="" />
+<input type="hidden" name="mid" value="{$mid}" />
+<input type="hidden" name="vid" value="{$vid}" />
+</form>
+<!--#include("footer.html")-->
+<script>
+jQuery(function($){
+    var c=['gray','green','yellow','red'];
+    var c2 = { 'gray':'#d0d0d0' ,'green':'#70D67C' ,'yellow':'#D6D570' ,'red':'#D68570' };
+    $('dd').each(function(){
+        var j = $(this), t=j.text();
+        if($.inArray(t,c) !==false){
+            j.parents('div.dBody').eq(0).find('>.vTitle').css('background-color',c2[t]);
+        }
+    });
+    $(".hide_all").click(function(evt){
+        $(this).hide();
+        $(this).prev(".show_all").show();
+
+        var srl = $(this).attr('data');
+        $('.olderRelease_' + srl).hide();
+    });
+    $(".show_all").click(function(evt){
+        $(this).hide();
+        $(this).next(".hide_all").show();
+
+        var srl = $(this).attr('data');
+        $('.olderRelease_' + srl).show();
+    })
+    var isReleaseClick = false;
+    $(".releaseFiles").click(function(evt){
+        $(".releaseDiv").hide();
+        var releaseSrl = $(this).attr('data');
+        var area = $(".release_" + releaseSrl);
+        area.show();
+        isReleaseClick = true;
+    });
+    $(".releaseDiv").click(function(evt){
+        isReleaseClick = true;
+    });
+    $(document).click(function(evt) {
+        if(isReleaseClick)
+        {
+            isReleaseClick = false;
+            return;
+        }
+        $(".releaseDiv").hide();
+        isReleaseClick = false;
+    });
+});
+</script>

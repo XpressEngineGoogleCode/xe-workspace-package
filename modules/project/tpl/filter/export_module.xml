@@ -1,0 +1,4 @@
+<filter name="export_module" module="project" act="procProjectAdminExportModule">
+    <form />
+    <response />
+</filter>

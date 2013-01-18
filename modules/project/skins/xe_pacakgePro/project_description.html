@@ -1,0 +1,11 @@
+<!--%import("./filter/change_language.xml")-->
+<div class="goal_view_head" >
+    <div class="goal_pg_content">
+        <p>{htmlspecialchars($project_info->project_description)}</p>
+    </div>
+</div>
+<!--@if($logged_info->is_site_admin)-->
+<div class="pull_right" style="margin-top:5px">
+    <a class="btn_white" href="{getUrl('act','dispProjectDescriptionManage','mid',$mid,'vid',$vid)}"><span>Update defination</span></a>
+</div>
+<!--@end-->

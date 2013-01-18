@@ -1,0 +1,13 @@
+<query id="reserveProject" action="insert">
+    <tables>
+        <table name="project_reserve" />
+    </tables>
+    <columns>
+        <column name="reserve_srl" var="reserve_srl" notnull="notnull" />
+        <column name="site_id" var="site_id" notnull="notnull" />
+        <column name="title" var="title" notnull="notnull" />
+        <column name="description" var="description" notnull="notnull" />
+        <column name="member_srl" var="member_srl" notnull="notnull" />
+        <column name="regdate" default="curdate()" />
+    </columns>
+</query>

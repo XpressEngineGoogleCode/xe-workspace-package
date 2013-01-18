@@ -1,0 +1,17 @@
+<query id="getRevisions" action="select">
+    <tables>
+        <table name="issue_changesets" />
+        <table name="sites" />
+        <table name="modules" />
+    </tables>
+    <columns>
+        <column name="issue_changesets.*" />
+		<column name="sites.site_srl" />
+    </columns>
+    <conditions>
+        <condition operation="in" column="revision" var="revisions" notnull="notnull" />
+        <condition operation="equal" column="issue_changesets.module_srl" default="modules.module_srl" notnull="notnull" pipe="and"/>
+        <condition operation="equal" column="sites.site_srl" default="modules.site_srl" notnull="notnull" pipe="and"/>
+        <condition operation="equal" column="sites.site_srl" var="site_srl" notnull="notnull" pipe="and"/>
+    </conditions>
+</query>

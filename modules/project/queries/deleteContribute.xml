@@ -1,0 +1,5 @@
+<query id="deleteContribute" action="delete">
+	<tables>
+		<table name="project_contribute" />
+	</tables>
+</query>

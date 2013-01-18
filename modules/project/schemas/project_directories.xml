@@ -1,0 +1,8 @@
+<table name="project_directories">
+    <column name="project_dir_srl" type="number" size="11" notnull="notnull" index="idx_directory" />
+    <column name="parent_directory_srl" type="number" size="11" notnull="notnull" default="0" index="idx_directory" />
+    <column name="list_order" type="number" size="11" notnull="notnull" index="idx_directory" />
+    <column name="title" type="varchar" size="255" notnull="notnull" />
+    <column name="description" type="text"  />
+    <column name="regdate" type="date" />
+</table>

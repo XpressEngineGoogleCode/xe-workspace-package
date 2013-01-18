@@ -1,0 +1,108 @@
+<load target="css/normalize.sh.201209.css"/>
+<load target="css/default.css"/>
+<load target="js/jquery.placeholder.min.js" />
+<load target="js/modernizr-2.5.3.min.js" />
+<load target="js/workspaceLayout.js" />
+
+<header id="header">
+<div class="inner">
+    <h1 class="logo">
+        <a href="{$layout_info->index_url}" cond="$layout_info->logo_image" style="background-image:url({$layout_info->logo_image})"><span class="blind"></span></a>
+		<a href="{$layout_info->index_url}" cond="!$layout_info->logo_image"><span class="blind">XE Workspace</span></a>
+    </h1>
+    <div class="srch" style="right:210px">
+        <form action="{getUrl()}" method="post">
+			<input type="hidden" name="vid" value="{$vid}" cond="$vid" />
+			<input type="hidden" name="mid" value="{$mid}" />
+			<input type="hidden" name="act" value="IS" />
+			<input type="hidden" name="search_target" value="title_content" />
+			<input type="search" name="is_keyword" class="ipt_srch" placeholder="Search" title="keyword" />
+            <input type="submit" class="sbmt_srch" value="" />
+    	</form>
+    </div>
+    <dl class="selectLang" style=" position: absolute;right: 110px;top: 27px; ">
+        <dd>
+            <div class="field">{$lang_supported[$lang_type]}</div>
+            <ul class="lst">
+                <li loop="$lang_supported=>$key,$val" cond="$key!= $lang_type">
+                    <a href="#" onclick="doChangeLangType('{$key}');return false;">{$val}</a>
+                </li>
+            </ul>
+        </dd>
+    </dl>
+    <dl class="selectLang">
+        <!--@if($logged_info)-->
+        <dd>
+            <span class="btn"><a href="{getUrl('act','dispMemberLogout')}">Sign Out</a></span>
+        </dd>
+        <!--@end-->
+    </dl>
+
+</div><!-- //inner -->
+</header>
+<div id="container" class="clearfix">
+    <div class="sidebar">
+        <div class="member">
+            <img widget="login_info" skin="xe_package" colorset="{$layout_info->colorset}" />
+        </div><!-- //member -->
+        <nav id="gnb" class="gnb">
+            <ul loop="$main_menu->list => $key1,$val1">
+                {@ $i = 0}
+                <block loop="$val1['list'] => $key2,$val2">
+                <!--@if($val2['text'] == 'My Projects' || $val2['text'] == 'My Communities')-->
+                {@$myMenu[$val2['text']] = $val2;}
+                {@continue;}
+                <!--@end-->
+                <li>
+                    {@ $i++;}
+                    <a href="{$val2['href']}" class="on"|cond="$val2['selected']" target="_blank"|cond="$val2['open_window']=='Y'">
+                        <i class="ico{$i}"></i>
+                        <span>{$val2['link']}</span>
+                    </a>
+                </li>
+                </block>
+            </ul>
+            <dl class="crew" cond="$logged_info">
+                <dt><a href="{$myMenu['My Projects']['href']}" class="on"|cond="$myMenu['My Projects']['selected']" target="_blank"|cond="$myMenu['My Projects']['open_window']=='Y'">My Projects :</a></dt>
+                    <dd class="myProSel"></dd>
+                <dt><a href="{$myMenu['My Communities']['href']}" class="on"|cond="$myMenu['My Communities']['selected']" target="_blank"|cond="$myMenu['My Communities']['open_window']=='Y'">My Communities :</a></dt>
+                    <dd class="myCommuSel"></dd>
+            </dl>
+            <script>
+                jQuery(function(){
+                    var params = {};
+                    exec_xml('project', 'getMyProject', params, completeGet,['error','message','html','myProSel']);
+                    exec_xml('homepage', 'getMyHomepage', params, completeGet,['error','message','html','myCommuSel']);
+                });
+                function completeGet(ret_obj, response_tags)
+                {
+                    jQuery('.' + response_tags[3]).html(ret_obj['html']);
+                }
+                function changeSite(domainStr)
+                {
+                    var url = '{getUrl('')}';
+                    window.location = url+domainStr;
+                }
+            </script>
+        </nav>
+    </div><!-- //sidebar -->
+    <div id="main" class="main clearfix">
+        <!-- Content Area -->
+        <section class="content_area clearfix">
+            <!--@if($act == 'IS' || ($module_info->module == 'page' && ($act == 'dispPageAdminContentModify' || $act == 'dispPageAdminInfo')))-->
+            <h2 class="content_title">Workspace</h2>
+            <div class="whatever clearfix">
+            <!--@end;-->
+                {$content}
+            <!--@if($act == 'IS' || ($module_info->module == 'page' && ($act == 'dispPageAdminContentModify' || $act == 'dispPageAdminInfo')))-->
+            </div>
+            <!--@end;-->
+        </section>
+        <!-- //Content Area -->
+    </div><!-- //main -->
+</div><!-- //#container -->
+<footer id="footer">
+    <div class="inner">
+        <address>Copyright&copy;2012 NHN Corp. All rights reserved. Powered By XE</address>
+    </div>
+</footer>

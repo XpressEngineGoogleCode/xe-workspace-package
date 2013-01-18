@@ -1,0 +1,93 @@
+<div class="btnArea">
+    <span class="btn"><a href="{getUrl('','mid',$mid,'document_srl',$document_srl,'act','dispBoardWrite','isAddFile','1')}">Add a new File</a></span>
+</div>
+<div class="sec_files">
+    <div class="hd">
+        <div class="breadcrumb">
+            <ul>
+                <li class="dir"><a href="{getUrl('document_srl','')}">Buckets</a></li>
+                <li><a href="{$oDocument->getPermanentUrl()}">{$oDocument->getTitle()}</a></li>
+            </ul>
+        </div>
+        <span class="size">Total <em>{$file_num}</em> files at <em>{FileHandler::filesize($file_size)}</em> bytes</span>
+    </div><!-- //hd -->
+    <table class="bucket_file_list">
+        <caption class="blind">Buckets</caption>
+        <thead>
+            <tr>
+                <th class="icon">&nbsp;</th>
+                <th class="name">File Name</th>
+                <th class="owner">Owner</th>
+                <th class="date">Date</th>
+                <th class="act">Action</th>
+            </tr>
+        </thead>
+        <tbody>
+            <!--@foreach($file_list as $key => $file)-->
+            <tr>
+                <td class="icon">
+                    <img width="19" height="23" alt="" src="images/ico_buc_file.png">
+                </td>
+                <td class="name">
+                    <a class="lnk_buc" href="">{$file->source_filename}</a>
+                    <span class="size"><em>{FileHandler::filesize($file->file_size)}</em>byte</span>
+                </td>
+                <td class="owner">
+                    <!--@if(!$oDocument->getMemberSrl())-->
+        				<!--@if($oDocument->isExistsHomepage())-->
+        					<a href="{$oDocument->getHomepageUrl()}" onclick="window.open(this.href);return false;">{$oDocument->getNickName()}</a>
+        				<!--@else-->
+        					{$oDocument->getNickName()}
+        				<!--@end-->
+        			<!--@else-->
+        				<a href="#popup_menu_area" class="member_{$oDocument->get('member_srl')}" onclick="return false">{$oDocument->getNickName()}</a>
+        			<!--@end-->
+                </td>
+                <td class="date">{zdate($file->regdate, "Y-m-d H:i")}</td>
+                <td class="act">
+                    <a title="Download" class="dl ir" href="{$file->download_url}">Download</a>
+                    <a href="#" title="Delete" class="del ir" onclick="showDelete('{$file->file_srl}');return false;">{$cmd_delet}</a>
+                </td>
+            </tr>
+            <!--@end-->
+        </tbody>
+    </table>
+</div>
+<div class="pagination">
+    <ul>
+        <li class="first">
+            <a href="{getUrl('page',1,'document_srl','','division',$division,'last_division',$last_division)}">First</a>
+        </li>
+        <li class="prev">
+            <!--@if($page>1)-->
+            <a href="{getUrl('page',$page-1,'document_srl','','division',$division,'last_division',$last_division)}">Prev</a>
+            <!--@else-->
+            <a href="{getUrl('page',1,'document_srl','','division',$division,'last_division',$last_division)}">Prev</a>
+            <!--@end-->
+        </li>
+        <!--@while($page_no = $page_file_navigation->getNextPage())-->
+            <!--@if($page == $page_no)-->
+                <li><strong>{$page_no}</strong></li>
+            <!--@else-->
+                <li><a href="{getUrl('page',$page_no,'document_srl','','division',$division,'last_division',$last_division)}">{$page_no}</a></li>
+            <!--@end-->
+        <!--@end-->
+        <li class="next">
+            <!--@if($page<$page_file_navigation->last_page)-->
+            <a href="{getUrl('page',$page+1,'document_srl','','division',$division,'last_division',$last_division)}">Next</a>
+            <!--@else-->
+            <a href="{getUrl('page',$page_file_navigation->last_page,'document_srl','','division',$division,'last_division',$last_division)}">Next</a>
+            <!--@end-->
+        </li>
+        <li class="end"><a href="{getUrl('page',$page_file_navigation->last_page,'document_srl','','division',$division,'last_division',$last_division)}">End</a></li>
+    </ul>
+</div>
+<div class="btnArea">
+	<span class="btn"><a href="{getUrl('act','dispBoardWrite','document_srl',$oDocument->document_srl,'comment_srl','')}">{$lang->cmd_modify} Folder Info...</a></span>
+	<span class="btn"><a href="{getUrl('act','dispBoardDelete','document_srl',$oDocument->document_srl,'comment_srl','')}">{$lang->cmd_delete} Folder info</a></span>
+</div>
+
+<div class="proWindow" id="proWindow">
+    <include target="delete_form2.html" />
+</div>
+<load target="./js/fileAct.js" />

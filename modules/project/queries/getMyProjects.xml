@@ -1,0 +1,34 @@
+<query id="getMyProjects" action="select">
+    <tables>
+        <table name="projects" />
+        <table name="sites" />
+        <table name="modules" />
+        <table name="member_group_member" />
+        <table name="member_group" />
+    </tables>
+    <columns>
+        <column name="projects.site_srl" alias="site_srl" />
+        <column name="projects.title" alias="project_title" />
+        <column name="projects.rank" alias="rank" />
+        <column name="projects.description" alias="project_description" />
+        <column name="sites.domain" alias="domain" />
+        <column name="member_group.title" alias="group_title" />
+        <column name="member_group_member.regdate" alias="joindate" />
+        <column name="modules.*" />
+    </columns>
+    <conditions>
+        <condition operation="equal" column="sites.site_srl" default="projects.site_srl" filter="number" notnull="notnull" />
+        <condition operation="equal" column="modules.module_srl" default="sites.index_module_srl" pipe="and" />
+        <condition operation="equal" column="member_group_member.site_srl" default="modules.site_srl" pipe="and" />
+        <condition operation="more" column="member_group_member.group_srl" default="0" pipe="and" />
+        <condition operation="equal" column="member_group_member.group_srl" default="member_group.group_srl" pipe="and" />
+        <condition operation="equal" column="member_group_member.member_srl" var="member_srl" filter="number" notnull="notnull" pipe="and" />
+		<group pipe="and">
+			<condition operation="like" column="projects.title" var="s_keyword" />
+			<condition operation="like" column="projects.description" var="s_keyword" pipe="or" />
+		</group>
+    </conditions>
+    <navigation>
+        <index var="sort_index" default="member_group_member.regdate" order="desc" />
+    </navigation>
+</query>

@@ -1,0 +1,16 @@
+/* add_new_procudt.html */
+.prodt_box{padding:27px 0 0 0;border-top:2px solid #ccd0d9;}
+.prodt_box h4{padding-bottom:12px;border-bottom:1px solid #d9dce3;}
+.new_prodt_form{padding:5px 0 0 0;*zoom:1;}
+.new_prodt_form:after{content:'';display: block;clear:both;}
+.prodt_box dl{margin-bottom:20px;padding-bottom:27px;border-bottom: 1px solid #b4b8c4;}
+.new_prodt_form dt{float:left;padding:15px 10px 0 0;width:72px;height:25px;}
+.new_prodt_form dd{margin:0 0 0 82px;padding:15px 0 0;}
+.new_prodt_form dt label {font-size:14px;color:#3c424f;}
+.new_prodt_form dd input{display: block;width:98%;height:25px;padding-left: 3px}
+.new_prodt_form dd .ipt_title{border:1px solid #c9cfdd;border-radius: 2px;}
+.new_prodt_form dd textarea{padding:3px;width:97%;border:1px solid #c9cfdd;border-radius: 2px;}
+.new_prodt_form .sbmt{float:right;padding:5px 19px;border:1px solid #c9cfdd;border-radius: 2px;font-weight: bold;color:#5b6277;background: #eaeaea}
+#ipt_title::-webkit-input-placeholder {color:#999 !important;font-size:12px !important; font-weight:normal !important;}
+#ipt_title:-moz-placeholder{color:#999 !important;font-size:12px !important; font-weight:normal !important;}
+#ipt_title .placeholder{color:#999 !important;font-size:12px !important; font-weight:normal !important;}

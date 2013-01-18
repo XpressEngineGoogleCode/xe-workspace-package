@@ -1,0 +1,68 @@
+<!--#include("hub_header.html")-->
+	<!-- .pxeBody -->
+	<div class="pxeBody">
+		<div class="pxeContent">
+			<div class="pxeH">
+				<h2>{$lang->cmd_make_my_project}</h2>
+			</div>
+			<div id="pxeAgreement">
+				<blockquote>
+				{nl2br($project_config->creation_agreement)}
+				</blockquote>
+				<div class="btnArea"><span class="btnPxe"><button type="button" onclick="document.getElementById('pxeAgreement').style.display='none'; document.getElementById('pxeCreation').style.display='block'; return false;">{$lang->agree_agreement}</button></span></div>
+			</div>
+			<form id="pxeCreation" action="{getUrl()}" method="post" onsubmit="return procFilter(this, user_reserve_project);" enctype="multipart/form-data">
+				<input type="hidden" name="module" value="project" />
+				<input type="hidden" name="act" value="" />
+				<input type="hidden" name="reserve_srl" value="" />
+				<input type="hidden" name="mid" value="{$mid}" />
+				<h3>{$lang->project_id}</h3>
+				<div class="input">
+				<!--@if($project_config->access_type=="vid")-->
+					{Context::getRequestUri()}<input type="text" name="project_id" class="iText" title="Project ID" maxlength="12" />
+				<!--@else-->
+					http://<input name="project_id" type="text" class="iText" title="Project ID" />.{$project_config->default_domain}
+				<!--@end-->
+					<p>{$lang->about_project_id}</p>
+				</div>
+				<h3>{$lang->project_title}</h3>
+				<div class="input"><input name="project_title" type="text" class="iText" title="Project Name" />
+					<p>{$lang->about_project_title}</p>
+				</div>
+				<h3>{$lang->project_description}</h3>
+				<div class="input">
+					<textarea name="project_description" cols="50" rows="5" title="Project Description"></textarea>
+					<p>{$lang->about_project_description}</p>
+				</div>
+				<h3>{$lang->project_directory}</h3>
+				<div class="input">
+					<!--@foreach($directories as $key => $val)-->
+					<div class="part">
+						<h4>{$val->title}</h4>
+						<ul>
+						<!--@foreach($val->childs as $k => $v)-->
+							<li><input name="directory_{$val->project_dir_srl}" type="radio" value="{$v->project_dir_srl}" id="dir_{$v->project_dir_srl}" /> <label for="dir_{$v->project_dir_srl}">{$v->title}</label></li>
+						<!--@end-->
+						</ul>
+					</div>
+					<!--@end-->
+					<div style="clear: both;">
+					<p>{$lang->about_project_directory}</p>
+					</div>
+				</div>
+				<h3>{$lang->project_logo}</h3>
+				<div class="input">
+					<input name="project_logo" type="file" title="Project Logo Image" />
+					<p>{$lang->about_project_logo}</p>
+				</div>
+				<h3>{$lang->project_banner}</h3>
+				<div class="input">
+					<input name="project_banner" type="file" title="Project Banner Image" />
+					<p>{$lang->about_project_banner}</p>
+				</div>
+				<div class="btnArea"><span class="btnPxe"><input type="submit" value="{$lang->cmd_make_project}" /></span></div>
+			</form>
+		</div>
+	</div>
+	<!-- /.pxeBody -->
+</div>

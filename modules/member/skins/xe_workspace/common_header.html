@@ -1,0 +1,20 @@
+<!-- Member mod skin -->
+<load target="css/member.css" />
+<!-- Member mod skin -->
+
+<!-- MCM Nav -->
+<nav class="mcm_nav" cond="$is_logged && $logged_info->menu_list && (!$member_srl || $member_srl == $logged_info->member_srl)" >
+    <ul>
+        <li loop="$logged_info->menu_list=>$key,$val">
+            <!--@if($key != 'dispProjectAccountManage')-->
+            <a href="{getUrl('', 'act',$key, 'mid', $mid, 'vid', $vid)}" class="active"|cond="$key==$act" >
+            <!--@elseif($key == 'dispProjectAccountManage')-->
+            {@ $link = getUrl();$link .='?act=dispProjectAccountManage'; }
+            <a href="{$link}" class="active"|cond="$key==$act" >
+            <!--@end-->
+                {Context::getLang($val)}
+            </a></li>
+    </ul>
+</nav>
+
+<!-- //MCM Nav -->

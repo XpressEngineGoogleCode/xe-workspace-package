@@ -1,0 +1,8 @@
+<query id="deleteReserve" action="delete">
+    <tables>
+        <table name="project_reserve" />
+    </tables>
+    <conditions>
+        <condition operation="equal" column="reserve_srl" var="reserve_srl" filter="number" notnull="notnull" />
+    </conditions>
+</query>

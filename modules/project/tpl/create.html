@@ -1,0 +1,46 @@
+<!--#include("./header.html")-->
+<!--%import("./filter/insert_project.xml")-->
+
+<form action="./" method="post" onsubmit="return procFilter(this, insert_project)" id="projectFo">
+    <h3 class="xeAdmin">{$lang->cmd_make_project}</h3>
+    <table cellspacing="0" class="crossTable">
+    <tbody>
+        <tr>
+            <th scope="row"><div>{$lang->project_title}</div></th>
+            <td>
+                <input type="text" name="project_title" value="" class="inputTypeText w200" />
+            </td>
+        </tr>
+        <tr>
+            <th scope="row"><div>{$lang->access_type}</div></th>
+            <td>
+                <label for="chkDomain"><input type="radio" id="chkDomain" name="access_type" value="domain" onclick="toggleAccessType('domain');" checked="checked" /> {$lang->access_domain}</label>
+                <label for="chkVid"><input type="radio" id="chkVid" name="access_type" value="vid" onclick="toggleAccessType('vid');" /> {$lang->access_vid}</label>
+                <div id="accessDomain" style="display:block; margin-top:10px;">
+                    http://<input type="text" name="domain" value="" class="inputTypeText w200" />
+                    <p>{$lang->about_domain}</p>
+                </div>
+                <div id="accessVid" style="display:none; margin-top:10px;">
+                    <input type="text" name="vid" value="" class="inputTypeText w200" />
+                    <p>{$lang->about_vid}</p>
+                </div>
+            </td>
+        </tr>
+
+		<tr>
+            <th scope="row"><div>{$lang->skin}</div></th>
+            <td>
+                <select name="skin" id="skin">
+					<option loop="$skin_list=> $key, $val" value="{$key}" selected="selected"|cond="$module_info->skin== $key || (!$module_info->skin && $key=='xe_board')">{$val->title}</option>
+				</select><br />
+                <p>{$lang->about_skin}</p>
+            </td>
+        </tr>
+        <tr class="row2">
+            <th colspan="2" class="button"><span class="btn"><input type="submit" value="{$lang->cmd_project_registration}" accesskey="s" /></span></div></th>
+        </tr>
+    </tbody>
+    </table>
+</form>
+
+<!--#include("./_foot.html")-->

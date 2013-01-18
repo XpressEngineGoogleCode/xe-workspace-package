@@ -1,0 +1,10 @@
+#lnb{border-top:1px solid #5c616e;}
+#lnb ul{position: relative;top:0;left: 0;z-index: 500;width: 200px;border-bottom:1px solid #9096a5;*zoom:1;}
+#lnb ul:after{content:'';clear: both;display:block;}
+#lnb ul li{float: left;width:200px;height: 33px;}
+#lnb ul li a{display: block;position:absolute;padding:8px 0 0 20px;height:25px;width:180px;background: url('../img/bg_lnb_item.png') repeat-x 0 0;font-size:16px;text-decoration: none;color:white;}
+#lnb ul li a:hover,#lnb ul li a.on{background: url('../img/bg_lnb_item_on.png') no-repeat 0 0;color:#b9caed;}
+#lnb ul li i{display: block;float:left;margin-right:7px;width: 17px;height: 17px;}
+#lnb ul li span{display: block;float: left;height: 17px;line-height: 17px;cursor: pointer;}
+#lnb ul li .ico6{background: url('../img/icon6_off.png') no-repeat 0 0;}
+#lnb ul li .on .ico6,#lnb ul li a:hover .ico6{background: url('../img/icon6_on.png') no-repeat 0 0;}

@@ -1,0 +1,15 @@
+{@ Context::addJsFile("./common/js/jquery.js", true, '', -100000) }
+<!--%import("css/mproject.css")-->
+<div class="bd">
+	<div class="ln">
+		<ul>
+		<!--@if(!$is_logged)-->
+		{@ array_shift($lang->mobile_menu)}
+		{@ array_shift($lang->mobile_menu)}
+		<!--@end-->
+		<!--@foreach($lang->mobile_menu as $key=>$val)-->
+			<li<!--@if($act==$key)--> class="active"<!--@end-->><a href="{getUrl('','mid',$mid,'act',$key)}">{$val}</a></li>
+		<!--@end-->
+		</ul>
+		<button type="button" class="next" title="{$lang->more}"></button>
+	</div>

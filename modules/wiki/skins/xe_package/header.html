@@ -1,0 +1,85 @@
+<!--%import("css/wiki.css")-->
+<!--%import("js/wiki.js")-->
+
+<!--@if(!$module_info->colorset)-->
+    {@$module_info->colorset = "white"}
+<!--@end-->
+
+{$module_info->header_text}
+
+<style>
+
+</style>
+<div class="wiki_header clearfix">
+
+    <ul class="lnks">
+        <a <!--@if($act == 'dispWikiContent')-->class="active"<!--@end--> href="{getUrl('act','dispWikiContent','entry','','document_srl','')}"><span>Home page</span></a>
+        <a <!--@if($act == 'dispWikiTitleIndex')-->class="active"<!--@end--> href="{getUrl('act','dispWikiTitleIndex','entry','','document_srl','')}"><span>{$lang->cmd_view_document_list}</span></a>
+        <a <!--@if($act == 'dispWikiTreeIndex')-->class="active"<!--@end--> href="{getUrl('act','dispWikiTreeIndex','entry','','document_srl','')}"><span>{$lang->cmd_view_document_tree}</span></a>
+        <a class="<!--@if($act == 'dispWikiEditPage')-->active<!--@end--> last" href="{getUrl('act','dispWikiEditPage','entry',$entry)}"><span>{$lang->cmd_create}</span></a>
+    </ul>
+    <form action="{getUrl()}" method="get" >
+        <input type="hidden" name="mid" value="{$mid}" />
+        <input type="hidden" name="vid" value="{$vid}" />
+        <div class="srch">
+            <span><input type="text" name="entry"></span>
+            <input type="submit" value="{$lang->cmd_move}" class="sbmt">
+        </div>
+    </form>
+    <!--<a href="" class="conf ir">Configure</a>-->
+</div>
+
+<div class="wiki">
+    <div class="wikiHeader">
+		<!--@if($module_info->title)-->
+		<div class="wikiTitle">
+			<h2 class="wikiTitleText"><a href="{getUrl('','mid',$mid,'listStyle',$listStyle)}">{$module_info->title}<!--@if($module_info->sub_title)--> : <em>{$module_info->sub_title}</em><!--@end--></a></h2>
+		</div>
+		<!--@end-->
+
+		<!--@if($module_info->comment)-->
+		<p class="wikiDescription">{$module_info->comment}</p>
+		<!--@end-->
+    </div>
+    <!--@if($oDocument && $oDocument->isExists())-->
+    <div class="wikiRead">
+        <div class="wikiReadHeader">
+    <!--@if($visit_log)-->
+    <div class="visitLog">
+        {@ $i = 0;}
+        <!--@foreach($visit_log as $_entry)-->
+            <!--@if(!strlen($_entry))-->{@ continue;}<!--@end;-->
+            {@ $i++;}
+            <!--@if($i == count($visit_log)-1 && strlen($_entry) && !$prePage)-->{@ $prePage = urlencode ($_entry);}<!--@end-->
+            <!--@if(strlen($_entry) && $bFirst)--> - <!--@else-->{@ $bFirst = false; }<!--@end--> <a href="{getUrl('entry',$_entry,'document_srl','')}" class="<!--@if($i == count($visit_log))--> bold_link<!--@end-->">{$_entry}</a>
+            <!--@if(strlen($_entry))-->{@ $bFirst = true; }<!--@end-->
+            <!--@if($i == count($visit_log) && strlen($_entry) && !$nextPage)-->{@ $nextPage = urlencode($_entry)}<!--@end-->
+        <!--@end-->
+    </div>
+    <div class="pagination">
+        <ul>
+            <li class="prev">
+                <a href="{getUrl('entry', $prePage, 'document_srl', '')}">Prev</a>
+            </li>
+            <li class="next">
+                <a href="{getUrl('entry', $nextPage, 'document_srl', '')}">Next</a>
+            </li>
+        </ul>
+    </div>
+    <!--@end-->
+        </div>
+    </div>
+    <!--@elseif($entry)-->
+
+    <!--@if($visit_log)-->
+    <div class="visitLog">
+        {@ $i = 0;}
+        <!--@foreach($visit_log as $_entry)-->
+            {@ $i++;}
+            <!--@if(strlen($_entry) && $bFirst)--> - <!--@else-->{@ $bFirst = false; }<!--@end--> <a href="{getUrl('entry',$_entry)}" class="<!--@if($i == count($visit_log))--> bold_link<!--@end-->">{$_entry}</a>
+            <!--@if(strlen($_entry))-->{@ $bFirst = true; }<!--@end-->
+        <!--@end-->
+    </div>
+
+    <!--@end-->
+    <!--@end-->

@@ -1,0 +1,14 @@
+<load target="css/default.css"/>
+<load target="./filter/logout.xml" />
+
+<div class="prof_pic">
+<div class="cover"></div>
+    <img cond="$logged_info->profile_image && $logged_info->profile_image->file" src="{$logged_info->profile_image->file}" alt="user images" width="158" height="158">
+	<img cond="!($logged_info->profile_image && $logged_info->profile_image->file)" src="./widgets/login_info/skins/xe_package/img/profile_unknown.png" alt="user images" width="158" height="158">
+</div>
+<span class="mb_uname"><a href="#popup_menu_area" class="member_{$logged_info->member_srl}">{$logged_info->nick_name}</a></span>
+<span class="mb_log"><a href="">{$lang->last_login}: {zDate($logged_info->last_login, "Y-m-d")}</a></span>
+<ul class="mb_fn">
+    <li><a href="{getUrl('', 'act','dispMemberInfo' , 'mid', $mid, 'vid', $vid)}"><i class="mb_prof"></i>Member Profile</a></li>
+    <li cond="$logged_info->is_admin=='Y' && !$site_module_info->site_srl"><a href="{getUrl('','module','admin')}"><i class="mb_admin"></i>Admin Manage</a></li>
+</ul>

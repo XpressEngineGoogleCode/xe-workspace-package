@@ -1,0 +1,8 @@
+<query id="getProjectCount" action="select">
+    <tables>
+        <table name="projects" />
+    </tables>
+    <columns>
+        <column name="count(*)" alias="count" />
+    </columns>
+</query>

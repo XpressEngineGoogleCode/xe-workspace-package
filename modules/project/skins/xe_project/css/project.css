@@ -1,0 +1,195 @@
+@charset "utf-8";
+
+/* Project List */
+.projectContext h2.projectTitle { color:#333; font-size:18px; margin:0 0 40px 0; clear:both;}
+.projectList a{ text-decoration:none;}
+.projectList a:hover,
+.projectList a:active,
+.projectList a:focus{ text-decoration:underline;}
+
+.projectList .projectTop { position:relative; *zoom:1; overflow:hidden; width:100%;}
+
+.projectList { position:relative; *zoom:1; overflow:hidden;}
+.projectList .category{ position:relative; overflow:hidden; list-style:none; margin:0 0 20px 0; padding:0; font-size:14px; font-weight:bold; color:#888;}
+.projectList .category a{ color:#888;}
+.projectList .category li{ position:relative; left:-15px; padding-left:15px; padding-right:10px; display:inline; white-space:nowrap; border-left:1px solid #e7e7e7;}
+.projectList .category li.active a{ color:#000;}
+.projectList .category li.create { border:none; float:right; padding:0; }
+.projectList .category em{ font-style:normal; color:#ff3636;}
+.projectList .myProject { text-align:right; margin-bottom:10px; }
+.projectList .myProject select { height:21px; margin:0;}
+.projectList .myProject input.submit { border:1px solid #adadad; background-color:#fff; margin:0 0 0 5px; padding:2px; height:20px;}
+
+.projectList div.item{ position:relative; border:1px solid #dcdcdc; padding:10px 20px 10px 20px; *zoom:1; margin-bottom:10px; height:60px; }
+.projectList div.item:after{ content:""; display:block; clear:both;}
+.projectList div.item .num{ position:absolute; top:10px; right:10px; font:9px Tahoma; color:#adadad;}
+.projectList div.item .thumb{ float:left; margin-right:15px;}
+.projectList div.item .projectTitle{ position:absolute; top:0; right:15px; background:url('../img/iconProject.gif') no-repeat left top; padding-left:22px; height:16px;}
+.projectList div.item .projectTitle a { text-decoration:none; color:#A5956A; }
+.projectList div.item .title{ font-size:14px; margin:3px 0 0 0;}
+.projectList div.item .title a{ color:#000;}
+.projectList div.item .title span a{ font-weight:normal; }
+.projectList div.item .summary { color:#888; padding:5px 150px 0 0; line-height:140%; overflow:hidden; margin:0; height:32px; overflow:hidden; }
+.projectList div.item .summary.nomargin { padding-right:20px; }
+.projectList div.item .summary a{ color:#888;}
+.projectList div.item ul { position:absolute; bottom:10px; right:0; margin:0 0 0 40px; list-style:none; white-space:nowrap; overflow:hidden;}
+.projectList div.item ul li { display:inline; background:url('../img/iconFile.gif') no-repeat left top; padding-left:16px; color:#888; margin-right:10px}
+.projectList div.item ul li a { color:#888; }
+
+.projectList div.item .meta{ position:absolute; top:0; right:0; width:125px; padding:15px 0 27px 20px; margin:0;}
+.projectList div.item .meta dt{ float:left; clear:left; margin:0 5px 0 0;}
+.projectList div.item .meta dd{ clear:right; margin:0;}
+.projectList div.item .meta dt.member{ font-size:11px; padding-top:4px;}
+.projectList div.item .meta dd.member{ font:bold 14px Tahoma; color:#ff3636;}
+.projectList div.item .meta dt.rank { font-size:11px; padding-top:4px;}
+.projectList div.item .meta dd.rank { font:14px Tahoma; color:#282CC7;}
+.projectList div.item .meta dt.since,
+.projectList div.item .meta dd.since{ font:9px Tahoma; color:#adadad; padding-top:2px;}
+
+.projectList .createProject { text-align:right;}
+
+.projectList .pagination{ padding:15px 0; margin:0; text-align:center;}
+.projectList .pagination *{ margin:0; padding:0;}
+.projectList .pagination img{ border:0;}
+.projectList .pagination a,
+.projectList .pagination strong{ position:relative; display:inline-block; text-decoration:none; line-height:normal; color:#4d4d4d; font-family:Tahoma, Sans-serif; padding:2px 6px; font-size:11px; vertical-align:middle;}
+.projectList .pagination strong{ color:#ff3636 !important; border:1px solid #e7e7e7;}
+.projectList .pagination a.prev,
+.projectList .pagination a.prevEnd,
+.projectList .pagination a.next,
+.projectList .pagination a.nextEnd{ font-weight:normal !important; margin:0 !important; white-space:nowrap; text-decoration:none !important; border:1px solid #e7e7e7; background-image:url(../img/arrowPagination.gif); background-repeat:no-repeat;}
+.projectList .pagination a.prevEnd{ padding-left:14px; background-position:left center; }
+.projectList .pagination a.nextEnd{ padding-right:14px; background-position:right center; }
+
+.projectList .search{ margin:0; padding:15px 0; font-size:.75em; line-height:normal;}
+.projectList .search *{ margin:0; padding:0;}
+.projectList .search fieldset{ border:0; clear:both; text-align:center;}
+.projectList .search fieldset:after{ content:""; display:block; float:none; clear:both;}
+.projectList .search fieldset *{ vertical-align:top;}
+.projectList .search legend{ position:absolute; width:0; height:0; overflow:hidden; font:0/0 Sans-serif; visibility:hidden;}
+.projectList .search select{ font-size:12px; height:23px;  border:1px solid #a6a6a6; border-right-color:#d8d8d8; border-bottom-color:#d8d8d8;}
+.projectList .search .inputText{ width:140px; height:15px; padding:4px 4px 2px 4px; font-size:12px; *margin:-1px 0; border:1px solid #a6a6a6; border-right-color:#d8d8d8; border-bottom-color:#d8d8d8;}
+.projectList .search .inputText:focus{ background:#ffc}
+
+.projectList .buttonOfficial,
+.projectList .buttonOfficial span,
+.projectList .buttonOfficial input,
+.projectList .buttonOfficial button{ position:relative; vertical-align:middle; display:inline-block; height:25px; font-size:12px; line-height:25px; color:#4d4d4d; cursor:pointer; background-image:url(../img/buttonOfficial.gif); background-repeat:no-repeat; text-decoration:none !important; overflow:visible; border:0; padding:0; background-color:transparent;}
+
+.projectList .buttonOfficial{ background-position:left top; margin-right:4px;}
+.projectList .buttonOfficial span,
+.projectList .buttonOfficial input,
+.projectList .buttonOfficial button{ left:4px; background-position:right top; padding:0 8px 0 4px;}
+
+.projectList a.buttonOfficial{ _margin-top:-1px;}
+.projectList a.buttonOfficial span{ _vertical-align:top;}
+
+/* -- Button Action -- */
+.buttonAction,
+.buttonAction button,
+.buttonAction input{ position:relative; border:0; margin:0; display:inline-block; font-family:Tahoma, Sans-serif; font-weight:bold !important; cursor:pointer; text-decoration:none !important; white-space:nowrap; vertical-align:middle; background-color:transparent; background-image:url(../img/buttonAction.gif); background-repeat:no-repeat;}
+
+/* Control Button + Submit Button */
+.buttonAction button,
+.buttonAction input { height:39px; padding:0 25px 0 0; *padding:0 25px 0 0; font:12px/39px Sans-serif; background-position:right top; overflow:visible;}
+
+/* Blue */
+.buttonAction.actionBlue { margin-right:7px; background-position:left top;}
+.buttonAction.actionBlue button,
+.buttonAction.actionBlue input{ left:7px; padding-left:40px; color:#fff; background-position:right top;}
+
+/* White */
+.buttonAction.actionWhite { background-position:left -40px;}
+.buttonAction.actionWhite button,
+.buttonAction.actionWhite input{ left:7px; color:#555; background-position:right -40px; padding-left:18px;}
+
+/* table */
+.projectContext table { border-collapse:collapse; border:1px solid #ccc; border-right:none; border-bottom:none; margin-bottom:20px; width:100%; }
+.projectContext caption { position:relative; text-align:left; font-weight:bold; padding:10px 0;}
+.projectContext caption button{ overflow:visible; font:11px Tahoma; cursor:pointer;}
+.projectContext tr.agreement th { width:180px; }
+.projectContext tr.agreement td blockquote { padding:10px 5px; margin:0; border-bottom:1px solid #eee; }
+.projectContext tr.hide { display:none; }
+.projectContext th,
+.projectContext td { padding:10px; vertical-align:top; border:1px solid #ccc; border-top:none; border-left:none; vertical-align:top;}
+.projectContext th { background:#f4f4f4; }
+.projectContext tbody th { text-align:left; }
+.projectContext tbody td p { color:#888; }
+.projectContext tbody td textarea.description { width:95%; height:80px; }
+.projectContext tbody td .description_length {display:none; color:#888; margin-bottom:10px; }
+.projectContext ul.directories { padding:0; margin:0; list-style:none; margin:10px; }
+.projectContext ul.directories p { color:#888; padding:0; margin:5px 0; }
+.projectContext ul.directories li { padding:4px 0; }
+.projectContext ul.directories ul { padding:0; margin:0; list-style:none; margin-bottom:10px; }
+.projectContext ul.directories ul li { margin-left:20px; }
+.projectContext .buttonAction.hide { display:none; }
+.projectContext .createProjectButton { text-align:right; }
+
+/* main */
+#content .sectionMain{ position:relative; border:1px solid #dcdcdc; margin-bottom:10px; *zoom:1;}
+#content .sectionMain:after{ content:""; display:block; clear:both;}
+#content .sectionMain a{ text-decoration:none;}
+#content .sectionMain a:hover,
+#content .sectionMain a:active,
+#content .sectionMain a:focus{ text-decoration:underline;}
+
+#content .sectionMain .heading{ position:relative; margin:0; padding:10px 15px; background:#fdfdfd; color:#000; font-size:12px; border-bottom:1px solid #f2f2f2;}
+#content .sectionMain .more{ position:absolute; padding-right:8px; top:11px; right:15px; color:#666; font-size:11px; background:url(../img/iconMore.gif) no-repeat right center;}
+#content .sectionMain .title{ display:inline; margin:0 5px 0 0; padding:0 0 0 15px; font-size:12px; color:#000;}
+#content .sectionMain .title a{ color:#000;}
+#content .sectionMain .list{ position:relative; list-style:none; margin:0; padding:0;}
+#content .sectionMain .item{ position:relative;}
+#content .sectionMain .item a{ color:#000;}
+#content .sectionMain .date{ position:absolute; top:6px; right:0; font:9px Tahoma; color:#8b8b8b;}
+#content .sectionMain .summary{ margin:0; padding:10px 15px; font-size:11px; color:#666; line-height:1.5;}
+#content .sectionMain .noData{ padding:10px 15px; margin:0;}
+#content .sectionMain .icon{ vertical-align:middle;}
+#content .sectionMain .replyNum{ vertical-align:baseline; position:relative; top:-5px; font:9px Tahoma; color:#ff2a00;}
+
+#content .sectionMain.news .headline,
+#content .sectionMain.release .headline{ position:relative; width:50%; padding:15px 0; float:left; margin-right:-1px; border-right:1px solid #f0f0f0;}
+#content .sectionMain.news .headline .date,
+#content .sectionMain.release .headline .date{ position:static;}
+#content .sectionMain.news .list,
+#content .sectionMain.release .list{ position:relative; float:left; width:50%; margin:10px -1px 0 0; padding:0 0 10px 0; overflow:hidden; border-left:1px solid #f0f0f0;}
+#content .sectionMain.news .item,
+#content .sectionMain.release .item{ top:-1px; border-top:1px solid #f2f2f2; padding:5px 0 5px 15px; margin:0 15px 0 18px; background:url(../img/iconItem.gif) no-repeat 5px 11px;}
+
+#content .sectionMain.release .title a{ text-decoration:underline;}
+#content .sectionMain.release .summary{ padding:10px 15px 10px 10px; }
+#content .sectionMain.release .summary .icon { float:left; margin:0 10px 10px 0;}
+#content .sectionMain.release .summary a { display:block; float:left; color:#888; background:url(../img/iconFile.gif) no-repeat left 3px; padding:0 3px 0 15px; margin-right:10px; position:relative; text-decoration:none;}
+#content .sectionMain.release .summary a span.bubble { padding:3px; border:1px solid #ccc; position:absolute; top:-40px; left:15px; display:none; background-color:#fff; z-index:2; white-space:nowrap;}
+#content .sectionMain.release .summary a:hover { color:#000; }
+#content .sectionMain.release .summary a:hover span.bubble { display:block; }
+
+#content div.clear { clear:both; padding:0; margin:0; height:1px; }
+
+#content .topSection { margin-bottom:20px; height:230px; }
+#content .topProject { overflow:hidden; position:relative; padding:0 10px; }
+#content .topProject ol { padding:10px 0; margin:0; position:relative; overflow:hidden; height:180px; position:relative; z-index:2; width:100%;}
+#content .topProject ol li { position:absolute; top:10px; left:0; margin:0; padding:0; overflow:hidden; width:188px; height:180px; z-index:1;}
+#content .topProject ol li a.thumbnail { width:180px; height:140px; display:block; padding:2px; border:1px solid #ccc; position:relative;}
+#content .topProject ol li a.thumbnail span { display:none; }
+#content .topProject ol li a.thumbnail:hover span { display:block; position:absolute; left:0px; top:0px; width:144px; padding:20px; height:105px; background-color:#fff; color:#666; font-weight:bold; line-height:150%; overflow:hidden; }
+#content .topProject ol li a:hover { text-decoration:none; }
+#content .topProject ol li p { width:176px; height:20px; background-color:#888; padding:8px 5px 2px 5px; white-space:nowrap; overflow:hidden; text-align:center; margin:0; }
+#content .topProject ol li p a { color:#eee; font-weight:bold; }
+
+#content .contentSection { clear:both; *zoom:1; }
+#content .contentSection .leftSection { width:50%; margin:0 0 10px 0; float:left;}
+#content .contentSection .rightSection { width:50%; margin:0 0 10px 0; float:right;}
+#content .contentSection .leftSection .sectionMain { margin-right:10px; }
+#content .contentSection .rightSection .sectionMain { margin-left:10px; }
+
+#content .contentSection ul.list { padding:10px 15px 5px 15px; }
+#content .contentSection .item { padding:0; margin-bottom:15px; }
+#content .contentSection .item a.projectTitle { font-weight:bold; color:#666;}
+#content .contentSection .item p { padding:5px 0 0 0; margin:5px 0; color:#000; border-top:1px dotted #ddd; height:35px; line-height:150%}
+#content .contentSection .item p a { color:#000; }
+#content .contentSection .item p a.author { font-weight:bold; }
+#content .contentSection .item p a.author img { display:none; }
+#content .contentSection .item .date{ top:4px; _right:10px;}
+
+form.orderForm { margin:20px 0 10px 0; text-align:right; display:block;}
+

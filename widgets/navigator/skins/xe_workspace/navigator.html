@@ -1,0 +1,13 @@
+<!--%import("./css/widget.css")-->
+{@ $_pDepth = 0;}
+
+<nav class="lnb" id="lnb">
+	<ul>
+		<!--@foreach($widget_info->arranged_menu as $key => $val)-->
+
+	<li id="menu_parent_{$val->node_srl}">
+	    <a href="{$val->href}" class="on"|cond="strpos($val->href, $mid) !== FALSE"><i class="ico6"></i><span>{$val->text}</span></a>
+	</li>
+		<!--@end-->
+	</ul>
+</nav>

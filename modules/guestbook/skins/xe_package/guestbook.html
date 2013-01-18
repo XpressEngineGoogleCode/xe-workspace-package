@@ -1,0 +1,289 @@
+<include target="_header.html" />
+
+<div cond="$XE_VALIDATOR_MESSAGE" class="message {$XE_VALIDATOR_MESSAGE_TYPE}">
+	<p>{$XE_VALIDATOR_MESSAGE}</p>
+</div>
+
+    <div class="btn_modhead">
+
+    </div><!-- //btn_modhead -->
+    <div id="search">
+    <form action="./" method="get" id="fo_search" class="srch_msg">
+    	<input cond="$vid" type="hidden" name="vid" value="{$vid}" />
+    	<input type="hidden" name="mid" value="{$mid}" />
+    	<input type="hidden" name="category" value="{htmlspecialchars($category)}" />
+        <fieldset>
+            <legend class="blind">Search</legend>
+                <span class="ipt_box"><input id="searchkey" name="search_keyword" value="{htmlspecialchars($search_keyword)}" type="search" title="{$lang->cmd_search}" placeholder="Search"></span>
+                <input type="submit" class="btn_sbmt" value="Search">
+        </fieldset>
+    </form>
+    </div>
+    <div class="replyForm">
+    <form class="post_msg clearfix" method="post" action="./" ruleset="insertGuestbookitem" id="fo_guestbookitem_insert">
+        <input type="hidden" name="act" value="procGuestbookInsertGuestbookItem" />
+        <input name="mid" type="hidden" value="{$mid}" />
+            <fieldset>
+                <legend>Message</legend>
+                <textarea placeholder="500 letters limit" class="ta_post_msg" rows="10" cols="30" id=""  name="content"></textarea>
+                <div class="ta_l"><textarea placeholder="tags, {$lang->about_tag}" class="ta_post_tags" rows="10" cols="30" id=""name="tags"></textarea></div>
+                <input type="submit" class="btn_sbmt" value="Submit">
+            </fieldset>
+            <block cond="$is_logged">
+				<input name="member_srl" type="hidden" value="{$logged_info->member_srl}" />
+				<!--<span class="member_{$logged_info->member_srl} gb_name"><strong class="name">{$logged_info->nick_name}</strong></span> <span class="email">{$logged_info->email_address}</span> <span class="url">{$logged_info->homepage}</span>-->
+			</block>
+			<block cond="!($is_logged)">
+				<input name="user_name" type="text" class="inputText name" value="Username" title="Username"/>
+				<input name="email_address" type="text" class="inputText name" value="Email" title="Email"/>
+				<input name="password" type="password" class="inputText pw" value="Password" title="Password" />
+				<script type="text/javascript">
+					jQuery(function(){
+						jQuery('input:text,input:password')
+						.focus(function(e){
+							var jthis = jQuery(this);
+							if(jthis.attr('title') && jthis.val()== jthis.attr('title')) jthis.val('');
+						}).blur(function(e){
+							var jthis = jQuery(this);
+							if(jthis.attr('title') && !jthis.val()) jthis.val(jthis.attr('title'));
+						});
+					});
+				</script>
+			</block>
+    </form><!-- //post_msg -->
+    </div>
+
+<div class="feedback reply">
+	<div cond="$guestbook_list" class="feedbackOrder">
+		<block loop="$guestbook_list => $key, $val">
+			<div id="gusetbook_{$val->guestbook_item_srl}" cond="$modify == $val->guestbook_item_srl && $val->parent_srl == 0" class="item replyForm">
+				<form class="post_msg clearfix" method="post" ruleset="insertGuestbookitem" action="./" id="fo_guestbookitem_modify">
+					<input type="hidden" name="act" value="procGuestbookInsertGuestbookItem" />
+					<input name="mid" type="hidden" value="{$mid}" />
+					<input type="hidden" name="guestbook_item_srl" value="{$val->guestbook_item_srl}" />
+					<fieldset>
+						<textarea class="inputTextarea ta_post_msg" name="content" rows="5" cols="50">{@ $guestbook_content = strip_tags($val->content)}{$guestbook_content}</textarea>
+						{@ $itemTag = array();}
+						<block loop="$targs_list => $key,$tagVal">
+					        <block cond="$tagVal->guestbook_item_srl == $val->guestbook_item_srl">
+   					            {@ $itemTag[] = $tagVal->tag;}
+						    </block>
+						</block>
+						{@ $itemTag = implode(',' , $itemTag);}
+						<textarea name="tags" id="" cols="30" rows="10" class="ta_post_tags" placeholder="tags, You may submit multiple tags by inserting commas(,) between tags.">{$itemTag}</textarea>
+						<input name="submit" type="submit" value="{$lang->cmd_modify}" class="btn_sbmt" />
+					</fieldset>
+					<block cond="$is_logged">
+						<input name="member_srl" type="hidden" value="{$logged_info->member_srl}" />
+						<span class="member_{$logged_info->member_srl}"><strong class="name">{$logged_info->nick_name}</strong></span> <span class="email">{$logged_info->email_address}</span> <span class="url">{$logged_info->homepage}</span>
+					</block>
+					<block cond="!($is_logged)">
+						<input name="user_name" type="text" class="inputText name" value="Username" title="Username"/>
+						<input name="email_address" type="text" class="inputText name" value="Email" title="Email"/>
+						<input name="password" type="password" class="inputText pw" value="Password" title="Password" />
+						<script type="text/javascript">
+							jQuery(function(){
+								jQuery('input:text,input:password')
+								.focus(function(e){
+									var jthis = jQuery(this);
+									if(jthis.attr('title') && jthis.val()== jthis.attr('title')) jthis.val('');
+								}).blur(function(e){
+									var jthis = jQuery(this);
+									if(jthis.attr('title') && !jthis.val()) jthis.val(jthis.attr('title'));
+								});
+							});
+						</script>
+
+					</block>
+					<div class="clear:both"></div>
+				</form>
+			</div>
+			<div id="gusetbook_{$val->guestbook_item_srl}" cond="$modify != $val->guestbook_item_srl" class="item sec_lst_msg"|cond="$val->parent_srl <= 0" class="item sec_lst_msg indent indent1 itemComment_{$val->parent_srl}"|cond="$val->parent_srl>0">
+				{@
+					$oMemberModel = &getModel('member');
+					$memberConfig = $oMemberModel->getMemberConfig();
+				}
+				<div class="msg ">
+                    <div class="img_profile">
+                        {@ $memberImage = $oMemberModel->getProfileImage($val->member_srl);}
+                        <img cond="$memberConfig->profile_image == 'Y' && $memberImage" width="63" height="63" alt="profile image" src="{$memberImage->src}"/>
+                        <!--@if(!($memberImage) || ($memberConfig->profile_image != 'Y'))-->
+                        <img src="./img/default_member.gif" width="63" height="63"/>
+                        <!--@end-->
+                    </div>
+                    <div class="right">
+						<span class="msg_author">
+						    <a cond="$val->homepage" href="{$val->homepage}" onclick="window.open(this.href);return false;" class="member_{$val->member_srl}">{$val->nick_name}</a>
+						</span>
+                        <span class="msg_author <!--@if(!$val->homepage)-->member_{$val->member_srl}<!--@end-->">
+                            <block cond="$val->nick_name">{$val->nick_name}</block>
+							<block cond="!$val->nick_name">{$val->email_address}</block>
+                        </span>
+                        <span class="msg_date">{zdate($val->regdate,'Y.m.d')} {zdate($val->regdate,'H:i')}</span>
+						                                <block cond="$val->member_srl || $logged_info->is_admin == 'Y'">
+    								<block cond="$logged_info->is_admin == 'Y'|| $logged_info->member_srl == $val->member_srl">
+    									<a class="reply_b" onclick="if(confirm('{$lang->confirm_delete}')) deleteGuestbookItem({$val->guestbook_item_srl});">{$lang->cmd_delete}</a>
+    								</block>
+    								<block cond="$logged_info->member_srl == $val->member_srl">
+    									<a class="reply_b" href="{getUrl('reply','','modify',$val->guestbook_item_srl)}#gusetbook_{$val->guestbook_item_srl}">{$lang->cmd_modify}</a>
+    								</block>
+    							</block>
+                        <p class="msg_txt">{$val->content}</p>
+                        <div class="bottom">
+                            {@ $newTag = array();}
+    					    <block loop="$targs_list => $key, $tagVal" cond="$targs_list">
+    					        <!--@if($tagVal->guestbook_item_srl == $val->guestbook_item_srl)-->
+    					            {@ $newTag[] = $tagVal;}
+    					        <!--@end-->
+    					    </block>
+                            <div class="pull_left" cond="$val->parent_srl == 0">
+                                <span class="left">tags:</span>
+                                <block loop="$newTag => $key, $tagVal" cond="$targs_list">
+                                <a href="#" onclick="return false;">{$tagVal->tag}</a>
+                                </block>
+                            </div>
+                            <div class="pull_right reAction" id="{$val->guestbook_item_srl}_re">
+                                <block cond="$val->parent_srl==0">
+                                <a class="vote btn_vote" data="{$val->guestbook_item_srl}" onclick="return false;" href="#">
+                                    Vote
+                                    <span class="recomCount linkType">
+                                    {@
+						                $count = '0';
+						                foreach($vote_list as $info)
+						                    if($info->guestbook_item_srl == $val->guestbook_item_srl) $count = $info->count;
+						                echo $count;
+						            }
+                                    </span>
+    							</a>
+                                <a class="reply_v reply_v_{$val->guestbook_item_srl}" href="#" onclick="return false;">View Reply {intval($val->count)}</a>
+                                <script>
+							        jQuery(function($){
+										parent_srl = '{$parent_srl}';
+										guestbook_item_srl = '{$val->guestbook_item_srl}';
+										if(parent_srl != guestbook_item_srl)
+											$('.itemComment_{$val->guestbook_item_srl}').hide();
+
+							            $('.reply_v_{$val->guestbook_item_srl}').click(function(){
+							                var items = $('.itemComment_{$val->guestbook_item_srl}');
+							                if(items.css('display') == 'none') {items.show();stat = 'show';$('.reply_v_{$val->guestbook_item_srl}').html('Hide Reply {$val->count}')}
+							                else{ items.hide();$('.reply_v_{$val->guestbook_item_srl}').html('View Reply {$val->count}')}
+							            });
+							        });
+							    </script>
+							    <a class="reply_w" href="{getUrl('modify','','reply',$val->guestbook_item_srl)}#gusetbook_{$val->guestbook_item_srl}">{$lang->cmd_add} {$lang->cmd_reply}</a>
+                                </block>
+                            </div>
+                        </div><!-- //bottom -->
+                    </div><!-- //right -->
+                </div>
+
+
+			</div>
+			<div cond="$reply == $val->guestbook_item_srl || ($modify == $val->guestbook_item_srl && $val->parent_srl > 0)" class="item replyForm" id="gusetbook_{$modify}"|cond="$modify">
+				<form method="post" ruleset="insertGuestbookitem"  action="./"  id="fo_guestbookitem_reply">
+					<input type="hidden" name="act" value="procGuestbookInsertGuestbookItem" />
+					<input name="mid" type="hidden" value="{$mid}" />
+					<!--@if($modify)-->
+				    <input type="hidden" name="parent_srl" value="{$val->parent_srl}" />
+				    <input type="hidden" name="guestbook_item_srl" value="{$val->guestbook_item_srl}" />
+				    <!--@else-->
+				    <input type="hidden" name="parent_srl" value="{$val->guestbook_item_srl}" />
+				    <!--@end-->
+					<fieldset>
+						<textarea placeholder="Input your reply here" class="inputTextarea" name="content" rows="5" cols="50"><!--@if($modify)-->{@ $guestbook_content = strip_tags($val->content)}{$guestbook_content}<!--@end--></textarea>
+					</fieldset>
+					<block cond="$is_logged">
+						<input name="member_srl" type="hidden" value="{$logged_info->member_srl}" />
+						<span class="member_{$logged_info->member_srl} gb_name"><strong class="name">{$logged_info->nick_name}</strong></span> <span class="email">{$logged_info->email_address}</span> <span class="url">{$logged_info->homepage}</span>
+						<div class="btn" style="float:right">
+						    <a href="#" onclick="jQuery('#fo_guestbookitem_reply').submit();return false;">{$lang->cmd_reply}</a>
+						</div>
+					</block>
+					<block cond="!($is_logged)">
+						<input name="user_name" type="text" class="inputText name" value="Username" title="Username"/>
+						<input name="email_address" type="text" class="inputText name" value="Email" title="Email"/>
+						<input name="password" type="password" class="inputText pw" value="Password" title="Password" />
+						<script type="text/javascript">
+							jQuery(function(){
+								jQuery('input:text,input:password')
+								.focus(function(e){
+									var jthis = jQuery(this);
+									if(jthis.attr('title') && jthis.val()== jthis.attr('title')) jthis.val('');
+									}).blur(function(e){
+										var jthis = jQuery(this);
+										if(jthis.attr('title') && !jthis.val()) jthis.val(jthis.attr('title'));
+								});
+							});
+						</script>
+						<div class="btn" style="float:right">
+						    <a href="#" onclick="jQuery('#fo_guestbookitem_reply').submit();return false;">{$lang->cmd_reply}</a>
+						</div>
+						<div class="input_submit2">
+							<input name="submit" type="submit" value="Reply" class="inputSubmit2" />
+						</div>
+					</block>
+				</form>
+			</div>
+		</block>
+	</div>
+</div>
+
+<div class="pagination" cond="$page_navigation">
+    <ul>
+        <li class="first">
+            <a href="{getUrl('page',1,'document_srl','','division',$division,'last_division',$last_division)}">First</a>
+        </li>
+        <li class="prev">
+            <!--@if($page>1)-->
+            <a href="{getUrl('page',$page-1,'document_srl','','division',$division,'last_division',$last_division)}">Prev</a>
+            <!--@else-->
+            <a href="{getUrl('page',1,'document_srl','','division',$division,'last_division',$last_division)}">Prev</a>
+            <!--@end-->
+        </li>
+        <!--@while($page_no = $page_navigation->getNextPage())-->
+            <!--@if($page == $page_no)-->
+                <li><strong>{$page_no}</strong></li>
+            <!--@else-->
+                <li><a href="{getUrl('page',$page_no,'document_srl','','division',$division,'last_division',$last_division)}">{$page_no}</a></li>
+            <!--@end-->
+        <!--@end-->
+        <li class="next">
+            <!--@if($page<$page_navigation->last_page)-->
+            <a href="{getUrl('page',$page+1,'document_srl','','division',$division,'last_division',$last_division)}">Next</a>
+            <!--@else-->
+            <a href="{getUrl('page',$page_navigation->last_page,'document_srl','','division',$division,'last_division',$last_division)}">Next</a>
+            <!--@end-->
+        </li>
+        <li class="end"><a href="{getUrl('page',$page_navigation->last_page,'document_srl','','division',$division,'last_division',$last_division)}">End</a></li>
+    </ul>
+</div>
+
+<script type="text/javascript">
+	jQuery(function(){
+	    var $ = jQuery;
+		var voteBts = $('.btn_vote');
+    	voteBts.each(function(ind, btEl){
+    		btEl.onclick = function(eventObj){
+    			var btObj = $(btEl);
+    			var params = [];
+
+    		    params['guestbook_item_srl'] = btObj.attr('data');
+    		    var callBack = function(){
+    		    	var recomCountObj = $(btEl).parent().find('.recomCount');
+    				var recomCountHtml = recomCountObj.html();
+    				var reg = /\D*/g;
+    				var countNum = recomCountHtml.replace(reg, '');
+    				if(countNum == '') countNum = 0;
+    				var refreshNum = parseInt(countNum) + 1;
+    				var reg = /(\D*)(\d+)(\D*)/;
+    				refreshStr = recomCountHtml.replace(reg, '$1' + refreshNum + '$3');
+    				recomCountObj.html(refreshStr);
+    		    };
+    		    exec_xml('guestbook','procVoteItem', params, callBack);
+    		    return false;
+    		}
+
+    	});
+	});
+</script>
+<include target="_footer.html" />

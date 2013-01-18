@@ -1,0 +1,28 @@
+<query id="getProjectList" action="select">
+    <tables>
+        <table name="projects" />
+        <table name="sites" />
+    </tables>
+    <columns>
+        <column name="projects.site_srl" alias="site_srl" />
+        <column name="projects.title" alias="project_title" />
+        <column name="projects.description" alias="project_description" />
+        <column name="projects.point" alias="point" />
+        <column name="projects.rank" alias="rank" />
+        <column name="sites.domain" alias="domain" />
+        <column name="sites.regdate" alias="regdate" />
+    </columns>
+    <conditions>
+        <condition operation="equal" column="sites.site_srl" default="projects.site_srl" filter="number" notnull="notnull" />
+        <group pipe="and">
+            <condition operation="like" column="projects.title" var="search_keyword" />
+            <condition operation="like" column="projects.description" var="search_keyword" pipe="or" />
+        </group>
+    </conditions>
+    <navigation>
+        <index var="sort_index" default="projects.list_order" order="order_type" />
+        <list_count var="list_count" default="20" />
+        <page_count var="page_count" default="10" />
+        <page var="page" default="1" />
+    </navigation>
+</query>

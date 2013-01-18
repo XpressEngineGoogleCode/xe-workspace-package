@@ -1,0 +1,17 @@
+<query id="getProjectMemberCount" action="select">
+    <tables>
+        <table name="projects" alias="projects" />
+        <table name="member_group_member" alias="member_group"/>
+    </tables>
+    <columns>
+        <column name="projects.site_srl" alias="site_srl" />
+        <column name="count(*)" alias="count" />
+    </columns>
+    <conditions>
+        <condition operation="in" column="projects.site_srl" var="site_srl" filter="numbers" notnull="notnull" />
+        <condition operation="equal" column="member_group.site_srl" default="projects.site_srl" notnull="notnull" pipe="and" />
+    </conditions>
+    <groups>
+        <group column="projects.site_srl" />
+    </groups>
+</query>
