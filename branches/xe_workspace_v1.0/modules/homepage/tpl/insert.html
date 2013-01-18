@@ -1,0 +1,40 @@
+<!--#include("./header.html")-->
+<div cond="$XE_VALIDATOR_MESSAGE" class="message {$XE_VALIDATOR_MESSAGE_TYPE}">
+	<p>{$XE_VALIDATOR_MESSAGE}</p>
+</div>
+
+<form action="./" method="post" ruleset="insertHomepage" id="cafeFo">
+	<input type="hidden" name="act" value="procHomepageAdminInsertHomepage" />
+	<div class="table">
+    <table cellspacing="0" class="crossTable">
+    <tbody>
+        <tr>
+            <th scope="row"><div>{$lang->cafe_title}</div></th>
+            <td class="text">
+                <input type="text" name="cafe_title" value="" class="inputTypeText w200" />
+                <p>{$lang->about_cafe_title}</p>
+            </td>
+        </tr>
+        <tr>
+            <th scope="row"><div>{$lang->access_type}</div></th>
+            <td class="text">
+                <label for="chkDomain"><input type="radio" id="chkDomain" name="access_type" value="domain" onclick="toggleAccessType('domain');" checked="checked" /> {$lang->access_domain}</label>
+                <label for="chkVid"><input type="radio" id="chkVid" name="access_type" value="vid" onclick="toggleAccessType('vid');" /> {$lang->access_vid}</label>
+                <div id="accessDomain" style="display:block; margin-top:10px;">
+                    http://<input type="text" name="domain" value="" class="inputTypeText w200" />
+                    <p>{$lang->about_domain}</p>
+                </div>
+                <div id="accessVid" style="display:none; margin-top:10px;">
+                    <input type="text" name="cafe_vid" value="" class="inputTypeText w200" />
+                    <p>{$lang->about_vid}</p>
+                </div>
+            </td>
+        </tr>
+    </tbody>
+    </table>
+	</div>
+    <div class="btnArea">
+		<span class="btn"><input type="submit" value="{$lang->cmd_cafe_registration}" /></span>
+	</div>
+</form>
+

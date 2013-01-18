@@ -1,0 +1,21 @@
+<query id="getDocumentCount" action="select">
+	<tables>
+		<table name="modules" />
+		<table name="sites" />
+		<table name="documents" />
+	</tables>
+	<columns>
+		<column name="sites.site_srl" />
+		<column name="documents.member_srl" />
+		<column name="count(*)" alias="count" />
+	</columns>
+	<conditions>
+		<condition operation="equal" column="modules.site_srl" default="sites.site_srl" />
+		<condition operation="equal" column="modules.site_srl" var="site_srl" notnull="notnull" pipe="and" />
+		<condition operation="equal" column="modules.module_srl" default="documents.module_srl" pipe="and" />
+	</conditions>
+	<groups>
+		<group column="documents.member_srl"/>
+		<group column="sites.site_srl"/>
+	</groups>
+</query>

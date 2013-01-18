@@ -1,0 +1,39 @@
+<query id="getDirProjectListInSummary" action="select">
+    <tables>
+        <table name="projects" />
+        <table name="sites" />
+		<table name="project_contribute" alias="contribute" />
+		<table name="project_activity_points" alias="points" />
+        <table name="project_dir_maps" />
+    </tables>
+    <columns>
+        <column name="projects.site_srl" alias="site_srl" />
+        <column name="projects.title" alias="project_title" />
+        <column name="projects.description" alias="project_description" />
+        <column name="sites.domain" alias="domain" />
+        <column name="sites.regdate" alias="regdate" />
+		<column name="sum(points.point)" alias="point" />
+    </columns>
+    <conditions>
+        <condition operation="equal" column="project_dir_maps.project_dir_srl" var="project_dir_srl" filter="number" notnull="notnull" />
+        <condition operation="equal" column="sites.site_srl" default="project_dir_maps.site_srl" pipe="and" />
+        <condition operation="equal" column="sites.site_srl" default="projects.site_srl" filter="number" notnull="notnull" pipe="and" />
+        <group pipe="and">
+            <condition operation="like" column="projects.title" var="search_keyword" />
+            <condition operation="like" column="projects.description" var="search_keyword" pipe="or" />
+        </group>
+		<group pipe="and">
+			<condition operation="equal" column="contribute.type" default="points.type" />
+			<condition operation="equal" column="contribute.site_srl" default="projects.site_srl" pipe="and" />
+		</group>
+    </conditions>
+	<groups>
+		<group column="sites.site_srl" />
+	</groups>
+    <navigation>
+        <index var="sort_index" default="projects.list_order" order="order_type" />
+        <list_count var="list_count" default="20" />
+        <page_count var="page_count" default="10" />
+        <page var="page" default="1" />
+    </navigation>
+</query>

@@ -1,0 +1,13 @@
+<query id="getReposMemberCount" action="select">
+    <tables>
+        <table name="project_repos_group" alias="repos_group" />
+        <table name="member_group_member" alias="member_group" />
+    </tables>
+    <columns>
+        <column name="count(*)" alias="count" />
+    </columns>
+    <conditions>
+        <condition operation="equal" column="repos_group.site_srl" var="site_srl" filter="number" notnull="notnull" pipe="and" />
+        <condition operation="equal" column="member_group.group_srl" default="repos_group.group_srl" filter="number" notnull="notnull" pipe="and" />
+    </conditions>
+</query>

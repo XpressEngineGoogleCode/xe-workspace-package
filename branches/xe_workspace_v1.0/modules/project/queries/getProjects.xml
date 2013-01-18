@@ -1,0 +1,9 @@
+<query id="getProjects" action="select">
+    <tables>
+        <table name="projects" />
+    </tables>
+    <columns>
+        <column name="title" />
+        <column name="site_srl" />
+    </columns>
+</query>

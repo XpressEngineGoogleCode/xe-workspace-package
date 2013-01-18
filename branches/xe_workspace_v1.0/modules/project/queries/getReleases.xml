@@ -1,0 +1,21 @@
+<query id="getReleases" action="select">
+    <tables>
+        <table name="sites" />
+        <table name="modules" />
+        <table name="issue_releases" />
+        <table name="issue_packages" />
+    </tables>
+    <columns>
+        <column name="issue_releases.title" alias = "title"/>
+        <column name="issue_packages.title" alias = "package_title"/>
+        <column name="issue_releases.release_note" alias = "release_note"/>
+        <column name="release_srl" />
+		<column name="sites.domain" />
+    </columns>
+    <conditions>
+        <condition operation="equal" column="issue_releases.package_srl" var="issue_packages.package_srl" />
+        <condition operation="in" column="issue_releases.release_srl" var="release_srls" pipe="and" />
+        <condition operation="equal" column="modules.site_srl" var="sites.site_srl" pipe="and" />
+        <condition operation="equal" column="issue_releases.module_srl" var="modules.module_srl" pipe="and" />
+    </conditions>
+</query>

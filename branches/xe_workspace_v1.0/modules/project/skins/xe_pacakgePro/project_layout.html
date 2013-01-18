@@ -1,0 +1,184 @@
+<!--old css and js file-->
+<!--%import("css/normalize.sh.201209.css")-->
+<!--%import("css/layout.css")-->
+<!--%import("css/project.css")-->
+
+<!--%import("js/jquery.placeholder.min.js")-->
+<!--%import("js/modernizr-2.5.3.min.js")-->
+<!--%import("js/layout.js")-->
+<!--%import("js/mwLogin.js")-->
+<!--%import("js/pxeBranch.js")-->
+<!--%import("js/toggle.js")-->
+<header id="header">
+<div class="inner">
+    <h1 class="logo">
+        <a href="{getUrl()}" cond="$layout_info->logo_image" style="background-image:url({$layout_info->logo_image})"><span class="blind"></span></a>
+		<a href="{getUrl()}" cond="!$layout_info->logo_image"><span class="blind">XE Workspace</span></a>
+	</h1>
+	<div class="srch" style="right:200px">
+        <form action="{getUrl()}" method="post">
+			<input type="hidden" name="vid" value="{$vid}" cond="$vid" />
+			<input type="hidden" name="mid" value="{$mid}" />
+			<input type="hidden" name="act" value="IS" />
+			<input type="hidden" name="search_target" value="title_content" />
+			<input type="search" name="is_keyword" class="ipt_srch" placeholder="Search" title="keyword" />
+            <input type="submit" class="sbmt_srch" value="" />
+    	</form>
+    </div>
+    <dl class="selectLang" style=" position: absolute;right: 100px;top: 27px;">
+        <dd>
+            <div class="field">{$lang_supported[$lang_type]}</div>
+            <ul class="lst">
+                <li loop="$lang_supported=>$key,$val" cond="$key!= $lang_type">
+                    <a href="#" onclick="doChangeLangType('{$key}');return false;">{$val}</a>
+                </li>
+            </ul>
+        </dd>
+    </dl>
+    <dl class="selectLang" cond="$logged_info">
+        <dd>
+            <span class="btn"><a href="{getUrl('act','dispMemberLogout')}">Sign Out</a></span>
+        </dd>
+    </dl>
+</div>
+</header>
+<div id="container" class="clearfix">
+    <div class="sidebar">
+        <div class="proj">
+            <div class="proj_pic">
+                <div class="head">
+                    <a href="{getFullUrl()}" class="lnk_home"><i class="ico_home"></i></a>
+                    <span class="name">Project</span>
+                </div>
+                <div class="cover"></div>
+                <img src="{$project_info->project_logo}" alt="{getSiteUrl($project_info->domain,'')}" width="158" height="158">
+            </div>
+            <dl class="proj_info">
+                <dt>Member:</dt>
+                    <dd>{$member_count}</dd>
+                <dt>Pending Issues:</dt>
+                    <dd>{$issueCount}</dd>
+            </dl>
+
+            <!--@if(!$is_logged)-->
+            <a href="#" class="btn_signout" onclick="jQuery('#loginWindow').show(); return false;"><span>Login</span></a>
+            <!--@else-->
+                <!--@if(!$project_join)-->
+            <a href="#" class="btn_signout" onclick="doSiteSignUp(); return false;"><span>{$lang->cmd_site_signup}</span></a>
+                <!--@else-->
+            <a href="#" class="btn_signout" onclick="doSiteLeave('{$lang->confirm_leave}'); return false;"><span>{$lang->cmd_leave}</span></a>
+                <!--@end-->
+            <!--@end-->
+        </div>
+        <nav id="lnb" class="lnb">
+            <ul>
+                <li><a class="on"|cond="(!$act && $mid == 'project') || ($act=='dispProject' && $mid=='project')" href="{getSiteUrl($project_info->domain,'')}"><i class="ico6"></i><span>Overview</span></a></li>
+                <li><a class="on"|cond="$act=='dispProjectDescription' || $act=='dispProjectDescriptionManage'" href="{getUrl('','act','dispProjectDescription','mid',$mid,'vid',$vid)}"><i class="ico6"></i><span>Definition</span></a></li>
+                <li><a class="on"|cond="$act=='dispWikiContent' || ($module_info->module == 'wiki' && $act != 'dispProjectDescriptionManage' && $act != 'dispProjectDescription')" href="{getUrl('','act','dispWikiContent','mid','wiki','vid',$vid)}"><i class="ico6"></i><span>Wiki</span></a></li>
+                <li><a class="on"|cond="$act=='dispBoardContent' || $module_info->module == 'board'" href="{getUrl('','act','dispBoardContent','mid','forum','vid',$vid)}"><i class="ico6"></i><span>Forum</span></a></li>
+                <li><a class="on"|cond="$act=='dispIssuetrackerAdminProjectSetting' || $act == 'dispIssuetrackerOneMilestone' || $act=='dispIssuetrackerViewMilestone'" href="{getUrl('','act','dispIssuetrackerViewMilestone','mid','issuetracker','vid',$vid)}"><i class="ico6"></i><span>Goals</span></a></li>
+                <li><a class="on"|cond="$act=='dispIssuetrackerViewIssue'" href="{getUrl('','act','dispIssuetrackerViewIssue','mid','issuetracker','vid',$vid)}"><i class="ico6"></i><span>Issues</span></a></li>
+                <li><a class="on"|cond="$act=='dispIssuetrackerDownload' || $act=='dispIssuetrackerAdminModifyPackageFront' || $act == 'dispIssuetrackerAdminModifyReleaseFront' || $act == 'dispIssuetrackerAdminAttachReleaseFront'" href="{getUrl('','act','dispIssuetrackerDownload','mid','issuetracker','vid',$vid)}"><i class="ico6"></i><span>Release</span></a></li>
+                <li><a class="on"|cond="$mid=='packageMessage'" href="{getUrl('','mid','packageMessage','vid',$vid)}"><i class="ico6"></i><span>Message</span></a></li>
+            </ul>
+        </nav>
+    </div>
+    <div id="main" class="main clearfix">
+
+        <section class="content_area">
+            <!--@if(Context::get('system_message'))-->
+                <h2 class="content_title">{$project_info->title}</h2>
+                <div class="ct_head">
+                    <h3 class="ct_head_title"><em>{Context::get('system_message')}</em></h3>
+                </div>
+            <!--@elseif($pageTitle)-->
+            <h2 class="content_title">{$project_info->title}</h2>
+            <div class="ct_head">
+                <h3 class="ct_head_title"><em>{$pageTitle}</em></h3>
+            </div>
+            <!--@elseif(in_array($act,array('dispProjectManage','dispProjectMemberGroupManage','dispProjectMemberManage','dispBoardAdminInsertBoard','dispIssuetrackerAdminProjectInfo','dispWikiAdminInsertWiki','dispProjectCounter','dispProjectComponent','dispProjectRepos')))-->
+            <h2 class="content_title">{$project_info->title}</h2>
+            <div class="ct_head">
+                <h3 class="ct_head_title"><em>Setting</em></h3>
+            </div>
+            <!--@elseif($act == 'IS')-->
+            <h2 class="content_title">{$project_info->title}</h2>
+            <div class="ct_head">
+                <h3 class="ct_head_title"><em>Searching</em></h3>
+            </div>
+            <!--@elseif($act == 'dispMemberLoginForm')-->
+            <h2 class="content_title">{$project_info->title}</h2>
+            <div class="ct_head">
+                <h3 class="ct_head_title"><em>{$lang->cmd_login}</em></h3>
+            </div>
+            <!--@end-->
+            <!--@if($logged_info->is_site_admin)-->
+            <div class="whatever clearfix whateverfix">
+                <div class="pull_right">
+                    <!--@if(!in_array($act,array('dispProjectManageFront','dispProjectManage','dispProjectMemberGroupManage','dispProjectMemberManage','dispBoardAdminInsertBoard','dispIssuetrackerAdminProjectInfo','dispWikiAdminInsertWiki','dispProjectCounter','dispProjectComponent','dispProjectRepos')))-->
+                    <div class="menu">
+                		<div class="inset">
+                			<!--@if($is_logged)-->
+                        	<div class="aside">
+                				<ul>
+                					<!--@if($logged_info->is_site_admin)-->
+                					<li class="m2"><a  href="{getSiteUrl($project_info->domain,'','act','dispProjectManageFront')}"><span>{$lang->project_setting}</span></a>
+                						<div class="sub">
+                							<ul>
+                							<!--@foreach($lang->project_setting_menu as $key => $val)-->
+                							        {@$menu = explode('___',$key)}
+                								<li><a href="{getSiteUrl($project_info->domain, '','mid',$menu[0],'act',$menu[1])}"><span>{$val}</span></a></li>
+                							<!--@end-->
+                							</ul>
+                						</div>
+                					</li>
+                					<!--@end-->
+                				</ul>
+                			</div>
+                			<!--@end-->
+                			<span class="gradient"></span>
+                		</div>
+                	</div>
+                    <!--@end-->
+                </div>
+            </div>
+            <!--@end-->
+
+            <div class="whatever clearfix" <!--@if($logged_info->is_site_admin)-->style="padding: 10px 30px 30px 60px;"<!--@end-->>
+                {$content}
+            </div>
+
+        </section>
+
+    </div>
+    <div id="loginWindow" class="loginWindow" >
+        <span class="modalWindow"></span>
+        <div id="loginLayer" class="loginLayer loginTypeA">
+            <button type="button" class="close" onclick="document.getElementById('loginWindow').style.display='none'" accesskey="X"><span>Close Login Layer</span></button>
+            <form action="{getUrl('act','procMemberLogin')}" method="post" class="typeA" id="commonLogin">
+    			<input type="hidden" value="procMemberLogin" name="act">
+    			<input type="hidden" value="{$vid}" name="vid">
+    			<input type="hidden" value="{$mid}" name="mid">
+                <fieldset>
+                    <legend>Login</legend>
+                    <dl>
+                        <dt><label for="uid">User Name</label></dt>
+                        <dd><input type="text" name="user_id" class="inputText" id="uid"></dd>
+                        <dt><label for="upw">Password</label></dt>
+                        <dd><input type="password" name="password" class="inputText" id="upw"></dd>
+                    </dl>
+                    <p class="keep"><input type="checkbox" name="keep_signed" id="keepA" value="Y" class="inputCheck" onclick="if(this.checked) return confirm('You will be still signed in even when the browser is closed.\n\nIt is not recommended to use this if you are using a public computer for your personal information could be violated');">
+                        <label for="keepA">Keep me signed in</label>
+                    </p>
+                    <span class="loginButton"><input type="submit" name="" value="Sign In"></span>
+                </fieldset>
+            </form>
+    		<button type="button" class="close" onclick="document.getElementById('loginWindow').style.display='none'" accesskey="X"><span>Close Login Layer</span></button>
+        </div>
+    </div>
+</div>
+<footer id="footer">
+    <div class="inner">
+        <address>Copyright&copy;2012 NHN Corp. All rights reserved. Powered By XE</address>
+    </div>
+</footer>

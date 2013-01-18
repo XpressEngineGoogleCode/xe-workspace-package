@@ -1,0 +1,24 @@
+<query id="getProjectPlanDeadlines" action="select">
+	<tables>
+		<table name="issue_milestones" alias="milestones" />
+		<table name="modules" />
+		<table name="projects" />
+	</tables>
+	<columns>
+		<column name="deadline" />
+	</columns>
+	<conditions>
+		<condition operation="equal" column="milestones.module_srl" default="modules.module_srl" />
+		<condition operation="equal" column="modules.site_srl" default="projects.site_srl" pipe="and"/>
+		<condition operation="excess" column="milestones.deadline" var="startdate" pipe="and" />
+		<condition operation="less" column="milestones.deadline" var="enddate" pipe="and" />
+		<condition operation="in" column="projects.site_srl" var="site_srls" pipe="and" />
+	</conditions>
+	<groups>
+		<group column="milestones.deadline" />
+	</groups>
+	<navigation>
+		<index var="sort_index" default="milestones.deadline" order="sort_order" />
+		<list_count var="list_count" default="10" />
+	</navigation>
+</query>

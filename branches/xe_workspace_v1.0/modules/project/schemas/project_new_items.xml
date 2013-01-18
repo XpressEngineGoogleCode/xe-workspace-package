@@ -1,0 +1,7 @@
+<table name="project_new_items">	
+	<column name="target_srl" type="number" size="11" notnull="notnull" />
+	<column name="site_srl" type="number" size="11" notnull="notnull" index="idx_new_items" />
+	<column name="member_srl" type="number" size="11" default="0" index="idx_member_srl" />
+	<column name="regdate" type="date" notnull="notnull" index="idx_new_items" />
+	<column name="type" type="char" size="1" />
+</table>

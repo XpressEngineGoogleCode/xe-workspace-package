@@ -1,0 +1,139 @@
+<!--#include("./header.html")-->
+<!--%import("./filter/insert_config.xml")-->
+
+<form action="./" method="post" onsubmit="return procFilter(this, insert_config)" id="projectSetup">
+    <h3 class="xeAdmin">{$lang->cmd_setup}</h3>
+    <table cellspacing="0" class="rowTable">
+    <tbody>
+        <tr>
+            <th scope="row"><div>{$lang->project_main_mid}</div></th>
+            <td>
+                <input type="text" name="project_main_mid" value="{$project_config->project_main_mid}" class="inputTypeText" />
+                <p>{$lang->about_project_main_mid}</p>
+            </td>
+        </tr>
+        <tr>
+            <th scope="row"><div>{$lang->project_main_layout}</div></th>
+            <td>
+                <select name="layout_srl">
+                <option value="0">{$lang->notuse}</option>
+                <!--@foreach($layout_list as $key => $val)-->
+                <option value="{$val->layout_srl}" <!--@if($project_config->layout_srl==$val->layout_srl)-->selected="selected"<!--@end-->>{$val->title} ({$val->layout})</option>
+                <!--@end-->
+                </select>
+            </td>
+        </tr>
+        <tr>
+            <th scope="row"><div>{$lang->browser_title}</div></th>
+            <td><input type="text" name="browser_title" value="{$project_config->browser_title}" class="inputTypeText" /></td>
+        </tr>
+        <tr>
+            <th scope="row"><div>{$lang->skin}</div></th>
+            <td>
+                <select name="skin">
+                    <!--@foreach($skins as $key => $val)-->
+                    <option value="{$key}" <!--@if($project_config->skin== $key)-->selected="selected"<!--@end-->>{$val->title}</option>
+                    <!--@end-->
+                </select>
+                <!--@if($project_config->module_srl)-->
+                <a href="{getUrl('act','dispProjectAdminSkinSetup','module_srl',$project_config->module_srl)}" class="button"><span>{$lang->cmd_setup}</span></a>
+                <!--@end-->
+            </td>
+        </tr>
+		<tr>
+			<th scope="row"><div>{$lang->mobile_view}</div></th>
+			<td>
+				<input type="checkbox" name="use_mobile" value="Y" <!--@if($project_config->use_mobile == "Y")-->checked="checked"<!--@end--> />
+				<p>{$lang->about_mobile_view}</p>
+			</td>
+		</tr>
+		<tr>
+			<th scope="row"><div>{$lang->mobile_layout}</div></th>
+			<td>
+				<select name="mlayout_srl">
+				<option value="0">{$lang->notuse}</option>
+				<!--@foreach($mlayout_list as $key => $val)-->
+				<option value="{$val->layout_srl}" <!--@if($project_config->mlayout_srl==$val->layout_srl)-->selected="selected"<!--@end-->>{$val->title} ({$val->layout})</option>
+				<!--@end-->
+				</select>
+				<p>{$lang->about_layout}</p>
+			</td>
+		</tr>
+		<tr>
+			<th scope="row"><div>{$lang->mskin}</div></th>
+			<td>
+				<select name="mskin">
+					<!--@foreach($mskin_list as $key=>$val)-->
+					<option value="{$key}" <!--@if($project_config->mskin==$key ||(!$project_config->mskin && $key=='default'))-->selected="selected"<!--@end-->>{$val->title}</option>
+					<!--@end-->
+				</select>
+				<p>{$lang->about_skin}</p>
+			</td>
+		</tr>
+        <tr>
+            <th scope="row"><div>{$lang->project_creation_type}</div></th>
+            <td>
+                <label for="chkProjectVid"><input type="radio" id="chkProjectVid" name="access_type" value="vid" onclick="toggleProjectAccessType('vid');" <!--@if($project_config->access_type=='vid')-->checked="checked"<!--@end--> /> {$lang->access_vid}</label>
+                <label for="chkProjectDomain"><input type="radio" id="chkProjectDomain" name="access_type" value="domain" onclick="toggleProjectAccessType('domain');" <!--@if($project_config->access_type!='vid')-->checked="checked"<!--@end--> /> {$lang->access_domain}</label>
+                <div id="accessProjectDomain" style="display:<!--@if($project_config->access_type=='vid')-->none<!--@end-->; margin-top:10px;">
+                    URL : <input type="text" name="default_domain" value="{$project_config->default_domain}" class="inputTypeText w200" />
+                </div>
+                <p>{$lang->about_project_creation_type}</p>
+            </td>
+        </tr>
+        <tr>
+            <th scope="row"><div>{$lang->repository}</div></th>
+            <td>
+                <input type="checkbox" name="use_repos" value="Y" <!--@if($project_config->use_repos=='Y')-->checked="checked"<!--@end-->/>
+                <p>{$lang->about_project_repos}</p>
+            </td>
+        </tr>
+        <tr>
+            <th scope="row"><div>{$lang->repository_url}</div></th>
+            <td>
+                <input type="text" name="repos_url" value="{$project_config->repos_url}" class="inputTypeText w200" />
+                <p>{$lang->about_project_repos_url}</p>
+            </td>
+        </tr>
+        <tr>
+            <th scope="row"><div>RSS</div></th>
+            <td>
+                <input type="checkbox" name="use_rss" value="Y" <!--@if($project_config->use_rss=='Y')-->checked="checked"<!--@end-->/>
+                <p>{$lang->about_project_rss}</p>
+            </td>
+        </tr>
+		<tr>
+			<th scope="row"><div>{$lang->creation_agreement}</div></th>
+			<td>
+				<textarea name="creation_agreement" cols="80" rows="10" class="inputTypeTextArea" style="width:90%;height:200px;">{htmlspecialchars($project_config->creation_agreement)}</textarea>
+			</td>
+		</tr>
+        <tr>
+            <th scope="row"><div>{$lang->notify_mail}</div></th>
+            <td>
+                <input type="text" name="notify_mail" value="{htmlspecialchars($project_config->notify_mail)}"  class="inputTypeText w400" />
+                <p>{$lang->about_notify_mail}</p>
+            </td>
+        </tr>
+		<tr>
+			<th scope="row"><div>{$lang->menu}</div></th>
+			<td>
+				<select name="menu_srl">
+					<option value="0">------------</option>
+					<!--@foreach($menu_list as $menu)-->
+					<option value="{$menu->menu_srl}" <!--@if($project_config->menu_srl == $menu->menu_srl)-->selected="selected"<!--@end-->>{$menu->title}</option>
+					<!--@end-->
+				</select>
+			</td>
+		</tr>
+
+
+        <tr class="row2">
+            <th class="button" colspan="2"><span class="btn black strong"><input type="submit" value="{$lang->cmd_save}" accesskey="s" /></span></div></th>
+        </tr>
+    </tbody>
+    </table>
+</form>
+
+
+<!--#include("./_foot.html")-->

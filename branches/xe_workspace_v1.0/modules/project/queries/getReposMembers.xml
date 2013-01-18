@@ -1,0 +1,27 @@
+<query id="getReposMembers" action="select">
+    <tables>
+        <table name="projects" alias="projects" />
+        <table name="project_repos" alias="repos" />
+        <table name="project_repos_group" alias="repos_group" />
+        <table name="project_repos_member" alias="repos_member" />
+        <table name="member_group_member" alias="member_group" />
+        <table name="member" alias="member" />
+    </tables>
+    <columns>
+        <column name="projects.site_srl" alias="site_srl" />
+        <column name="projects.title" alias="title" />
+        <column name="repos.repos_id" alias="repos_id" />
+        <column name="member.member_srl" alias="member_srl" />
+        <column name="member.user_id" alias="user_id" />
+        <column name="member.nick_name" alias="nick_name" />
+        <column name="repos_member.passwd" alias="password" />
+    </columns>
+    <conditions>
+        <condition operation="equal" column="projects.site_srl" var="site_srl" filter="number" />
+        <condition operation="equal" column="repos.site_srl" default="projects.site_srl" filter="number" notnull="notnull" pipe="and" />
+        <condition operation="equal" column="repos_group.site_srl" default="repos.site_srl" filter="number" notnull="notnull" pipe="and" />
+        <condition operation="equal" column="member_group.group_srl" default="repos_group.group_srl" filter="number" notnull="notnull" pipe="and" />
+        <condition operation="equal" column="member.member_srl" default="member_group.member_srl" filter="number" notnull="notnull" pipe="and" />
+        <condition operation="equal" column="repos_member.member_srl" default="member.member_srl" filter="number" notnull="notnull" pipe="and" />
+    </conditions>
+</query>

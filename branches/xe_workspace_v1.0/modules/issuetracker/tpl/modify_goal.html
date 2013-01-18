@@ -1,0 +1,58 @@
+<!--#include("header_front.html")-->
+<!--%import("css/issuetracker.css")-->
+<!--%import("filter/insert_milestone.xml")-->
+<!--%import("filter/delete_milestone.xml")-->
+<!--// datepicker javascript plugin load -->
+<!--%load_js_plugin("ui.datepicker")-->
+
+<!--@if($milestone)-->
+<form class="new_tip_form" action="{Context::getRequestUri()}" method="post" onsubmit="return procFilter(this, insert_milestone)">
+<div class="tip_box">
+    <h4>{$lang->milestone}</h4>
+        <input type="hidden" name="module_srl" value="{$module_srl}" />
+        <input type="hidden" name="return_act" value="dispIssuetrackerOneMilestone" />
+        <input type="hidden" name="milestone_srl" value="{$milestone->milestone_srl}" />
+        <!--@if($milestone->is_default=="Y")--><input type="hidden" name="is_default" value="Y" /><!--@end-->
+        <dl>
+            <dt><label for="milestone_title">{$lang->name}</label></dt>
+                <dd><input name="title" type="text" class="ipt_tags" placeholder="Input title here" id="milestone_title" value="{$milestone->title}"></dd>
+            <dt><label for="deadline">{$lang->deadline}</label></dt>
+                <dd>
+                    <input type="hidden" name="deadline" id="date_deadline" value="{$milestone->deadline}"/>
+                    <input type="text" class="ipt_tags inputDate" readonly="readonly" value="<!--@if($milestone->deadline)-->{zdate($milestone->deadline,'Y-m-d')}<!--@end-->">
+                </dd>
+            <dt>
+                <label for="is_default">{$lang->is_default}</label>
+                <span cond="$milestone->is_default!='Y'">
+                    <input type="checkbox" id="is_default" name="is_default" value="Y" />
+                    <p>{$lang->default_description}</p>
+                </span>
+            </dt>
+                <dd class="blind"|cond="$milestone->is_default!='Y'">
+                    <!--@if($milestone->is_default=='Y')-->
+                        {$lang->is_default}
+                    <!--@end-->
+                </dd>
+            <dt><label for="description">Description</label></dt>
+                <dd class="dd_ta"><textarea placeholder="Input description content here." rows="10" cols="30" id="description" name="description">{$milestone->description}</textarea></dd>
+    <!-- //new_tip_form -->
+</div>
+<div class="btnArea">
+    <input type="submit" value="Save" class="sbmt" style="margin-left:5px">
+    <input type="button" value="{$lang->cmd_back}" class="sbmt" style="margin-left:5px" onclick="window.location='{getUrl('','vid',$vid,'mid',$mid,'act','dispIssuetrackerViewMilestone')}'">
+</div>
+</form>
+
+<script type="text/javascript">
+(function($){
+    $(function(){
+        var option = { gotoCurrent: false,yearRange:'-100:+10', onSelect:function(){
+
+            $(this).prev('input[type="hidden"]').val(this.value.replace(/-/g,""))}
+        };
+        $.extend(option,$.datepicker.regional['{$lang_type}']);
+        $(".inputDate").datepicker(option);
+    });
+})(jQuery);
+</script>
+<!--@end-->

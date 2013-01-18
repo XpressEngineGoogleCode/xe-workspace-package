@@ -1,0 +1,60 @@
+<!--%import("./filter/insert_menu_item.xml")-->
+<!--%import("./filter/delete_menu_item.xml")-->
+
+<!--#include("_header.html")-->
+
+<!--// tree javascript plugin load -->
+<!--%load_js_plugin("ui.tree")-->
+<!--%import("./js/homepage_tree.js",optimized=false)-->
+<h4 class="xeAdmin">{$lang->cmd_admin_menus[$act]}</h4>
+<span style="float:right">
+    <a href="#" onclick="doReloadTreeMenu('{$menu_info->menu_srl}');return false;" class="button"><span>{$lang->cmd_remake_cache}</span></a>
+</span>
+<p class="summary">{$lang->about_cafe_act[$act]}</p>
+
+<form method="post" action="./" id="menu_item_form">
+    <input type="hidden" name="menu_item_srl" value="" />
+</form>
+
+<form method="post" action="./" id="menu_form">
+    <input type="hidden" name="menu_srl" value="{$menu_info->menu_srl}" />
+    <div id="menu">
+        <ul class="simpleTree">
+            <li class="root" id='tree_0'><span>{$lang->menu}</span></li>
+        </ul>
+    </div>
+    <br />
+</form>
+        
+<form id="fo_menu" action="./" method="post" onsubmit="return procFilter(this, insert_menu_item)" class="clear" target="tmp_upload_iframe" enctype="multipart/form-data">
+    <input type="hidden" name="module" value="homepage" />
+    <input type="hidden" name="act" value="procHompageUpdateMenuItem" />
+    <input type="hidden" name="menu_srl" value="{$menu_info->menu_srl}" />
+	<div id="menu_zone_info" class="boxModelController" style="z-index:100;"></div>
+</form>
+
+
+<iframe id='tmp_upload_iframe' name='tmp_upload_iframe' style='display:none;width:1px;height:1px;position:absolute;top:-10px;left:-10px'></iframe>
+
+<script type="text/javascript">
+var max_menu_depth = 999; //{$menu_max_depth};
+var simpleTreeCollection;
+var alertImageOnly = "{$lang->alert_image_only}";
+var confirmMenuMove = "{$lang->confirm_move}";
+var lang_confirm_delete = "{$lang->confirm_delete}";
+var xml_url = "{$menu_info->xml_file}";
+
+(function($){
+$("[name^=menu_name_]").bind("blur",function(e){
+	if($("[name=ck_"+$(this).attr("name")+"]:checked").size()>0){
+		$("[name^=ck_menu_name_]:checked").each(function(i){
+			$("[name="+$(this).attr("name").substring(3)+"]").val(e.target.value);
+		});
+	}
+});
+})(jQuery);
+
+jQuery(window).load(function(){homepageLoadMenuInfo(xml_url)});
+</script>
+
+<!--#include("_footer.html")-->

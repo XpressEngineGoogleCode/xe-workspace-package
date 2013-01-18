@@ -1,0 +1,54 @@
+<!--#include("_header.html")-->
+<!--@if($news_page_navigation->total_count == 0)-->
+<div class="pxeNews pxeNoData">
+    <p>{$lang->no_project_news}</p>
+</div>
+<!--@else-->
+<ul class="lt">
+    <!--@foreach($news_list as $news)-->
+    <!--@if($news->type == "d")-->
+    <li>
+        <a href="{getSiteUrl($projects[$news->site_srl]->domain, '', 'document_srl', $news->item->document_srl)}">
+				<span class="title">{$projects[$news->site_srl]->title} &rsaquo; {$modules[$news->item->module_srl]} &rsaquo; <strong>{$news->item->title}</strong> <span>[{$news->item->comment_count}]</span></span>
+				<span class="auth"><em>{$news->item->nick_name}</em> <span>{zdate($news->regdate, "Y.m.d")}</span></span>
+			</a>
+			<p>{cut_str(strip_tags($news->item->content), 800, '...') }</p>
+		</li>
+		<!--@elseif($news->type == "c")-->
+		<li>
+			<a href="{getSiteUrl($projects[$news->site_srl]->domain, '', 'document_srl', $news->item->document_srl)}#comment_{$news->item->comment_srl}">
+				<span class="title">{$projects[$news->site_srl]->title} &rsaquo; {$modules[$news->item->module_srl]} &rsaquo; <strong>{$news->item->title}</strong></span>
+				<span class="auth"><em>{$news->item->nick_name}</em> <span>{zdate($news->regdate, "Y.m.d")}</span></span>
+			</a>
+			<p>└ {cut_str(strip_tags($news->item->content), 800, '...') }</p>
+		</li>
+		<!--@elseif($news->type == "D")-->
+		<li>
+			<a href="{getSiteUrl($projects[$news->site_srl]->domain, '', 'act', 'dispIssuetrackerDownload', 'release_srl', $news->target_srl)}">
+				<span class="title">{$project[$news->site_srl]->title}] &rsaquo; {$news->item->package_title} - {$news->item->title}</span>
+				<span class="auth"><em>{$news->item->nick_name}</em> <span>{zdate($news->regdate, "Y.m.d")}</span></span>
+			</a>
+			<p>{$news->item->release_note}</p>
+		</li>
+		<!--@elseif($news->type == "s")-->
+		<li>
+			<a href="{getSiteUrl($projects[$news->site_srl]->domain)}">
+				<span class="title">[{$projects[$news->site_srl]->title}] &rsaquo; r{$news->item->revision}</span>
+				<span class="auth"><em>{$news->item->author}</em> <span>{zdate($news->regdate, "Y.m.d")}</span></span>
+			</a>
+			<p>{$news->item->message}</p>
+		</li>
+		<!--@endif-->
+		<!--@endforeach-->
+	</ul>
+	<div class="pn">
+        <!--@if($news_page_navigation->cur_page != 1)-->
+		<a href="{getUrl('news_page',$news_page_navigation->cur_page-1)}">&lsaquo; {$lang->cmd_prev}</a>
+		<!--@endif-->
+        <strong>{$news_page_navigation->cur_page} / {$news_page_navigation->last_page}</strong>
+		<!--@if($news_page_navigation->last_page != $news_page_navigation->cur_page)-->
+		<a href="{getUrl('news_page',$news_page_navigation->cur_page+1)}">{$lang->cmd_next} &rsaquo;</a>
+		<!--@endif-->
+	</div>
+	<!--@endif-->
+<!--#include("_footer.html")-->

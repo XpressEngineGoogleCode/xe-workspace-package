@@ -1,0 +1,15 @@
+<query id="getProjectDirectories" action="select">
+    <tables>
+        <table name="project_directories" />
+    </tables>
+    <columns>
+        <column name="*" />
+    </columns>
+    <conditions>
+        <condition operation="in" column="parent_directory_srl" var="parent_directory_srl" />
+    </conditions>
+    <navigation>
+        <index var="sort_index" default="parent_directory_srl" order="asc" />
+        <index var="sort_index" default="list_order" order="desc" />
+    </navigation>
+</query>

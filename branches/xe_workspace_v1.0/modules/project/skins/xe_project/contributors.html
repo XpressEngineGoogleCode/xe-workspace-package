@@ -1,0 +1,78 @@
+<!--%import("js/toggle.js")-->
+<!--#include("hub_header.html")-->
+	<!-- /.pxeHeader -->
+	<!-- .pxeBody -->
+	<div class="pxeBody">
+		<div class="pxeContent">
+			<div class="pxeH">
+				<h2>{$lang->a_project} <em>{$lang->contributor}</em></h2>
+				<div class="filter">
+					<div class="select" style="width:200px;">
+						<span class="ctrl"><span class="arrow"></span></span>
+						<button type="button" class="myValue">{$lang->contributor_sort_order[$sort_order]}</button>
+						<ul class="aList">
+							<!--@foreach($lang->contributor_sort_order as $key=>$title)-->
+							<li><a href="{getUrl('sort_order',$key,'page','')}">{$title}</a></li>
+							<!--@endforeach-->
+							<!--<li class="search noclose">
+								<form action="./" method="get" class="item">
+									<input name="mid" type="hidden" value="{$mid}" />
+									<input name="act" type="hidden" value="{$act}" />
+									<label for="cSearch" class="iLabel">공헌자 이름</label>
+									<input name="search_keyword" type="text" class="iText" id="cSearch" value="{$search_keyword}" />
+									<span class="btnPxe"><input name="" type="submit" value="검색" /></span>
+								</form>
+							</li>-->
+						</ul>
+					</div>
+				</div>
+			</div>
+			<table border="1" cellspacing="0" class="pxeT">
+				<thead>
+					<tr>
+						<th scope="col"><span>{$lang->contributor}</span></th>
+						<th scope="col" class="title"><span>{$lang->project_name}</span></th>
+						<th scope="col" class="sort"><span>{$lang->contributor_sort_order[points]}</span></th>
+						<th scope="col"><span>{$lang->contributor_sort_order[articles]}</span></th>
+						<th scope="col"><span>{$lang->contributor_sort_order[comments]}</span></th>
+						<th scope="col"><span>{$lang->contributor_sort_order[commits]}</span></th>
+					</tr>
+				</thead>
+				<tbody>
+					<!--@if(!$contributors)-->
+					<tr>
+						<td colspan="6" class="pxeNoData">
+							<p>{$lang->no_relative_info}</p>
+						</td>
+					</tr>
+					<!--@else-->
+					<!--@foreach($contributors as $contributor)-->
+					<tr>
+						<td>{@ echo $contributor->nick_name ? $contributor->nick_name:$contributor->user_id }</td>
+						<td class="title"><!--@foreach($contributor->site_srls as $key=>$val)--><a href="{getSiteUrl($projects[$key]->domain)}">{$projects[$key]->title}</a> <!--@end--></td>
+						<td class="num sort">{number_format($contributor->point)}</td>
+						<td class="num">{number_format($contributor->d?$contributor->d:0)}</td>
+						<td class="num">{number_format($contributor->c?$contributor->c:0)}</td>
+						<td class="num">{number_format($contributor->s?$contributor->s:0)}</td>
+					</tr>
+					<!--@end-->
+					<!--@end-->
+				</tbody>
+			</table>
+			<div class="pagination">
+                <!--@if($page_navigation->cur_page>1)--><a class="direction" href="{getUrl('page',1)}">&lsaquo; FIRST</a><!--@end-->
+                <!--@if($page_navigation->cur_page>1)--><a class="direction" href="{getUrl('page',$page_navigation->cur_page-1)}">&lsaquo; PREV</a><!--@end-->
+                <!--@while($page_no = $page_navigation->getNextPage())-->
+                    <!--@if($page == $page_no)-->
+                    <strong>{$page_no}</strong>
+                    <!--@else-->
+                    <a href="{getUrl('page',$page_no,'document_srl','','division',$division,'last_division',$last_division)}">{$page_no}</a>
+                <!--@end-->
+                <!--@end-->
+                <!--@if($page_navigation->cur_page<$page_navigation->total_page)--><a class="direction" href="{getUrl('page',$page_navigation->cur_page+1)}">NEXT &rsaquo;</a><!--@end-->
+                <!--@if($page_navigation->cur_page<$page_navigation->total_page)--><a class="direction" href="{getUrl('page',$page_navigation->total_page)}">END &rsaquo;</a><!--@end-->
+			</div>
+		</div>
+	</div>
+	<!-- /.pxeBody -->
+</div>

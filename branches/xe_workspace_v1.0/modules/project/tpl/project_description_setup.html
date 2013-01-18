@@ -1,0 +1,34 @@
+<!--%import("./filter/change_language.xml")-->
+<!--#include("_project_header.html")-->
+<div cond="$XE_VALIDATOR_MESSAGE" class="message {$XE_VALIDATOR_MESSAGE_TYPE}">
+	<p>{$XE_VALIDATOR_MESSAGE}</p>
+</div>
+<form method="post" action="{Context::getRequestUri()}" >
+<div class="goal_view_head">
+    <!--@if(isSiteID($site_module_info->domain))-->
+    <input type="hidden" name="vid" value="{$site_module_info->domain}"/>
+    <!--@end-->
+    <input type="hidden" name="redirect_url" value="{getFullUrl('act','dispProjectDescription')}" />
+    <input type="hidden" name="site_srl" value="{$project_info->site_srl}" />
+    <input type="hidden" name="module" value="project" />
+    <input type="hidden" name="act" value="procProjectInsertProjectBanner" />
+    <input type="hidden" name="project_title" value="{htmlspecialchars($project_info->title)}" class="inputTypeText" />
+    <textarea name="project_description" class="inputTypeTextArea" id="project_description" style="width:98%;" rows="5" >{htmlspecialchars($project_info->project_description)}</textarea>
+    <p class="desc">{$lang->about_project_description}</p>
+    <script type="text/javascript">
+        jQuery(window).load(function() { jQuery('.description_length').html('('+jQuery('#project_description').get(0).value.length+')').css('display','block'); });
+    </script>
+    <input type="hidden" name="colorset" value="{$project_site_config->colorset}" />
+    <!--@if($directories)-->
+    {@$_idx=0}
+    <!--@foreach($directories as $key => $val)-->
+        {@$_p = $project_info->directory[$key]}
+        <input cond="$_p" type="hidden" name="directory_{$val->project_dir_srl}" value="{$_p->project_dir_srl}" />
+    <!--@end-->
+    <!--@end-->
+</div>
+<div class="pull_right" style="margin-top:5px">
+    <span class="btn_white"><input type="submit" class="btn_sbmt" value="{$lang->cmd_save}" /></span>
+</div>
+</form>
+<!--#include("_project_footer.html")-->

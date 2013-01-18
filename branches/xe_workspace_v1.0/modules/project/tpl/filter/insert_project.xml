@@ -1,0 +1,18 @@
+<filter name="insert_project" module="project" act="procProjectAdminInsertProject" confirm_msg_code="confirm_submit">
+    <form>
+        <node target="project_title" required="true" maxlength="250" />
+        <node target="domain" maxlength="250" />
+        <node target="vid" maxlength="250" filter="alpha_number" />
+    </form>
+    <parameter>
+        <param name="title" target="project_title" />
+        <param name="domain" target="domain" />
+        <param name="site_id" target="vid" />
+    </parameter>
+    <response callback_func="completeInsertProject">
+        <tag name="error" />
+        <tag name="message" />
+        <tag name="site_srl" />
+        <tag name="url" />
+    </response>
+</filter>

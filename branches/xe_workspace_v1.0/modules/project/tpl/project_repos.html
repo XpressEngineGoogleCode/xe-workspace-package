@@ -1,0 +1,62 @@
+<!--#include("_project_header.html")-->
+
+<h3 class="xeAdmin">{$lang->project_repos}</h3>
+<p class="summary">{$lang->about_project_act[$act]}</p>
+
+<!--@if($use_repos!='Y')-->
+    {$lang->disable_repos}
+<!--@else-->
+
+    <!--@if($repos_info->repos_id)-->
+        <!--%import("filter/insert_commit_group.xml")-->
+        <form action="./" method="post" onsubmit="return procFilter(this, insert_commit_group)">
+            <table cellspacing="0" class="rowTable">
+            <tr>
+                <th><div>{$lang->repos_title}</div></th>
+                <td class="wide">{$project_info->title}</td>
+            </tr>
+            <tr>
+                <th><div>{$lang->repos_url}</div></th>
+                <td class="wide">http://{$repos_url}/{$repos_info->repos_id}</td>
+            </tr>
+            <tr>
+                <th><div>{$lang->project_allow_commit}</div></th>
+                <td>
+                    <!--@foreach($group_list as $key => $val)-->
+                    <input type="checkbox" name="allow_commit_group" value="{$val->group_srl}" <!--@if(in_array($val->group_srl, $repos_group))-->checked="checked"<!--@end--> />{$val->title}<br />
+                    <!--@end-->
+                    <p>{$lang->about_project_allow_commit}</p>
+                </td>
+            </tr>
+            <tr>
+                <th class="button" colspan="3">
+                    <span class="btn"><input type="submit" value="{$lang->cmd_save}" /></span>
+                </th>
+            </tr>
+            </table>
+        </form>
+
+
+    <!--@else-->
+        <!--%import("filter/insert_repos.xml")-->
+        <form action="./" method="post" onsubmit="return procFilter(this, insert_repos)">
+            <table cellspacing="0" class="rowTable">
+            <tr>
+                <th><div>{$lang->repos_id}</div></th>
+                <td class="wide">
+                    http://{$repos_url}/<input type="text" name="repos_id" value="" class="inputTypeText" />
+                    <p>{$lang->about_repos_id}</p>
+                </td>
+            </tr>
+            <tr>
+                <th class="button" colspan="3">
+                    <span class="btn"><input type="submit" value="{$lang->cmd_repos_repository}" /></span>
+                </th>
+            </tr>
+            </table>
+        </form>
+    <!--@end-->
+<!--@end-->
+
+
+<!--#include("_project_footer.html")-->

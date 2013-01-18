@@ -1,0 +1,9 @@
+@charset "utf-8";
+
+.mcm .mcm_nav{padding:0;height:40px;}
+.mcm .mcm_nav li{float:left;list-style:none}
+.mcm .mcm_nav a{display: block;height:30px;padding:0px 8px;font-size:12px;line-height: 30px;text-decoration: none;letter-spacing:-1px;font-family:'나눔고딕','NanumGothic','맑은 고딕','Malgun Gothic','돋움',dotum,Helvetica,sans-serif;}
+.mcm .mcm_nav a:hover,
+.mcm .mcm_nav a.active {background: #333;color:#efefef;font-weight: bold}
+.xm .table th {background: none repeat scroll 0 0 #F1F3F8;width:30%}
+.xm .table.even tbody tr:nth-of-type(2n) td {background-color: #F1F3F8;}

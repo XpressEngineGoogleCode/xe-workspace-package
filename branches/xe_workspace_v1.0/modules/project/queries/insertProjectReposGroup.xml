@@ -1,0 +1,10 @@
+<query id="insertProjectReposGroup" action="insert">
+    <tables>
+        <table name="project_repos_group" />
+    </tables>
+    <columns>
+        <column name="site_srl" var="site_srl" notnull="notnull" />
+        <column name="group_srl" var="group_srl" notnull="notnull" />
+        <column name="last_update" default="curdate()" />
+    </columns>
+</query>

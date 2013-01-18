@@ -1,0 +1,14 @@
+<query id="updateRelease" action="update">
+    <tables>
+        <table name="issue_releases" />
+    </tables>
+    <columns>
+        <column name="title" var="title" notnull="notnull" />
+        <column name="release_note" var="release_note" />
+        <column name="release_changes" var="release_changes" />
+        <column name="release_date" var="release_date" />
+    </columns>
+    <conditions>
+        <condition operation="equal" column="release_srl" var="release_srl" notnull="notnull" />
+    </conditions> 
+</query>

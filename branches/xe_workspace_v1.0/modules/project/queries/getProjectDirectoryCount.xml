@@ -1,0 +1,15 @@
+<query id="getProjectDirectoryCount" action="select">
+    <tables>
+        <table name="project_directories" />
+    </tables>
+    <columns>
+        <column name="parent_directory_srl" />
+        <column name="count(*)" alias="count" />
+    </columns>
+    <conditions>
+        <condition operation="in" column="parent_directory_srl" default="0" var="parent_directory_srl" notnull="notnull" />
+    </conditions>
+    <groups>
+        <group column="parent_directory_srl" />
+    </groups>
+</query>

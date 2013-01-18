@@ -1,0 +1,18 @@
+
+        <!-- Content Area -->
+
+<h2 class="content_title" cond="$site_module_info->skin != 'xe_pacakgePro' && !$site_module_info->site_srl">
+    {$lang->msg_find_account_info}
+</h2>
+<div class="mcm" <!--@if(($site_module_info->skin == 'xe_pacakgePro') && $site_module_info->site_srl)-->style="margin: 0px 0px 0px 0px;"<!--@end-->>
+<hr class="info">
+<p class="p_info">Site : <a href="{getUrl()}" target="_blank">{getUrl()}</a></p>
+<p loop="$memberInfo=>$name,$value" class="p_info">{$name} : {$value}</p>
+<p class="p_info">{$lang->password} : <em class="value">{$auth_args->new_password}</em></p>
+<hr class="info">
+<p class="p_gray">{$lang->msg_find_account_comment}<br /></p>
+<p class="p_info"><a href="{$find_url}">{$find_url}</a></p>
+<hr class="info">
+
+</div><!-- // mcm -->
+        <!-- //Content Area -->

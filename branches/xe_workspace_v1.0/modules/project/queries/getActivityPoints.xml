@@ -1,0 +1,17 @@
+<query id="getActivityPoints" action="select">
+	<tables>
+		<table name="project_contribute" />
+		<table name="project_cont_points" alias="points" />
+	</tables>
+	<columns>
+		<column name="site_srl" />
+		<column name="sum(points.point)" alias="point" />
+	</columns>
+	<conditions>
+		<condition operation="equal" column="project_contribute.member_srl" var="member_srl" notnull="notnull" />
+		<condition operation="equal" column="project_contribute.type" default="points.type" pipe="and" />
+	</conditions>
+	<groups>
+		<group column="site_srl" />
+	</groups>
+</query>

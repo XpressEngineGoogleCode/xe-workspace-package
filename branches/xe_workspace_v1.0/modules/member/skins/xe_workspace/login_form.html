@@ -1,0 +1,56 @@
+<!-- Member mod skin -->
+<load target="css/member.css" />
+<!-- Member mod skin -->
+
+<!-- Content Area -->
+
+    <!--@if($site_module_info->skin != 'xe_pacakgePro' && !$site_module_info->site_srl)-->
+    <h2 class="content_title" >
+        {$lang->cmd_login}
+    </h2>
+    <div class="mcm">
+    <!--@end-->
+        <div cond="$XE_VALIDATOR_MESSAGE" class="message {$XE_VALIDATOR_MESSAGE_TYPE}">
+            <p>{$XE_VALIDATOR_MESSAGE}</p>
+        </div>
+        <include target="./common_header.html" />
+        <form ruleset="@login" action="./" method="post" id="fo_member_login" class="sign_form">
+            <input type="hidden" name="success_return_url" value="{$referer_url}" />
+            <input type="hidden" name="act" value="procMemberLogin" />
+            <div class="signPanel">
+                <div class="left">
+                    <label for="uid" class="lb_ipt" ><!--@if($identifier == 'user_id')-->{$lang->user_id}<!--@else-->{$lang->email_address}<!--@end--></label>
+                    <div class="ipt_txt uid">
+                        <input name="user_id" id="uid" type="text" value="">
+                    </div>
+                    <label for="upw" class="lb_ipt">{$lang->password}</label>
+                    <div class="ipt_txt upw">
+                        <input type="password" name="password" id="upw" value="" />
+                    </div>
+                    <div class="chk_box">
+                        <input type="checkbox" id="keepid_opt" name="keep_signed" class="sid" value="Y" >
+                        <label for="keepid_opt" class="lb_chk" >{$lang->keep_signed}</label>
+                    </div><!-- //chk_box -->
+
+<!--     <div class="message info" id="keep_msg">
+<p>{$lang->about_keep_warning}</p>
+</div> -->
+                </div>
+                <div class="right">
+                    <input type="submit" class="sbmt" value="{$lang->cmd_login}">
+                </div>
+                <ul class="sign_help">
+                    <li class="find_acc">
+                        <a href="{getUrl('act','dispMemberFindAccount')}">{$lang->cmd_find_member_account}</a>
+                    </li>
+                    <li class="signup">
+                        <a href="{getUrl('act','dispMemberSignUpForm')}">{$lang->cmd_signup}</a>
+                    </li>
+                </ul>
+            </div><!-- signPanel -->
+        </form>
+    <!--@if($site_module_info->skin != 'xe_pacakgePro' && !$site_module_info->site_srl)-->
+    </div><!-- // mcm -->
+    <!--@end-->
+
+<!-- //Content Area -->

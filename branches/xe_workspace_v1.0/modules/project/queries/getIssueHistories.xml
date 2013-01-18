@@ -1,0 +1,17 @@
+<query id="getIssueHistories" action="select">
+	<tables>
+		<table name="issues_history" />
+		<table name="issues" />
+		<table name="documents" />
+	</tables>
+	<columns>
+		<column name="issues_history.issues_history_srl" />
+		<column name="issues.status" />
+		<column name="documents.*" />
+	</columns>
+	<conditions>
+		<condition operation="in" column="issues_history_srl" var="issues_history_srls" notnull="notnull" />
+		<condition operation="equal" column="issues_history.target_srl" default="issues.target_srl" pipe="and" />
+		<condition operation="equal" column="issues_history.target_srl" default="documents.document_srl" pipe="and" />
+	</conditions>
+</query>

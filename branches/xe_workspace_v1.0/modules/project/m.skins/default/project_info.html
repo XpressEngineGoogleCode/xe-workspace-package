@@ -1,0 +1,28 @@
+<!--%import("css/mproject.css")-->
+<div class="bd">
+	<p style="padding:10px 0 20px 0; text-align:center; border-bottom:1px solid #ccc;"><img src="{$project_info->project_banner}" alt="Project Banner" /></p>
+	<dl class="dl">
+		<dt>{$lang->project_title}</dt>
+		<dd>{$project_info->title}</dd>
+		<dt>{$lang->description}</dt>
+		<dd>{htmlspecialchars($project_info->description)}</dd>
+		<dt>{$lang->project_admin}</dt>
+		<dd><!--@foreach($site_admins as $key=>$val)-->{htmlspecialchars($val->nickname)} <!--@end--></dd>
+		<dt>{$lang->date_opened}</dt>
+		<dd>{zdate($project_info->regdate, "Y.m.d")}</dd>
+		<!--@foreach($project_info->directory as $value)-->
+		<dt>{$value->ptitle}</dt>
+		<dd>{$value->title}<dd>
+		<!--@end-->
+		<!--@if($repos_url)-->
+		<dt>{$lang->repository}</dt>
+		<dd><a href="{$repos_url}" class="svn">{$repos_url}</a></dd>
+		<!--@end-->
+		<dt>{$lang->member}</dt>
+		<dd>{$member_count} {$lang->member_unit}</dd>
+		<!--@foreach($member_groups as $group)-->
+		<dt>{$group->title}</dt>
+		<dd>{$group->count}</dt>
+		<!--@end-->
+	</dl>
+</div>

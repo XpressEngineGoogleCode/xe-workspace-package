@@ -1,0 +1,5 @@
+<table name="project_repos">
+    <column name="site_srl" type="number" size="11" notnull="notnull" unique="project_repos" />
+    <column name="repos_id" type="varchar" size="255" notnull="notnull" unique="repos_id" />
+    <column name="last_update" type="date" />
+</table>

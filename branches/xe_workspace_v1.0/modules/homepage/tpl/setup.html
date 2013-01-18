@@ -1,0 +1,108 @@
+<!--%import("./js/homepage.js",optimized=false)-->
+<!--%import("./filter/update_homepage.xml")-->
+
+<!--#include("./header.html")-->
+
+<form action="./" method="post" onsubmit="return doUpdateHomepage(this, update_homepage)" id="cafeFo">
+<h3 class="xeAdmin">{$homepage_info->title}</h3>
+<input type="hidden" name="site_srl" value="{$homepage_info->site_srl}" />
+<input type="hidden" name="layout_srl" value="{$homepage_info->layout_srl}" />
+<input type="hidden" name="homepage_admin" value="<!--@foreach($admin_list as $key=>$val)-->{$val->member_srl},<!--@end-->" />
+    <div class="table">
+	<table cellspacing="0" border="1">
+    <tbody>
+        <tr>
+            <th scope="row"><div>{$lang->cafe_title}</div></th>
+            <td colspan="2">
+                <input type="text" name="title" value="{htmlspecialchars($homepage_info->title)}" class="inputTypeText w200"/> <a href="{getFullSiteUrl($homepage_info->domain,'', 'act','dispHomepageManage')}" onclick="window.open(this.href); return false;" class="button"><span>{$lang->cmd_management}</span></a>
+            </td>
+        </tr>
+        <tr>
+            <th scope="row"><div>{$lang->access_type}</div></th>
+            <td colspan="2">
+                <label for="chkDomain"><input type="radio" id="chkDomain" name="access_type" value="domain" onclick="toggleAccessType('domain');" <!--@if(!isSiteID($homepage_info->domain))-->checked="checked"<!--@end--> /> {$lang->access_domain}</label>
+                <label for="chkVid"><input type="radio" id="chkVid" name="access_type" value="vid" onclick="toggleAccessType('vid');" <!--@if(isSiteID($homepage_info->domain))-->checked="checked"<!--@end--> /> {$lang->access_vid}</label>
+                <div id="accessDomain" style="display:<!--@if(!isSiteID($homepage_info->domain))-->block<!--@else-->none<!--@end-->; margin-top:10px;">
+                    http://<input type="text" name="domain" value="<!--@if(!isSiteID($homepage_info->domain))-->{$homepage_info->domain}<!--@end-->" class="inputTypeText w200" />
+                    <p>{$lang->about_domain}</p>
+                </div>
+                <div id="accessVid" style="display:<!--@if(isSiteID($homepage_info->domain))-->block<!--@else-->none<!--@end-->; margin-top:10px;">
+                    <input type="text" name="vid" value="<!--@if(isSiteID($homepage_info->domain))-->{$homepage_info->domain}<!--@end-->" class="inputTypeText w200" />
+                    <a href="{getFullSiteUrl($homepage_info->domain, '')}" onclick="window.open(this.href); return false;" class="button"><span>{$lang->cmd_move}</span></a>
+                    <p>{$lang->about_vid}</p>
+                </div>
+            </td>
+        </tr>
+        <tr>
+            <th scope="row"><div>{$lang->cafe_admin}</div></th>
+            <td colspan="2">
+				{@ if($member_config->identifier == 'email_address') $inputType = $lang->email_address;
+					else $inputType = $lang->user_id; }
+                <select name="admin_list" multiple="multiple" size="{count($admin_list)?count($admin_list):1}" class="w200">
+                <!--@foreach($admin_list as $key => $val)-->
+                    <option value="{$val->user_id}">{$val->nick_name} (<!--@if($member_config->identifier == 'email_address')-->{$val->email_address}<!--@else-->{$val->user_id}<!--@end-->)</option>
+                <!--@end-->
+                </select>
+                <br />
+                <input type="text" name="admin_id" class="inputTypeText w100" />
+
+				<span class="button"><button type="button" onclick="doHomepageInsertAdmin()">{$lang->cmd_insert}</button></span>
+                <span class="button"><button type="button" onclick="doHomepageDeleteAdmin()">{$lang->cmd_delete}</button></span>
+				
+                <p>{sprintf($lang->about_cafe_admin,$inputType)}</p>
+            </td>
+        </tr>
+        <tr>
+            <th scope="row"><div>{$lang->default_layout}</div></th>
+            <td colspan="2">
+                <select name="default_layout">
+                    <option value="faceoff" <!--@if($homepage_config->default_layout=='faceoff')-->selected="selected"<!--@end--> >faceoff</option>
+                    <optgroup label="{$lang->downloaded_list}">
+                    <!--@foreach($layout_list as $key => $val)-->
+                    <option value="{$val->layout}" <!--@if($homepage_config->default_layout== $val->layout)-->selected="selected"<!--@end-->> <!--@if($val->title)-->{$val->title} ({$val->layout})<!--@else-->{$val->layout}<!--@end--></option>
+                <!--@end-->
+                    </optgroup>
+                </select>
+                <p>{$lang->about_default_layout}</p>
+            </td>
+        </tr>
+		<tr>
+			<th scope="row"><div>{$lang->mobile_layout}</div></th>
+			<td>
+                <select name="default_mlayout">
+                    <option value="0" <!--@if(!$homepage_config->default_layout)-->selected="selected"<!--@end--> >미사용</option>
+                    <!--@foreach($mlayout_list as $key => $val)-->
+                    <option value="{$val->layout}" <!--@if($homepage_config->default_mlayout== $val->layout)-->selected="selected"<!--@end-->> <!--@if($val->title)-->{$val->title} ({$val->layout})<!--@else-->{$val->layout}<!--@end--></option>
+                <!--@end-->
+                    </optgroup>
+                </select>
+			</td>
+		</tr>
+        <tr>
+            <th scope="row"><div>{$lang->enable_change_layout}</div></th>
+            <td colspan="2">
+                <input type="checkbox" name="enable_change_layout" value="Y" <!--@if($homepage_config->enable_change_layout=='Y')-->checked="checked"<!--@end-->/>
+                <p>{$lang->about_change_layout}</p>
+            </td>
+        </tr>
+        <tr>
+            <th scope="row"><div>{$lang->allow_service}</div></th>
+            <td colspan="2">{$lang->about_allow_service}</td>
+        </tr>
+        <!--@foreach($service_modules as $k => $v)-->
+            <!--@if($v->category == 'service' && $v->default_index_act)-->
+        <tr>
+            <!--@if($k==0)--><th rowspan="{count($service_modules)-1}"><div>&nbsp;</div></th><!--@end-->
+            <td class="nowrap">{$v->title}</td>
+            <td class="wide"><input type="text" name="allow_service_{$v->module}" value="{$homepage_config->allow_service[$v->module]}" class="inputTypeText w80" /></td>
+        </tr>
+            <!--@end-->
+        <!--@end-->
+    </tbody>
+    </table>
+	</div>
+	<div class="btnArea">
+	    <span class="btn"><input type="submit" value="{$lang->cmd_save}" accesskey="s" /></span>
+    	<span class="btn"><input type="button" value="{$lang->cmd_back}" onclick="location.href=location.href.setQuery('act','dispHomepageAdminContent').setQuery('site_srl','');return false;" /></span>
+	</div>
+</form>

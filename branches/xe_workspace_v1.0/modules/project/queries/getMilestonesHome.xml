@@ -1,0 +1,19 @@
+<query id="getMilestonesHome" action="select">
+    <tables>
+        <table name="issue_milestones" />
+		<table name="modules" />
+    </tables>
+	<columns>
+		<column name="issue_milestones.*" />
+	</columns>
+	<conditions>
+        <condition operation="notequal" column="is_completed" default="Y" />
+		<condition operation="equal" column="modules.site_srl" var="site_srl" pipe="and" />
+		<condition operation="equal" column="modules.module_srl" default="issue_milestones.module_srl" pipe="and" />
+		<condition operation="excess" column="deadline" default="0" pipe="and" />
+	</conditions>
+    <navigation>
+        <index var="sort_index" default="deadline" order="asc" />
+        <list_count var="list_count" default="2" />
+    </navigation>
+</query>

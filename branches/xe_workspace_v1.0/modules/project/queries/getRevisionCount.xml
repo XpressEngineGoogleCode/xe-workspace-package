@@ -1,0 +1,23 @@
+<query id="getRevisionCount" action="select">
+	<tables>
+		<table name="modules" />
+		<table name="sites" />
+		<table name="member" />
+        <table name="issue_changesets" />
+	</tables>
+	<columns>
+		<column name="sites.site_srl" />
+		<column name="member.member_srl" />
+		<column name="count(*)" alias="count" />
+	</columns>
+	<conditions>
+		<condition operation="equal" column="modules.site_srl" default="sites.site_srl" />
+		<condition operation="equal" column="modules.site_srl" var="site_srl" notnull="notnull" pipe="and" />
+		<condition operation="equal" column="modules.module_srl" default="issue_changesets.module_srl" pipe="and" />
+		<condition operation="equal" column="member.user_id" default="issue_changesets.author" pipe="and" />
+	</conditions>
+	<groups>
+		<group column="member.member_srl"/>
+		<group column="sites.site_srl"/>
+	</groups>
+</query>

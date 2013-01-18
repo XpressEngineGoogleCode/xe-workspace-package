@@ -1,0 +1,38 @@
+<query id="getProjectListInSummary" action="select">
+    <tables>
+        <table name="projects" />
+        <table name="sites" />
+		<table name="project_contribute" alias="contribute" />
+		<table name="project_activity_points" alias="points" />
+    </tables>
+    <columns>
+        <column name="projects.site_srl" alias="site_srl" />
+        <column name="projects.title" alias="project_title" />
+        <column name="projects.description" alias="project_description" />
+        <column name="sites.domain" alias="domain" />
+        <column name="sites.regdate" alias="regdate" />
+		<column name="sum(points.point)" alias="point" />
+    </columns>
+    <conditions>
+        <condition operation="equal" column="sites.site_srl" default="projects.site_srl" filter="number" notnull="notnull" />
+        
+        <group pipe="and">
+            <condition operation="equal" column="points.type" default="contribute.type" pipe="and" />
+            <condition operation="equal" column="contribute.site_srl" default="projects.site_srl" pipe="and" />
+        </group>
+        
+        <group pipe="and">
+            <condition operation="like" column="projects.title" var="search_keyword" />
+            <condition operation="like" column="projects.description" var="search_keyword" pipe="or" />
+        </group>
+    </conditions>
+	<groups>
+		<group column="sites.site_srl" />
+	</groups>
+    <navigation>
+        <index var="sort_index" default="projects.list_order" order="order_type" />
+        <list_count var="list_count" default="20" />
+        <page_count var="page_count" default="10" />
+        <page var="page" default="1" />
+    </navigation>
+</query>

@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<skin version="0.2">
+    <title xml:lang="ko">Workspace-Community Skin</title>
+    <title xml:lang="en">Workspace-Community Skin</title>
+    <title xml:lang="zh-CN">Workspace-Community Skin</title>
+	<title xml:lang="vi">Workspace-Community Skin</title>
+    <title xml:lang="jp">Workspace-Community Skin</title>
+    <title xml:lang="zh-TW">Workspace-Community Skin</title>
+    <description xml:lang="ko">
+      Workspace-Community Skin
+    </description>
+    <description xml:lang="en">
+        Workspace-Community Skin
+    </description>
+    <description xml:lang="zh-CN">
+        Workspace-Community Skin
+    </description>
+	<description xml:lang="vi">
+		Skin mặc định cho CafeXE.
+	</description>
+    <description xml:lang="jp">
+        Workspace-Community Skin
+    </description>
+    <description xml:lang="zh-TW">
+        Workspace-Community Skin
+    </description>
+    <version>0.1.1</version>
+    <date>2011-12-08</date>
+    <author email_address="developers@xpressengine.com" link="http://www.xpressengine.com/">
+        <name xml:lang="ko">NHN</name>
+		<name xml:lang="vi">NHN</name>
+        <name xml:lang="jp">NHN</name>
+        <name xml:lang="zh-TW">NHN</name>
+    </author>
+    <license>GPL</license>
+</skin>

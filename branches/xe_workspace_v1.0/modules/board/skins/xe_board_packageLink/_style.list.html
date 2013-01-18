@@ -1,0 +1,76 @@
+
+        <!--@if(!$document_list)-->
+        <div class="no_article">
+            {$lang->no_documents}
+        </div>
+        <!--@else-->
+			<div class="ct">
+				<div class="sec_lst_tip">
+					<div class="tips">
+					    {@ $i = 0}
+						<!--@foreach($document_list as $no => $document)-->
+						{@ $i++;}
+							<div class="tip <!--@if(count($document_list) == $i)-->last<!--@elseif($i == 1)-->first<!--@end-->">
+								<div class="right tip_content">
+									<div class="head">
+										<h4 class="tip_title"><a target="_blank" href="{getExtraUrl($document->getTitle())}">{$document->getTitle($module_info->subject_cut_size)}</a></h4>
+										<span class="tip_date pull_right">{zdate($document->get('last_update'),'Y-m-d H:i', false)}</span>
+										<span class="tip_author pull_right">{$document->getNickName()}</span>
+										<!--@if($module_info->use_category == "Y" && $document->get('category_srl'))-->
+											<span class="tip_cg pull_right">{$category_list[$document->get('category_srl')]->title}</span>
+										<!--@end-->
+									</div>
+									<p class="tip_txt">{$document->getContentText(300)}</p>
+									<div class="bottom">
+										<div class="pull_left">
+											<span class="left">tags:</span>
+											  <block loop="$document->get('tag_list') => $tag">
+													<a href="{getUrl('','mid',$mid,'search_target','tag','search_keyword',$tag)}">{$tag}</a>
+											</block>
+										</div>
+										<div class="pull_right">
+											<a href="{getUrl('act','dispBoardDelete','document_srl',$document->document_srl,'comment_srl','')}" class="del">Delete</a>
+											<a href="{getUrl('act','dispBoardWrite','document_srl',$document->document_srl,'comment_srl','')}" class="edit">Edit</a>
+										</div>
+									</div>
+								</div>
+							</div>
+						<!--@end-->
+					</div>
+				</div>
+			</div>
+        <!--@end-->
+
+<script>
+    jQuery(function($){
+        var isOpen = false;
+        var tagObj = $('#tagList');
+        var btnObj = $('.btn_toggle');
+
+        function changeTag(isToOpen)
+        {
+            if(!isToOpen) {
+                tagObj.toggleClass( 'close', true);
+                tagObj.toggleClass( 'open', false);
+
+                btnObj.toggleClass( 'close', true);
+                btnObj.toggleClass( 'open', false);
+           }
+           else
+           {
+                tagObj.toggleClass( 'close', false);
+                tagObj.toggleClass( 'open', true);
+
+                btnObj.toggleClass( 'open', true);
+                btnObj.toggleClass( 'close', false);
+           }
+        }
+
+        changeTag(isOpen);
+        btnObj.click(function(){
+            isOpen = isOpen ? false:true;
+            changeTag(isOpen);
+        });
+
+    });
+</script>

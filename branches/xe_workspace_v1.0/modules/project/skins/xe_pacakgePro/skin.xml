@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<skin version="0.2">
+    <title xml:lang="ko">Project Workspace Skin</title>
+    <title xml:lang="zh-TW">Project Workspace Skin</title>
+    <title xml:lang="en">Project Workspace Skin</title>
+    <description xml:lang="ko">
+        Project Workspace 기본 스킨입니다.
+    </description>
+    <description xml:lang="zh-TW">
+        Project Workspace 基本預設面板。
+    </description>
+	<description xml:lang="en">
+		Workspace Default Skin for Project Module
+	</description>
+    <version>1.0</version>
+    <date>2012-12-26</date>
+
+    <author email_address="developers@xpressengine.com" link="http://xpressengine.com/">
+        <name xml:lang="ko">NHN</name>
+        <name xml:lang="zh-TW">NHN</name>
+		<name xml:lang="en">NHN</name>
+    </author>
+
+    <license>GPL</license>
+
+</skin>

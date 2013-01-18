@@ -1,0 +1,12 @@
+<!--%import("./js/project.js",optimized=false)-->
+<h3 class="xeAdmin">{$lang->project} <span class="gray">{$lang->cmd_management}</span></h3>
+
+<div class="infoText">{nl2br($lang->about_project)}</div>
+
+<div class="header4">
+    <ul class="localNavigation">
+        <!--@foreach($lang->project_admin_menus as $key => $val)-->
+        <li <!--@if($act==$key)-->class="on"<!--@end-->><a href="{getUrl('','module','admin','act',$key)}">{$val}</a></li>
+        <!--@end-->
+    </ul>
+</div>

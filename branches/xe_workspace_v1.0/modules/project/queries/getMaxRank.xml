@@ -1,0 +1,8 @@
+<query id="getMaxRank" action="select">
+    <tables>
+        <table name="projects" />
+    </tables>
+    <columns>
+        <column name="max(rank)" alias="rank" />
+    </columns>
+</query>

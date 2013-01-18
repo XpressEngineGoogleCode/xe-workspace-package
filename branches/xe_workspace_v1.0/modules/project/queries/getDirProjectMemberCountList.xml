@@ -1,0 +1,31 @@
+<query id="getDirProjectMemberCountList" action="select">
+    <tables>
+        <table name="projects" alias="projects" />
+        <table name="member_group_member" alias="member_group"/>
+        <table name="sites" />
+        <table name="project_dir_maps" />
+    </tables>
+    <columns>
+        <column name="projects.site_srl" alias="site_srl" />
+        <column name="count(*)" alias="member_count" />
+        <column name="sites.domain" alias="domain" />
+        <column name="sites.regdate" alias="regdate" />
+        <column name="projects.title" alias="project_title" />
+        <column name="projects.description" alias="project_description" />
+    </columns>
+    <conditions>
+        <condition operation="equal" column="project_dir_maps.project_dir_srl" var="project_dir_srl" filter="number" notnull="notnull" />
+        <condition operation="equal" column="sites.site_srl" default="project_dir_maps.site_srl" pipe="and" />
+        <condition operation="equal" column="sites.site_srl" default="projects.site_srl" filter="number" notnull="notnull" pipe="and" />
+        <condition operation="equal" column="member_group.site_srl" default="projects.site_srl" notnull="notnull" pipe="and" />
+    </conditions>
+    <groups>
+        <group column="projects.site_srl" />
+    </groups>
+    <navigation>
+        <index var="sort_index" default="count" order="desc" />
+        <list_count var="list_count" default="20" />
+        <page_count var="page_count" default="10" />
+        <page var="page" default="1" />
+    </navigation>
+</query>

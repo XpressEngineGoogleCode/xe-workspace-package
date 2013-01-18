@@ -1,0 +1,104 @@
+<!--#include("_header.html")-->
+
+
+
+<!--@if($oDocument->isExists() && $module_info->default_style != 'blog')-->
+<div class="viewDocument">
+    <!--#include("./view_document.html")-->
+</div>
+<!--@else-->
+<!--@if($grant->view && $module_info->default_style != 'blog')-->
+        <form class="srch_form" action="{getUrl()}" method="get" onsubmit="return procFilter(this, search)" id="fo_search" no-error-return-url="true">
+            <!--@if($vid)-->
+            <input type="hidden" name="vid" value="{$vid}" />
+            <!--@end-->
+            <input type="hidden" name="mid" value="{$mid}" />
+            <input type="hidden" name="category" value="{$category}" />
+			<input type="hidden" name="search_target" value="title_content" />
+
+            <fieldset>
+                <legend class="blind">Search</legend>
+                    <select class="sel_tip_cg" name="category" cond="$category_list && $module_info->use_category">
+                    	<option value="">{$lang->category}</option>
+                    	<!--@foreach($category_list as $val)-->
+                    	<option value="{$val->category_srl}" <!--@if($category==$val->category_srl)-->selected="selected"<!--@end-->>{str_repeat("&nbsp;&nbsp;",$val->depth)} {$val->title} <!--@if($val->document_count)-->({$val->document_count})<!--@end--></option>
+                    	<!--@end-->
+                    </select>
+                    <span class="ipt_box"|cond="$category_list && $module_info->use_category" class="ipt_box_2"|cond="!($category_list && $module_info->use_category)"><input type="search" placeholder="Search"  name="search_keyword" value="{htmlspecialchars($search_keyword)}" id="ipt_srch_msg"></span>
+                    <input type="submit" class="btn_sbmt" value="Search">
+            </fieldset>
+        </form>
+    <!--@end-->
+
+    <!--@if($module_info->display_setup_button != 'N')-->
+    <div class="boardInformation">
+        <!--@if($total_count && $module_info->default_style != 'blog')-->
+        <div class="infoSum">{$lang->document_count} <strong>{number_format($total_count)}</strong></div>
+        <!--@end-->
+		<div class="infoView">
+			<a href="{getUrl('listStyle','list','act','','document_srl','')}" title="Classic Style" class="irlist <!--@if($module_info->default_style=='list')-->v_list_on<!--@else-->v_list_off<!--@end-->">Classic</a>
+			<a href="{getUrl('listStyle','webzine','act','','document_srl','')}" title="Zine Style" class="irlist <!--@if($module_info->default_style=='webzine')-->v_zine_on<!--@else-->v_zine_off<!--@end-->">Zine</a>
+			<a href="{getUrl('listStyle','gallery','act','','document_srl','')}" title="Gallery Style" class="irlist <!--@if($module_info->default_style=='gallery')-->v_tile_on<!--@else-->v_tile_off<!--@end-->">Gallery</a>
+		</div>
+    </div>
+<!--@end-->
+
+<!--@end-->
+
+<!--@if($module_info->default_style == 'webzine')-->
+    <!--#include("./_style.webzine.html")-->
+<!--@elseif($module_info->default_style == 'gallery')-->
+    <!--#include("./_style.gallery.html")-->
+<!--@elseif($module_info->default_style == 'forum')-->
+    <!--#include("./_style.forum.html")-->
+<!--@else-->
+    <!--#include("./_style.list.html")-->
+<!--@end-->
+
+<div class="boardNavigation">
+
+
+
+
+    <div class="pagination" cond="$page_navigation">
+        <ul>
+            <li class="first">
+                <a href="{getUrl('page',1,'document_srl','','division',$division,'last_division',$last_division)}">First</a>
+            </li>
+            <li class="prev">
+                <!--@if($page>1)-->
+                <a href="{getUrl('page',$page-1,'document_srl','','division',$division,'last_division',$last_division)}">Prev</a>
+                <!--@else-->
+                <a href="{getUrl('page',1,'document_srl','','division',$division,'last_division',$last_division)}">Prev</a>
+                <!--@end-->
+            </li>
+            <!--@while($page_no = $page_navigation->getNextPage())-->
+                <!--@if($page == $page_no)-->
+                    <li><strong>{$page_no}</strong></li>
+                <!--@else-->
+                    <li><a href="{getUrl('page',$page_no,'document_srl','','division',$division,'last_division',$last_division)}">{$page_no}</a></li>
+                <!--@end-->
+            <!--@end-->
+            <li class="next">
+                <!--@if($page<$page_navigation->last_page)-->
+                <a href="{getUrl('page',$page+1,'document_srl','','division',$division,'last_division',$last_division)}">Next</a>
+                <!--@else-->
+                <a href="{getUrl('page',$page_navigation->last_page,'document_srl','','division',$division,'last_division',$last_division)}">Next</a>
+                <!--@end-->
+            </li>
+            <li class="end"><a href="{getUrl('page',$page_navigation->last_page,'document_srl','','division',$division,'last_division',$last_division)}">End</a></li>
+        </ul>
+    </div>
+
+    <div class="btnArea">
+		<span class="btn"><a href="{getUrl('act','dispBoardWrite','document_srl','')}">{$lang->cmd_write}...</a></span>
+		<span class="etc">
+			<!--@if($module_info->default_style != 'blog')-->
+			<span class="btn"><a href="{getUrl('','mid',$mid,'page',$page,'document_srl','','listStyle',$listStyle)}">{$lang->cmd_list}</a></span>
+			<!--@end-->
+		</span>
+    </div>
+
+</div>
+
+<!--#include("_footer.html")-->

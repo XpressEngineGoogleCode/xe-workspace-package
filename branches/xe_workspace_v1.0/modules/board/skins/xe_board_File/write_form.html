@@ -1,0 +1,67 @@
+<!--#include("_header.html")-->
+<!--%import("css/write.css")-->
+<block cond="!$isAddFile">
+<h4 class="page_header"><!--@if(!$document_srl)-->Add a New<!--@else-->Update a<!--@end--> Folder</h4>
+<div class="buc_box">
+        <h4 class="blind">New Bucket</h4>
+        <form class="new_buc_form" action="./" method="post" onsubmit="return procFilter(this, window.insert)" id="fo_write">
+            <input type="hidden" name="mid" value="{$mid}" />
+            <input type="hidden" name="document_srl" value="{$document_srl}" />
+            <input type="hidden" name="content" value="content"/>
+            <input type="hidden" name="success_return_url" value="{getFullUrl('act','')}"/>
+            <dl>
+                <dt><label for="ipt_title">Bucket Name</label><em class="title_desc">Bucket name is case insensitive</em></dt>
+                    <dd>
+                        <input type="text" id="ipt_title" name="title" class="ipt_title" value="{htmlspecialchars($oDocument->getTitleText())}" title="{$lang->title}" />
+                    </dd>
+                <!--@if($module_info->use_category == "Y")-->
+                <dt class="dt_inline dt_cg"><label for="sel_cg">Bucket Category</label></dt>
+                    <dd class="dd_inline">
+                        <select name="category_srl" id="sel_cg" class="sel_cg">
+                			<option value="">{$lang->category}</option>
+                			<!--@foreach($category_list as $val)-->
+                			<option <!--@if(!$val->grant)-->disabled="disabled"<!--@endif--> value="{$val->category_srl}" <!--@if($val->grant&&$val->selected||$val->category_srl==$oDocument->get('category_srl'))-->selected="selected"<!--@endif-->>
+                				{str_repeat("&nbsp;&nbsp;",$val->depth)} {$val->title} ({$val->document_count})
+                			</option>
+                			<!--@endforeach-->
+                		</select>
+                    </dd>
+                <!--@end-->
+            </dl>
+            <input type="submit" value="Save" class="sbmt">
+            <a class="btn_back" href="{getUrl('act','')}">Return</a>
+        </form><!-- //new_buc_form -->
+    </div>
+</block>
+
+<block cond="$isAddFile">
+        <div class="buc_box">
+        <h4 class="blind">Upload File</h4>
+        <form class="new_file_form" action="./" method="post" id="fo_file_insert_file" ruleset="insertFile" enctype="multipart/form-data">
+            <input type="hidden" name="document_srl" value="{$document_srl}" />
+            <input type="hidden" name="mid" value="{$mid}" />
+            <input type="hidden" name="act" value="procBoardUploadFile" />
+            <dl>
+                <dt class="dt_ie">
+                    <label for="ipt_title">Bucket Name</label>
+                    <div class="breadcrumb">
+                        <li class="dir"><a href="{getUrl('act','')}">Buckets</a></li>
+                        <li class="dir"><a href="{getUrl('act','','document_srl',$document_srl)}">{cut_str($oDocument->getTitleText(),50)}</a></li>
+                        <li><a href="#" onclick="return false;">Upload</a></li>
+                    </div>
+                </dt>
+                    <dd><input type="text" id="ipt_title" name="file_name" class="ipt_title" value="" />
+                <dt class="dt_inline dt_fl_name">
+                    <label for="ul_file">File</label>
+                    <em class="title_desc">if the file name is empty, then the file will be named by uploaded filename.</em>
+                </dt>
+                    <dd class="dd_inline dd_fl_name">
+                        <input type="file" class="ul_file" name="uploaded_file" id="ul_file" />
+                    </dd>
+            </dl>
+            <input type="submit" value="Save" class="sbmt">
+            <a class="btn_back" href="{getUrl('act','dispBoardContent','document_srl',$document_srl)}">Return</a>
+        </form><!-- //new_file_form -->
+    </div>
+</block>
+<!--#include("_footer.html")-->

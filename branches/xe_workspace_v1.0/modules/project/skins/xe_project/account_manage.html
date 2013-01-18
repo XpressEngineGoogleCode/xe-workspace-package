@@ -1,0 +1,48 @@
+<!--%import("../../../member/skins/default/css/member.css")-->
+<!--%import("../../../admin/tpl/css/admin.css")-->
+<div id="memberModule" class="xm">
+    <!--@if($is_logged && $logged_info->menu_list && (!$member_srl || $member_srl == $logged_info->member_srl) )-->
+    <div class="nav">
+        <ul class="localNavigation">
+            <!--@foreach($logged_info->menu_list as $key => $val)-->
+            <li <!--@if($key == $act)-->class="active"<!--@end-->><a href="{getUrl('act',$key)}"><span>{Context::getLang($val)}</span></a></li>
+            <!--@end-->
+        </ul>
+    </div>
+    <!--@end-->
+    <h3>{$lang->cmd_manage_project_account}</h3>
+    <p class="summary">{$lang->about_manage_project_account}</p>
+    <div class="table even">
+    <form action="./" method="post" onsubmit="return procFilter(this, update_account);">
+        <table cellspacing="0" class="rowTable">
+        <tr>
+            <th><div>{$lang->my_projects} ({count($dev_repos)})</div></th>
+            <td class="wide">
+                <!--@if(count($dev_repos))-->
+                    <ul style="padding:0; margin:0 0 0 20px;">
+                    <!--@foreach($dev_repos as $key => $val)-->
+                        <li><a href="{getSiteUrl($val->domain,'')}" onclick="window.open(this.href);return false;">{$val->title}</a>
+						<!-- {$member_count[$val->site_srl]}, {$member_point[$val->site_srl]} -->
+						</li>
+                    <!--@end-->
+                    </ul>
+                <!--@else-->
+                    &nbsp;
+                <!--@end-->
+            </td>
+        </tr>
+        <tr>
+            <th><div><label for="cpw1">{$lang->password1}</label></div></th>
+            <td class="wide"><input type="password" name="password1" id="cpw1" class="inputTypeText w400" /></td>
+        </tr>
+        <tr>
+            <th><div><label for="cpw2">{$lang->password2}</label></div></th>
+            <td class="wide"><input type="password" name="password2" id="cpw2" class="inputTypeText w400" /></td>
+        </tr>
+        <tr>
+            <th class="button" colspan="2"><span class="btn"><input type="submit" value="{$lang->cmd_save}" accesskey="s" /></span></th>
+        </tr>
+        </table>
+    </form>
+    </div>
+</div>

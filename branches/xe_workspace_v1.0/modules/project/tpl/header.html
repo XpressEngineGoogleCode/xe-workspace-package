@@ -1,0 +1,15 @@
+<!--%import("./js/project.js",optimized=false)-->
+<!--%import("./filter/insert_project.xml")-->
+<!--%import("./filter/insert_config.xml")-->
+
+<h3 class="xeAdmin">{$lang->project} <span class="gray">{$lang->cmd_management}</span></h3>
+
+<div class="infoText">{nl2br($lang->about_project)}</div>
+
+<div class="header4">
+    <ul class="localNavigation">
+        <!--@foreach($lang->project_admin_menus as $key => $val)-->
+        <li <!--@if($act==$key)-->class="on"<!--@end-->><a href="{getUrl('act',$key)}">{$val}</a></li>
+        <!--@end-->
+    </ul>
+</div>

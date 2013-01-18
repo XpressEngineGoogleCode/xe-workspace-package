@@ -1,0 +1,177 @@
+<load target="css/normalize.sh.201209.css"/>
+
+<load target="css/layout.css"/>
+<load target="js/jquery.placeholder.min.js" />
+<load target="js/modernizr-2.5.3.min.js" />
+<load target="js/layout.js" />
+<load target="css/framework.css"/>
+<load target="css/cafe.css"/>
+<load target="css/widget.css"/>
+<!--@if(!$layout_info->index_url)-->
+    <!--@if($site_module_info)-->
+        {@$layout_info->index_url = getFullSiteUrl($site_module_info->domain)}
+    <!--@else-->
+        {@$layout_info->index_url = Context::getRequestUri()}
+    <!--@end-->
+<!--@end-->
+
+<header id="header">
+    <div class="inner">
+        <h1 class="logo">
+            <a href="{getUrl()}">
+                <!--@if($layout_info->logo_text)-->
+                <span class="blind">{$layout_info->logo_text}</span>
+                <!--@else-->
+                <span class="blind">XE Workspace</span>
+                <!--@end-->
+            </a>
+        </h1>
+        <div class="srch" style="right:210px">
+            <form action="{getUrl()}" method="post" class="search">
+                <input type="hidden" name="vid" value="{$vid}" />
+    			<input type="hidden" name="mid" value="{$mid}" />
+    			<input type="hidden" name="act" value="IS" />
+    			<input type="hidden" name="search_target" value="title" />
+                <input type="search" name="is_keyword" class="ipt_srch" value="{$is_keyword}" placeholder="Search" />
+                <input type="submit" class="sbmt_srch" value="" />
+    		</form>
+        </div>
+        <dl class="selectLang" style=" position: absolute;right: 110px;top: 27px;">
+            <dd>
+                <div class="field">{$lang_supported[$lang_type]}</div>
+                <ul class="lst">
+                    <li loop="$lang_supported=>$key,$val" cond="$key!= $lang_type">
+                        <a href="#" onclick="doChangeLangType('{$key}');return false;">{$val}</a>
+                    </li>
+                </ul>
+            </dd>
+        </dl>
+        <dl class="selectLang">
+            <!--@if($logged_info)-->
+            <dd>
+                <span class="btn"><a href="{getUrl('act','dispMemberLogout')}">Sign Out</a></span>
+            </dd>
+            <!--@end-->
+        </dl>
+    </div><!-- //inner -->
+</header>
+
+<div id="container" class="clearfix">
+    <div class="sidebar">
+        <div class="cafe">
+            <div class="cafe_pic">
+                <div class="head">
+                    <a href="{getFullUrl()}" class="lnk_home"><i class="ico_home"></i></a>
+                    <!--@if($layout_info->logo_text)-->
+                    <span class="name">{$layout_info->logo_text}</span>
+                    <!--@else-->
+                    <span class="name">Cafe</span>
+                    <!--@end-->
+                </div>
+                <div class="cover"></div>
+                <img cond="$layout_info->logo_image" src="{$layout_info->logo_image}" title="{$layout_info->logo_text}" width="158" height="158">
+            </div>
+            <dl class="cafe_info">
+                {@
+					$oModuleModel = &getModel('module');
+					$siteAminInfo = $oModuleModel->getSiteAdmin($module_info->site_srl);
+				}
+                <div style="overflow:hidden"><dt>Admin:</dt><dd>{$siteAminInfo[0]->nick_name?$siteAminInfo[0]->nick_name:"No Administrator"}</dd></div>
+                <img class="zbxe_widget_output" widget="site_info" skin="xe_workspace_info" />
+                <img class="zbxe_widget_output" widget="site_info" skin="xe_workspace_info2" />
+            </dl>
+            <ul class="mb_fn">
+                <!--@if(!$is_logged)-->
+                <li><a href="#" onclick="jQuery('#loginWindow').show(); return false;">Login</a></li>
+                <!--@else-->
+                    <!--@if(!$project_join)-->
+                <li><img class="zbxe_widget_output" widget="site_info" skin="xe_workspace_siteButton" /></li>
+                    <!--@else-->
+                <li><img class="zbxe_widget_output" widget="site_info" skin="xe_workspace_siteButton" /></li>
+                    <!--@end-->
+                <!--@end-->
+            </ul>
+
+        </div>
+        <img class="zbxe_widget_output" widget="navigator" skin="xe_workspace" />
+        <img class="zbxe_widget_output" widget="site_info" skin="xe_workspace" />
+    </div><!-- //sidebar -->
+    <div id="main" class="main">
+        <!-- Content Area -->
+        <section class="content_area">
+            {@
+                $oHomepageModel = &getModel('homepage');
+                $homepage_info = $oHomepageModel->getHomepageInfo($site_module_info->module_site_srl);
+                $contentTitle = $homepage_info->title ? $homepage_info->title : 'Community';
+            }
+            <h2 class="content_title">{$contentTitle}</h2>
+            <div class="ct_head">
+                {@
+                    $title = $module_info->browser_title;
+                    if(Context::get('system_message')) $title = $system_message;
+                }
+                <h3 class="ct_head_title"><em>{$title}</em></h3>
+            </div>
+            <div class="whatever clearfix" style="padding: 10px 30px 20px 60px; ">
+                <!--@if($grant->manager)-->
+                <div class="pull_right btnArea cafe_setup">
+                    <span class="btn"><a href="{getUrl('act','dispHomepageManage')}">{$lang->cmd_cafe_setup}</a></span>
+                </div>
+
+                <!--@end-->
+
+				{$content}
+                <!--@if($mid=='home')-->
+				<div class="extension e2">
+					<div class="section newMember">
+						<h2>New Member</h2>
+						<img class="zbxe_widget_output" widget="member_group" skin="default" list_count="5" />
+					</div>
+					<div class="section docRank">
+						<h2>Ranking Document</h2>
+						<img class="zbxe_widget_output" widget="rank_count" rankby="document" skin="default" list_count="5" />
+					</div>
+					<div class="section replyRank">
+						<h2>Ranking Replay</h2>
+						<img class="zbxe_widget_output" widget="rank_count" rankby="comment" skin="default" list_count="5" />
+					</div>
+					<div class="section onMember">
+						<h2>Logged on User</h2>
+						<img class="zbxe_widget_output" widget="logged_members" skin="default" list_count="99999" />
+					</div>
+				</div>
+				<!--@end-->
+            </div>
+        </section>
+    </div><!-- //main -->
+    <div id="loginWindow" class="loginWindow" >
+        <span class="modalWindow"></span>
+        <div id="loginLayer" class="loginLayer loginTypeA">
+            <button type="button" class="close" onclick="document.getElementById('loginWindow').style.display='none'" accesskey="X"><span>Close Login Layer</span></button>
+            <form action="{getUrl('act','procMemberLogin')}" method="post" class="typeA" id="commonLogin">
+				<input type="hidden" value="procMemberLogin" name="act">
+				<input type="hidden" value="{$vid}" name="vid">
+				<input type="hidden" value="{$mid}" name="mid">
+                <fieldset>
+                    <legend>Login</legend>
+                    <dl>
+                        <dt><label for="uid">User Name</label></dt>
+                        <dd><input type="text" name="user_id" class="inputText" id="uid"></dd>
+                        <dt><label for="upw">Password</label></dt>
+                        <dd><input type="password" name="password" class="inputText" id="upw"></dd>
+                    </dl>
+                    <p class="keep"><input type="checkbox" name="keep_signed" id="keepA" value="Y" class="inputCheck" onclick="if(this.checked) return confirm('You will be still signed in even when the browser is closed.\n\nIt is not recommended to use this if you are using a public computer for your personal information could be violated');">
+                        <label for="keepA">Keep me signed in</label>
+                    </p>
+                    <span class="loginButton"><input type="submit" name="" value="Sign In"></span>
+                </fieldset>
+            </form>
+			<button type="button" class="close" onclick="document.getElementById('loginWindow').style.display='none'" accesskey="X"><span>Close Login Layer</span></button>
+        </div>
+    </div>
+</div><!-- //#container -->
+<footer id="footer">
+    <div class="inner">
+        <address>Copyright&copy;2012 NHN Corp. All rights reserved. Powered By XE</address>
+    </div>
+</footer>

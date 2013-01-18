@@ -1,0 +1,8 @@
+<query id="getReleaseCount" action="select">
+    <tables>
+        <table name="issue_releases" />
+    </tables>
+    <columns>
+        <column name="count(*)" alias="count" />
+    </columns>
+</query>

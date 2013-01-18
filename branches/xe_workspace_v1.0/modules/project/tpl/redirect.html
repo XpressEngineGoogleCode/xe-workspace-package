@@ -1,0 +1,10 @@
+<script type="text/javascript">
+    <!--@if($redirect_mode=='reserve')-->
+        alert("{$lang->msg_project_reserved}");
+        location.href = "{$redirect_url}";
+    <!--@elseif($redirect_mode == 'enforce')-->
+        location.href = "{$redirect_url}";
+    <!--@else-->
+    history.back();
+    <!--@end-->
+</script>

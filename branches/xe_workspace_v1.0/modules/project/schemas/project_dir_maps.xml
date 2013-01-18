@@ -1,0 +1,5 @@
+<table name="project_dir_maps">
+    <column name="project_dir_srl" type="number" size="11" notnull="notnull" index="idx_dir_map" />
+    <column name="site_srl" type="number" size="11" notnull="notnull" default="0" index="idx_dir_map" />
+    <column name="regdate" type="date" />
+</table>

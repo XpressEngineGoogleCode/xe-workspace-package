@@ -1,0 +1,39 @@
+<form action="./" method="get" class="boardListForm">
+    <fieldset>
+        <legend>List of Articles</legend>
+
+
+
+		<!--@if(count($document_list))-->
+            {@$_height = count($list_config)*18}
+            <!--@if($list_config['thumbnail'])--> {@$_height += $module_info->thumbnail_height }<!--@end-->
+            <!--@if($list_config['summary'])--> {@$_height += 60 }<!--@end-->
+            <!--@if($list_config['last_post'])--> {@$_height += 30 }<!--@end-->
+
+		<ul class="bucket_tile">
+            <!-- //////////////////////////// LOOP //////////////////////////// -->
+            <!--@foreach($document_list as $no => $document)-->
+                <!--@if($document->thumbnailExists($module_info->thumbnail_width, $module_info->thumbnail_height, $module_info->thumbnail_type))-->
+                    {@ $src = $document->getThumbnail('62px', '54px', $module_info->thumbnail_type);}
+            <li style="background: url('{$src}') no-repeat 0 0">
+                <!--@else-->
+            <li>
+                <!--@end-->
+                <h5 class="buc_title"><a href="{getUrl('document_srl',$document->document_srl,'listStyle',$listStyle, 'cpage','')}">{cut_str($document->getTitle(),15)}</a></h5>
+                <span class="buc_own"><a href="#popup_menu_area" class="member_{$document->get('member_srl')}" onclick="return false">{$document->getNickName()}</a></span>
+                <span class="buc_date">{$document->getRegdate('Y.m.d')}</span>
+                <span class="buc_count">
+                    <!--@if($document->hasUploadedFiles())-->
+                    {@ $uploaded_list = $document->getUploadedFiles() }
+                    files:<em>{count($uploaded_list)}</em>
+                    <!--@else-->
+                    files:<em>0</em>
+                    <!--@end-->
+                </span>
+            </li>
+            <!--@end-->
+        </ul>
+        <!--@end-->
+
+    </fieldset>
+</form>

@@ -1,0 +1,119 @@
+<!--#include("header.html")-->
+<!--%import("js/select.js")-->
+<!--%import("js/toggle.js")-->
+<div class="btn_modhead">
+
+</div><!-- //btn_modhead -->
+<form action="{Context::getRequestUri()}" id="searchform" method="post" class="srch_goal">
+    <fieldset>
+        <legend class="blind">Search Goals</legend>
+
+                <span class="ipt_box"><input name="is_keyword" value="{$search_keyword}" type="search" placeholder="Search" id="ipt_srch_comm"></span>
+    			<input type="hidden" name="vid" value="{$vid}" cond="$vid" />
+    			<input type="hidden" name="mid" value="{$mid}" />
+    			<input type="hidden" name="act" value="IS" />
+    			<input type="hidden" name="search_target" value="title_content" />
+                <input type="submit" class="btn_sbmt" value="Search">
+    </fieldset>
+</form>
+<form action="{getUrl()}" class="srch_goal1" method="get">
+    <input type="hidden" name="vid" value="{$vid}" cond="$vid" />
+    <input type="hidden" name="mid" value="{$mid}" />
+    <input type="hidden" name="act" value="{$act}" />
+<div class="sec_lst_goal">
+    <div class="header">
+        <div class="pull_left">
+            <select name="order_type" onchange="jQuery('.srch_goal1').submit()">
+                <option value="">Sort Index</option>
+                <option value="desc" selected="selected"|cond="$order_type=='desc'">Desc</option>
+                <option value="asc" selected="selected"|cond="$order_type=='asc'">Asc</option>
+            </select>
+        </div>
+        <div class="pull_right">
+            <a class="all" href="{getUrl('mid',$mid,'vid',$vid,'act','dispIssuetrackerViewIssue')}">VIew all issues</a>
+            <a class="add" cond="$logged_info->is_site_admin" href="{getUrl('mid',$mid,'vid',$vid,'act','dispIssuetrackerAdminProjectSettingFront')}">Add a New Goal</a>
+        </div>
+    </div><!-- //header -->
+    {@ $main_status = array("new", "reviewing", "assign", "resolve", "reopen"); }
+    <table class="tb_goal">
+        <thead>
+            <tr>
+                <th class="status" scope="col">Status</th>
+                <th class="name" scope="col">Name</th>
+                <th class="bar" scope="col">Progress</th>
+                <th class="num" scope="col">Pending Issues</th>
+                <th class="date" scope="col">Date</th>
+            </tr>
+        </thead>
+        <tbody>
+            <!--@foreach($milestones as $val)-->
+                <!--@if($val->milestone_srl == 0)-->
+            		{@ continue;}
+            	<!--@end-->
+            	{@ $per = 0;}
+    			<!--@if($val->issues["total"])-->
+    			    {@ $per = sprintf("%3.1f", floor($val->issues["resolve"]/$val->issues["total"]*1000)/10); }
+    			<!--@end-->
+            <tr>
+                <td class="status">
+                    <!--@if($per == 100)-->
+                    <i class="ico_comp">Complete</i>
+                    <!--@else-->
+                    <i class="ico_pending">Inprogress</i>
+                    <!--@end-->
+                </td>
+                <td class="name"><a href="{getUrl('','mid',$mid,'act','dispIssuetrackerOneMilestone','milestone_srl', $val->milestone_srl)}">{$val->title}</a></td>
+                <td class="bar">
+                    <!--@if($val->issues['total'] == 0)-->
+                    <div class="prog_track complete">
+                        {@ $per = 100;}
+                        <span style="width:{$per}%" class="prog_bar"></span>
+                        <em>{$lang->noissue}</em>
+                    </div>
+                    <!--@else-->
+                    <div class="prog_track <!--@if($per == 100)-->complete<!--@end-->">
+                        <span style="width:{$per}%" class="prog_bar"></span>
+                        <em>{$per}%</em>
+                    </div>
+                    <!--@end-->
+                </td>
+                <td class="num">{$val->issues["total"] - $val->issues['resolve']}</td>
+                <td class="date">{zdate($val->deadline, 'Y.m.d', FALSE)}</td>
+            </tr>
+            <!--@end-->
+        </tbody>
+    </table>
+    <!--@if($page_navigation)-->
+    <div class="pagination">
+        <ul>
+            <li class="first">
+                <a href="{getUrl('page',1,'division',$division,'last_division',$last_division)}">First</a>
+            </li>
+            <li class="prev">
+                <!--@if($page>1)-->
+                <a href="{getUrl('page',$page-1,'division',$division,'last_division',$last_division)}">Prev</a>
+                <!--@else-->
+                <a href="{getUrl('page',1,'division',$division,'last_division',$last_division)}">Prev</a>
+                <!--@end-->
+            </li>
+            <!--@while($page_no = $page_navigation->getNextPage())-->
+                <!--@if($page == $page_no)-->
+                    <li><strong>{$page_no}</strong></li>
+                <!--@else-->
+                    <li><a href="{getUrl('page',$page_no,'division',$division,'last_division',$last_division)}">{$page_no}</a></li>
+                <!--@end-->
+            <!--@end-->
+            <li class="next">
+                <!--@if($page<$page_navigation->last_page)-->
+                <a href="{getUrl('page',$page+1,'division',$division,'last_division',$last_division)}">Next</a>
+                <!--@else-->
+                <a href="{getUrl('page',$page_navigation->last_page,'division',$division,'last_division',$last_division)}">Next</a>
+                <!--@end-->
+            </li>
+            <li class="end"><a href="{getUrl('page',$page_navigation->last_page,'division',$division,'last_division',$last_division)}">End</a></li>
+        </ul>
+    </div><!-- //pagination -->
+    <!--@end-->
+</div><!-- //sec_lst_goal -->
+</form>
+<!--#include("footer.html")-->

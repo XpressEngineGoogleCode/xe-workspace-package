@@ -1,0 +1,122 @@
+<!--%import("filter/delete_checked_message.xml")-->
+<!--%import("filter/update_allow_message.xml")-->
+<load target="css/communication.css" />
+<div class="content_area">
+    <!--@if($site_module_info->skin != 'xe_pacakgePro' && !$site_module_info->site_srl)-->
+    <h2 class="content_title" >Message Box</h3>
+    <!--@end-->
+    <div class="mcm"<!--@if(($site_module_info->skin == 'xe_pacakgePro' || $layout_info->layout == 'xe_package_community') && $site_module_info->site_srl)-->style="margin: 0px"<!--@end-->>
+    <include target="./common_header.html" />
+        <div class="tb_head_area">
+            <div class="pull_left">
+                <ul class="isTab">
+                    <li loop="$lang->message_box => $key,$val" class="on"|cond="$key==$message_type"><a href="{getUrl('message_type',$key,'message_srl',0)}" class="btn_small"><span>{$val}</span></a></li>
+                </ul>
+            </div>
+            <div class="pull_right">
+                <form action="./" method="POST" onsubmit="return procFilter(this, update_allow_message)" class="setupMessage">
+                    <select name="allow_message">
+                        <!--@foreach($lang->allow_message_type as $key => $val)-->
+                        <option value="{$key}" <!--@if($logged_info->allow_message == $key)-->selected="selected"<!--@end-->>{$val}</option>
+                        <!--@end-->
+                    </select>
+                    <span class="btn_gray"><input type="submit" value="{$lang->cmd_save}"></span>
+                </form>
+            </div>
+        </div>
+
+        <!--@if($message)-->
+
+        <div class="msg_title">{$message->title}</div>
+        <div class="msg_meta">
+            <span class="member_{$message->member_srl}">{$message->nick_name}</span>
+            <span class="regdate">{zdate($message->regdate, "Y.m.d H:i:s")}</span>
+        </div><!-- msg_meta -->
+        <div class="msg_message" > {$message->content} </div>
+        <div class="msg_view_btns">
+            <!--@if($message->message_type != "S" && $message->member_srl != $logged_info->member_srl)-->
+            <a href="#" onclick="doSendMessage('{$message->sender_srl}','{$message->message_srl}');return false;" class="btn_small"><span>{$lang->cmd_reply_message}</span></a>
+            <!--@end-->
+            <!--@if($message->message_type == "R")-->
+            <a href="#" onclick="doStoreMessage('{$message->message_srl}');return false;" class="btn_small"><span>{$lang->cmd_store}</span></a>
+            <!--@end-->
+            <a href="#" onclick="doDeleteMessage('{$message->message_srl}');return false;" class="btn_small_white"><span>{$lang->cmd_delete}</span></a>
+        </div>
+        <!--@end-->
+
+
+
+        <form action="./" method="get" id="fo_message_list">
+            <input type="hidden" name="message_type" value="{$message_type}" />
+            <input type="hidden" name="act" value="procCommunicationDeleteMessages" />
+            <table class="col_table msg_table" cellpadding="0" cellspacing="0">
+                <colgroup>
+                    <col width="50" />
+                    <col />
+                    <col width="150" />
+                    <col width="150" />
+                </colgroup>
+                <thead>
+                    <tr>
+                    <th scope="col" class="chk"><div>
+                            <input name="check_all" type="checkbox" onclick="XE.checkboxToggleAll('message_srl_list', { wrap:'fo_message_list' }); return false;" />
+
+                        </div>
+                    </th>
+                    <th scope="col" class="subject"><div class="member_{$val->member_srl}"> {$lang->title}</div></th>
+                    <th scope="col" class="th_tc"><div>
+                            <!--@if($message_type == "S")-->
+                                {$lang->receiver}
+                            <!--@else-->
+                                {$lang->sender}
+                            <!--@end-->
+                        </div>
+                    </th>
+                    <th scope="col" class="th_right"><div>{$lang->regdate}</div></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <!--@foreach($message_list as $no => $val)-->
+                    <tr>
+                    <td><input name="message_srl_list[]" type="checkbox" value="{$val->message_srl}" /></td>
+                    <td class="subject">
+                    <!--@if($val->readed=='Y')-->
+                        <a href="{getUrl('message_srl',$val->message_srl)}">{cut_str($val->title,50)}</a>
+                    <!--@else-->
+                        <span style="font-weight:bold"><a href="{getUrl('message_srl',$val->message_srl)}">{cut_str($val->title,50)}</a></span>
+                    <!--@end-->
+                    </td>
+                    <td class="member_{$val->member_srl} td_tc"><div class="member_{$val->member_srl}">{$val->nick_name}</div></td>
+                    <td class="td_tc">
+                                <div class="regdate">{zdate($val->regdate,"Y-m-d")}</div>
+                                <!--@if($val->readed=="Y")--><div class="readed_date">{zdate($val->readed_date,"Y-m-d H:i:s")}</div><!--@end--></td>
+                    </tr>
+                    <!--@end-->
+                    <tr>
+                        <td colspan="4" class="btn_col">
+
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+
+        </form>
+        <div class="btnArea">
+            <span class="btn"><input type="submit" value="{$lang->cmd_delete}" /></span>
+        </div>
+
+
+        <!-- 페이지 네비게이션 -->
+        <div class="pagination a1">
+            <a href="{getUrl('page','','document_srl','')}" class="prevEnd">{$lang->first_page}</a>
+            <!--@while($page_no = $page_navigation->getNextPage())-->
+                <!--@if($page == $page_no)-->
+                    <strong>{$page_no}</strong>
+                <!--@else-->
+                    <a href="{getUrl('page',$page_no,'document_srl','')}">{$page_no}</a>
+                <!--@end-->
+            <!--@end-->
+            <a href="{getUrl('page',$page_navigation->last_page,'document_srl','')}" class="nextEnd">{$lang->last_page}</a>
+        </div>
+    </div><!-- //mcm -->
+</div><!-- //content_area -->

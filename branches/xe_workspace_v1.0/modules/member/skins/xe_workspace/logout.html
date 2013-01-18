@@ -1,0 +1,23 @@
+<!-- Member mod skin -->
+<load target="css/member.css" />
+<!-- Member mod skin -->
+<import target="filter/logout.xml" />
+<!-- Content Area -->
+<section class="content_area">
+    <h2 class="content_title">
+        {$lang->cmd_logout}
+    </h2>
+    <div class="mcm">
+        <include target="./common_header.html" />
+    
+        <form action="./" method="get" class="form" onsubmit="return procFilter(this, logout)">
+            <input type="hidden" name="mid" value="{$mid}" />
+            <h3 class="hd_b">{$lang->confirm_logout}</h3>
+            <div class="btn_area"><span class="btn_small"><input type="submit" value="{$lang->cmd_logout}"></span></div>
+        </form>
+        
+        
+    </div><!-- // mcm -->
+</section>
+
+<!-- //Content Area -->

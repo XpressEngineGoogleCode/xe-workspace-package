@@ -1,0 +1,7 @@
+@charset "utf-8";
+
+.cafe span.btn_signin{display: block;position:absolute;bottom:20px;left:0px;width:150px;height: 37px;padding:0 2px 0 3px;background:url('../img/btn_medium.png') no-repeat 0 0; margin-left:20px}
+.cafe span.btn_signin input{position:relative;right:-4px;width:150px;height:37px;background:url('../img/btn_medium.png') no-repeat 100% 0;border:none;overflow: visible;color:white;font-weight:bold;font-size:18px;line-height:1;padding:0 0 2px 0;outline:none;}
+.cafe a.btn_signout{display:block;position:absolute;bottom:20px;left:0px;margin:15px auto 0 20px;width:150px;height:37px;padding:0 0 0 5px;background:url('../img/btn_medium.png') no-repeat 0 0;outline:none;}
+.cafe a.btn_signout span{display:block;position:relative;right:0;width:155px;height:37px;background:url('../img/btn_medium.png') no-repeat 100% 0;font-size:18px;line-height:37px;color:#e5e8f1;text-align:center;}
+.cafe a.btn_signout:hover{text-decoration: none;}

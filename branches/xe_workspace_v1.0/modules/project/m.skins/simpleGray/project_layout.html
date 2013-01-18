@@ -1,0 +1,46 @@
+<!--%import("mx.css")-->
+<div class="eg hd">
+	<h1 class="h1"><a href="{getSiteUrl($project_info->domain,'')}">{$project_info->title}</a></h1>
+	<!--@if($layout_info->menu->main_menu->menu_srl)-->
+	<div class="fr"><a href="{getUrl('act','dispMenuMenu','menu_srl',$layout_info->menu->main_menu->menu_srl)}" class="bn">{$lang->menu}</a></div>
+	<!--@end-->
+</div>
+<div class="ln">
+	<ul>
+	<!--@foreach($lang->mobile_pj_menu as $key=>$val)-->
+		<li<!--@if($act==$val[1])--> class="active"<!--@end-->><a href="{getSiteUrl($project_info->domain,'','mid',$val[0],'act',$val[1])}">{$key}</a></li>
+	<!--@end-->
+	</ul>
+	<button type="button" class="next" title="{$lang->more}"></button>
+</div>
+{$content}
+<ul class="eg ft">
+	<!--@if($is_logged)-->
+	<li class="fl"><a href="{getUrl('act','dispMemberLogout')}">{$lang->cmd_logout}</a></li>
+	<!--@elseif($act!='dispMemberLoginForm')-->
+	<li class="fl"><a href="{getUrl('act','dispMemberLoginForm')}">{$lang->cmd_login}</a></li>
+	<!--@end-->
+	<li class="fr"><a href="{getUrl('m',0)}">PC</a></li>
+	<li class="fr"><a href="{getUrl('act','dispModuleChangeLang','oldact',$act)}">LANG</a></li>
+</ul>
+<p class="cr">Powered by XE</p>
+<script type="text/javascript"> 
+//<![CDATA[
+jQuery(function($){
+	var lnb = $('.ln>ul');
+	if($('.ln').width() > lnb.width()){
+		$('.ln>button').hide();
+	}
+	$('.ln>button').click(function(){
+		var t = $(this);
+		if (t.hasClass('next')) {
+			lnb.animate({left:"-100%"},100);
+			$(this).removeClass('next').addClass('prev');
+		} else {
+			lnb.animate({left:"0"},100);
+			$(this).removeClass('prev').addClass('next');
+		}
+	});
+});
+//]]>
+</script> 

@@ -1,0 +1,11 @@
+<query id="updateRepos" action="update">
+    <tables>
+        <table name="project_repos" />
+    </tables>
+    <columns>
+        <column name="last_update" default="curdate()" />
+    </columns>
+    <conditions>
+        <condition operation="in" column="site_srl" var="site_srl" filter="numbers" notnull="notnull" />
+    </conditions>
+</query>

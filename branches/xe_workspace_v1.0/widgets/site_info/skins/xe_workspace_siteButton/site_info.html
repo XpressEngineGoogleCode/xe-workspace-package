@@ -1,0 +1,11 @@
+<!--%import("./js/site_info.js")-->
+<!--%import("./css/widget.css")-->
+
+<!--@if($is_logged)-->
+    <!--@if(!$widget_info->joined)-->
+    <span class="btn_signin"><input type="button" onclick="doSiteSignUp(); return false;" value="Sign Up"></span>
+    <!--@else-->
+    <span class="btn_signin"><input type="button" onclick="doSiteLeave('{$lang->confirm_leave}'); return false;" value="Leave"></span>
+    <!--@end-->
+<!--@end-->
+

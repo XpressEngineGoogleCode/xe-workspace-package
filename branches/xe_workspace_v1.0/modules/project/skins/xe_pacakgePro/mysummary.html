@@ -1,0 +1,170 @@
+<!--#include("hub_header_ca.html")-->
+	<!-- .pxeBody -->
+<!--@if(!Context::get('isProjectNews'))-->
+<div class="lst_cafe">
+    <h3 class="blind">My Project List</h3>
+	<div class="lst_proj_head clearfix">
+		<span class="pull_left">{$page_navigation->total_count} results</span>
+		<div class="pull_right">
+			<div cond="($act == 'dispProjectSummary' || $act == 'dispProjectMySummary') && !$isProjectNews" class="select clearfix search_select" >
+    			<span class="ctrl"><span class="arrow"></span></span>
+    			<button type="button" class="myValue">{$lang->mysummary_sort_order['regdate']}</button>
+				<ul class="aList">
+					<!--@foreach($lang->mysummary_sort_order as $key=>$title)-->
+					<li cond="$key == 'member_count' || $key == 'regdate'"><a href="{getUrl('page','','sort_order',$key)}">{$title}</a></li>
+					<!--@end-->
+				</ul>
+    		</div>
+		</div>
+	</div>
+    <ul class="list">
+        <!--@if($page_navigation->total_count == 0)-->
+        <li class="last_child">
+            <p>{$lang->no_my_project}</p>
+        </li>
+        <!--@else-->
+	    <!--@foreach($project_list as $project)-->
+	    {@ $i ++;}
+        <li <!--@if(count($project_list) == $i)-->class="last_child"<!--@end-->>
+            <div class="thmb">
+                <img cond="$project->project_logo" src="{$project->project_logo}" alt="{getSiteUrl($project->domain,'')}" width="58" height="58"/>
+            </div>
+			<div class="li_head">
+				<h4 class="title">
+					<a href="{getSiteUrl($project->domain)}">{$project->project_title}</a>
+				</h4>
+				<div class="meta">
+					<span>{$project->siteAdmin}&nbsp;&nbsp;&nbsp;Member&nbsp;{$project->member_count}&nbsp;&nbsp;&nbsp;{zdate($project->regdate, "Y-m-d", FALSE)}</span>
+				</div>
+			</div>
+			<p class="txt">{$project->project_description?$project->project_description:"There is no description about this project."}</p>
+
+        </li>
+            <!--@end-->
+	    <!--@end-->
+    </ul>
+
+    <div class="dl_list_pging">
+        <div class="pagination">
+            <ul>
+                <li class="first">
+                    <a href="{getUrl('page',1,'division',$division,'last_division',$last_division)}">First</a>
+                </li>
+                <li class="prev">
+                    <!--@if($page>1)-->
+                    <a href="{getUrl('page',$page-1,'division',$division,'last_division',$last_division)}">Prev</a>
+                    <!--@else-->
+                    <a href="{getUrl('page',1,'division',$division,'last_division',$last_division)}">Prev</a>
+                    <!--@end-->
+                </li>
+                <!--@while($page_no = $page_navigation->getNextPage())-->
+                    <!--@if($page == $page_no)-->
+                        <li><strong>{$page_no}</strong></li>
+                    <!--@else-->
+                        <li><a href="{getUrl('page',$page_no,'division',$division,'last_division',$last_division)}">{$page_no}</a></li>
+                    <!--@end-->
+                <!--@end-->
+                <li class="next">
+                    <!--@if($page<$page_navigation->last_page)-->
+                    <a href="{getUrl('page',$page+1,'division',$division,'last_division',$last_division)}">Next</a>
+                    <!--@else-->
+                    <a href="{getUrl('page',$page_navigation->last_page,'division',$division,'last_division',$last_division)}">Next</a>
+                    <!--@end-->
+                </li>
+                <li class="end"><a href="{getUrl('page',$page_navigation->last_page,'division',$division,'last_division',$last_division)}">End</a></li>
+            </ul>
+        </div>
+    </div>
+</div><!-- //lst_latest -->
+<!--@end-->
+
+<!--@if(Context::get('isProjectNews'))-->
+    <div class="lst_article">
+        <ul class="list">
+            <!--@if($news_page_navigation->total_count == 0)-->
+            <li class="last_child">
+                <h4 class="latest_title">{$lang->no_project_news}</h4>
+            </li>
+            <!--@else-->
+                <!--@foreach($news_list as $news)-->
+                {@ $i++}
+        			<!--@if($news->type == "d")-->
+        			<li <!--@if(count($news_list) == $i)-->class="last_child"<!--@end-->>
+                        <h4 class="latest_title"><em>[{$projects[$news->site_srl]->title}]</em> <a href="{getSiteUrl($projects[$news->site_srl]->domain, '', 'document_srl', $news->item->document_srl)}">{$news->item->title}</a></h4>
+                        <p class="txt">{cut_str(strip_tags($news->item->content), 800, '...') }</p>
+                        <div class="meta">
+                            <span><strong>{$modules[$news->item->module_srl]}</strong></span>
+                            <span>created by {$news->item->nick_name}</span>
+                            <span>{zdate($news->regdate, "Y.m.d")}</span>
+                        </div>
+                    </li>
+        			<!--@elseif($news->type == "c")-->
+        			<li <!--@if(count($news_list) == $i)-->class="last_child"<!--@end-->>
+                        <h4 class="latest_title"><em>[{$projects[$news->site_srl]->title}]</em> <a href="{getSiteUrl($projects[$news->site_srl]->domain, '', 'document_srl', $news->item->document_srl)}#comment_{$news->item->comment_srl}">{$news->item->title}</a></h4>
+                        <p class="txt">{cut_str(strip_tags($news->item->content), 800, '...') }</p>
+                        <div class="meta">
+                            <span><strong>{$modules[$news->item->module_srl]}</strong></span>
+                            <span>created by {$news->item->nick_name}</span>
+                            <span>{zdate($news->regdate, "Y.m.d")}</span>
+                        </div>
+                    </li>
+        			<!--@elseif($news->type == "D")-->
+        			<li <!--@if(count($news_list) == $i)-->class="last_child"<!--@end-->>
+                        <h4 class="latest_title"><em>[{$projects[$news->site_srl]->title}]</em> <a href="{getSiteUrl($projects[$news->site_srl]->domain, '', 'act', 'dispIssuetrackerDownload', 'release_srl', $news->target_srl)}">{$news->item->package_title} - {$news->item->title}</a></h4>
+                        <p class="txt">{$news->item->release_note}</p>
+                        <div class="meta">
+                            <span>Download</span>
+                            <span>{zdate($news->regdate, "Y.m.d")}</span>
+                        </div>
+                    </li>
+        			<!--@elseif($news->type == "s")-->
+        			<li <!--@if(count($news_list) == $i)-->class="last_child"<!--@end-->>
+                        <h4 class="latest_title">em>[{$projects[$news->site_srl]->title}]</em> <a href="{getSiteUrl($projects[$news->site_srl]->domain)}">r{$news->item->revision}</a></h4>
+                        <p class="txt">{$news->item->message}</p>
+                        <div class="meta">
+                            <span><em>Commit</em></span>
+                            <span>created by {$news->item->author}</span>
+                            <span>{zdate($news->regdate, "Y.m.d")}</span>
+                        </div>
+                    </li>
+        			<!--@end-->
+                <!--@end--><!-- //end froeach -->
+            <!--@end--><!-- //end if -->
+        </ul>
+        <!--@if($news_page_navigation)-->
+        <div class="pagination">
+            <ul>
+                <li class="first">
+                    <a href="{getUrl('page',1,'division',$division,'last_division',$last_division)}">First</a>
+                </li>
+                <li class="prev">
+                    <!--@if($page>1)-->
+                    <a href="{getUrl('page',$page-1,'division',$division,'last_division',$last_division)}">Prev</a>
+                    <!--@else-->
+                    <a href="{getUrl('page',1,'division',$division,'last_division',$last_division)}">Prev</a>
+                    <!--@end-->
+                </li>
+                <!--@while($page_no = $news_page_navigation->getNextPage())-->
+                    <!--@if($page == $page_no)-->
+                        <li><strong>{$page_no}</strong></li>
+                    <!--@else-->
+                        <li><a href="{getUrl('page',$page_no,'division',$division,'last_division',$last_division)}">{$page_no}</a></li>
+                    <!--@end-->
+                <!--@end-->
+                <li class="next">
+                    <!--@if($page<$news_page_navigation->last_page)-->
+                    <a href="{getUrl('page',$page+1,'division',$division,'last_division',$last_division)}">Next</a>
+                    <!--@else-->
+                    <a href="{getUrl('page',$news_page_navigation->last_page,'division',$division,'last_division',$last_division)}">Next</a>
+                    <!--@end-->
+                </li>
+                <li class="end"><a href="{getUrl('page',$news_page_navigation->last_page,'division',$division,'last_division',$last_division)}">End</a></li>
+            </ul>
+        </div>
+        <!--@end-->
+    </div><!-- //lst_article -->
+<!--@end-->
+</div><!-- //hub header ca -->
+<div class="pull_right btnArea">
+    <span class="btn"><a href="{getUrl('act','dispProjectCreateProject')}">{$lang->new_project} {$lang->create}</a></span>
+</div>

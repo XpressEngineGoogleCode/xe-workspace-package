@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="utf-8"?>
+<module>
+    <grants>
+		<grant name="creation" default="member">
+			<title xml:lang="ko">프로젝트 생성</title>
+			<title xml:lang="en">Creation of a new project</title>
+		</grant>
+	</grants>
+    <permissions>
+        <permission action="dispProjectManage" target="manager" />
+        <permission action="dispProjectDescriptionManage" target="manager" />
+        <permission action="dispProjectMemberGroupManage" target="manager" />
+        <permission action="dispProjectMemberManage" target="manager" />
+        <permission action="dispProjectCounter" target="manager" />
+        <permission action="dispProjectComponent" target="manager" />
+        <permission action="dispProjectRepos" target="manager" />
+
+        <permission action="procProjectInsertProjectBanner" target="manager" />
+        <permission action="procProjectChangeLanguage" target="manager" />
+        <permission action="procProjectDeleteButton" target="manager" />
+        <permission action="procProjectDeleteGroup" target="manager" />
+        <permission action="procProjectInsertGroup" target="manager" />
+        <permission action="procProjectUpdateMemberGroup" target="manager" />
+        <permission action="procProjectDeleteMember" target="manager" />
+        <permission action="procProjectChangeIndex" target="manager" />
+        <permission action="procProjectInsertRepos" target="manager" />
+        <permission action="procProjectInsertCommitGroup" target="manager" />
+
+        <permission action="dispProjectAccountManage" target="member" />
+        <permission action="dispProjectCreateProject" target="member" />
+        <permission action="procProjectUpdateAccount" target="member" />
+        <permission action="procProjectReservation" target="member" />
+        <permission action="procProjectReserveImages" target="member" />
+    </permissions>
+    <actions>
+        <action name="dispProjectIndex" type="view" standalone="true" index="true" />
+        <action name="dispProjectCreateProject" type="view" />
+        <action name="rss" type="view" />
+
+        <action name="dispProjectManage" type="view" standalone="true" />
+        <action name="dispProjectManageFront" type="view" standalone="true" />
+        <action name="dispProjectDescriptionManage" type="view" standalone="true" />
+        <action name="dispProjectDescription" type="view" standalone="true" />
+        <action name="dispProjectSummary" type="view" standalone="true" />
+		<action name="dispProjectMySummary" type="view" standalone="true" />
+        <action name="dispProjectSearch" type="view" standalone="true" />
+        <action name="dispProjectPlan" type="view" standalone="true" />
+        <action name="dispProjectContributors" type="view" standalone="true" />
+        <action name="dispProjectMyPlan" type="view" standalone="true" />
+        <action name="dispProjectMyActivity" type="view" standalone="true" />
+        <action name="dispProjectMyProjectActivity" type="view" standalone="true" />
+        <action name="dispProjectDownloadSearch" type="view" standalone="true" />
+        <action name="dispProjectMemberGroupManage" type="view" standalone="true" />
+        <action name="dispProjectMemberManage" type="view" standalone="true" />
+        <action name="dispProjectCounter" type="view" standalone="true" />
+        <action name="dispProjectComponent" type="view" standalone="true" />
+        <action name="dispProjectRepos" type="view" standalone="true" />
+        <action name="dispProjectAccountManage" type="view" standalone="true" />
+        <action name="dispProjectMember" type="view" standalone="true" />
+
+        <action name="procProjectReservation" type="controller" standalone="true" />
+        <action name="procProjectReserveImages" type="controller" standalone="true" />
+        <action name="procProjectInsertProjectBanner" type="controller" standalone="true" />
+        <action name="procProjectChangeLanguage" type="controller" standalone="true" />
+        <action name="procProjectDeleteButton" type="controller" standalone="true" />
+        <action name="procProjectDeleteGroup" type="controller" standalone="true" />
+        <action name="procProjectInsertGroup" type="controller" standalone="true" />
+        <action name="procProjectDeleteMember" type="controller" standalone="true" />
+        <action name="procProjectUpdateMemberGroup" type="controller" standalone="true" />
+        <action name="procProjectChangeIndex" type="controller" standalone="true" />
+        <action name="procProjectInsertBanner" type="controller" standalone="true" />
+        <action name="procProjectInsertRepos" type="controller" standalone="true" />
+        <action name="procProjectInsertCommitGroup" type="controller" standalone="true" />
+        <action name="procProjectUpdateAccount" type="controller" standalone="true" />
+        <action name="getMyProject" type="model" standalone="true" />
+
+        <action name="dispProjectAdminContent" type="view" standalone="true" admin_index="true" />
+        <action name="dispProjectAdminReserved" type="view" standalone="true" />
+        <action name="dispProjectAdminCreate" type="view" standalone="true" />
+        <action name="dispProjectAdminConfig" type="view" standalone="true" />
+        <action name="dispProjectAdminDirectorySetup" type="view" standalone="true" />
+        <action name="dispProjectAdminDirectoryModify" type="view" standalone="true" />
+        <action name="dispProjectAdminDelete" type="view" standalone="true" />
+        <action name="dispProjectAdminSetup" type="view" standalone="true" />
+        <action name="dispProjectAdminSkinSetup" type="view" standalone="true" />
+        <action name="dispProjectAdminGrantInfo" type="view" standalone="true" />
+
+        <action name="procProjectAdminCreation" type="controller" standalone="true" />
+        <action name="procProjectAdminInsertConfig" type="controller" />
+        <action name="procProjectAdminInsertProject" type="controller" />
+        <action name="procProjectAdminUpdateProject" type="controller" />
+        <action name="procProjectAdminInsertDirectory" type="controller" />
+        <action name="procProjectAdminDeleteProject" type="controller" />
+        <action name="procProjectAdminImportModule" type="controller" />
+        <action name="procProjectAdminExportModule" type="controller" />
+        <action name="procProjectAdminDeleteDirectory" type="controller" />
+        <action name="procProjectAdminDeleteReserve" type="controller" />
+        <action name="recalculateContribute" type="controller" />
+
+		<action name="dispProjectMyProjectList" type="mobile" />
+        <action name="dispProjectList" type="mobile" />
+        <action name="dispProjectInfo" type="mobile" />
+    </actions>
+</module>

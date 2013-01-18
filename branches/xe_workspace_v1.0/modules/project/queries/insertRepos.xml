@@ -1,0 +1,10 @@
+<query id="insertRepos" action="insert">
+    <tables>
+        <table name="project_repos" />
+    </tables>
+    <columns>
+        <column name="site_srl" var="site_srl" notnull="notnull" />
+        <column name="repos_id" var="repos_id" notnull="notnull" />
+        <column name="last_update" default="curdate()" />
+    </columns>
+</query>

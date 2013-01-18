@@ -1,0 +1,278 @@
+<!--%import("css/project.css")-->
+<!--%import("js/index.js")-->
+
+<div class="projectList">
+
+    <div class="projectTop">
+        <ul class="category">
+            <li<!--@if(!$type)--> class="active"<!--@end-->><a href="{getUrl('','mid',$mid)}">{$lang->summary}</a></li>
+            <li<!--@if($type=='project')--> class="active"<!--@end-->><a href="{getUrl('','mid',$mid,'type','project','dir_srl',$dir_srl)}">{$lang->project_list} ({number_format($total->project)})</a></li>
+            <li<!--@if($type=='release')--> class="active"<!--@end-->><a href="{getUrl('','mid',$mid,'type','release','dir_srl',$dir_srl)}">{$lang->release} ({number_format($total->release)})</a></li>
+            <li<!--@if($type=='news')--> class="active"<!--@end-->><a href="{getUrl('','mid',$mid,'type','news','dir_srl',$dir_srl)}">{$lang->news} ({number_format($total->news)})</a></li>
+            <li<!--@if($type=='offer')--> class="active"<!--@end-->><a href="{getUrl('','mid',$mid,'type','offer','dir_srl',$dir_srl)}">{$lang->offer} ({number_format($total->offer)})</a></li>
+            <!--@if($isEnableCreateProject)-->
+            <li class="create"><a href="{getUrl('act','dispProjectCreateProject')}" class="button strong"><span>{$lang->cmd_make_project}</span></a></li>
+            <!--@end-->
+        </ul>
+        <!--@if($is_logged && $my_projects && count($my_projects))-->
+            <form action="./" onsubmit="if(this.project.value) location.href=this.project.value; return false;" class="myProject">
+                <select name="project">
+                    <option value="">{$lang->my_project} ({count($my_projects)})</option>
+                <!--@foreach($my_projects as $key => $val)-->
+                    <option value="{getSiteUrl($val->domain)}">{cut_str($val->project_title,20)}</option>
+                <!--@end-->
+                </select><input type="submit" value="{$lang->cmd_move}" class="submit" />
+            </form>
+        <!--@end-->
+    </div>
+    <!--@if($type == 'release')-->
+        <!--@foreach($item_list as $key => $val)-->
+        <div class="item">
+            <h3 class="title"><a href="{getSiteUrl($val->domain,'')}">{$val->package_title}</a> - <span><a href="{getSiteUrl($val->domain,'','mid','issuetracker','act','dispIssuetrackerDownload','package_srl',$val->package_srl,'release_srl',$val->release_srl)}">{htmlspecialchars($val->title)}</a></span></h3>
+            <!--@if($val->release_note)-->
+            <p class="summary">{cut_str(preg_replace('/<([^>]+)>/i','',$val->release_note),100)}</p>
+            <!--@end-->
+            <!--@if(count($val->files))-->
+            <ul>
+                <!--@foreach($val->files as $k => $v)-->
+                    <li><a href="{$v->download_url}">{$v->source_filename}</a></li>
+                <!--@end-->
+            </ul>
+            <!--@end-->
+        </div>
+        <!--@end-->
+    <!--@elseif($type == 'news' || $type == 'offer')-->
+        <!--@foreach($item_list as $key => $val)-->
+        <div class="item">
+            <!--@if($type=='news')-->
+            <h3 class="title">[<a href="{getSiteUrl($val->domain,'')}">{$val->project_title}</a>] <a href="{getSiteUrl($val->domain,'','mid','','act','dispProjectNews')}#news_{$val->news_srl}">{htmlspecialchars($val->title)}</a></h3>
+            <!--@else-->
+            <h3 class="title">[<a href="{getSiteUrl($val->domain,'')}">{$val->project_title}</a>] <a href="{getSiteUrl($val->domain,'','mid','','act','dispProjectOffer')}#offer_{$val->offer_srl}">{htmlspecialchars($val->title)}</a></h3>
+            <!--@end-->
+            <p class="summary nomargin">{cut_str(preg_replace('/<([^>]+)>/i','',$val->content),190)}</p>
+        </div>
+        <!--@end-->
+    <!--@elseif($type=='project')-->
+
+		<form action="{getUrl()}" method="get" class="orderForm">
+			<input type="hidden" name="mid" value="{$mid}" />
+			<input type="hidden" name="type" value="{$type}" />
+			<select name="dir_srl">
+					<option value="">{$lang->category}</option>
+				<!--@foreach($category as $key => $val)-->
+					<optgroup label="{$val->title}">
+					<!--@foreach($val->childs as $k => $v)-->
+					<option value="{$v->project_dir_srl}" <!--@if($dir_srl==$v->project_dir_srl)-->selected="selected="<!--@end-->>{$v->title} ({$v->count})</option>
+					<!--@end-->
+					</optgroup>
+				<!--@end-->
+				</ul>
+			</select>
+			<select name="sort_index">
+				<optgroup label="{$lang->order_target}">
+				<option value="rank">{$lang->rank_activation}</option>
+				<option value="list_order" <!--@if($sort_index=='list_order')-->selected="selected"<!--@end-->>{$lang->created_date}</option>
+				</option>
+			</select>
+            <span class="buttonOfficial"><button type="submit">GO</button></span>
+		</form>
+
+        <!--@foreach($item_list as $key => $val)-->
+        <div class="item">
+            <!--@if($val->project_logo)-->
+            <a href="{getSiteUrl($val->domain,'')}"><img src="{$val->project_logo}" width="200" height="40" alt="{htmlspecialchars($val->project_title)}" class="thumb" /></a>
+            <!--@end-->
+            <h3 class="title"><a href="{getSiteUrl($val->domain,'')}">{htmlspecialchars($val->project_title)}</a></h3>
+            <p class="summary">{cut_str(preg_replace('/<([^>]+)>/i','',$val->project_description),200)}</p>
+            <dl class="meta">
+                <dt class="member">{$lang->project_member_count}</dt>
+                <dd class="member">{number_format($val->member_count)}</dd>
+                <dt class="rank">{$lang->project_rank}</dt>
+                <dd class="rank">{$val->rank}</dd>
+                <dt class="since">SINCE</dt>
+                <dd class="since">{zdate($val->regdate,"Y.m.d")}</dd>
+            </dl>
+        </div>
+        <!--@end-->
+    <!--@else-->
+		<!-- section top project -->
+		<!--@if(count($top_projects))-->
+		<div class="topSection">
+			<div class="sectionMain topProject">
+				<h2 class="heading">{$lang->top_activation_project}</h2>
+				<ol class="slideList">
+					{@$idx = 1}
+					<!--@foreach($top_projects as $key => $val)-->
+            		<li>
+						<a href="{getSiteUrl($val->domain,'')}" class="thumbnail"><img src="{$val->project_banner}" width="180" height="140" alt="{htmlspecialchars($val->project_title)}" class="thumb" /><span>{htmlspecialchars($val->project_description)}</span></a>
+						<p><a href="{getSiteUrl($val->domain,'')}">{$idx}. {htmlspecialchars(cut_str($val->project_title,40))}</a></p>
+					</li>
+					{@$idx++}
+					<!--@end-->
+				</ol>
+				<a href="{getUrl('type','project')}" class="more">more</a>
+			</div>
+			<!-- /section top project-->
+		</div>
+		<!--@end-->
+
+		<div class="contentSection">
+			<div class="leftSection">
+				<div class="sectionMain">
+					<h2 class="heading">{$lang->project_home_title['news']}</h2>
+					<!--@if(count($news))-->
+					<ul class="list">
+						<!--@foreach($news as $val)-->
+						<li class="item">
+							<a href="{getSiteUrl($val->domain,'','act','dispProjectNews','news_srl',$val->news_srl)}#news_{$val->news_srl}">{htmlspecialchars(cut_str('['.$val->project_title.'] '.$val->title,50))}</a>
+							<!--@if(ztime($val->regdate)>time()-60*60*24*3)--><img src="img/iconNew.gif" width="10" height="9" alt="New" class="icon" /><!--@end-->
+							<span class="date">{zdate($val->regdate,"y.m.d")}</span>
+						</li>
+						<!--@end-->
+					</ul>
+					<!--@else-->
+					<p class="noData">{$lang->msg_no_data}</p>
+					<!--@end-->
+					<a href="{getUrl('type','news')}" class="more">more</a>
+				</div>
+				<!-- /section offer -->
+
+				<!-- section offer -->
+				<div class="sectionMain">
+					<h2 class="heading">{$lang->project_home_title['offer']}</h2>
+					<!--@if(count($offer))-->
+					<ul class="list">
+						<!--@foreach($offer as $val)-->
+						<li class="item">
+							<a href="{getSiteUrl($val->domain,'','act','dispProjectOffer','offer_srl',$val->offer_srl)}#offer_{$val->offer_srl}">{htmlspecialchars(cut_str('['.$val->project_title.'] '.$val->title,50))}</a>
+							<!--@if(ztime($val->regdate)>time()-60*60*24*3)--><img src="img/iconNew.gif" width="10" height="9" alt="New" class="icon" /><!--@end-->
+							<span class="date">{zdate($val->regdate,"y.m.d")}</span>
+						</li>
+						<!--@end-->
+					</ul>
+					<!--@else-->
+					<p class="noData">{$lang->msg_no_data}</p>
+					<!--@end-->
+					<a href="{getUrl('type','offer')}" class="more">more</a>
+				</div>
+				<!-- /section offer -->
+				<!-- section newest document -->
+				<div class="sectionMain">
+					<h2 class="heading">{$lang->project_home_title['newestDocument']}</h2>
+					<!--@if(count($newest_documents))-->
+					<ul class="list">
+						<!--@foreach($newest_documents as $val)-->
+						<li class="item">
+							<a href="{getSiteUrl($val->get('domain'),'')}" class="projectTitle">{$val->get('project_title')}</a>
+							<span class="date">{$val->getRegdate("y.m.d")}</span>
+							<p>
+								<a href="#" onclick="return false" class="author member_{$val->get('member_srl')}">{$val->getNickName()}</a> -
+								<a href="{$val->getPermanentUrl()}">{$val->getTitle()}</a> <!--@if($val->getCommentCount())-->[{$val->getCommentCount()}]<!--@end-->
+							</p>
+						</li>
+						<!--@end-->
+					</ul>
+					<!--@else-->
+					<p class="noData">{$lang->msg_no_data}</p>
+					<!--@end-->
+				</div>
+				<!-- /section newest document-->
+
+			</div>
+
+			<div class="rightSection">
+				<!-- section newest project -->
+				<div class="sectionMain">
+					<h2 class="heading">{$lang->newest_project}</h2>
+					<!--@if(count($new_projects))-->
+					<ul class="list">
+						<!--@foreach($new_projects as $val)-->
+						<li class="item">
+							<a href="{getSiteUrl($val->domain)}">{htmlspecialchars(cut_str($val->project_title,50))}</a>
+							<!--@if(ztime($val->regdate)>time()-60*60*24*3)--><img src="img/iconNew.gif" width="10" height="9" alt="New" class="icon" /><!--@end-->
+							<span class="date">{zdate($val->regdate,"y.m.d")}</span>
+						</li>
+						<!--@end-->
+					</ul>
+					<!--@else-->
+					<p class="noData">{$lang->msg_no_data}</p>
+					<!--@end-->
+					<a href="{getUrl('type','project','sort_index','list_order')}" class="more">more</a>
+				</div>
+				<!-- /section newest project -->
+				<!-- section release-->
+				<div class="sectionMain">
+					<h2 class="heading">{$lang->release}</h2>
+					<!--@if(count($releases))-->
+					<ul class="list">
+						<!--@foreach($releases as $val)-->
+						<li class="item">
+							<a href="{getSiteUrl($val->domain,'','mid','issuetracker','act','dispIssuetrackerDownload','package_srl',$val->package_srl,'release_srl',$val->release_srl)}">{htmlspecialchars(cut_str('['.$val->project_title.'] '.$val->title,50))}</a>
+							<!--@if(ztime($val->regdate)>time()-60*60*24*3)--><img src="img/iconNew.gif" width="10" height="9" alt="New" class="icon" /><!--@end-->
+							<span class="date">{zdate($val->regdate,"y.m.d")}</span>
+						</li>
+						<!--@end-->
+					</ul>
+					<!--@else-->
+					<p class="noData">{$lang->msg_no_data}</p>
+					<!--@end-->
+					<a href="{getUrl('type','release')}" class="more">more</a>
+				</div>
+				<!-- /section release -->
+
+				<!-- section newest comment -->
+				<div class="sectionMain">
+					<h2 class="heading">{$lang->project_home_title['newestComment']}</h2>
+					<!--@if(count($newest_comments))-->
+					<ul class="list">
+						<!--@foreach($newest_comments as $val)-->
+						<li class="item">
+							<a href="{getSiteUrl($val->domain,'')}" class="projectTitle">{$val->project_title}</a>
+							<span class="date">{$val->getRegdate("y.m.d")}</span>
+							<p>
+								<a href="#" onclick="return false" class="member_{$val->member_srl} author">{$val->nick_name}</a> -
+								<a href="{$val->getPermanentUrl()}">{$val->getSummary(80)}</a>
+							</p>
+						</li>
+						<!--@end-->
+					</ul>
+					<!--@else-->
+					<p class="noData">{$lang->msg_no_data}</p>
+					<!--@end-->
+				</div>
+				<!-- /section newest comment-->
+			</div>
+		</div>
+    <!--@end-->
+
+    <!--@if($type && $page_navigation)-->
+    <div class="pagination">
+        <!--@if($page_navigation->cur_page>1)--><a class="prevEnd" href="{getUrl('page',$page_navigation->cur_page-1)}">PREV</a><!--@end-->
+        <!--@while($page_no = $page_navigation->getNextPage())-->
+            <!--@if($page == $page_no)-->
+                <strong>{$page_no}</strong>
+            <!--@else-->
+                <a href="{getUrl('page',$page_no,'document_srl','','division',$division,'last_division',$last_division)}">{$page_no}</a>
+            <!--@end-->
+        <!--@end-->
+        <!--@if($page_navigation->cur_page<$page_navigation->total_page)--><a class="nextEnd" href="{getUrl('page',$page_navigation->cur_page+1)}">NEXT</a><!--@end-->
+    </div>
+    <!--@end-->
+
+
+    <!-- Search -->
+	<!--@if($type)-->
+    <form action="{Context::getRequestUri()}" class="search" method="get">
+        <fieldset>
+            <legend>Search</legend>
+            <input type="hidden" name="mid" value="{$mid}" />
+            <input type="hidden" name="vid" value="{$vid}" />
+            <input type="hidden" name="type" value="{$type}" />
+            <input type="text" title="{$lang->cmd_search}" accesskey="S" class="inputText" value="" name="search_keyword"/>
+            <span class="buttonOfficial"><button type="submit">{$lang->cmd_search}</button></span>
+        </fieldset>
+    </form>
+	<!--@end-->
+    <!-- /Search -->
+
+</div>
