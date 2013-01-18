@@ -1,0 +1,10 @@
+<query id="insertProjectDirMap" action="insert">
+    <tables>
+        <table name="project_dir_maps" />
+    </tables>
+    <columns>
+        <column name="site_srl" var="site_srl" notnull="notnull" />
+        <column name="project_dir_srl" var="project_dir_srl" notnull="notnull" />
+        <column name="regdate" default="curdate()" />
+    </columns>
+</query>

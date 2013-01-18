@@ -1,0 +1,36 @@
+<!-- Member mod skin -->
+<load target="css/member.css" />
+<!-- Member mod skin -->
+<!-- Content Area -->
+<section class="content_area">
+    <h2 class="content_title">
+        {$lang->cmd_modify_member_email_address}
+    </h2>
+    <div class="mcm">
+        <div cond="$XE_VALIDATOR_MESSAGE" class="message {$XE_VALIDATOR_MESSAGE_TYPE}">
+            <p>{$XE_VALIDATOR_MESSAGE}</p>
+        </div>
+        <include target="./common_header.html" />
+        <p class="p_gray">{$lang->about_modify_member_email_address}</p>
+        <form ruleset="modifyEmailAddress" class="form" action="./" method="post">
+            <input type="hidden" name="module" value="member" />
+            <input type="hidden" name="act" value="procMemberModifyEmailAddress" />
+            <input type="hidden" name="success_return_url" value="{getRequestUriByServerEnviroment()}" />
+            
+            <table class="row_table bordered">
+                <caption class="blind">{$lang->cmd_modify_member_email_address}</caption>
+                <tbody>
+                    <tr>
+                        <th><label for="email_address">{$lang->email_address}</label></th>
+                        <td><input type="email" id="email_address" name="email_address" value="" class="ipt_txt" /></td>
+                    </tr>
+                </tbody>
+            </table>
+            <div class="btn_area">
+                <span class="btn_small"><input type="submit" value="{$lang->cmd_send_auth_new_emaill_address}" /></span>
+            </div>
+        </form>
+    </div><!-- // mcm -->
+</section>
+
+<!-- //Content Area -->

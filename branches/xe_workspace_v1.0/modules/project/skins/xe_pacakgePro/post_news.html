@@ -1,0 +1,9 @@
+<h3><!--@if(!$news)-->{$lang->post_news}<!--@else-->{$lang->update_news}<!--@end--></h3>
+
+<form action="./" method="post" onsubmit="return procFilter(this,insert_news)">
+<input type="hidden" name="news_srl" value="{$news->news_srl}" />
+<input type="hidden" name="content" value="{htmlspecialchars($news->content)}" />
+<p><input type="text" name="title" class="inputTypeText w300" value="{htmlspecialchars($news->title)}" /></p>
+{$editor}
+<p><span class="buttonAction actionBlue"><button type="submit">{$lang->cmd_registration}</button></span></p>
+</form>

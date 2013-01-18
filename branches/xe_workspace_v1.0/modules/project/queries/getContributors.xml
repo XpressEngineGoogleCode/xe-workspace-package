@@ -1,0 +1,14 @@
+<query id="getContributors" action="select">
+	<tables>
+		<table name="project_contribute" />
+		<table name="project_cont_points" />
+	</tables>
+	<columns>
+		<column name="project_contribute.*" />
+		<column name="project_cont_points.point" />
+	</columns>
+	<conditions>
+		<condition operation="in" column="member_srl" var="member_srls" />
+		<condition operation="equal" column="project_contribute.type" default="project_cont_points.type" pipe="and" />
+	</conditions>
+</query>

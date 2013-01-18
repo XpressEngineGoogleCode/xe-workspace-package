@@ -1,0 +1,6 @@
+<select name="domain" onchange="changeSite(this.options[this.options.selectedIndex].value)">
+    <option value="">My Project Sites</option>
+    <!--@foreach($project as $key => $val)-->
+    <option value="{$val->domain}">{$val->project_title}</option>
+    <!--@end-->
+</select>

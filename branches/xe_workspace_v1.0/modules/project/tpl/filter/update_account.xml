@@ -1,0 +1,13 @@
+<filter name="update_account" module="project" act="procProjectUpdateAccount" confirm_msg_code="confirm_submit">
+    <form>
+        <node target="password1" required="true" minlength="6" maxlength="20" />
+        <node target="password2" required="true" minlength="6" maxlength="20" equalto="password1" />
+    </form>
+    <parameter>
+        <param name="password" target="password1" />
+    </parameter>
+    <response>
+        <tag name="error" />
+        <tag name="message" />
+    </response>
+</filter>

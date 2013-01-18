@@ -1,0 +1,23 @@
+<!--#include("header_front.html")-->
+<!--%import("css/front.css")-->
+<!--%import("filter/insert_package.xml")-->
+<div class="prodt_box">
+    <h4><!--@if($package->package_srl)-->Update Product<!--@else-->Add a New Product<!--@end--></h4>
+    <form action="./" method="post" ruleset="insert_package" enctype="multipart/form-data" class="new_prodt_form">
+        <input type="hidden" name="module_srl" value="{$module_srl}" />
+        <input type="hidden" name="package_srl" value="{$package->package_srl}" />
+        <input type="hidden" name="act" value="procIssuetrackerAdminInsertPackage" />
+        <input type="hidden" name="success_return_url" value="{getUrl('','act','dispIssuetrackerDownload','mid',$mid,'vid',$vid)}" />
+        <dl>
+            <dt><label for="ipt_title">Name</label></dt>
+                <dd><input type="text" id="ipt_title" name="title" value="{htmlspecialchars($package->title)}" class="ipt_title" placeholder="Input product name"></dd>
+            <dt><label for="ipt_file">Logo</label></dt>
+                <dd cond="$package->logoImage"><image  src="{$package->logoImage}" /></dd>
+                <dd><input type="file" name="package_logo" class="ipt_file"></dd>
+            <dt><label for="description">{$lang->description}</label></dt>
+                <dd><textarea name="description" id="" cols="30" rows="10">{htmlspecialchars($package->description)}</textarea></dd>
+        </dl>
+        <input style="margin-left:5px" type="button" class="sbmt" onclick="location.href='{getFullUrl("","act","dispIssuetrackerDownload","mid",$mid,"vid",$vid)}';" value="Cancel">
+        <input type="submit" class="sbmt" value="Save">
+    </form>
+</div><!-- //prodt_box -->

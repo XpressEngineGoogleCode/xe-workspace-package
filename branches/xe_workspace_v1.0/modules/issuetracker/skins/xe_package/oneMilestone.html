@@ -1,0 +1,66 @@
+<!--#include("header.html")-->
+<!--%import("js/select.js")-->
+<!--%import("js/toggle.js")-->
+<!--%import("../../tpl/filter/delete_milestone.xml")-->
+
+<div class="goal_view_head">
+    <h4 class="goal_title">{$milestone->title}</h4>
+    <div class="pull_right">
+        <div class="meta">
+            <span></span>
+            <span>{zdate($milestone->deadline, 'Y.m.d', FALSE)}</span>
+        </div>
+        <div class="status">
+            <!--@if($milestone->issues["total"] == 0)-->
+                {$lang->noissue}
+            <!--@elseif($milestone->issues["resolve"] != $milestone->issues["total"])-->
+                Uncompleted
+            <!--@else-->
+                Completed
+            <!--@end-->
+        </div>
+    </div><!-- pull_right -->
+</div><!-- //goal_view_head -->
+<div class="goal_pg_content">
+    <p>{$milestone->description}</p>
+</div><!-- //goal_pg_content -->
+<div class="issue_info">
+    <ul>
+        <li><span>All Issues</span><a href='{getUrl('act','dispIssuetrackerViewIssue')}'><em>{$milestone->issues["total"]}</em></a></li>
+        <li><span>New Issues</span><a href='{getUrl('act','dispIssuetrackerViewIssue','d_status',1,'status[]','new')}'><em>{$milestone->issues["new"]}</em></a></li>
+        <li><span>Reviewing Issues</span><a href='{getUrl('act','dispIssuetrackerViewIssue','d_status',1,'status[]','reviewing')}'><em>{$milestone->issues["reviewing"]}</em></a></li>
+        <li><span>Assign Issues</span><a href='{getUrl('act','dispIssuetrackerViewIssue','d_status',1,'status[]','assign')}'><em>{$milestone->issues["assign"]}</em></a></li>
+        <li><span>Rresolved Issues</span><a href='{getUrl('act','dispIssuetrackerViewIssue','d_status',1,'status[]','resolve')}'><em>{$milestone->issues["resolve"]}</em></a></li>
+        <li class="last"><span>Reopen Issues</span><a href='{getUrl('act','dispIssuetrackerViewIssue','d_status',1,'status[]','reopen')}'><em>{$milestone->issues["reopen"]}</em></a></li>
+    </ul>
+</div><!-- //issue_info -->
+<div class="btn_area_line">
+    <div class="pull_right">
+        <a class="btn_white" href="{getUrl('act','dispIssuetrackerViewMilestone')}"><span>Return</span></a>
+        <!--@if($grant->is_admin)-->
+		<a class="btn_gray" href="{getUrl('milestone_srl',$milestone->milestone_srl,'act','dispIssuetrackerAdminModifyMilestone')}"><span>Edit</span></a>
+        <a class="btn_gray" href="#" onclick="deleteByFilter('{$milestone->milestone_srl}', delete_milestone);return false"><span>Delete</span></a>
+		<!--@end-->
+    </div>
+</div>
+<form id="deleteForm" action="./" method="post">
+    <input type="hidden" id="target_srl" name="target_srl" value="" />
+    <input type="hidden" name="mid" value="{$mid}" />
+    <input type="hidden" name="vid" value="{$vid}" />
+</form>
+<script>
+    function deleteByFilter(target_srl, filter)
+    {
+        var e = jQuery('#target_srl').val(target_srl);
+        var hF = jQuery("#deleteForm").get(0);
+        procFilter(hF, filter);
+    }
+    function completeInsertSetting(ret_obj) {
+        var error = ret_obj['error'];
+        var message = ret_obj['message'];
+        var module_srl = ret_obj['module_srl'];
+        var url = current_url.setQuery('act','dispIssuetrackerViewMilestone');
+        location.href = url;
+    }
+</script>
+<!--#include("footer.html")-->

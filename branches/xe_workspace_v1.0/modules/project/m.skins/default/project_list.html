@@ -1,0 +1,20 @@
+<!--#include("_header.html")-->
+	<!--@if($page_navigation->total_count == 0)-->
+	<p style="text-align:center;padding:0 10px; font-size:14px">{$lang->no_all_project}</p>
+	<!--@else-->
+	<ul class="gn">
+	<!--@foreach($project_list as $project)-->
+	<li><a href="{getSiteUrl($project->domain)}">{$project->project_title}</a></li>
+	<!--@end-->
+	</ul>
+    <div class="pn">
+        <!--@if($page_navigation->cur_page != 1)-->
+		<a href="{getUrl('page',$page_navigation->cur_page-1)}" class="prev">{$lang->cmd_prev}</a>
+		<!--@endif-->
+        <strong>{$page_navigation->cur_page} / {$page_navigation->last_page}</strong>
+		<!--@if($page_navigation->last_page != $page_navigation->cur_page)-->
+		<a href="{getUrl('page',$page_navigation->cur_page+1)}" class="next">{$lang->cmd_next}</a>
+		<!--@endif-->
+    </div>
+	<!--@end-->
+<!--#include("_footer.html")-->

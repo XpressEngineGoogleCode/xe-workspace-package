@@ -1,0 +1,9 @@
+<query id="insertActivityPoint" action="insert">
+	<tables>
+		<table name="project_activity_points" />
+	</tables>
+	<columns>
+		<column name="type" var="type" notnull="notnull" />
+		<column name="point" var="point" notnull="notnull" />
+	</columns>
+</query>

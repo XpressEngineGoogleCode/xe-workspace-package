@@ -1,0 +1,10 @@
+<filter name="insert_repos" module="project" act="procProjectInsertRepos" confirm_msg_code="confirm_submit">
+    <form>
+        <node target="repos_id" required="true" minlength="2" maxlength="20" filter="alpha_number"/>
+    </form>
+    <parameter />
+    <response callback_func="completeInsertRepos">
+        <tag name="error" />
+        <tag name="message" />
+    </response>
+</filter>

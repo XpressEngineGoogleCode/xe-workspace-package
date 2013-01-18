@@ -1,0 +1,20 @@
+<query id="getVote" action="select">
+    <tables>
+        <table name="guestbook_vote" />
+    </tables>
+    <columns>
+        <column name="count(*)" alias="count"/>
+        <column name="guestbook_item_srl" />
+    </columns>
+    <groups>
+        <group column="guestbook_vote.guestbook_item_srl" />
+    </groups>
+    <conditions>
+        <condition operation="in" column="guestbook_item_srl" var="guestbook_item_srl"/>
+        <condition operation="in" column="member_srl" var="member_srl" pipe="and"/>
+    </conditions>
+    <navigation>
+        <index var="sort_index" default="guestbook_item_srl" order="desc" />
+        <list_count var="list_count" default="100" />
+    </navigation>
+</query>

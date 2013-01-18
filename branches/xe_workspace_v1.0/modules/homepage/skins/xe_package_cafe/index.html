@@ -1,0 +1,119 @@
+<!--%import("./style.css")-->
+<!--@if($module_info->title)-->
+<h2 class="content_title">
+    <span cond="$isAll == 'Y'">All </span><span cond="!$isAll">My </span>Communities
+</h2>
+<div style="padding: 10px 30px 0px 60px; " class="whatever clearfix"></div>
+<div class="whatever" style="padding: 10px 30px 30px 60px;">
+<div class="cafeHeader">
+    <div class="cafeTitle">
+        <h2 class="cafeTitleText">
+            <a href="{getFullUrl('','mid',$mid,'listStyle',$listStyle)}">
+                {$module_info->title}<!--@if($module_info->sub_title)--> : <em>{$module_info->sub_title}</em><!--@end-->
+            </a>
+        </h2>
+		<!--@if($module_info->comment)-->
+			 <p class="cafeDescription">{$module_info->comment}</p>
+		<!--@end-->
+    </div>
+
+	<!--@if($module_info->intro_title)-->
+	<div class="intro">
+		<dl class="intro_lst">
+		<dt>{$module_info->intro_title}</dt>
+		<dd class="thmb"><img src="{$module_info->intro_image}" alt="" align="left" /></dd>
+		<dd class="desc">{nl2br($module_info->intro_description)}</dd>
+		<dd><span class="url"><a href="{$module_info->intro_url}" onclick="window.open(this.href); return false;">{$module_info->intro_url}</a></span></dd>
+		</dl>
+	</div>
+	<!--@end-->
+</div>
+
+<!--@end-->
+
+	<div class="cafeBody">
+	   <nav class="tabs">
+			<ul>
+				<li>
+					<a class="active"|cond="!$isNews" href="{getUrl('isNews','','isAll','')}" cond="!$isAll">
+						<span>My Community List</span>
+					</a>
+					<a  class="active"|cond="!$isNews" href="{getUrl('isNews','','isAll','Y')}" cond="$isAll == 'Y'">
+						<span>All Community List</span>
+					</a>
+				</li>
+				<li id="latestDocTab">
+					<a class="active"|cond="$isNews == 'Y'" href="{getUrl('isNews','Y','isAll','')}" cond="!$isAll">
+						<span>My Community News</span>
+					</a>
+					<a  class="active"|cond="$isNews" href="{getUrl('isNews','Y','isAll','Y')}" cond="$isAll == 'Y'">
+						<span>All Community News</span>
+					</a>
+				</li>
+			</ul>
+			<div class="btnArea all_cafes_btn">
+				<span class="btn"><a cond="!$isAll" href="{getUrl('isNews','','isAll','Y')}" >View All</a></span>
+				<span class="btn"><a class="btn_white" cond="$isAll == 'Y'" href="{getUrl('isNews','','isAll','')}" >View My Community</a></span>
+			</div>
+		</nav>
+		<form action="" class="srch_comm" cond="!$isNews">
+			<input type="hidden" name="isAll" value="{$isAll}">
+			<fieldset>
+				<legend class="blind">Projects Search</legend>
+				<label for="ipt_srch_proj">
+					<block cond="!$isAll">My Communities:</block>
+					<block cond="$isAll == 'Y'">All Communities:</block> 
+					<em>{$total_count}</em>
+				</label>
+				<span class="ipt_box"><input id="ipt_srch_proj" type="search" name="s_keyword" value="{$s_keyword}"></span>
+				<input type="submit" value="Search" class="btn_sbmt">
+			</fieldset>
+		</form>
+		<div class="lst_proj" cond="!$isNews">
+			<h3 class="blind">My Community List</h3>
+			<!--@if(count($homepage_list))-->
+			<ul class="list">
+				<!--@foreach($homepage_list as $val)-->
+					<li>
+						<!--@if($val->cafe_banner)-->
+							<div class="thmb"><a href="{getFullSiteUrl($val->domain)}"><img src="{$val->cafe_banner}" width="58" height="58" alt="head"></a></div>
+						<!--@else-->
+							<div class="thmb"><a href="{getFullSiteUrl($val->domain)}"><img src="img/@communityLogoImage.jpg" alt="" width="58" height="58"></a></div>
+						<!--@end-->
+						<h4 class="title"><a href="{getFullSiteUrl($val->domain)}">{cut_str(htmlspecialchars($val->cafe_title),200)}</a></h4>
+						<p class="txt">{$val->cafe_description?cut_str(htmlspecialchars($val->cafe_description),200):"There is no description about this community"}</p>
+						<a href="{getFullSiteUrl($val->domain)}" class="lnk_cafe">{getFullSiteUrl($val->domain)}</a>
+					</li>
+				 <!--@end-->
+			</ul>
+			<!--@end-->
+			<div class="pagination">
+				<ul>
+					<li class="first"><a href="{getUrl('page','')}">First</a></li>
+					<!--@while($page_no = $page_navigation->getNextPage())-->
+						<!--@if($page == $page_no)-->
+							<li><strong>{$page_no}</strong></li>
+						<!--@else-->
+							<a href="{getUrl('page',$page_no)}">{$page_no}</a>
+						<!--@end-->
+					<!--@end-->
+					<li class="end"><a href="{getUrl('page',$page_navigation->last_page)}">End</a></li>
+				</ul>
+			</div>
+		</div><!-- //lst_proj -->
+		<div class="lst_article"  cond="$isNews == 'Y'">
+             <ul class="list">
+				<!--@foreach($newest_documents as $val)-->
+					<li>
+						<h4 class="latest_title"><a href="{$val->getPermanentUrl()}">  {$val->getTitle(56)}</a></h4>
+						<p class="txt">{$val->getContentText(100)}</p>
+						<div class="meta">
+							<span>Comments {$val->getCommentCount()}</span>
+                            <span>created by {$val->getNickName()}</span>
+                            <span>{zdate($val->get('regdate'),'Y-m-d, H:i')}</span>
+                         </div>
+					</li>
+				<!--@end-->
+              </ul>
+        </div><!-- //lst_article -->
+	</div><!-- //cafeBody -->

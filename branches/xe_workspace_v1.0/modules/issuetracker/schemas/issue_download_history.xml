@@ -1,0 +1,6 @@
+<table name="issue_download_history">
+    <column name="release_srl" type="number" size="11" notnull="notnull" index="idx_release_srl" /> 
+    <column name="file_srl" type="number" size="11" notnull="notnull" index="idx_file_srl" /> 
+    <column name="member_srl" type="number" size="11" notnull="notnull" index="idx_member_srl" /> 
+    <column name="download_date" type="date" notnull="notnull" /> 
+</table>

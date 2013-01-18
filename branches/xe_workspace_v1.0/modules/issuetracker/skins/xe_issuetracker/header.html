@@ -1,0 +1,51 @@
+<!--%import("css/issuetracker.css")-->
+<!--%import("js/issuetracker.js")-->
+{$module_info->header_text}
+<!--@if(!$module_info->colorset)-->
+{@ $module_info->colorset = "cPurple"; }
+<!--@end-->
+<div class="issuetracker {$module_info->colorset}">
+    <div id="issueHeader">
+		<!--@if($module_info->projectTitle)-->
+		<div class="issuetrackerTitle">
+			<h2 class="issuetrackerTitleText"><a href="{getUrl('','mid',$mid)}">{$module_info->projectTitle}</a></h2>
+		</div>
+		<!--@end-->
+
+		<!--@if($module_info->projectDescription)-->
+		<p class="issuetrackerDescription">{$module_info->projectDescription}</p>
+		<!--@end-->
+
+	<div class="menu">
+		<div class="inset">
+			<div class="major">
+				<ul class="issueNav">
+				<!--@foreach($lang->new_project_menus as $key => $value)-->
+					<li class="<!--@if($act==$key)-->on<!--@end-->"><a href="{getUrl('','mid',$mid,'act',$key)}"><span>{$value}</span></a>
+					<!--@foreach($lang as $key2 => $val2)-->
+						<!--@if($key == $key2)-->
+						<div class="sub">
+							<ul>
+							<!--@foreach($val2 as $subMenu => $subTitle)-->
+								<li><a href="{getUrl('','mid',$mid,'act',$subMenu)}"><span>{$subTitle}</span></a></li>
+							<!--@end-->
+							</ul>
+						</div>
+					    <!--@end-->
+                      <!--@end-->
+					</li>
+				<!--@endforeach-->
+				</ul>
+			</div> <!--//major-->
+			<!--@if($grant->manager)-->
+			<div class="aside">
+				<ul>
+					<li class="m2"><a href="{getUrl('','mid',$mid,'act','dispIssuetrackerAdminProjectSetting')}"><span>{$lang->cmd_project_setting}</span></a></li>
+				</ul>
+			</div>
+			<span class="gradient"></span>
+			<!--@endif-->
+		</div> <!--//inset-->
+		<span class="shadow"></span>
+	</div>
+	</div><!--//issueHeader-->

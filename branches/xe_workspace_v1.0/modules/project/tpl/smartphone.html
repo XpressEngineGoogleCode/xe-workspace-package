@@ -1,0 +1,18 @@
+<ul class="smartPhoneList">
+    <li class="title">{$page_navigation->total_count} project, {$page_navigation->cur_page}/{$page_navigation->last_page} pages</li>
+
+<!--@foreach($project_list as $key => $val)-->
+    <li class="item">
+        <!--@if($val->project_banner)-->
+        <img src="{$val->project_banner}" width="40" height="40" align="left" class="thumbnail" />
+        <!--@end-->
+        <a href="{getSiteUrl($val->domain,'smartphone','true')}">
+            <span class="title">{$val->project_title}</span>
+            <span class="info">
+                {preg_replace('/<([^>]+)>/i','',$val->project_description)}
+            </span>
+        </a>
+    </li>
+
+<!--@end-->
+</ul>

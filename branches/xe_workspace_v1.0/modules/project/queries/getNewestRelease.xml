@@ -1,0 +1,25 @@
+<query id="getNewestRelease" action="select">
+    <tables>
+        <table name="issue_releases" />
+        <table name="projects" />
+        <table name="modules" />
+        <table name="sites" />
+    </tables>
+    <columns>
+        <column name="sites.domain" alias="domain" />
+        <column name="projects.site_srl" alias="site_srl" />
+        <column name="projects.title" alias="project_title" />
+        <column name="issue_releases.*" />
+    </columns>
+    <conditions>
+        <condition operation="equal" column="sites.site_srl" default="projects.site_srl" />
+        <condition operation="equal" column="modules.site_srl" default="sites.site_srl" pipe="and" />
+        <condition operation="equal" column="issue_releases.module_srl" default="modules.module_srl" notnull="notnull" pipe="and" />
+    </conditions>
+    <navigation>
+        <index var="sort_index" default="release_srl" order="desc" />
+        <list_count var="list_count" default="5" />
+        <page_count var="page_count" default="10" />
+        <page var="page" default="1" />
+    </navigation>
+</query>

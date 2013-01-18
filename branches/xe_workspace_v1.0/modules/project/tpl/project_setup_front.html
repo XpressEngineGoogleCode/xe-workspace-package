@@ -1,0 +1,126 @@
+<!--%import("./filter/change_language.xml")-->
+<!--#include("_project_header.html")-->
+
+
+<div class="goal_view_head">
+<h3 class="xeAdmin">{$lang->project_info}</h3>
+<p class="summary">{$lang->about_project_act[$act]}</p>
+
+<form method="post" action="{Context::getRequestUri()}" enctype="multipart/form-data" >
+    <!--@if(isSiteID($site_module_info->domain))-->
+    <input type="hidden" name="vid" value="{$site_module_info->domain}"/>
+    <!--@end-->
+    <input type="hidden" name="site_srl" value="{$project_info->site_srl}" />
+    <input type="hidden" name="module" value="project" />
+    <input type="hidden" name="act" value="procProjectInsertProjectBanner" />
+    <table cellspacing="0" class="rowTable">
+    <tr>
+        <th colspan="2"><div>{$lang->project_title}</div></th>
+        <td class="wide">
+            <input type="text" name="project_title" value="{htmlspecialchars($project_info->title)}" class="inputTypeText" />
+            <p>{$lang->about_project_title}</p>
+        </td>
+    </tr>
+    <tr>
+        <th colspan="2"><div>{$lang->project_description}</div><div class="description_length"></div></th>
+        <td class="wide">
+            <textarea name="project_description" class="inputTypeTextArea" id="project_description" style="width:90%;" onkeyup="jQuery('.description_length').html('('+this.value.length+')').css('display','block');">{htmlspecialchars($project_info->project_description)}</textarea>
+            <p>{$lang->about_project_description}</p>
+            <script type="text/javascript">
+                jQuery(window).load(function() { jQuery('.description_length').html('('+jQuery('#project_description').get(0).value.length+')').css('display','block'); });
+            </script>
+        </td>
+    </tr>
+    <tr>
+        <th colspan="2"><div>{$lang->project_logo}</div></th>
+        <td class="wide">
+            <!--@if($project_info->project_logo)-->
+            <img src="{$project_info->project_logo}" alt="project logo" style="display:block;margin-bottom:10px;"/>
+            <!--@end-->
+            <input type="file" name="project_logo" value="" class="inputTypeText" />
+            <p>{$lang->about_project_logo}</p>
+        </td>
+    </tr>
+    <tr>
+        <th colspan="2"><div>{$lang->project_banner}</div></th>
+        <td class="wide">
+            <!--@if($project_info->project_banner)-->
+            <img src="{$project_info->project_banner}" alt="project banner" style="display:block;margin-bottom:10px;"/>
+            <!--@end-->
+            <input type="file" name="project_banner" value="" class="inputTypeText" />
+            <p>{$lang->about_project_banner}</p>
+        </td>
+    </tr>
+    <!--@if($directories)-->
+    <tr>
+        <th rowspan="{count($directories)}"><div>{$lang->project_directory}</div></th>
+        {@$_idx=0}
+        <!--@foreach($directories as $key => $val)-->
+            <!--@if($_idx<1)-->
+        <th><div>{$val->title}</div></th>
+        <td>
+            <select name="directory_{$val->project_dir_srl}">
+                <!--@foreach($val->childs as $k => $v)-->
+                {@$_p = $project_info->directory[$key]}
+                <option value="{$k}" <!--@if($_p&&$_p->project_dir_srl==$v->project_dir_srl)-->selected="selected"<!--@end-->>{$v->title}</option>
+                <!--@end-->
+            </select>
+        </td>
+            <!--@end-->
+            {@$_idx++}
+        <!--@end-->
+    </tr>
+    <!--@if(Count($directories)>1)-->
+    {@$_idx=0}
+    <!--@foreach($directories as $key => $val)-->
+    <!--@if($_idx>0)-->
+    <tr>
+        <th>{$val->title}</td>
+        <td>
+            <select name="directory_{$val->project_dir_srl}">
+                <!--@foreach($val->childs as $k => $v)-->
+                {@$_p = $project_info->directory[$key]}
+                <option value="{$k}" <!--@if($_p&&$_p->project_dir_srl==$v->project_dir_srl)-->selected="selected"<!--@end-->>{$v->title}</option>
+                <!--@end-->
+            </select>
+        </td>
+    </tr>
+    <!--@end-->
+    {@$_idx++}
+    <!--@end-->
+    <!--@end-->
+    <!--@end-->
+	<!--@if($colorset)-->
+	<tr>
+		<th colspan="2">{$lang->colorset}</td>
+		<td><!--@foreach($colorset as $key=>$color)--><input type="radio" name="colorset" value="{$color->name}" id="colorset_{$key}" <!--@if($project_site_config->colorset==$color->name)-->checked="checked"<!--@end-->/><label for="colorset_{$key}">{$color->title}</label> <!--@end--></td>
+	</tr>
+	<!--@end-->
+    </table>
+    <div class="btnArea" colspan="3">
+        <span class="btn"><input type="submit" value="{$lang->cmd_save}" /></span>
+    </div>
+</form>
+
+<h4 class="xeAdmin">{$lang->default_language}</h4>
+<p class="summary">{$lang->About_default_language}</p>
+<form action="./" method="get" onsubmit="return procFilter(this, change_language);">
+    <table cellspacing="0" class="rowTable">
+    <tr>
+        <td>
+            <select name="language">
+            <!--@foreach($lang_supported as $key => $val)-->
+                <option value="{$key}" <!--@if($key==$site_module_info->default_language)-->selected="selected"<!--@end-->>{$val}</option>
+            <!--@endforeach-->
+            </select>
+        </td>
+    </tr>
+    </table>
+    <div class="btnArea">
+        <span class="btn"><input type="submit" value="{$lang->cmd_save}" /></span>
+    </div>
+</form>
+</div>
+<iframe name="hidden_iframe" frameborder="0" style="display:none"></iframe>
+
+<!--#include("_project_footer.html")-->

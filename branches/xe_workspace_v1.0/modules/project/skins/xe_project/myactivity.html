@@ -1,0 +1,111 @@
+<!--#include("hub_header.html")-->
+	<!-- .pxeBody -->
+	<div class="pxeBody">
+		<div class="pxeContent">
+			<div class="pxeH">
+				<h2>{$lang->my_activity} &gt; <strong><block cond="!$project_title">{$lang->all_projects}</block><block cond="$project_title">{$project_title}</block></strong><em> ({$page_navigation->total_count})</em></h2>
+				<form action="./" class="filter">
+					<input type="hidden" name="mid" value="{$mid}" />
+					<input type="hidden" name="act" value="{$act}" />
+					<input type="hidden" name="page" value="1" />
+					<div class="select" style="width:150px;">
+						<span class="ctrl"><span class="arrow"></span></span>
+						<!--@if($site_srl)-->
+						<!--@foreach($my_projects as $project)-->
+						<!--@if($project->site_srl == $site_srl)-->
+						{@ $chosen = $project; }
+						<!--@end-->
+						<!--@end-->
+						<button type="button" class="myValue">{$chosen->project_title}</button>
+						<!--@else-->
+						<button type="button" class="myValue">{$lang->all_projects}</button>
+						<!--@end-->
+						<ul class="iList">
+							<li><input name="site_srl" class="option" type="radio" value="0" id="ptotal" /><label for="ptotal">{$lang->all_projects}</label></li>
+							<!--@foreach($my_projects as $key=>$project)-->
+							<li><input name="site_srl" id="p{$key}" class="option" type="radio" value="{$project->site_srl}" <!--@if($project->site_srl == $site_srl)-->checked="checked"<!--@end-->/><label for="p{$key}">{$project->project_title}</label></li>
+							<!--@end-->
+						</ul>
+					</div>
+					<div class="select" style="width:150px;">
+						<span class="ctrl"><span class="arrow"></span></span>
+						<!--@if(!$type)-->
+						<button type="button" class="myValue">{$lang->sum_activities} ({$sum_activities})</button>
+						<!--@else-->
+						<button type="button" class="myValue">{$lang->activity_types[$type]} ({intval($counts[$type])})</button>
+						<!--@end-->
+						<ul class="iList">
+							<li><input name="type" id="ctotal" class="option" type="radio" value="" /><label for="ctotal">{$lang->sum_activities} ({$sum_activities})</label></li>
+							<!--@foreach($lang->activity_types as $key => $val)-->
+							<li><input name="type" id="c{$key}" class="option" type="radio" value="{$key}" /><label for="c{$key}">{$val} ({intval($counts[$key])})</label></li>
+							<!--@end-->
+						</ul>
+					</div>
+					<input type="submit" value="GO" class="go" />
+				</form>
+			</div>
+			<table border="1" cellspacing="0" class="pxeT">
+				<thead>
+					<tr>
+						<th scope="col"><span>{$lang->project_name}</span></th>
+						<th scope="col"><span>{$lang->blank}</span></th>
+						<th scope="col" class="title"><span>{$lang->title}</span></th>
+						<th scope="col"><span>{$lang->date}</span></th>
+					</tr>
+				</thead>
+				<tbody>
+					<!--@if(!$activities)-->
+					<tr>
+						<td colspan="4" class="pxeNoData">
+							<p>{$lang->no_relative_info}</p>
+						</td>
+					</tr>
+					<!--@else-->
+					<!--@foreach($activities as $news)-->
+					<tr>
+						<td><a href="{getSiteUrl($projects[$news->site_srl]->domain)}">{$projects[$news->site_srl]->title}</a></td>
+						<!--@if($news->type == "d")-->
+						<td>{$modules[$news->item->module_srl]}</td>
+						<!--@elseif($news->type == "c")-->
+						<td>Comment</td>
+						<!--@elseif($news->type == "s")-->
+						<td>Commit</td>
+						<!--@elseif($news->type == "a")-->
+						<td>Assigned</td>
+						<!--@else-->
+						<td>{$news->type}</td>
+						<!--@end-->
+						<!--@if($news->type == "d")-->
+						<td class="title"><!--@if($news->item->status)--><em class="status {$news->item->status}">{$news->item->status}</em> <!--@end--><a href="{getSiteUrl($projects[$news->site_srl]->domain, '', 'document_srl', $news->item->document_srl)}">{$news->item->title}</a></td>
+						<!--@elseif($news->type == "c")-->
+						<td class="title"><a href="{getSiteUrl($projects[$news->site_srl]->domain, '', 'document_srl', $news->item->document_srl)}#{$news->item->comment_srl}">{$news->item->title}</a></td>
+						<!--@elseif($news->type == "s")-->
+						<td class="title">r{$news->item->revision} - {$news->item->message}</td>
+						<!--@elseif($news->type == "a")-->
+						<td class="title"><em class="status {$news->item->status}">{$news->item->status}</em> <a href="{getSiteUrl($projects[$news->site_srl]->domain, '', 'document_srl', $news->item->document_srl)}">{$news->item->title}</a></td>
+						<!--@else-->
+						<td class="title">test</td>
+						<!--@end-->
+						<td class="num">{zdate($news->regdate, "Y.m.d")}</td>
+					</tr>
+					<!--@end-->
+					<!--@end-->
+				</tbody>
+			</table>
+			<div class="pagination">
+                <!--@if($page_navigation->cur_page>1)--><a class="direction" href="{getUrl('page',1)}">&lsaquo; FIRST</a><!--@end-->
+                <!--@if($page_navigation->cur_page>1)--><a class="direction" href="{getUrl('page',$page_navigation->cur_page-1)}">&lsaquo; PREV</a><!--@end-->
+                <!--@while($page_no = $page_navigation->getNextPage())-->
+                    <!--@if($page == $page_no)-->
+                    <strong>{$page_no}</strong>
+                    <!--@else-->
+                    <a href="{getUrl('page',$page_no,'document_srl','','division',$division,'last_division',$last_division)}">{$page_no}</a>
+                <!--@end-->
+                <!--@end-->
+                <!--@if($page_navigation->cur_page<$page_navigation->total_page)--><a class="direction" href="{getUrl('page',$page_navigation->cur_page+1)}">NEXT &rsaquo;</a><!--@end-->
+                <!--@if($page_navigation->cur_page<$page_navigation->total_page)--><a class="direction" href="{getUrl('page',$page_navigation->total_page)}">END &rsaquo;</a><!--@end-->
+			</div>
+		</div>
+	</div>
+	<!-- /.pxeBody -->
+</div>

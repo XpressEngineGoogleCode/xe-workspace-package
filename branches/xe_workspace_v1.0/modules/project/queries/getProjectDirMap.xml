@@ -1,0 +1,22 @@
+<query id="getProjectDirMap" action="select">
+    <tables>
+        <table name="project_dir_maps" alias="map" />
+        <table name="project_directories" alias="dir" />
+        <table name="project_directories" alias="pdir" />
+    </tables>
+    <columns>
+        <column name="dir.parent_directory_srl" alias="parent_directory_srl"/>
+        <column name="dir.project_dir_srl" alias="project_dir_srl" />
+        <column name="dir.title" alias="title" />
+        <column name="pdir.title" alias="ptitle" />
+    </columns>
+    <conditions>
+        <condition operation="equal" column="map.site_srl" var="site_srl" notnull="notnull" filter="number" />
+        <condition operation="equal" column="dir.project_dir_srl" default="map.project_dir_srl" pipe="and" />
+        <condition operation="equal" column="pdir.project_dir_srl" default="dir.parent_directory_srl" pipe="and" />
+    </conditions>
+    <navigation>
+        <index var="sort_index" default="dir.project_dir_srl" order="asc" />
+        <index var="sort_index" default="dir.list_order" order="asc" />
+    </navigation>
+</query>

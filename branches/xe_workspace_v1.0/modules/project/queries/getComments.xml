@@ -1,0 +1,14 @@
+<query id="getComments" action="select">
+    <tables>
+        <table name="comments" />
+        <table name="documents" />
+    </tables>
+    <columns>
+        <column name="comments.*" />
+		<column name="documents.title" alias="title" />
+    </columns>
+    <conditions>
+        <condition operation="in" column="comment_srl" var="comment_srls" notnull="notnull" />
+        <condition operation="equal" column="comments.document_srl" default="documents.document_srl" notnull="notnull" pipe="and"/>
+    </conditions>
+</query>

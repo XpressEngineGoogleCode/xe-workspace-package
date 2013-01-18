@@ -1,0 +1,52 @@
+<!--#include("header_front.html")-->
+<!--%import("css/issuetracker.css")-->
+<!--%import("filter/insert_milestone.xml")-->
+<!--%import("filter/delete_milestone.xml")-->
+
+<!--// datepicker javascript plugin load -->
+<!--%load_js_plugin("ui.datepicker")-->
+<form class="new_tip_form" action="{Context::getRequestUri()}" method="post" onsubmit="return procFilter(this, insert_milestone)">
+<div class="tip_box">
+        <input type="hidden" name="module_srl" value="{$module_srl}" />
+        <input type="hidden" name="return_act" value="dispIssuetrackerViewMilestone" />
+        <dl>
+            <dt><label for="milestone_title">{$lang->name}</label></dt>
+                <dd><input name="title" type="text" class="ipt_tags" placeholder="Input title here" id="milestone_title"></dd>
+            <dt><label for="deadline">{$lang->deadline}</label></dt>
+                <dd>
+                    <input type="hidden" name="deadline" id="date_deadline" value=""/>
+                    <input type="text" class="ipt_tags inputDate" value="" readonly="readonly" >
+                </dd>
+                <input type="hidden" name="deadline"  id="date_deadline"/>
+                <script type="text/javascript">
+                (function($){
+                    $(function(){
+                        var option = { gotoCurrent: false,yearRange:'-100:+10', onSelect:function(){
+
+                            $(this).prev('input[type="hidden"]').val(this.value.replace(/-/g,""))}
+                        };
+                        $.extend(option,$.datepicker.regional['{$lang_type}']);
+                        $(".inputDate").datepicker(option);
+                    });
+                })(jQuery);
+                </script>
+            <dt>
+                <label for="is_default">{$lang->is_default}</label>
+                <span>
+                    <input type="checkbox" name="is_default" id="is_default" value="Y" />
+                    <p class="about_default">{$lang->default_description}</p>
+                </span>
+            </dt>
+                <dd class="blind"></dd>
+            <dt><label for="description">Description</label></dt>
+                <dd class="dd_ta"><textarea placeholder="Input description content here." rows="10" cols="30" id="description" name="description"></textarea>
+                    </dd>
+
+    <!-- //new_tip_form -->
+</div>
+<div class="btnArea">
+    <input type="submit" value="Save" class="sbmt" style="margin-left:5px">
+    <input type="button" value="{$lang->cmd_back}" class="sbmt" style="margin-left:5px" onclick="window.location='{getUrl('','vid',$vid,'mid',$mid,'act','dispIssuetrackerViewMilestone')}'">
+</div>
+</form>
+<!--// HalfTable Left -->

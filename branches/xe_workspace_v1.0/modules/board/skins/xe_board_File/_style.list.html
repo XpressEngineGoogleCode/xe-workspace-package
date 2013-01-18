@@ -1,0 +1,58 @@
+    <div class="btn_modhead"></div><!-- //btn_modhead -->
+    <div class="sec_files">
+        <div class="hd">
+            <!--@if($module_info->display_login_info != 'N' || $module_info->display_setup_button != 'N')-->
+            <span class="total">Total Folders<em><!--@if($total_count && $module_info->default_style != 'blog')-->{number_format($total_count)}<!--@end--></em></span>
+            <div class="view">
+
+    				<!--@if($module_info->default_style != 'forum' && $module_info->default_style != 'blog')-->
+    				<a class="v_list_on ir" href="{getUrl('listStyle','list','act','','document_srl','')}">List</a>
+                    <a class="v_tile_off ir" href="{getUrl('listStyle','gallery','act','','document_srl','')}">Tile</a>
+    				<!--@end-->
+
+            </div>
+            <span class="size">Total <em>{$file_num}</em> files at <em>{FileHandler::filesize($file_size)}</em> bytes</span>
+             <!--@end-->
+        </div><!-- //hd -->
+        <table class="bucket_list">
+            <caption class="blind">Buckets</caption>
+            <thead>
+                <tr>
+                    <th class="icon">&nbsp;</th>
+                    <th class="name">Bucket Name</th>
+                    <!--@if($module_info->use_category == "Y")-->
+                    <th class="cg">Category</th>
+                    <!--@end-->
+                    <th class="owner">Owner</th>
+                    <th class="date">Date</th>
+                </tr>
+            </thead>
+            <tbody>
+                <!--@foreach($document_list as $no => $document)-->
+                <tr>
+                    <td class="icon">
+                        <img width="29" height="23" alt="" src="images/ico_list_bucket.png">
+                    </td>
+                    <td class="name">
+                        <a class="lnk_buc" href="{getUrl('document_srl',$document->document_srl, 'listStyle', $listStyle, 'cpage','')}">{$document->getTitle($module_info->subject_cut_size)}</a>
+                        <!--@if($document->hasUploadedFiles())-->
+                        {@ $uploaded_list = $document->getUploadedFiles() }
+                        <span class="size"><em>{count($uploaded_list)}</em>files at <em>1045125</em>byte</span>
+                        <!--@else-->
+                        <span class="size"><em>0</em>files at <em>0</em>byte</span>
+                        <!--@end-->
+                    </td>
+                    <!--@if($module_info->use_category == "Y")-->
+                        <td class="cg">
+                            <!--@if($document->get('category_srl'))-->
+                            {$category_list[$document->get('category_srl')]->title}
+                            <!--@end-->
+                        </td>
+                    <!--@end-->
+                    <td class="owner">{$document->getUserName() ? $document->getUserName():$document->getNickName()}</td>
+                    <td class="date">{$document->getRegdate('Y-m-d')}</td>
+                </tr>
+                <!--@end-->
+            </tbody>
+        </table>
+    </div><!-- //sec_files_tile -->

@@ -1,0 +1,24 @@
+<!--@foreach($newest_documents as $val)-->
+	<li>
+		<table cellpadding="0" cellspacing="0" class="cafe_tb">
+			<tr>
+				<th class="th_wid">
+				    <a href="{$val->getPermanentUrl()}" class="th_wid">
+				        <!--@if($val->thumbnailExists(39,39))-->
+				            <img src="{$val->getThumbnail(39,39)}" width="39" height="39" alt="" class="userThumb" />{$val->getTitle(50)}
+				        <!--@else-->
+				            {$val->getTitle(56)}
+				        <!--@end-->
+				        <br/>
+				    </a>
+				</th>
+				<td class="td_wid2 sum"><img src="img/ico_n.gif" width="10" height="10" alt="n">{$val->getCommentCount()}</td>
+				<td>{$val->getNickName()}</td>
+				<td class="td_wid3 name">{zdate($val->get('regdate'),'Y-m-d, H:i')}</td>
+			</tr>
+			<tr>
+			    <td colspan="4">{$val->getContentText(254)}</td>
+			</tr>
+		</table>
+	</li>
+<!--@end-->

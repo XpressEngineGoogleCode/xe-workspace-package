@@ -1,0 +1,8 @@
+<query id="updateReleaseDates" action="update">
+    <tables>
+        <table name="issue_releases" alias="r" />
+    </tables>
+    <columns>
+        <column name="r.release_date" default="r.regdate" />
+    </columns>
+</query>

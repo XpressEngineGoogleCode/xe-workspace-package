@@ -1,0 +1,15 @@
+<query id="getProjectsInfo" action="select">
+    <tables>
+        <table name="projects" />
+        <table name="sites" />
+    </tables>
+    <columns>
+        <column name="projects.title" alias="title"/>
+        <column name="projects.site_srl" alias="site_srl" />
+        <column name="sites.domain" alias="domain" />
+    </columns>
+    <conditions>
+        <condition operation="in" column="projects.site_srl" var="site_srl" filter="number" notnull="notnull" />
+        <condition operation="equal" column="sites.site_srl" default="projects.site_srl" filter="number" notnull="notnull" pipe="and" />
+	</conditions>
+</query>

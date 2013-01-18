@@ -1,0 +1,36 @@
+<div class="sec_files">
+    <div class="hd">
+        <span class="total">Total Folders<em><!--@if($total_count && $module_info->default_style != 'blog')-->{number_format($total_count)}<!--@end--></em></span>
+        <div class="view">
+    		<!--@if($module_info->default_style != 'forum' && $module_info->default_style != 'blog')-->
+    		<a class="v_list_off ir" href="{getUrl('listStyle','list','act','','document_srl','')}">List</a>
+            <a class="v_tile_on ir" href="{getUrl('listStyle','gallery','act','','document_srl','')}">Tile</a>
+    		<!--@end-->
+        </div>
+        <span class="size">Total <em>{$file_num}</em> files at <em>{FileHandler::filesize($file_size)}</em> bytes</span>
+    </div><!-- //hd -->
+    <ul class="bucket_tile">
+        <!-- //////////////////////////// LOOP //////////////////////////// -->
+        <!--@foreach($document_list as $no => $document)-->
+            <!--@if($document->thumbnailExists($module_info->thumbnail_width, $module_info->thumbnail_height, $module_info->thumbnail_type))-->
+                {@ $src = $document->getThumbnail('62px', '54px', $module_info->thumbnail_type);}
+        <li style="background: url('{$src}') no-repeat 0 0">
+            <!--@else-->
+        <li>
+            <!--@end-->
+            <h5 class="buc_title"><a href="{getUrl('document_srl',$document->document_srl,'listStyle',$listStyle, 'cpage','')}">{cut_str($document->getTitle(),15)}</a></h5>
+            <span class="buc_own"><a href="#popup_menu_area" class="member_{$document->get('member_srl')}" onclick="return false">{$document->getNickName()}</a></span>
+            <span class="buc_date">{$document->getRegdate('Y.m.d')}</span>
+            <span class="buc_count">
+                <!--@if($document->hasUploadedFiles())-->
+                {@ $uploaded_list = $document->getUploadedFiles() }
+                files:<em>{count($uploaded_list)}</em>
+                <!--@else-->
+                files:<em>0</em>
+                <!--@end-->
+            </span>
+        </li>
+        <!--@end-->
+    </ul>
+</div>
+

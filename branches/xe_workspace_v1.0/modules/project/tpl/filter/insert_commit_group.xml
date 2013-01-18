@@ -1,0 +1,5 @@
+<filter name="insert_commit_group" module="project" act="procProjectInsertCommitGroup" confirm_msg_code="confirm_submit">
+    <form />
+    <parameter />
+    <response />
+</filter>

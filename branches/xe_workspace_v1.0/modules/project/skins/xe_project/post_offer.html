@@ -1,0 +1,9 @@
+<h3><!--@if(!$offer)-->{$lang->post_offer}<!--@else-->{$lang->update_offer}<!--@end--></h3>
+
+<form action="./" method="post" onsubmit="return procFilter(this,insert_offer)">
+<input type="hidden" name="offer_srl" value="{$offer->offer_srl}" />
+<input type="hidden" name="content" value="{htmlspecialchars($offer->content)}" />
+<p><input type="text" name="title" value="{htmlspecialchars($offer->title)}" class="inputTypeText w300" /></p>
+{$editor}
+<p><span class="buttonAction actionBlue"><button type="submit">{$lang->cmd_registration}</button></span></p>
+</form>

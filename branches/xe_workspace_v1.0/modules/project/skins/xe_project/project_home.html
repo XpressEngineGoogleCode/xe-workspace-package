@@ -1,0 +1,155 @@
+<!--%import("js/project.js")-->
+		<!-- #pxeContent -->
+		<div id="pxeContent">
+
+			<!-- .pxeInfo -->
+			<div class="pxeInfo">
+				<div class="thumb"><img src="{$project_info->project_banner}" width="200" alt="Project Banner" /></div>
+				<div class="desc">
+					<p class="summary">{htmlspecialchars($project_info->description)}</p>
+					<ul>
+						<li><strong>{$lang->project_admin}</strong>
+						<!--@foreach($site_admins as $key=>$val)-->
+						<a href="#" onclick="return false;" class="member_{$val->member_srl}">{htmlspecialchars($val->nick_name)}</a>
+						<!--@end-->
+						</li>
+						<li><strong>{$lang->date_opened}</strong> {zdate($project_info->regdate, "Y.m.d")}</li>
+					</ul>
+				</div>
+				<!--@if($is_logged)-->
+				<div class="join">
+					<!--@if(!$project_join)-->
+					<span class="btnPxe medium" onclick="doSiteSignUp(); return false;"><button type="button">{$lang->cmd_site_signup}</button></span>
+					<!--@else-->
+					<a href="#" onclick="doSiteLeave('{$lang->confirm_leave}'); return false;" class="btn"><span>{$lang->cmd_leave}</span></a>
+					<!--@end-->
+				</div>
+				<!--@end-->
+			</div>
+			<!-- /.pxeInfo -->
+			<!--@if($notices)-->
+			<div class="pxeNotice">
+				<!--@foreach($notices as $notice)-->
+				<dl>
+					<dt><em class="status notice">notice</em> <a href="{getUrl('','document_srl', $notice->document_srl)}">{$notice->getTitleText()}</a><!--@if($notice->getCommentCount())--> <span class="feedback">[<strong>{$notice->getCommentCount()}</strong>]</span><!--@endif--></dt>
+					<dd>{$notice->getContentText(400)}</dd>
+				</dl>
+				<!--@end-->
+			</div>
+			<!--@endif-->
+
+			<div class="pxeH">
+				<h2><em>{$project_info->title}</em> {$lang->news}</h2>
+			</div>
+
+			<!-- .pxeNews -->
+			<div class="pxeNews">
+				<!--@if($page_navigation->total_count == 0)-->
+				<div class="pxeNoData">
+					<p>{$lang->no_relative_info}</p>
+				</div>
+				<!--@else-->
+				<dl>
+					<!--@foreach($news_list as $news)-->
+					<!--@if($news->type == "d")-->
+					<dt><!--@if($news->item->status)--><em class="status {$news->item->status}">{$news->item->status}</em> <!--@end--><a href="{getUrl('', 'document_srl', $news->item->document_srl)}">{htmlspecialchars($news->item->title)}</a> <span class="feedback">[<strong>{$news->item->comment_count}</strong>]</span></dt>
+					<dd class="description">{cut_str(strip_tags($news->item->content), 800, '...') }</dd>
+					<dd class="meta"><em>{$modules[$news->item->module_srl]}</em> <span class="time">{zdate($news->regdate, "Y.m.d")}</span> <span class="author">{$news->item->nick_name}</span></dd>
+					<!--@elseif($news->type == "c")-->
+					<dt><a href="{getUrl('', 'document_srl', $news->item->document_srl)}#comment_{$news->item->comment_srl}">{$news->item->title}</a></dt>
+					<dd class="description reply">{cut_str(strip_tags($news->item->content), 800, '...') }</dd>
+					<dd class="meta"><em>{$modules[$news->item->module_srl]}</em> <span class="time">{zdate($news->regdate, "Y.m.d")}</span> <span class="author">{$news->item->nick_name}</span></dd>
+				<!--@elseif($news->type == "D")-->
+				<dt><a href="{getUrl('', 'act', 'dispIssuetrackerDownload', 'release_srl', $news->target_srl)}">{$news->item->package_title} - {$news->item->title}</a>
+					<a href="{getUrl('', 'act', 'dispIssuetrackerDownload', 'release_srl', $news->target_srl)}" class="download"><span class="alt">다운로드</span></a></dt>
+				<dd class="description">{$news->item->release_note}</dd>
+				<dd class="meta"><em>Download</em> <span class="time">{zdate($news->regdate, "Y.m.d")}</span> </dd>
+				<!--@elseif($news->type == "s")-->
+				<dt>r{$news->item->revision}</dt>
+				<dd class="description">{$news->item->message}</dd>
+				<dd class="meta"><em>Commit</em> <span class="time">{zdate($news->regdate, "Y.m.d")}</span> <span class="author">{$news->item->author}</span></dd>
+					<!--@end-->
+					<!--@end-->
+				</dl>
+				<!--@end-->
+                <!--@if($page_navigation)-->
+				<div class="pagination">
+                <!--@if($page_navigation->cur_page>1)--><a class="direction" href="{getUrl('page',1)}">&lsaquo; FIRST</a><!--@end-->
+                <!--@if($page_navigation->cur_page>1)--><a class="direction" href="{getUrl('page',$page_navigation->cur_page-1)}">&lsaquo; PREV</a><!--@end-->
+                <!--@while($page_no = $page_navigation->getNextPage())-->
+                    <!--@if($page == $page_no)-->
+                    <strong>{$page_no}</strong>
+                    <!--@else-->
+                    <a href="{getUrl('page',$page_no,'document_srl','','division',$division,'last_division',$last_division)}">{$page_no}</a>
+                <!--@end-->
+                <!--@end-->
+                <!--@if($page_navigation->cur_page<$page_navigation->total_page)--><a class="direction" href="{getUrl('page',$page_navigation->cur_page+1)}">NEXT &rsaquo;</a><!--@end-->
+                <!--@if($page_navigation->cur_page<$page_navigation->total_page)--><a class="direction" href="{getUrl('page',$page_navigation->total_page)}">END &rsaquo;</a><!--@end-->
+				</div>
+                <!--@end-->
+			</div>
+			<!-- /.pxeNews -->
+
+		</div>
+		<!-- /#pxeContent -->
+
+		<!-- #pxeAside -->
+		<div id="pxeAside">
+			<span class="download"><a href="{getSiteUrl($project_info->domain,'','mid','issuetracker','act','dispIssuetrackerDownload')}">{$lang->download_program}</a></span>
+			<span class="goTo"><a href="{getSiteUrl($project_info->domain,'','mid','forum','act','dispBoardWrite')}">{$lang->write_to_forum}</a></span>
+			<span class="goTo"><a href="{getSiteUrl($project_info->domain,'','mid','issuetracker','act','dispIssuetrackerNewIssue')}">{$lang->write_new_issue}</a></span>
+
+			<div class="section">
+				<h2 class="hx">{$lang->projectmilestone}</h2>
+				<div class="tx">
+					<!--@if($milestones)-->
+					<!--@foreach($milestones as $milestone)-->
+					<div class="pitem">
+						<h3><a href="{getSiteUrl($project_info->domain,'','mid','issuetracker','act','dispIssuetrackerViewIssue','milestone_srl',$milestone->milestone_srl)}">{$milestone->title}</a></h3>
+						<p class="plan">{zdate($milestone->deadline, "Y.m.d")} {$lang->eval_complete}</p>
+						<p class="plan">{$lang->issue_resolved_rate}</p>
+						{@ $progress = sprintf("%d", $milestone->issues["total"]?$milestone->issues["resolve"] / $milestone->issues["total"]*100:100); }
+						<p class="graph"><span class="bar"><span class="progress" style="width:{$progress}%"></span></span><span class="num"><strong>{$progress}</strong>%</span></p>
+					</div>
+					<!--@end-->
+					<!--@else-->
+					<p style="text-align:center;">{$lang->no_milestone}</p>
+					<!--@end-->
+				</div>
+				<a href="{getSiteUrl('','mid','issuetracker','act','dispIssuetrackerViewMilestone')}" class="more"><span>&rsaquo;</span> {$lang->more}</a>
+			</div>
+
+			<div class="section">
+				<h2 class="hx">{$lang->project_info}</h2>
+				<div class="tx">
+					<dl class="pinfo">
+						<dt>{$lang->project_title}</dt>
+						<dd>{$project_info->title}</dd>
+						<!--@foreach($project_info->directory as $value)-->
+						<dt>{$value->ptitle}</dt>
+						<dd>{$value->title}<dd>
+						<!--@end-->
+						<!--@if($repos_url)-->
+						<dt>{$lang->repository}</dt>
+						<dd><a href="{$repos_url}" class="svn">{$repos_url}</a></dd>
+						<!--@end-->
+					</dl>
+				</div>
+			</div>
+
+			<div class="section">
+				<h2 class="hx">{$lang->member_info}</h2>
+				<div class="tx">
+					<dl class="pmember">
+						<!--@foreach($member_groups as $group)-->
+						<dt>{$group->title}</dt>
+						<dd>{$group->count}</dt>
+						<!--@end-->
+					</dl>
+				</div>
+				<span class="total" title="Total"><span>{$member_count}</span>{$lang->member_unit}</span>
+			</div>
+		</div>
+		<!-- /#pxeAside -->
+
+

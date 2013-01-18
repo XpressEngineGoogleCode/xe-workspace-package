@@ -1,0 +1,61 @@
+{@ $histories = $oIssue->get('histories') }
+<!--@if($histories)-->
+<div class="comment_list">
+    <!--@foreach($histories as $history)-->
+    <div class="comment">
+        <span class="cm_author">{@ echo $history->nick_name ? $history->nick_name:$history->user_id}</span>
+        <span class="cm_date">{zdate($history->regdate, "Y.m.d H:i")}</span>
+        <!--@if($history->history && count($history->history))-->
+			<!--@foreach($history->history as $key => $val)-->
+			<p class="cm_txt">{$val}</p>
+			<!--@end-->
+		<br/>
+		<!--@endif-->
+		<!--@if($history->content)-->
+		    <p class="cm_txt">{$oIssue->replaceContent(nl2br($history->content))}</p>
+		<!--@endif-->
+		<br/>
+		<!--@if($history->hasUploadedFiles())-->
+		<div class="file">
+			{@ $uploadedFiles = $history->getUploadedFiles() }
+			<!--@foreach($uploadedFiles as $file)-->
+			<a href="{getUrl('')}{$file->download_url}"><span class="fName">{$file->source_filename}</span> <span class="bubble">[File Size:{FileHandler::filesize($file->file_size)}/Download:{number_format($file->download_count)}]</span></a>
+			<!--@end-->
+		</div>
+		<!--@end-->
+    </div>
+    <!--@end-->
+</div><!-- //comment_list -->
+<!--@end-->
+<!--첨부파일, pagination-->
+<!--@if($page_navigation)-->
+<div class="pagination">
+    <ul>
+        <li class="first">
+            <a href="{getUrl('page',1,'division',$division,'last_division',$last_division)}">First</a>
+        </li>
+        <li class="prev">
+            <!--@if($page>1)-->
+            <a href="{getUrl('page',$page-1,'division',$division,'last_division',$last_division)}">Prev</a>
+            <!--@else-->
+            <a href="{getUrl('page',1,'division',$division,'last_division',$last_division)}">Prev</a>
+            <!--@end-->
+        </li>
+        <!--@while($page_no = $page_navigation->getNextPage())-->
+            <!--@if($page == $page_no)-->
+                <li><strong>{$page_no}</strong></li>
+            <!--@else-->
+                <li><a href="{getUrl('page',$page_no,'division',$division,'last_division',$last_division)}">{$page_no}</a></li>
+            <!--@end-->
+        <!--@end-->
+        <li class="next">
+            <!--@if($page<$page_navigation->last_page)-->
+            <a href="{getUrl('page',$page+1,'division',$division,'last_division',$last_division)}">Next</a>
+            <!--@else-->
+            <a href="{getUrl('page',$page_navigation->last_page,'division',$division,'last_division',$last_division)}">Next</a>
+            <!--@end-->
+        </li>
+        <li class="end"><a href="{getUrl('page',$page_navigation->last_page,'division',$division,'last_division',$last_division)}">End</a></li>
+    </ul>
+</div><!-- //pagination -->
+<!--@end-->

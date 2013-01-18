@@ -1,0 +1,55 @@
+<!--#include("hub_header.html")-->
+	<!-- .pxeBody -->
+	<div class="pxeBody">
+		<div class="pxeContent">
+			<!--@if(!$milestones)-->
+			<div class="pxeNoData">
+				<p>{$lang->noMilestone}</p>
+			</div>
+			<!--@else-->
+			<table border="1" cellspacing="0" summary="Project Plan" class="pxePlan">
+				{@ $today = date("Ymd"); }
+				<!--@foreach($milestones as $milestone)-->
+				<!--@if($milestone->deadline != $curdate)-->
+				<!--@if($curdate)-->
+					</td>
+				</tr>
+				<!--@else-->
+				{@ $firstdate = $milestone->deadline; }
+				<!--@endif-->
+				<tr>
+					<th scope="row">
+						<div class="th">
+							<span class="ym">{zdate($milestone->deadline, "Y.m")}</span>
+							<span class="day">{zdate($milestone->deadline, "d")}</span>
+							<span class="week">{zdate($milestone->deadline, "D")}</span>
+							<!--@if($milestone->deadline == $today)-->
+							<em class="today">$lang->today</em>
+							<!--@endif-->
+						</div>
+					</th>
+					{@ $curdate = $milestone->deadline; }
+					<td>
+				<!--@endif-->
+						<a href="{getSiteUrl($milestone->domain)}">{$milestone->title}</a> {$milestone->milestone_title} <br />
+				<!--@endforeach-->
+				<!--@if($curdate)-->
+					</td>
+				</tr>
+				<!--@endif-->
+			</table>
+			<div class="pxePlanPagination">
+				<!--@if($beforemore)-->
+				<a href="{getUrl('enddate',$firstdate,'startdate','')}"><span>&lsaquo;</span> {$lang->before}</a>
+				<!--@endif-->
+				<!--@if($aftermore)-->
+				<a href="{getUrl('enddate','','startdate',$curdate)}">{$lang->after} <span>&rsaquo;</span></a>
+				<!--@endif-->
+			</div>
+			<!--@end-->
+		</div>
+	</div>
+	<!-- /.pxeBody -->
+</div>
+</body>
+</html>

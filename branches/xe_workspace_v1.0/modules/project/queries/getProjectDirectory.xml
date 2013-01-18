@@ -1,0 +1,11 @@
+<query id="getProjectDirectory" action="select">
+    <tables>
+        <table name="project_directories" />
+    </tables>
+    <columns>
+        <column name="*" />
+    </columns>
+    <conditions>
+        <condition operation="equal" column="project_dir_srl" default="0" var="project_dir_srl" notnull="notnull" />
+    </conditions>
+</query>

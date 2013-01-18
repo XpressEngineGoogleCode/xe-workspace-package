@@ -1,0 +1,12 @@
+<query id="insertDailyCnt" action="insert">
+	<tables>
+		<table name="project_daily_cnts" />
+	</tables>
+	<columns>
+		<column name="cnt" var="cnt" default="1" />
+		<column name="target_srl" var="target_srl" notnull="notnull" />
+		<column name="site_srl" var="site_srl" notnull="notnull" />
+		<column name="type" var="type" notnull="notnull" />
+		<column name="regdate" var="regdate" notnull="notnull" />
+	</columns>
+</query>

@@ -1,0 +1,97 @@
+<!-- Member mod skin -->
+<load target="css/member.css" />
+<!-- Member mod skin -->
+<!--// datepicker javascript plugin load -->
+<!--%load_js_plugin("ui")-->
+<!--%load_js_plugin("ui.datepicker")-->
+
+<!-- Content Area -->
+
+    <h2 class="content_title" cond="$site_module_info->skin != 'xe_pacakgePro' && !$site_module_info->site_srl">
+        {$lang->cmd_signup}
+    </h2>
+    <div class="mcm" <!--@if(($site_module_info->skin == 'xe_pacakgePro') && $site_module_info->site_srl)-->style="margin: 0px 0px 0px 0px;"<!--@end-->>
+        <div cond="$XE_VALIDATOR_MESSAGE" class="message {$XE_VALIDATOR_MESSAGE_TYPE}">
+            <p>{$XE_VALIDATOR_MESSAGE}</p>
+        </div>
+        <form ruleset="@insertMember" id="fo_insert_member" class="form" action="./" method="post" enctype="multipart/form-data">
+            <fieldset>
+                <legend class="blind">{$lang->cmd_signup}</legend>
+                <input type="hidden" name="act" value="procMemberInsert" />
+                    <table class="row_table">
+                    <tbody>
+                        <tr cond="$member_config->agreement">
+                            <th colspan="2" class="agreement">
+
+                                <div class="agreement">
+                                    {$member_config->agreement}
+                                </div>
+                                <div class="confirm">
+                                    <input type="checkbox" name="accept_agreement" value="Y" id="accept_agree" />
+                                    <label for="accept_agree">{$lang->about_accept_agreement}</label>
+                                </div>
+                            </th>
+                        </tr>
+
+                        <tr>
+                            <th>{$identifierForm->title} <em class="required">*</em></th>
+                            <td><input type="text" name="{$identifierForm->name}" value="{$identifierForm->value}" class="ipt_txt" /></td>
+                        </tr>
+                        <tr>
+                            <th>{$lang->password} <em style="color:red">*</em></th>
+                            <td>
+                                <input type="password" name="password" value="" class="ipt_txt"/>
+                                <p class="desc">{$lang->about_password}</p>
+                            </td>
+                        </tr>
+                        <tr>
+                            <th>{$lang->password2} <em style="color:red">*</em></th>
+                            <td>
+                                <input type="password" name="password2" value="" class="ipt_txt"/>
+                            </td>
+                        </tr>
+                        <tr loop="$formTags=>$formTag" cond="$formTag->name != 'signature'">
+                            <th>{$formTag->title}</th>
+                            <td>{$formTag->inputTag}</td>
+                        </tr>
+                        <tr>
+                            <th>{$lang->allow_mailing}</th>
+                            <td>
+                                <input type="radio" name="allow_mailing" id="mailingYes" value="Y" checked="checked"|cond="$member_info->allow_mailing == 'Y'" /> <label for="mailingYes">{$lang->cmd_yes}</label>
+                                <input type="radio" name="allow_mailing" id="mailingNo" value="N" checked="checked"|cond="$member_info->allow_mailing != 'Y'" /> <label for="mailingNo">{$lang->cmd_no}</label>
+                            </td>
+                        </tr>
+                        <tr>
+                            <th>{$lang->allow_message}</th>
+                            <td>
+                                <block loop="$lang->allow_message_type=>$key,$val">
+                                    <input type="radio" name="allow_message" value="{$key}" checked="checked"|cond="$member_info->allow_message == $key || (!$member_info && $key == 'Y')" id="allow_{$key}" /> <label for="allow_{$key}">{$val}</label>
+                                </block>
+                            </td>
+                        </tr>
+                    </tbody>
+                    </table>
+                    <div class="btn_area">
+                        <span class="btn_small"><input type="submit" value="{$lang->cmd_registration}"></span>
+                        <a href="{getUrl('act','','member_srl','')}" class="btn_small_white"><span>{$lang->cmd_cancel}</span></a>
+                    </div>
+            </fieldset>
+        </form>
+    </div><!-- // mcm -->
+<script type="text/javascript">
+(function($){
+	$(function(){
+		var option = { changeMonth: true, changeYear: true, gotoCurrent: false,yearRange:'-100:+10', dateFormat:'yy-mm-dd', onSelect:function(){
+
+			$(this).prev('input[type="hidden"]').val(this.value.replace(/-/g,""))}
+		};
+		$.extend(option,$.datepicker.regional['{$lang_type}']);
+		$(".inputDate").datepicker(option);
+		$(".dateRemover").click(function() {
+			$(this).parent().prevAll('input').val('');
+			return false;});
+	});
+})(jQuery);
+</script>
+
+<!-- //Content Area -->

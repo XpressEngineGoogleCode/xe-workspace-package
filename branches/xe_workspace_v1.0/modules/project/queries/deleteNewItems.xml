@@ -1,0 +1,8 @@
+<query id="deleteNewItems" action="delete">
+	<tables>
+		<table name="project_new_items" />
+	</tables>
+	<conditions>
+		<condition operation="in" column="target_srl" var="target_srls" notnull="notnull" />
+	</conditions>
+</query>

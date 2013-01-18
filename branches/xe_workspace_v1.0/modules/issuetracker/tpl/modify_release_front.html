@@ -1,0 +1,38 @@
+<!--#include("header_front.html")-->
+<!--%import("css/front.css")-->
+<!--%import("filter/insert_release.xml")-->
+<!--%load_js_plugin("ui.datepicker")-->
+<div class="prodt_box">
+    <h4><!--@if($release->release_srl)-->Update Release<!--@else-->Add a New Release<!--@end--></h4>
+    <form class="new_prodt_form" action="{Context::getRequestUri()}" method="post" onsubmit="return procFilter(this, insert_release)">
+        <input type="hidden" name="module_srl" value="{$module_srl}" />
+        <input type="hidden" name="release_srl" value="{$release->release_srl}" />
+        <input type="hidden" name="package_srl" value="{$release->package_srl ? $release->package_srl:$package_srl}" />
+        <input type="hidden" name="success_return_url" value="{getFullUrl('','act','dispIssuetrackerDownload','mid',$mid,'vid',$vid)}" />
+        <dl>
+            <dt><label for="ipt_title">Name</label></dt>
+                <dd><input type="text" id="ipt_title" name="title" value="{htmlspecialchars($release->title)}" class="ipt_title" placeholder="Input name"></dd>
+            <dt><label for="release_note">{$lang->release_note}</label></dt>
+                <dd><textarea name="release_note" id="release_note" cols="30" rows="10">{htmlspecialchars($release->release_note)}</textarea></dd>
+            <dt><label for="release_changes">{$lang->release_changes}</label></dt>
+                <dd><textarea name="release_changes" id="release_changes" cols="30" rows="10">{htmlspecialchars($release->release_changes)}</textarea></dd>
+            <dt><label for="date_release_date">{$lang->released_date}</label></dt>
+                <dd><input type="hidden" name="release_date" value="{$release->release_date}"/><input type="text" id="date_release_date" value="{zdate($release->release_date,"Y-m-d")}" class="inputTypeText inputDate ipt_title" ></dd>
+        </dl>
+        <input style="margin-left:5px" type="button" class="sbmt" onclick="location.href='{getFullUrl('','act','dispIssuetrackerDownload','mid',$mid,'vid',$vid)}';" value="Cancel">
+        <input type="submit" class="sbmt" value="Save" accesskey="s">
+    </form>
+</div><!-- //prodt_box -->
+
+<script type="text/javascript">
+(function($){
+    $(function(){
+        var option = { changeMonth: true, changeYear: true, gotoCurrent: false,yearRange:'-100:+10', onSelect:function(){
+
+            $(this).prev('input[type="hidden"]').val(this.value.replace(/-/g,""))}
+        };
+        $.extend(option,$.datepicker.regional['{$lang_type}']);
+        $(".inputDate").datepicker(option);
+    });
+})(jQuery);
+</script>

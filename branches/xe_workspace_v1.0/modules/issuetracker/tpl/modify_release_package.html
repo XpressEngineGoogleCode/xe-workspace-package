@@ -1,0 +1,62 @@
+<!--#include("header.html")-->
+<!--%import("css/issuetracker.css")-->
+<!--%import("filter/insert_release.xml")-->
+<!--%load_js_plugin("ui.datepicker")-->
+
+<form action="{Context::getRequestUri()}" method="post" enctype="multipart/form-data">
+<input type="hidden" name="module_srl" value="{$module_srl}" />
+<input type="hidden" name="release_srl" value="{$release->release_srl}" />
+<input type="hidden" name="package_srl" value="{$release->package_srl?$release->package_srl:$package_srl}" />
+
+<input type="hidden" name="module" value="{$module}" />
+<input type="hidden" name="mid" value="{$mid}" />
+<input type="hidden" name="vid" value="{$vid}" />
+<input type="hidden" name="act" value="procIssuetrackerAdminReleaseUpdate" />
+
+<table cellspacing="0" class="rowTable">
+<thead>
+<tr>
+    <th><div>{$lang->name}</div></th>
+    <td class="wide"><input name="title" type="text" value="{htmlspecialchars($release->title)}" class="inputTypeText fullWidth" /></td>
+</tr>
+<tr>
+    <th><div>{$lang->release_note}</div></th>
+    <td><textarea name="release_note" class="inputTypeTextArea fullWidth" />{htmlspecialchars($release->release_note)}</textarea></td>
+</tr>
+<tr>
+    <th><div>{$lang->release_changes}</div></th>
+    <td><textarea name="release_changes" class="inputTypeTextArea fullWidth" />{htmlspecialchars($release->release_changes)}</textarea></td>
+</tr>
+<tr>
+    <th><div>{$lang->released_date}</div></th>
+    <td class="wide"><input type="hidden" name="release_date" /><input id="date_release_date" type="text" value="{zdate($release->release_date,"Y-m-d")}" class="inputTypeText inputDate" /></td>
+</tr>
+
+<tr>
+    <th><div>{$lang->cmd_attach_file}</div></th>
+    <td class="wide"><input type="file" name="file" value="" class="inputTypeText" /></td>
+</tr>
+<tr>
+    <th><div>{$lang->description}</div></th>
+    <td><textarea name="comment" class="inputTypeTextArea fullWidth" />{$relese->description}</textarea></td>
+</tr>
+<tr>
+    <th colspan="2" class="button">
+        <span class="btn"><input type="submit" value="{$lang->cmd_registration}" accesskey="s" /></span>
+    </th>
+</tr>
+</table>
+
+</form>
+<script type="text/javascript">
+(function($){
+    $(function(){
+        var option = { changeMonth: true, changeYear: true, gotoCurrent: false,yearRange:'-100:+10', onSelect:function(){
+
+            $(this).prev('input[type="hidden"]').val(this.value.replace(/-/g,""))}
+        };
+        $.extend(option,$.datepicker.regional['{$lang_type}']);
+        $(".inputDate").datepicker(option);
+    });
+})(jQuery);
+</script>

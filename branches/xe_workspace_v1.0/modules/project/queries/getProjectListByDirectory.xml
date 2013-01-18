@@ -1,0 +1,24 @@
+<query id="getProjectListByDirectory" action="select">
+    <tables>
+        <table name="project_directories" alias="dir" />
+        <table name="project_dir_maps" alias="map" />
+        <table name="projects" alias="projects" />
+        <table name="sites" alias="sites" />
+    </tables>
+    <columns>
+        <column name="projects.*" />
+        <column name="sites.domain" alias="domain" />
+    </columns>
+    <conditions>
+        <condition operation="equal" column="dir.parent_project_srl" default="0" var="parent_project_srl" notnull="notnull" />
+        <condition operation="equal" column="map.project_dir_srl" default="dir.project_dir_srl" notnull="notnull" pipe="and" />
+        <condition operation="equal" column="projects.site_srl" default="map.site_srl" notnull="notnull" pipe="and" />
+        <condition operation="equal" column="sites.site_srl" default="projects.site_srl" notnull="notnull" pipe="and" />
+    </conditions>
+    <navigation>
+        <index var="sort_index" default="projects.list_order" order="asc" />
+        <list_count var="list_count" default="20" />
+        <page_count var="page_count" default="10" />
+        <page var="page" default="1" />
+    </navigation>
+</query>

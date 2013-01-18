@@ -1,0 +1,14 @@
+<query id="getIssueFileCheck" action="select">
+    <tables>
+        <table name="issue_releases" alias="issue_releases" />
+        <table name="files" alias="files" />
+    </tables>
+    <columns>
+        <column name="files.upload_target_srl" alias="upload_target_srl" />
+    </columns>
+    <conditions>
+        <condition operation="equal" column="files.file_srl" notnull="notnull" var="file_srl" />
+        <condition operation="equal" column="files.upload_target_srl" default="issue_releases.release_srl" filter="number" notnull="notnull" pipe="and" />
+        <condition operation="equal" column="files.sid" var="sid" notnull="notnull" pipe="and" />
+    </conditions>    
+</query>

@@ -1,0 +1,13 @@
+<query id="increaseContribute" action="update">
+	<tables>
+		<table name="project_contribute" />
+	</tables>
+	<columns>
+		<column name="cnt" default="plus(1)" />
+	</columns>
+	<conditions>
+		<condition operation="equal" column="member_srl" var="member_srl" notnull="notnull" />
+		<condition operation="equal" column="site_srl" var="site_srl" notnull="notnull" pipe="and" />
+		<condition operation="equal" column="type" var="type" notnull="notnull" pipe="and" />
+	</conditions>
+</query>

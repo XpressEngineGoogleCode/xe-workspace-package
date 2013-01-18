@@ -1,0 +1,10 @@
+<query id="insertReposAccount" action="insert">
+    <tables>
+        <table name="project_repos_member" />
+    </tables>
+    <columns>
+        <column name="member_srl" var="member_srl" notnull="notnull" />
+        <column name="passwd" var="passwd" notnull="notnull" />
+        <column name="last_update" default="curdate()" />
+    </columns>
+</query>

@@ -1,0 +1,25 @@
+<!--// colorset의 값에 따라 css 파일을 import 한다 -->
+<!--%import("./filter/login.xml")-->
+<!--%import("./filter/openid_login.xml")-->
+<!--%import("./js/login.js")-->
+<load target="css/default.css"/>
+
+<div cond="$XE_VALIDATOR_MESSAGE" class="warning">{$XE_VALIDATOR_MESSAGE}</div>
+<form id="fo_login_widget" action="{getUrl('','act','procMemberLogin')}" method="post" ruleset="@login" class="sign_form">
+<fieldset>
+    <input type="hidden" name="act" value="procMemberLogin" />
+    <input type="hidden" name="success_return_url" value="{htmlspecialchars(getRequestUriByServerEnviroment())}" />
+    <legend class="blind">Sign in</legend>
+    <div class="ipt_box">
+        <input type="text" name="user_id" class="ipt_txt" placeholder="Username" title="<!--@if($member_config->identifier != 'email_address')-->{$lang->user_id}<!--@else-->{$lang->email_address}<!--@end-->"/>
+        <input type="password" name="password" class="ipt_txt" placeholder="Password" title="{$lang->password}"/>
+        <label for="keep_signed"><input type="checkbox" name="keep_signed" id="keep_signed" value="Y" class="ipt_chk">Keep me signed in</label>
+    </div>
+    <span class="btn_signin"><input type="submit" value="Login"></span>
+</fieldset>
+</form>
+<ul class="lst_help">
+    <li><a href="{getUrl('act','dispMemberSignUpForm')}">Sign Up</a></li>
+    <li><a href="{getUrl('act','dispMemberFindAccount')}">Find Account Info</a></li>
+    <li><a href="{getUrl('act','dispMemberResendAuthMail')}">Request for Activation Mail</a></li>
+</ul>

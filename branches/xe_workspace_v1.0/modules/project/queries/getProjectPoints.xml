@@ -1,0 +1,17 @@
+<query id="getProjectListInSummary" action="select">
+    <tables>
+		<table name="project_contribute" alias="contribute" />
+		<table name="project_activity_points" alias="points" />
+    </tables>
+    <columns>
+        <column name="site_srl" />
+		<column name="sum(points.point)" alias="point" />
+    </columns>
+    <conditions>
+        <condition operation="in" column="site_srl" var="site_srl" filter="number" notnull="notnull" />
+		<condition operation="equal" column="contribute.type" default="points.type" pipe="and" />
+    </conditions>
+	<groups>
+		<group column="site_srl" />
+	</groups>
+</query>

@@ -1,0 +1,8 @@
+<query id="checkPoints" action="select">
+	<tables>
+		<table name="project_cont_points" />
+	</tables>
+	<columns>
+		<column name="*" />
+	</columns>
+</query>

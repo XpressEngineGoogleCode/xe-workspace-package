@@ -1,0 +1,20 @@
+<!--%import("filter/insert_addtion_setup.xml")-->
+<!--#include("header.html")-->
+<form action="./" method="get" onsubmit="return procFilter(this, insert_addtion_setup)">
+
+    <table cellspacing="0" class="rowTable">
+    <tr>
+        <th scope="col" style="width:15%"><div>{$lang->download_counter}</div></th>
+        <td>
+            <input type="checkbox" name="download_counter" value="Y" <!--@if($config->download_counter=='Y')-->checked="checked"<!--@end--> />
+            <p>{$lang->about_download_counter}</p>
+        </td>
+    </tr>
+    <tr class="row2">
+        <th colspan="2" class="button">
+            <span class="button black strong"><input type="submit" value="{$lang->cmd_registration}" accesskey="s" /></span>
+        </th>
+    </tr>
+    </table>
+
+</form>

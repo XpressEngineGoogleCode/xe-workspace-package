@@ -1,0 +1,16 @@
+<query id="getTagList" action="select">
+    <tables>
+        <table name="guestbook_tags" />
+    </tables>
+    <columns>
+        <column name="*" />
+    </columns>
+    <conditions>
+        <condition operation="in" column="guestbook_item_srl" var="guestbook_item_srl" filter="number" />
+        <condition operation="in" column="module_srl" var="module_srl" filter="number" />
+    </conditions>
+    <navigation>
+        <index var="sort_index" default="guestbook_item_srl" order="desc" />
+        <list_count var="list_count" default="100" />
+    </navigation>
+</query>

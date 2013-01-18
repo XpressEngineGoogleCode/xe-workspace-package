@@ -1,0 +1,38 @@
+<h2>{$lang->project_offer}</h2>
+<div class="article">
+
+    <!--@foreach($offer_list as $key => $val)-->
+    <div class="section">
+        <a name="offer_{$val->offer_srl}"></a>
+        <h3 class="h3">{htmlspecialchars($val->title)}</h3>
+        <span class="date">{zdate($val->regdate,"y.m.d")}</span>
+        <p>{$val->content}</p>
+        <!--@if($logged_info->is_site_admin)-->
+        <div class="admin">
+            <a href="{getUrl('offer_srl',$val->offer_srl,'act','dispProjectPostOffer')}">{$lang->cmd_modify}</a> 
+            <a href="#" onclick="if(confirm('{$lang->confirm_delete}')) doDeleteOffer({$val->offer_srl}); return false;">{$lang->cmd_delete}</a> 
+        </div>
+        <!--@end-->
+    </div>
+    <!--@end-->
+
+    <!--@if($logged_info->is_site_admin)-->
+    <div class="post">
+        <span class="buttonAction actionBlue"><button type="button" onclick="location.href='{getUrl('','act','dispProjectPostOffer')}'; return false;">{$lang->cmd_post_offer}</button></span>
+    </div>
+    <!--@end-->
+
+    <!--@if($page_navigation)-->
+    <div class="pagination">
+        <!--@if($page_navigation->cur_page>1)--><a class="prevEnd" href="{getUrl('page',$page_navigation->cur_page-1)}">PREV</a><!--@end-->
+        <!--@while($page_no = $page_navigation->getNextPage())-->
+            <!--@if($page == $page_no)-->
+                <strong>{$page_no}</strong> 
+            <!--@else-->
+                <a href="{getUrl('page',$page_no,'document_srl','','division',$division,'last_division',$last_division)}">{$page_no}</a>
+            <!--@end-->
+        <!--@end-->
+        <!--@if($page_navigation->cur_page<$page_navigation->total_page)--><a class="nextEnd" href="{getUrl('page',$page_navigation->cur_page+1)}">NEXT</a><!--@end-->
+    </div>
+    <!--@end-->
+</div>

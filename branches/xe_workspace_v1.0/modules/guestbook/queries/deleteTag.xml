@@ -1,0 +1,8 @@
+<query id="deleteTag" action="delete">
+    <tables>
+        <table name="guestbook_tags" />
+    </tables>
+    <conditions>
+        <condition operation="equal" column="guestbook_item_srl" var="guestbook_item_srl" filter="number" notnull="notnull" />
+    </conditions>
+</query>

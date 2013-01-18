@@ -1,0 +1,43 @@
+<!-- Member mod skin -->
+<load target="css/member.css" />
+<!-- Member mod skin -->
+
+<!-- Content Area -->
+    
+    <h2 class="content_title"  cond="$site_module_info->skin != 'xe_pacakgePro' && !$site_module_info->site_srl">
+        {$lang->member_info}
+    </h2>
+    <div class="mcm" <!--@if(($site_module_info->skin == 'xe_pacakgePro' || $layout_info->layout == 'xe_package_community') && $site_module_info->site_srl)-->style="margin:0px;"<!--@end-->>
+        <include target="./common_header.html" />
+        <table class="row_table bordered">
+            <caption class="blind">Member Info</caption>
+            <tbody>
+            <tr loop="$displayDatas => $item">
+                <th scope="row" >{$item->title} <em cond="$item->required || $item->mustRequired" class="required">*</em></th>
+                <td class="text">{$item->value}</td>
+            </tr>
+            <tr>
+                <th scope="row">{$lang->member_group}</th>
+                <td class="text">{implode(', ', $memberInfo['group_list'])}</td>
+            </tr>
+            <tr>
+                <th scope="row">{$lang->signup_date}</th>
+                <td>{zdate($memberInfo[regdate],"Y-m-d")}</td>
+            </tr>
+            <!--@if($memberInfo[member_srl] == $logged_info->member_srl || $logged_info->is_admin == 'Y' )-->
+            <tr>
+                <th scope="row">{$lang->last_login}</th>
+                <td>{zdate($memberInfo[last_login],"Y-m-d")}</td>
+            </tr>
+            <!--@end-->
+            </tbody>
+        </table>
+
+        <div cond="$memberInfo['member_srl'] == $logged_info->member_srl" class="btn_area">
+            <a cond="$member_config->identifier == 'email_address'" href="{getUrl('act', 'dispMemberModifyEmailAddress')}" class="btn_small"><span>{$lang->cmd_modify_member_email_address}</span></a>
+            <a href="{getUrl('act','dispMemberModifyInfo','member_srl','')}" class="btn_small"><span>{$lang->cmd_modify_member_info}</span></a>
+            <a href="{getUrl('act','dispMemberModifyPassword','member_srl','')}" class="btn_small"><span>{$lang->cmd_modify_member_password}</span></a>
+            <a href="{getUrl('act','dispMemberLeave','member_srl','')}" class="btn_small_white"><span>{$lang->cmd_leave}</span></a>
+        </div>
+    </div><!-- // mcm -->
+<!-- //Content Area -->

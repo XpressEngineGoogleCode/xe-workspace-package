@@ -1,0 +1,87 @@
+<!--#include("hub_header.html")-->
+	<!-- .pxeBody -->
+	<div class="pxeBody">
+		<div class="pxeContent">
+			<div class="pxeCategory">
+				<!--@foreach($directories as $key => $val)-->
+				<div class="section" style="width: {sprintf('%.2f', floor(100.0/count($directories)))}">
+					<h2>{$val->title}</h2>
+					<ul>
+						<!--@foreach($val->childs as $k => $v)-->
+						<li><a href="{getUrl('page','','search_keyword','','project_dir_srl',$v->project_dir_srl)}">{$v->title} <em>({$v->count})</em></a></li>
+						<!--@end-->
+					</ul>
+				</div>
+				<!--@end-->
+				<form action="{getUrl()}" method="get" class="section" style="width: {sprintf('%.2f', floor(100.0/count($directories)))}"|cond="count($directories) > 0">
+					<h2>Project Search</h2>
+					<fieldset>
+						<input name="mid" type="hidden" value="{$mid}"/>
+						<input name="page" type="hidden" value="1"/>
+						<input name="act" type="hidden" value="{$act}"/>
+						<input name="search_keyword" type="text" title="{$lang->project_search}" class="iText" value="{$search_keyword}"/>
+						<span class="btnPxe"><input name="" type="submit" value="{$lang->search}" /></span>
+					</fieldset>
+				</form>
+			</div>
+			<div class="pxeH">
+				<h2>{$lang->total}<em>{$page_navigation->total_count}</em>{$lang->project_activity}</h2>
+				<div class="filter">
+					<div class="select" style="width:200px;">
+						<span class="ctrl"><span class="arrow"></span></span>
+						<button type="button" class="myValue">{$lang->summary_sort_order[$sort_order]}</button>
+						<ul class="aList">
+							<!--@foreach($lang->summary_sort_order as $key=>$title)-->
+							<li><a href="{getUrl('page','','sort_order',$key)}">{$title}</a></li>
+							<!--@end-->
+						</ul>
+					</div>
+				</div>
+			</div>
+			<table border="1" cellspacing="0" class="pxeT">
+				<thead>
+					<tr>
+						<th scope="col"><span>{$lang->project_name}</span></th>
+						<th scope="col" class="title"><span>{$lang->description}</span></th>
+						<th scope="col" class="sort"><span>{$lang->activity_point}</span></th>
+						<th scope="col"><span>{$lang->project_member_count}</span></th>
+						<th scope="col"><span>{$lang->created_date}</span></th>
+					</tr>
+				</thead>
+				<tbody>
+                    <!--@if($page_navigation->total_count == 0)-->
+					<tr>
+						<td colspan="5" class="pxeNoData">
+							<p>{$lang->no_relative_info}</p>
+						</td>
+					</tr>
+                    <!--@else-->
+					<!--@foreach($project_list as $project)-->
+					<tr>
+						<td><a href="{getSiteUrl($project->domain)}">{$project->project_title}</a></td>
+						<td class="title"><a href="{getSiteUrl($project->domain)}">{$project->project_description}</a></td>
+						<td class="sort">{$project->point}</td>
+						<td class="num">{$project->member_count}</td>
+						<td class="num">{zdate($project->regdate, "Y.m.d")}</td>
+					</tr>
+					<!--@endforeach-->
+                    <!--@endif-->
+				</tbody>
+			</table>
+			<div class="pagination">
+                <!--@if($page_navigation->cur_page>1)--><a class="direction" href="{getUrl('page',1)}">&lsaquo; FIRST</a><!--@end-->
+                <!--@if($page_navigation->cur_page>1)--><a class="direction" href="{getUrl('page',$page_navigation->cur_page-1)}">&lsaquo; PREV</a><!--@end-->
+                <!--@while($page_no = $page_navigation->getNextPage())-->
+                    <!--@if($page == $page_no)-->
+                    <strong>{$page_no}</strong>
+                    <!--@else-->
+                    <a href="{getUrl('page',$page_no,'document_srl','','division',$division,'last_division',$last_division)}">{$page_no}</a>
+                <!--@end-->
+                <!--@end-->
+                <!--@if($page_navigation->cur_page<$page_navigation->total_page)--><a class="direction" href="{getUrl('page',$page_navigation->cur_page+1)}">NEXT &rsaquo;</a><!--@end-->
+                <!--@if($page_navigation->cur_page<$page_navigation->total_page)--><a class="direction" href="{getUrl('page',$page_navigation->total_page)}">END &rsaquo;</a><!--@end-->
+			</div>
+		</div>
+	</div>
+	<!-- /.pxeBody -->
+</div>

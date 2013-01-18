@@ -1,0 +1,43 @@
+<!--%import("css/community.css")-->
+<!--%import("js/tab.js")-->
+<!--%import("js/select.js")-->
+<!--%import("js/project.js")-->
+<!--%import("js/sign.js")-->
+<h3 class="content_title">Project</h3>
+<div class="whatever clearfix" style="padding: 10px 30px 0px 60px; ">
+</div>
+<div class="whatever" style="padding: 10px 30px 30px 60px;">
+    <div class="cafeBody">
+        <nav class="tabs">
+            <ul>
+                <!--@if($act != 'dispProjectSummary')-->
+                <li><a href="{getUrl('','mid',$mid,'act','dispProjectMySummary')}" class="active"|cond="Context::get('isProjectNews') != 1">My Project List</a></li>
+                <li><a href="{getUrl('','mid',$mid,'act','dispProjectMySummary','isProjectNews','1')}" class="active"|cond="Context::get('isProjectNews') == 1">My Project News</a></li>
+                <!--@else-->
+                <li><a href="{getUrl('','mid',$mid,'act','dispProjectSummary')}" class="active"|cond="Context::get('isProjectNews') != 1">All Project List</a></li>
+                <li><a href="{getUrl('','mid',$mid,'act','dispProjectSummary','isProjectNews','1')}" class="active"|cond="Context::get('isProjectNews') == 1">All Project News</a></li>
+                <!--@end-->
+            </ul>
+			<div class="pull_right btnArea swap_proj">
+				<!--@if($act != 'dispProjectSummary')-->
+					<span class="btn"><a href="{getUrl('','mid',$mid,'act','dispProjectSummary')}">{$lang->view_all_projects}</a></span>
+				<!--@else-->
+					<span class="btn"><a href="{getUrl('','mid',$mid,'act','dispProjectMySummary')}">{$lang->view_my_projects}</a></span>
+				<!--@end-->
+			</div>
+        </nav>
+        <!--@if(!Context::get('isProjectNews'))-->
+        <form class="srch_comm" action="{getUrl()}">
+            <fieldset>
+                <legend class="blind">Community Search</legend>
+                <label for="ipt_srch_comm"><!--@if($act != 'dispProjectSummary')-->My<!--@end--> Total Project: <em>{$page_navigation->total_count}</em></label>
+                <span class="ipt_box"><input type="search" name="s_keyword"  id="ipt_srch_comm" value="{$s_keyword}"></span>
+                <input type="hidden" name="vid" value="{$vid}" cond="$vid" />
+    			<input type="hidden" name="mid" value="{$mid}" />
+    			<input type="hidden" name="act" value="{$act}" />
+                <input type="submit" class="btn_sbmt" value="Search">
+            </fieldset>
+        </form>
+        <!--@end-->
+
+    	

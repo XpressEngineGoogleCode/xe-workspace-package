@@ -1,0 +1,46 @@
+<!-- Member mod skin -->
+<load target="css/member.css" />
+<!-- Member mod skin -->
+
+<!-- Content Area -->
+<section class="content_area">
+    <h2 class="content_title">
+        {$member_title = $lang->msg_leave_member}
+    </h2>
+    <div class="mcm">
+        <div cond="$XE_VALIDATOR_MESSAGE" class="message {$XE_VALIDATOR_MESSAGE_TYPE}">
+            <p>{$XE_VALIDATOR_MESSAGE}</p>
+        </div>
+        <include target="./common_header.html" />
+        <form ruleset="leaveMember" id="fo_insert_member" class="form" action="./" method="post">
+            <input type="hidden" name="module" value="member" />
+            <input type="hidden" name="act" value="procMemberLeave" />
+            <input type="hidden" name="mid" value="{$mid}" />
+            <input type="hidden" name="document_srl" value="{$document_srl}" />
+            <input type="hidden" name="page" value="{$page}" />
+            
+            <table class="row_table bordered">
+                <caption class="blind">{$member_title = $lang->msg_leave_member}</caption>
+                <tbody>
+                    <tr>
+                        <th>{Context::getLang($identifier)}</th>
+                        <td>{$formValue}</td>
+                    </tr>
+                    <tr>
+                        <th><label for="cpw">{$lang->password}</label></th>
+                        <td><input type="password" name="password" id="cpw" class="ipt_txt" /></td>
+                    </tr>
+                </tbody>
+            </table>
+            <div class="btn_area">
+                <span class="btn_small"><input type="submit" value="{$lang->cmd_leave}" /></span>
+            </div>
+        </form>
+
+
+
+
+    </div><!-- // mcm -->
+</section>
+
+<!-- //Content Area -->

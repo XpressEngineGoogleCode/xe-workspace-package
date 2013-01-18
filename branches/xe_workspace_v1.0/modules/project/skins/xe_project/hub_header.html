@@ -1,0 +1,36 @@
+<!--%import("css/pxeHub.css")-->
+<!--%import("js/tab.js")-->
+<!--%import("js/select.js")-->
+<!--%import("js/project.js")-->
+{@ $gnb = array(); }
+{@ $gnb["dispProjectPlan"] = array("m2", "s2"); }
+{@ $gnb["dispProjectMyPlan"] = array("m1", "s2"); }
+{@ $gnb["dispProjectSearch"] = array("m2", "s3"); }
+{@ $gnb["dispProjectDownloadSearch"] = array("m3", ""); }
+{@ $gnb["dispProjectContributors"] = array("m4", ""); }
+{@ $gnb["dispProjectMyActivity"] = array("m1", "s3"); }
+<div class="pxeHub">
+	<!-- .pxeHeader -->
+	<div class="pxeHeader">
+		<ul class="pxeGnb {$gnb[$act][0]} {$gnb[$act][1]}">
+			<!--@if($logged_info)-->
+			<li class="m1"><a href="{getUrl('','mid',$mid,'act','dispProjectMySummary')}"><span>{$lang->my_projects}</span></a>
+				<ul>
+					<li class="s1"><a href="{getUrl('','mid',$mid,'act','dispProjectMySummary')}">{$lang->project_list}</a></li>
+					<li class="s2"><a href="{getUrl('','mid',$mid,'act','dispProjectMyPlan')}">{$lang->project_schedule}</a></li>
+					<li class="s3"><a href="{getUrl('','mid',$mid,'act','dispProjectMyActivity')}">{$lang->project_activity}</a></li>
+				</ul>
+			</li>
+			<!--@end-->
+			<li class="m2"><a href="{getUrl('','mid',$mid,'act','dispProjectSummary')}"><span>{$lang->all_projects}</span></a>
+				<ul>
+					<li class="s1"><a href="{getUrl('','mid',$mid,'act','dispProjectSummary')}">{$lang->project_list}</a></li>
+					<li class="s2"><a href="{getUrl('','mid',$mid,'act','dispProjectPlan')}">{$lang->project_schedule}</a></li>
+					<li class="s3"><a href="{getUrl('','mid',$mid,'act','dispProjectSearch')}">{$lang->project_activity}</a></li>
+				</ul>
+			</li>
+			<li class="m3"><a href="{getUrl('','mid',$mid,'act','dispProjectDownloadSearch')}"><span>{$lang->download}</span></a></li>
+			<li class="m4"><a href="{getUrl('','mid',$mid,'act','dispProjectContributors')}"><span>{$lang->contributor}</span></a></li>
+		</ul>
+	</div>
+	<!-- /.pxeHeader -->

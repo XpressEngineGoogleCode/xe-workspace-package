@@ -1,0 +1,8 @@
+<query id="getMaxPoint" action="select">
+    <tables>
+        <table name="projects" />
+    </tables>
+    <columns>
+        <column name="max(point)" alias="point" />:
+    </columns>
+</query>

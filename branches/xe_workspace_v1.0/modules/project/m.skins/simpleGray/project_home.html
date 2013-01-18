@@ -1,0 +1,60 @@
+<!--%import("css/mproject.css")-->
+<div class="hx"> 
+	<ul class="lt"> 
+		<!--@if($notices)-->	
+		<!--@foreach($notices as $notice)-->
+		<li> 
+			<a href="{getUrl('','document_srl', $notice->document_srl)}"> 
+				<strong class="notice">Notice</strong> <span class="title"><strong>{$notice->getTitleText()}</strong> <!--@if($notice->getCommentCount())--><span>[{$notice->getCommentCount()}]</span><!--@end--></span> 
+				<span class="auth"><strong>{$notice->getNickName()}</strong> <span>{$notice->getRegDate("Y.m.d")}</span></span> 
+			</a> 
+			<p>{$notice->getContentText(400)}</p>
+		</li> 
+		<!--@end-->
+		<!--@endif-->
+		<!--@foreach($news_list as $news)-->
+		<!--@if($news->type == "d")-->
+		<li>
+			<a href="{getUrl('', 'document_srl', $news->item->document_srl)}">
+				<span class="title">{$modules[$news->item->module_srl]} &rsaquo; <strong>{$news->item->title}</strong> <span>[{$news->item->comment_count}]</span></span>
+				<span class="auth"><em>{$news->item->nick_name}</em> <span>{zdate($news->regdate, "Y.m.d")}</span></span>
+			</a>
+			<p>{cut_str(strip_tags($news->item->content), 800, '...') }</p>
+		</li>
+		<!--@elseif($news->type == "c")-->
+		<li>
+			<a href="{getUrl('', 'document_srl', $news->item->document_srl)}#comment_{$news->item->comment_srl}">
+				<span class="title">{$modules[$news->item->module_srl]} &rsaquo; <strong>{$news->item->title}</strong></span>
+				<span class="auth"><em>{$news->item->nick_name}</em> <span>{zdate($news->regdate, "Y.m.d")}</span></span>
+			</a>
+			<p>└ {cut_str(strip_tags($news->item->content), 800, '...') }</p>
+		</li>
+		<!--@elseif($news->type == "D")-->
+		<li>
+			<a href="{getUrl('', 'module','issuetracker', 'act', 'dispIssuetrackerDownload', 'release_srl', $news->target_srl)}">
+				<span class="title">{$news->item->package_title} - {$news->item->title}</span>
+				<span class="auth"><em>{$news->item->nick_name}</em> <span>{zdate($news->regdate, "Y.m.d")}</span></span>
+			</a>
+			<p>{$news->item->release_note}</p>
+		</li>
+		<!--@elseif($news->type == "s")-->
+		<li>
+			<a href="#">
+				<span class="title">r{$news->item->revision}</span>
+				<span class="auth"><em>{$news->item->author}</em> <span>{zdate($news->regdate, "Y.m.d")}</span></span>
+			</a>
+			<p>{$news->item->message}</p>
+		</li>
+		<!--@endif-->
+		<!--@endforeach-->
+	</ul> 
+	<div class="pn">
+        <!--@if($page_navigation->cur_page != 1)-->
+		<a href="{getUrl('page',$page_navigation->cur_page-1)}">&lsaquo; {$lang->cmd_prev}</a> 
+		<!--@endif-->
+        <strong>{$page_navigation->cur_page} / {$page_navigation->last_page}</strong>
+		<!--@if($page_navigation->last_page != $page_navigation->cur_page)-->
+		<a href="{getUrl('page',$page_navigation->cur_page+1)}">{$lang->cmd_next} &rsaquo;</a>
+		<!--@endif-->
+	</div>
+</div>

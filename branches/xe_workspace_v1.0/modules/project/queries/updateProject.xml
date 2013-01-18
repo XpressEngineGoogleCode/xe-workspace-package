@@ -1,0 +1,12 @@
+<query id="updateProject" action="update">
+    <tables>
+        <table name="projects" />
+    </tables>
+    <columns>
+        <column name="title" var="title" notnull="notnull" />
+        <column name="description" var="description" />
+    </columns>
+    <conditions>
+        <condition operation="in" column="site_srl" var="site_srl" filter="numbers" notnull="notnull" />
+    </conditions>
+</query>

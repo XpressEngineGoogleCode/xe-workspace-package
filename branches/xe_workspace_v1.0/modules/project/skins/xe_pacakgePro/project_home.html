@@ -1,0 +1,129 @@
+<!--%import("js/project.js")-->
+<!--%import("js/sign.js")-->
+
+<div class="btn_modhead">
+</div>
+<div class="proj_info">
+    <h4>Project General Infomation</h4>
+    <div class="proj_edit">
+        <!--@if($logged_info->is_site_admin)-->
+        <a href="{getUrl('act','dispProjectDescriptionManage','mid',$mid,'vid',$vid)}" ><span>{$lang->cmd_edit}</span></a>
+        <!--@end-->
+    </div>
+    <dl>
+        <dt>Definition</dt>
+            <dd>{$project_info->description?htmlspecialchars($project_info->description):$lang->no_project_desc}</dd>
+
+        <dt>Administrator</dt>
+            <dd>
+            <!--@foreach($site_admins as $key=>$val)-->
+                <a href="#" onclick="return false;" class="member_{$val->member_srl}">{htmlspecialchars($val->nick_name)}</a>
+    		<!--@end-->
+    		<!--@if(empty($site_admins))-->
+    			{$lang->no_project_admin}
+    		<!--@end-->
+            </dd>
+        <dt>Members</dt>
+            <dd>
+            <!--@foreach($member_list as $key=>$val)-->
+            {$val->nick_name},
+			<!--@end-->
+			<!--@if(empty($site_admins))-->
+			&nbsp;
+			<!--@end-->
+            </dd>
+        <dt>Date Opened</dt>
+            <dd>{zdate($project_info->regdate, "Y.m.d H:i:s", FALSE)}</dd>
+    </dl>
+</div>
+<div class="proj_update">
+    <h4>{$project_info->title} {$lang->news}</h4>
+    <ul class="list">
+        <!--@if($page_navigation->total_count == 0)-->
+		<li>
+			<p>{$lang->no_relative_info}</p>
+		</li>
+		<!--@else-->
+		    {@ $i = 0;}
+            <!--@foreach($news_list as $news)-->
+            {@ $i++;}
+        <li <!--@if(count($news_list) == $i)-->class="last"<!--@end-->>
+			<!--@if($news->type == "d")-->
+			<h5>
+			    <!--@if($news->item->status)-->[{$news->item->status}]<!--@end-->
+			    <a href="{getUrl('', 'document_srl', $news->item->document_srl)}">
+			         {htmlspecialchars($news->item->title)}
+			    </a>
+			    [<strong>{$news->item->comment_count}</strong>]
+			</h5>
+            <p>{cut_str(strip_tags($news->item->content), 150, '...') }</p>
+            <div class="meta">
+                <span class="mod">{$modules[$news->item->module_srl]}</span>
+                <span class="author">Created by {$news->item->nick_name}</span>
+                <span class="date">{zdate($news->regdate, "Y.m.d")}</span>
+            </div>
+			<!--@elseif($news->type == "c")-->
+			<h5>
+			    <a href="{getUrl('', 'document_srl', $news->item->document_srl)}#comment_{$news->item->comment_srl}">
+			        {$news->item->title}
+			    </a>
+			</h5>
+            <p>{cut_str(strip_tags($news->item->content), 150, '...') }</p>
+            <div class="meta">
+                <span class="mod">{$modules[$news->item->module_srl]}</span>
+                <span class="author">Created by {$news->item->nick_name}</span>
+                <span class="date">{zdate($news->regdate, "Y.m.d")}</span>
+            </div>
+		    <!--@elseif($news->type == "D")-->
+    		<h5>
+    		    <a href="{getUrl('', 'act', 'dispIssuetrackerDownload', 'release_srl', $news->target_srl)}">{$news->item->package_title} - {$news->item->title}</a>
+    		</h5>
+            <p>{$news->item->release_note}</p>
+            <div class="meta">
+                <span class="mod">Download</span>
+                <span class="date">{zdate($news->regdate, "Y.m.d")}</span>
+            </div>
+		    <!--@elseif($news->type == "s")-->
+		    <h5><a href="#" onclick="return false;">r{$news->item->revision}</a></h5>
+            <p>{$news->item->message}</p>
+            <div class="meta">
+                <span class="mod">Commit</span>
+                <span class="author">Created by {$news->item->author}</span>
+                <span class="date">{zdate($news->regdate, "Y.m.d")}</span>
+            </div>
+			<!--@end-->
+		</li>
+		    <!--@end-->
+		<!--@end-->
+    </ul>
+
+    <div class="pagination">
+        <ul>
+            <li class="first">
+                <a href="{getUrl('page',1,'document_srl','','division',$division,'last_division',$last_division)}">First</a>
+            </li>
+            <li class="prev">
+                <!--@if($page>1)-->
+                <a href="{getUrl('page',$page-1,'document_srl','','division',$division,'last_division',$last_division)}">Prev</a>
+                <!--@else-->
+                <a href="{getUrl('page',1,'document_srl','','division',$division,'last_division',$last_division)}">Prev</a>
+                <!--@end-->
+            </li>
+            <!--@while($page_no = $page_navigation->getNextPage())-->
+                <!--@if($page == $page_no)-->
+                    <li><strong>{$page_no}</strong></li>
+                <!--@else-->
+                    <li><a href="{getUrl('page',$page_no,'document_srl','','division',$division,'last_division',$last_division)}">{$page_no}</a></li>
+                <!--@end-->
+            <!--@end-->
+            <li class="next">
+                <!--@if($page<$page_navigation->last_page)-->
+                <a href="{getUrl('page',$page+1,'document_srl','','division',$division,'last_division',$last_division)}">Next</a>
+                <!--@else-->
+                <a href="{getUrl('page',$page_navigation->last_page,'document_srl','','division',$division,'last_division',$last_division)}">Next</a>
+                <!--@end-->
+            </li>
+            <li class="end"><a href="{getUrl('page',$page_navigation->last_page,'document_srl','','division',$division,'last_division',$last_division)}">End</a></li>
+        </ul>
+    </div>
+</div>
