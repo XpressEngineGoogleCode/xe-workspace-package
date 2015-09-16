@@ -1,0 +1,1 @@
+XE Workspace package allows user to create a workspace style site directly, in which he can manage projects, communities, and  other workspace components.
